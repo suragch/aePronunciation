@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transition xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/rounded_corners_layout_bg"/>
+            <stroke
+                android:color="#edf0f6"
+                android:width="1dp"/>
+            <corners android:radius="3dp"/>
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+            <solid android:color="#78c5f9"/>
+            <stroke
+                android:color="#68aff4"
+                android:width="1dp"/>
+            <corners android:radius="3dp"/>
+        </shape>
+    </item>
+</transition>
