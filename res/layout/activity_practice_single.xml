@@ -11,11 +11,81 @@
         android:background="@drawable/light_gradient" >
 
         <LinearLayout
+            android:id="@+id/linearLayout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/rounded_corners_layout"
+            android:orientation="vertical"
+            >
+            
+            <CheckBox
+                android:id="@+id/cbVowels"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:visibility="gone"
+                android:onClick="vowelsBoxClick"
+                android:text="V" />
+
+            <CheckBox
+                android:id="@+id/cbConsonants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:visibility="gone"
+                android:onClick="consonantsBoxClick"
+                android:text="C" />
+
+
+            <LinearLayout
+                android:id="@+id/settingsLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="5dp"
+                android:background="@drawable/settings"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:onClick="settingsClick"
+                android:paddingRight="10dp">
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/tellMeButtonLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/button"
+            android:clickable="true"
+            android:onClick="tellMeClick"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/tell_me_button"
+                android:textColor="@color/button_text"
+                android:textSize="30sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_centerVertical="true"
-            android:orientation="vertical" >
+            android:layout_centerHorizontal="true">
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvInputWindow"
@@ -45,60 +115,6 @@
                     android:src="@drawable/ic_action_play" />
             </RelativeLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linearLayout1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_margin="5dp"
-            android:background="@drawable/rounded_corners_layout"
-            android:orientation="vertical"
-            android:paddingRight="10dp" >
-            
-            <CheckBox
-                android:id="@+id/cbVowels"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:onClick="vowelsBoxClick"
-                android:text="V" />
-
-            <CheckBox
-                android:id="@+id/cbConsonants"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:onClick="consonantsBoxClick"
-                android:text="C" />
-
-            
-        </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/tellMeButtonLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_margin="5dp"
-            android:background="@drawable/button"
-            android:clickable="true"
-            android:onClick="tellMeClick"
-            android:paddingBottom="5dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="5dp" >
-
-            <com.aepronunciation.ipa.IpaTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/tell_me_button"
-                android:textColor="@color/button_text"
-                android:textSize="30sp" />
-        </RelativeLayout>
     </RelativeLayout>
 
     <FrameLayout

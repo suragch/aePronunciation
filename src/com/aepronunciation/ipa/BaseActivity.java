@@ -23,6 +23,7 @@ public abstract class BaseActivity extends ActionBarActivity implements
 	protected static final String TIME_PRACTICE_DOUBLE_KEY = "timePracticeDouble";
 	protected static final String TIME_TEST_SINGLE_KEY = "timeTestSingle";
 	protected static final String TIME_TEST_DOUBLE_KEY = "timeTestDouble";
+	protected static final String PRACTICSE_SELECTED_SOUNDS="practiceSelectedSounds";
 	protected static final long TIME_DEFAULT = 0;
 
 	public static final String KEYBOARD_FRAGMENT_TAG = "keyboard";

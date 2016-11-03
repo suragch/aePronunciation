@@ -1,6 +1,7 @@
 package com.aepronunciation.ipa;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -12,15 +13,21 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.DialogFragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class PracticeDoubleActivity extends BaseActivity implements
 		SoundPool.OnLoadCompleteListener {
 
 	static final String STATE_READY_FOR_NEW_SOUND = "ready";
 	static final String STATE_IPA = "ipaSymbol";
+    static final String STATE_ALLOWED_SOUND = "allowedSounds";
+	static final int SETTINGS_CODE = 1000;
 
 	private DoubleSound doubleSound;
 	private TextView tvInputWindow;
@@ -35,6 +42,7 @@ public class PracticeDoubleActivity extends BaseActivity implements
 	String lastPlayedSound;
 	long startTime;
 	SharedPreferences settings;
+	private ArrayList<String> allowedSounds;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +53,8 @@ public class PracticeDoubleActivity extends BaseActivity implements
 		tvInputWindow = (TextView) findViewById(R.id.tvInputWindow);
 		playButtonImage = (ImageView) findViewById(R.id.ivPlay);
 		doubleSound = new DoubleSound();
+		allowedSounds = PhonemeTable.INSTANCE.getAllVowelsWithoutUnstressed();
+		allowedSounds.addAll(PhonemeTable.INSTANCE.getAllConsonants());
 
 		// Set up fragment
 		fragmentManager = getSupportFragmentManager();
@@ -72,10 +82,10 @@ public class PracticeDoubleActivity extends BaseActivity implements
 		tvInputWindow.post(new Runnable() {
 			public void run() {
 				keyboardFragment.hideFunctionKeys();
-				keyboardFragment.hideUnstressedVowels();
+				keyboardFragment.showKeysInList(allowedSounds);
+                keyboardFragment.hideUnstressedVowels();
 			}
 		});
-
 	}
 
 	@Override
@@ -117,6 +127,7 @@ public class PracticeDoubleActivity extends BaseActivity implements
 		savedInstanceState.putBoolean(STATE_READY_FOR_NEW_SOUND,
 				readyForNewSound);
 		savedInstanceState.putString(STATE_IPA, currentIpa);
+        savedInstanceState.putStringArrayList(STATE_ALLOWED_SOUND, allowedSounds);
 
 		// Always call the superclass so it can save the view hierarchy state
 		super.onSaveInstanceState(savedInstanceState);
@@ -129,6 +140,7 @@ public class PracticeDoubleActivity extends BaseActivity implements
 		readyForNewSound = savedInstanceState
 				.getBoolean(STATE_READY_FOR_NEW_SOUND);
 		currentIpa = savedInstanceState.getString(STATE_IPA);
+        allowedSounds = savedInstanceState.getStringArrayList(STATE_ALLOWED_SOUND);
 
 		if (!readyForNewSound) {
 
@@ -140,7 +152,8 @@ public class PracticeDoubleActivity extends BaseActivity implements
 	public void playClick(View v) {
 
 		if (readyForNewSound) {
-			String ipa = doubleSound.getRandomIpa(getApplicationContext());
+			String ipa = doubleSound.getRandomIpaFromAllowedSounds(getApplicationContext(), allowedSounds);
+            // String ipa = doubleSound.getRandomIpa(getApplicationContext());
 
 			// look up audio resource id for that sound
 			playSound(ipa);
@@ -235,13 +248,13 @@ public class PracticeDoubleActivity extends BaseActivity implements
 		// look up audio resource id for that sound
 		int soundId = doubleSound.getSoundResourceId(ipaDoubleSound);
 		if (soundId == -1) {
-			
+
 			// do error checking on input
 			Bundle args = new Bundle();
 			args.putString("errorMessage", Answer.getErrorMessage(ipaDoubleSound));
 			DialogFragment dialog = new ErrorDialogFragment();
 			dialog.setArguments(args);
-	        dialog.show(getSupportFragmentManager(), "ErrorDialogFragmentTag");
+			dialog.show(getSupportFragmentManager(), "ErrorDialogFragmentTag");
 
 		} else {
 			// load (and play) sound
@@ -297,5 +310,37 @@ public class PracticeDoubleActivity extends BaseActivity implements
 		soundPool.play(sid, 1, 1, PRIORITY, 0, 1.0f);
 		soundPool.unload(sid);
 
+	}
+
+	public void settingsClick(View v) {
+		Intent intent = new Intent(this, SelectSoundActivity.class);
+        intent.putExtra("doubleSounds", true);
+		intent.putExtra("allowedSounds", allowedSounds);
+		startActivityForResult(intent, SETTINGS_CODE);
+	}
+
+	public void onActivityResult (int requestCode, int resultCode, Intent data) {
+		if (requestCode != SETTINGS_CODE || resultCode != RESULT_OK || data == null) {
+			return;
+		}
+		ArrayList<String> selected = data.getStringArrayListExtra("selected");
+		if (selected == null) {
+			return;
+		}
+
+        allowedSounds = selected;
+		keyboardFragment.showKeysInList(allowedSounds);
+        keyboardFragment.hideUnstressedVowels();
+
+        // redo sound and display
+        resetSoundAndDisplay();
+	}
+
+	private void resetSoundAndDisplay() {
+		readyForNewSound = true;
+		lastPlayedSound = "";
+		playButtonImage.setImageResource(R.drawable.ic_action_play);
+		rightAnswerTransistion.resetTransition();
+		tvInputWindow.setText("");
 	}
 }

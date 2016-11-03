@@ -1,9 +1,12 @@
 package com.aepronunciation.ipa;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
 import android.content.Context;
+import android.util.Log;
+import android.util.Pair;
 
 public class DoubleSound {
 
@@ -22,6 +25,58 @@ public class DoubleSound {
 	public int getCount() {
 
 		return hashMap.size();
+	}
+
+	private static boolean stringContainsItemFromList(String inputString, ArrayList<String> items)
+	{
+		for(int i =0; i < items.size(); i++)
+		{
+			if(inputString.equals(items.get(i)))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public String getRandomIpaFromAllowedSounds(Context context, ArrayList<String> allowedSounds) {
+		if (doubleSounds == null) {
+			doubleSounds = context.getResources().getStringArray(
+					R.array.double_sounds);
+		}
+
+        if (allowedSounds.isEmpty()) {
+            return getRandomIpa(context);
+        }
+
+        ArrayList<String> vowels  = new ArrayList<String>();
+        ArrayList<String> consonants = new ArrayList<String>();
+        for (String s: allowedSounds) {
+            if (PhonemeTable.INSTANCE.isConsonant(s)) {
+                consonants.add(s);
+            } else {
+                vowels.add(s);
+            }
+        }
+
+		ArrayList<String> allowedPairs = new ArrayList<String>();
+		for (String p: doubleSounds) {
+            Pair<String,String> cv = PhonemeTable.INSTANCE.SplitDoubleSound(p);
+            // Log.d("debug", String.format("CV: %s %s", cv.first, cv.second));
+            if (!stringContainsItemFromList(cv.first, consonants) || !stringContainsItemFromList(cv.second, vowels)) {
+                // Log.d("debug", String.format("not allowed: %s", p));
+				continue;
+			}
+			allowedPairs.add(p);
+		}
+
+		// get random integer (0 <= x < numberOfSounds)
+		int soundIndex = random.nextInt(allowedPairs.size());
+
+		// translate integer to ipa string
+		String ipa = allowedPairs.get(soundIndex);
+
+		return ipa;
 	}
 
 	public String getRandomIpa(Context context) {
