@@ -1,6 +1,7 @@
 package com.aepronunciation.ipa;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -11,16 +12,21 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class PracticeSingleActivity extends BaseActivity implements
 		SoundPool.OnLoadCompleteListener {
 
 	static final String STATE_READY_FOR_NEW_SOUND = "ready";
 	static final String STATE_IPA = "ipaSymbol";
+    static final String STATE_ALLOWED_SOUND = "allowedSounds";
+	static final int SETTINGS_CODE = 1000;
 
 	private SingleSound singleSound;
 	private TextView tvInputWindow;
@@ -40,17 +46,23 @@ public class PracticeSingleActivity extends BaseActivity implements
 	long startTime;
 	SharedPreferences settings;
 
+	ArrayList<String> allowedSounds;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_practice_single);
+
+		allowedSounds = new ArrayList<String>();
 
 		// create objects
 		tvInputWindow = (TextView) findViewById(R.id.tvInputWindow);
 		playButtonImage = (ImageView) findViewById(R.id.ivPlay);
 		cbConsonants = (CheckBox) findViewById(R.id.cbConsonants);
 		cbVowels = (CheckBox) findViewById(R.id.cbVowels);
-		singleSound = new SingleSound();
+        singleSound = new SingleSound();
+        allowedSounds = PhonemeTable.INSTANCE.getAllVowels();
+        allowedSounds.addAll(PhonemeTable.INSTANCE.getAllConsonants());
 
 		// Set up fragment
 		fragmentManager = getSupportFragmentManager();
@@ -122,6 +134,7 @@ public class PracticeSingleActivity extends BaseActivity implements
 		savedInstanceState.putBoolean(STATE_READY_FOR_NEW_SOUND,
 				readyForNewSound);
 		savedInstanceState.putString(STATE_IPA, currentIpa);
+        savedInstanceState.putStringArrayList(STATE_ALLOWED_SOUND, allowedSounds);
 
 		// Always call the superclass so it can save the view hierarchy state
 		super.onSaveInstanceState(savedInstanceState);
@@ -134,7 +147,7 @@ public class PracticeSingleActivity extends BaseActivity implements
 		readyForNewSound = savedInstanceState
 				.getBoolean(STATE_READY_FOR_NEW_SOUND);
 		currentIpa = savedInstanceState.getString(STATE_IPA);
-
+        allowedSounds = savedInstanceState.getStringArrayList(STATE_ALLOWED_SOUND);
 		if (!readyForNewSound) {
 
 			// show the replay icon
@@ -148,19 +161,7 @@ public class PracticeSingleActivity extends BaseActivity implements
 
 		if (readyForNewSound) {
 			String ipa;
-			// get random single ipa
-			if (cbConsonants.isChecked() && cbVowels.isChecked()) {
-				// any single sound
-				ipa = singleSound.getRandomIpa(getApplicationContext());
-
-			} else if (cbConsonants.isChecked() && !cbVowels.isChecked()) {
-				// consonant
-				ipa = singleSound
-						.getRandomConsonantIpa(getApplicationContext());
-			} else {
-				// vowel
-				ipa = singleSound.getRandomVowelIpa(getApplicationContext());
-			}
+			ipa = singleSound.getRandomFromAllowedSounds(getApplicationContext(), allowedSounds);
 
 			// look up audio resource id for that sound
 			int soundId = singleSound.getSoundResourceId(ipa);
@@ -343,5 +344,26 @@ public class PracticeSingleActivity extends BaseActivity implements
 		soundPool.play(sid, 1, 1, PRIORITY, 0, 1.0f);
 		soundPool.unload(sid);
 
+	}
+
+	public void settingsClick(View v) {
+		Intent intent = new Intent(this, SelectSoundActivity.class);
+        intent.putExtra("allowedSounds", allowedSounds);
+		startActivityForResult(intent, SETTINGS_CODE);
+	}
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode != SETTINGS_CODE || resultCode != RESULT_OK || data == null) {
+			return;
+		}
+		ArrayList<String> selected = data.getStringArrayListExtra("selected");
+		if (selected == null) {
+			return;
+		}
+		allowedSounds = selected;
+        keyboardFragment.showKeysInList(allowedSounds);
+
+        // redo sound and display
+        resetSoundAndDisplay();
 	}
 }

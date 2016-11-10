@@ -294,4 +294,11 @@
     <string name="flap_t_example2">little\n/\'lɪɾəl/</string>
     <string name="flap_t_example3">thirty\n/\'θɝɾi/</string>
     
+    <string name="select_sounds_to_practice">Select sounds to practice</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="err_select_at_least_one_sound">You must select at least one vowel and one consonant!</string>
+    <string name="err_select_at_least_c_and_v">You must select at least one sound!</string>
+    <string name="all_consonants">All Consonants</string>
+    <string name="all_vowels">All Vowels</string>
 </resources>
