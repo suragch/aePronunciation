@@ -83,7 +83,7 @@
     <string name="test_results_right">正确： %1$d</string>
     <string name="test_results_wrong">错误： %1$d</string>
     <string name="test_results_time">用时： %1$s</string>
-    <string name="test_results_practice_difficult_button">纠错联系</string>
+    <string name="test_results_practice_difficult_button">纠错练习</string>
     <string name="title_activity_history">历史记录</string>
     <string name="history_time_title">总时长</string>
     <string name="history_test_title">最佳记录</string>
