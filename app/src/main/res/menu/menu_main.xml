@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_keyboard"
+          android:title="@string/main_menu_keyboard"
+          android:icon="@mipmap/ic_keyboard_white_24dp"
+          app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_history"
+          android:title="@string/main_menu_history"
+          android:icon="@mipmap/ic_history_white_24dp"
+          app:showAsAction="never"/>
+    <item android:id="@+id/action_about"
+          android:title="@string/main_menu_about"
+          android:icon="@mipmap/ic_info_outline_white_24dp"
+          app:showAsAction="never"/>
+
+</menu>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.aepronunciation.ipa">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity"
+                  android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".LearnDoubleActivity"
+                  android:label="@string/title_activity_learn_double"
+                  android:parentActivityName=".MainActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+            >
+        </activity>
+        <activity android:name=".KeyboardInputActivity"
+                  android:label="@string/title_activity_keyboard_input"
+                  android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+            >
+        </activity>
+        <activity android:name=".HistoryActivity"
+                  android:label="@string/title_activity_history"
+                  android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+            >
+        </activity>
+        <activity android:name=".HistoryTestsActivity"
+                  android:label="@string/title_activity_history_tests"
+                  android:parentActivityName=".HistoryActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HistoryActivity" />
+            >
+        </activity>
+        <activity android:name=".HistoryTestDetailsActivity"
+                  android:label="@string/title_activity_history_test_details"
+                  android:parentActivityName=".HistoryTestsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HistoryTestsActivity" />
+            >
+        </activity>
+        <activity android:name=".HistoryTimeActivity"
+                  android:label="@string/title_activity_history_time"
+                  android:parentActivityName=".HistoryActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HistoryActivity" />
+            >
+        </activity>
+        <activity android:name=".AboutActivity"
+                  android:label="@string/title_activity_about"
+                  android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+            >
+        </activity>
+        <activity
+            android:name=".TestActivity"
+            android:theme="@style/AppFullScreenTheme"
+            android:label="@string/title_activity_test" >
+        </activity>
+        <activity
+            android:name=".TestResultsActivity"
+            android:label="@string/title_activity_test_results" >
+        </activity>
+        <activity android:name=".UnicodeInputActivity">
+        </activity>
+    </application>
+
+</manifest>

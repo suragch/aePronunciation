@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1">
+
+    <TextView
+        android:id="@+id/tvPracticeNumberRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="5dp"
+        android:textColor="@color/green"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:id="@+id/tvPracticePercentRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:id="@+id/tvPracticeNumberWrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red"
+        android:layout_margin="5dp"
+        android:textSize="20sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"/>
+
+
+    <!-- IPA input window-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <com.aepronunciation.ipa.IpaTextView
+            android:id="@+id/tvInputWindow"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/input_window_normal"
+            android:gravity="center_horizontal"
+            android:textSize="50sp"/>
+
+
+        <!-- play button -->
+        <RelativeLayout
+            android:id="@+id/playButtonLayout"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/ivPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/ic_play_arrow_black_48dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- settings button -->
+    <RelativeLayout
+        android:id="@+id/settingsButtonLayout"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="5dp"
+        android:background="@drawable/button"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/ivSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/ic_settings_black_24dp"/>
+    </RelativeLayout>
+
+    <!-- Label for Single/Double practice mode -->
+    <TextView
+        android:id="@+id/tvPracticeMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
+
+    <!-- help button -->
+    <RelativeLayout
+        android:id="@+id/tellMeButtonLayout"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:background="@drawable/button"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp">
+
+        <com.aepronunciation.ipa.IpaTextView
+            style="@style/AppTheme.ButtonTextStyle"
+            android:text="@string/tell_me_button"
+            android:textSize="30sp"/>
+    </RelativeLayout>
+</RelativeLayout>
+

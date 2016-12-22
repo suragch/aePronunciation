@@ -1,0 +1,374 @@
+<resources>
+
+    <string name="app_name">ae Pronunciation</string>
+    <string name="app_name_short">aep</string>
+    <string name="locale">en</string>
+
+    <!-- Main menu -->
+    <string name="main_menu_keyboard">Keyboard</string>
+    <string name="main_menu_history">History</string>
+    <string name="main_menu_about">About</string>
+
+    <!-- Tabs -->
+    <string name="main_tab_learn">Learn</string>
+    <string name="main_tab_practice">Practice</string>
+    <string name="main_tab_test">Test</string>
+
+
+    <!-- Learn Single fragment -->
+    <string name="learn_single_show_doubles">more…</string>
+
+    <!-- Learn Double sounds dialog-->
+    <string name="title_activity_learn_double">Double sounds with /%1$s/</string>
+
+    <!-- Practice Tab -->
+    <string name="tell_me_button" translatable="false">\?</string>
+    <string name="practice_mode_single">Single</string>
+    <string name="practice_mode_double">Double</string>
+
+    <!-- Select Sounds dialog -->
+    <string name="select_sounds_title">Choose sounds to practice</string>
+    <string name="select_sounds_radio_single">Single</string>
+    <string name="select_sounds_radio_double">Double</string>
+    <string name="select_sounds_cb_vowels">Vowels</string>
+    <string name="select_sounds_cb_consonants">Consonants</string>
+    <string name="select_sounds_positive_button">OK</string>
+
+    <!-- Test setup tab -->
+    <string name="test_setup_name">Name</string>
+    <string name="test_setup_number_of_questions">Questions:</string>
+    <string name="test_setup_type">Type:</string>
+    <string name="test_setup_single">Single</string>
+    <string name="test_setup_double">Double</string>
+    <string name="test_setup_begin_button">Begin</string>
+
+    <!-- Test Activity -->
+    <string name="title_activity_test">Test</string>
+
+    <!-- Test results activity -->
+    <string name="title_activity_test_results">Test Results</string>
+    <string name="test_results_percent" translatable="false">%1$d%%</string>
+    <string name="test_results_right">Right: %1$d</string>
+    <string name="test_results_wrong">Wrong: %1$d</string>
+    <string name="test_results_time">Time length: %1$s</string>
+    <string name="test_results_practice_difficult_button">Practice the difficult sounds</string>
+
+    <!-- History Activity -->
+    <string name="title_activity_history">History</string>
+    <string name="history_time_title">Total time spent:</string>
+    <string name="history_test_title">Tests:</string>
+    <string name="history_details">Details</string>
+
+    <!-- History Time Details Activity -->
+    <string name="title_activity_history_time">Total time spent</string>
+
+    <!-- History Test Details Activity -->
+    <string name="title_activity_history_tests">Past tests</string>
+    <string name="history_test_details_type_single">Single (%1$d)</string>
+    <string name="history_test_details_type_double">Double (%1$d)</string>
+    <string name="history_test_details_specific_test_number_of_questions">Questions: %1$d</string>
+
+
+    <!-- History Tests Activity-->
+    <string name="title_activity_history_test_details">Test details</string>
+    <string name="history_tests_item_score" translatable="false">%1$d%%</string>
+    <string name="history_tests_type_single">Single: %1$d%%</string>
+    <string name="history_tests_type_double">Double: %1$d%%</string>
+
+    <!-- About Activity -->
+    <string name="title_activity_about">About</string>
+    <string name="about_app_name">American English Pronunciation</string>
+    <string name="about_app_version">Version %1$s</string>
+    <string name="about_content">If you have any questions, comments, or suggestions, then please leave a message.</string>
+    <string name="about_contact">Contact</string>
+
+    <!-- Keyboard Input Activity -->
+    <string name="title_activity_keyboard_input">Write IPA</string>
+    <string name="keyboard_input_toast_text_copied">IPA text copied</string>
+    <string name="keyboard_menu_copy">Copy</string>
+    <string name="keyboard_menu_clear">Clear</string>
+    <string name="keyboard_menu_share">Share</string>
+    <string name="keyboard_menu_share_chooser_title">Share text to…</string>
+    <string name="keyboard_menu_alert_message">Are you sure you want to delete all the text?</string>
+    <string name="keyboard_menu_alert_clear_all_button">Delete</string>
+
+    <!-- Error dialog -->
+    <!--<string name="error_dialog_title">Problem</string>-->
+    <string name="error_two_consonants">You wrote %1$s + %2$s (two consonants). You should choose one consonant and one vowel.</string>
+    <string name="error_two_vowels">You wrote %1$s + %2$s (two vowels). You should choose one consonant and one vowel.</string>
+    <string name="error_initial_ng">You wrote  %1$s + %2$s, but /ŋ/ never begins a syllable in English.</string>
+    <string name="error_final_r">You should use the keys for one of the R vowels (ɝ, ɑr, ɛr, ɪr, ɔr) if you want to end a sound with /r/. There should also be another consonant.</string>
+    <string name="error_final_wjh">You wrote %1$s + %2$s, but a syllable never ends with the /%2$s/ sound in English.</string>
+    <string name="error_dialog_ok_button">OK</string>
+
+    <!-- general dialog buttons -->
+    <!--<string name="dialog_ok_button">OK</string>-->
+    <string name="dialog_cancel_button">Cancel</string>
+
+
+
+    <!-- ipa sounds -->
+    <string name="key_p" translatable="false">p</string>
+    <string name="key_t" translatable="false">t</string>
+    <string name="key_k" translatable="false">k</string>
+    <string name="key_ch" translatable="false">ʧ</string>
+    <string name="key_f" translatable="false">f</string>
+    <string name="key_th_voiceless" translatable="false">θ</string>
+    <string name="key_s" translatable="false">s</string>
+    <string name="key_sh" translatable="false">ʃ</string>
+    <string name="key_b" translatable="false">b</string>
+    <string name="key_d" translatable="false">d</string>
+    <string name="key_g" translatable="false">g</string>
+    <string name="key_dzh" translatable="false">ʤ</string>
+    <string name="key_v" translatable="false">v</string>
+    <string name="key_th_voiced" translatable="false">ð</string>
+    <string name="key_z" translatable="false">z</string>
+    <string name="key_zh" translatable="false">ʒ</string>
+    <string name="key_m" translatable="false">m</string>
+    <string name="key_n" translatable="false">n</string>
+    <string name="key_ng" translatable="false">ŋ</string>
+    <string name="key_l" translatable="false">l</string>
+    <string name="key_w" translatable="false">w</string>
+    <string name="key_j" translatable="false">j</string>
+    <string name="key_h" translatable="false">h</string>
+    <string name="key_r" translatable="false">r</string>
+    <string name="key_i" translatable="false">i</string>
+    <string name="key_i_short" translatable="false">ɪ</string>
+    <string name="key_e_short" translatable="false">ɛ</string>
+    <string name="key_ae" translatable="false">æ</string>
+    <string name="key_a" translatable="false">ɑ</string>
+    <string name="key_c_backwards" translatable="false">ɔ</string>
+    <string name="key_u_short" translatable="false">ʊ</string>
+    <string name="key_u" translatable="false">u</string>
+    <string name="key_v_upsidedown" translatable="false">ʌ</string>
+    <string name="key_shwua" translatable="false">ə</string>
+    <string name="key_ei" translatable="false">eɪ</string>
+    <string name="key_ai" translatable="false">aɪ</string>
+    <string name="key_au" translatable="false">aʊ</string>
+    <string name="key_oi" translatable="false">ɔɪ</string>
+    <string name="key_ou" translatable="false">oʊ</string>
+    <string name="key_flap_t" translatable="false">ɾ</string>
+    <string name="key_er_stressed" translatable="false">ɝ</string>
+    <string name="key_er_unstressed" translatable="false">ɚ</string>
+    <string name="key_ar" translatable="false">ɑr</string>
+    <string name="key_er" translatable="false">ɛr</string>
+    <string name="key_ir" translatable="false">ɪr</string>
+    <string name="key_or" translatable="false">ɔr</string>
+    <string name="key_glottal_stop" translatable="false">ʔ</string>
+    <string name="key_left_bracket" translatable="false">[</string>
+    <string name="key_right_bracket" translatable="false">]</string>
+    <string name="key_slash" translatable="false">/</string>
+    <string name="key_space" translatable="false">\u0020</string>
+    <string name="key_primary_stress" translatable="false">ˈ</string>
+    <string name="key_secondary_stress" translatable="false">ˌ</string>
+    <string name="key_long_vowel" translatable="false">ː</string>
+    <string name="key_return" translatable="false">\n</string>
+    <string name="key_alt_i" translatable="false">iː</string>
+    <string name="key_alt_e_short" translatable="false">e</string>
+    <string name="key_alt_a" translatable="false">ɑː</string>
+    <string name="key_alt_c_backwards" translatable="false">ɒ</string>
+    <string name="key_alt_u" translatable="false">uː</string>
+    <string name="key_alt_ou" translatable="false">əʊ</string>
+    <string name="key_alt_er_stressed" translatable="false">ɜː</string>
+    <string name="key_alt_er_unstressed" translatable="false">ə</string>
+    <string name="key_alt_ar" translatable="false">ɑː</string>
+    <string name="key_alt_er" translatable="false">eə</string>
+    <string name="key_alt_ir" translatable="false">ɪə</string>
+    <string name="key_alt_or" translatable="false">ɔː</string>
+    <string name="key_alt_l" translatable="false">ɫ</string>
+    <string name="key_alt_w" translatable="false">ʍ</string>
+    <string name="key_alt_h" translatable="false">ʰ</string>
+    <string name="key_alt_r" translatable="false">ɹ</string>
+
+    <!-- Learn sounds tab-->
+    <string name="p_description">/p/ is aspirated ([pʰ]) at the beginning of words but it is unaspirated ([p]) after /s/ and at the end of a word. Be careful not to read the third example /stɑpə/.</string>
+    <string name="p_example1" translatable="false">pass\n/pæs/</string>
+    <string name="p_example2" translatable="false">speak\n/spik/</string>
+    <string name="p_example3" translatable="false">stop\n/stɑp/</string>
+    <string name="t_description">/t/ is aspirated ([tʰ]) at the beginning of words but it is unaspirated ([t]) after /s/ and at the end of a word. Be careful not to read the third example [ɪtə] or [ɪtʰ] or [ɪts]. Also note that the letter \"t\" often changes its pronunciation in American English. See /ʔ/ and /ɾ/.</string>
+    <string name="t_example1" translatable="false">toad\n/tod/</string>
+    <string name="t_example2" translatable="false">sting\n/stɪŋ/</string>
+    <string name="t_example3" translatable="false">it\n/ɪt/</string>
+    <string name="k_description">/k/ is aspirated ([kʰ]) at the beginning of words but it is unaspirated ([k]) after /s/ and at the end of a word. Be careful not to read the third example /wikə/.</string>
+    <string name="k_example1" translatable="false">cool\n/kul/</string>
+    <string name="k_example2" translatable="false">skill\n/skɪl/</string>
+    <string name="k_example3" translatable="false">week\n/wik/</string>
+    <string name="ch_description">Make special note of the pronunciation at the end of words. Be careful not to read the third example /ʧɝʧə/.</string>
+    <string name="ch_example1" translatable="false">chairs\n/ʧɛrz/</string>
+    <string name="ch_example2" translatable="false">each of\n/\'iʧəv/</string>
+    <string name="ch_example3" translatable="false">church\n/ʧɝʧ/</string>
+    <string name="f_description">Make special note of the pronunciation at the end of words. Be careful not to read the third example /ɪfə/.</string>
+    <string name="f_example1" translatable="false">father\n/\'fɑðɚ/</string>
+    <string name="f_example2" translatable="false">gift\n/gɪft/</string>
+    <string name="f_example3" translatable="false">if\n/ɪf/</string>
+    <string name="th_voiceless_description">In this sound the tongue lightly touches the bottom of the top teeth. Do not say /s/.</string>
+    <string name="th_voiceless_example1" translatable="false">think\n/θɪŋk/</string>
+    <string name="th_voiceless_example2" translatable="false">Jonathan\n/\'ʤɑnəθən/</string>
+    <string name="th_voiceless_example3" translatable="false">earth\n/ɝθ/</string>
+    <string name="s_description">Make special note of the pronunciation at the end of words. Be careful not to read the third example /pæsə/.</string>
+    <string name="s_example1" translatable="false">set\n/sɛt/</string>
+    <string name="s_example2" translatable="false">raced\n/rest/</string>
+    <string name="s_example3" translatable="false">pass\n/pæs/</string>
+    <string name="sh_description">Make special note of the pronunciation at the end of words. Be careful not to read the third example /æʃə/.</string>
+    <string name="sh_example1" translatable="false">shoot\n/ʃut/</string>
+    <string name="sh_example2" translatable="false">wished\n/wɪʃt/</string>
+    <string name="sh_example3" translatable="false">ash\n/æʃ/</string>
+    <string name="b_description">Make special note of the pronunciation at the end of words. Be careful not to read the third example /rɪbə/ or /rɪp/.</string>
+    <string name="b_example1" translatable="false">bill\n/bɪl/</string>
+    <string name="b_example2" translatable="false">above\n/ə\'bʌv/</string>
+    <string name="b_example3" translatable="false">rib\n/rɪb/</string>
+    <string name="d_description">Make special note of the pronunciation at the end of words. Be careful not to read the third example /kɑrdə/ or /kɑrt/.</string>
+    <string name="d_example1" translatable="false">delicious\n/də\'lɪʃəs/</string>
+    <string name="d_example2" translatable="false">cards\n/kɑrdz/</string>
+    <string name="d_example3" translatable="false">card\n/kɑrd/</string>
+    <string name="g_description">Make special note of the pronunciation at the end of words. Be careful not to read the third example /pɪgə/ or /pɪk/.</string>
+    <string name="g_example1" translatable="false">good\n/gʊd/</string>
+    <string name="g_example2" translatable="false">again\n/ə\'gɛn/</string>
+    <string name="g_example3" translatable="false">pig\n/pɪg/</string>
+    <string name="dzh_description">Make special note of the pronunciation at the end of words. Be careful not to read the third example /ɛʤə/.</string>
+    <string name="dzh_example1" translatable="false">jump\n/ʤʌmp/</string>
+    <string name="dzh_example2" translatable="false">agile\n/\'æʤəl/</string>
+    <string name="dzh_example3" translatable="false">edge\n/ɛʤ/</string>
+    <string name="v_description">Note the difference between /v/ and /w/. In the /v/ sound the top teeth touch the bottom lip. This is the same mouth position as /f/. The only differenced is that /v/ is voiced. Also be careful not to read the third example /hævə/.</string>
+    <string name="v_example1" translatable="false">very\n/\'vɛri/</string>
+    <string name="v_example2" translatable="false">every\n/\'ɛvri/</string>
+    <string name="v_example3" translatable="false">have\n/hæv/</string>
+    <string name="th_voiced_description">In this sound the tongue lightly touches the bottom of the top teeth. This is the same mouth position as /θ/. The main differenced is that /ð/ is voiced.</string>
+    <string name="th_voiced_example1" translatable="false">they\'re\n/ðɛr/</string>
+    <string name="th_voiced_example2" translatable="false">father\n/fɑðɚ/</string>
+    <string name="th_voiced_example3" translatable="false">bathe\n/beð/</string>
+    <string name="z_description">This sound uses the same mouth position as /s/. The only differenced is that /z/ is voiced. Do not say /dz/. The English /z/ is different than the Chinese pinyin \"z\".</string>
+    <string name="z_example1" translatable="false">zoo\n/zu/</string>
+    <string name="z_example2" translatable="false">raised\n/rezd/</string>
+    <string name="z_example3" translatable="false">cars\n/kɑrz/</string>
+    <string name="zh_description">This sound uses the same mouth position as /ʃ/. The only differenced is that /ʒ/ is voiced. Note the difference between /r/ and /ʒ/.</string>
+    <string name="zh_example1" translatable="false">usually\n/\'juʒli/</string>
+    <string name="zh_example2" translatable="false">pleasure\n/\'plɛʒɚ/</string>
+    <string name="zh_example3" translatable="false">beige\n/beʒ/</string>
+    <string name="m_description">Make special note of the pronunciation at the end of words. Be careful not to read the third example /ɑrmə/.</string>
+    <string name="m_example1" translatable="false">me\n/mi/</string>
+    <string name="m_example2" translatable="false">jump\n/ʤʌmp/</string>
+    <string name="m_example3" translatable="false">arm\n/ɑrm/</string>
+    <string name="n_description">Make special note of the pronunciation at the end of words. Be careful not to read the third example /sʌnə/.</string>
+    <string name="n_example1" translatable="false">new\n/nu/</string>
+    <string name="n_example2" translatable="false">panda\n/\'pændə/</string>
+    <string name="n_example3" translatable="false">sun\n/sʌn/</string>
+    <string name="ng_description">This sound does not begin any words in English.</string>
+    <string name="ng_example1" translatable="false">ringing\n/\'rɪŋɪŋ/</string>
+    <string name="ng_example2" translatable="false">think\n/θɪŋk/</string>
+    <string name="ng_example3" translatable="false">sung\n/sʌŋ/</string>
+    <string name="l_description">At the beginning of words, [l] is the proper IPA symbol. However, at the end of words it is pronounced differently. The IPA for this sound is written [ɫ] but we use the /l/ symbol for both [l] and [ɫ] in this app (as do many textbooks and dictionaries). Example 2 could also be written /kuəl/. Do not pronounce the last two examples /kuo/ or /bɪo/. Your lips should be relaxed and not move.</string>
+    <string name="l_example1" translatable="false">loud\n/laʊd/</string>
+    <string name="l_example2" translatable="false">cool\n/kul/</string>
+    <string name="l_example3" translatable="false">bill\n/bɪl/</string>
+    <string name="w_description">Note the difference between /w/ and /v/. In the /w/ sound the lips make a small circle and do not touch the teeth. A minority of Americans pronounce \"wh\" as /hw/ (in IPA this is /ʍ/).</string>
+    <string name="w_example1" translatable="false">wary\n/\'wɛri/</string>
+    <string name="w_example2" translatable="false">twelve\n/twɛlv/</string>
+    <string name="w_example3" translatable="false">what\n/wʌt/</string>
+    <string name="j_description">This sound does not come at the end of any words in English. Note the difference between "year" and "ear".</string>
+    <string name="j_example1" translatable="false">year\n/jɪr/</string>
+    <string name="j_example2" translatable="false">cube\n/kjub/</string>
+    <string name="j_example3" translatable="false">yellow\n/\'jɛlo/</string>
+    <string name="h_description">This sound does not come at the end of any words in English. Note that the English /h/ is different than the Chinese pinyin \"h\".</string>
+    <string name="h_example1" translatable="false">her\n/hɝ/</string>
+    <string name="h_example2" translatable="false">have\n/hæv/</string>
+    <string name="h_example3" translatable="false">ahead\n/ə\'hɛd/</string>
+    <string name="r_description">This sound should be written /ɹ/ according to IPA. (The IPA /r/ is actually trilled, like the Mongolian \"r\".) However, in order to maintain consistency with many dictionaries and textbooks in China, the symbol /r/ is used here. Note the difference between /r/ and /ʒ/. Also note that the English /r/ is different than the Chinese pinyin \"r\".</string>
+    <string name="r_example1" translatable="false">real\n/ril/</string>
+    <string name="r_example2" translatable="false">rib\n/rɪb/</string>
+    <string name="r_example3" translatable="false">roar\n/rɔr/</string>
+    <string name="i_description">In British English pronunciation this sound is usually written as /iː/ where the two dots represent a long vowel sound. Long and short vowels are not differentiated as much in American English and so the two dots are not written. If a vowel is before a voiced consonant then it is long. If it is before a voiceless consonant then it is short.</string>
+    <string name="i_example1" translatable="false">each\n/iʧ/</string>
+    <string name="i_example2" translatable="false">read\n/rid/</string>
+    <string name="i_example3" translatable="false">me\n/mi/</string>
+    <string name="i_short_description">This is a different sound than /i/. The difference is not so much one of long and short, but of a different position of the mouth and tongue. The mouth is open just a little wider and the toungue is just a little further back than /i/</string>
+    <string name="i_short_example1" translatable="false">it\n/ɪt/</string>
+    <string name="i_short_example2" translatable="false">him\n/hɪm/</string>
+    <string name="i_short_example3" translatable="false">rib\n/rɪb/</string>
+    <string name="e_short_description">Many dictionaries and textbooks in China that describe British English use the symbol /e/ for this sound. According to IPA, though, it should be written /ɛ/. The mouth is open less than with /æ/ and the tongue is a little more forward.</string>
+    <string name="e_short_example1" translatable="false">edge\n/ɛʤ/</string>
+    <string name="e_short_example2" translatable="false">set\n/sɛt/</string>
+    <string name="e_short_example3" translatable="false">said\n/sɛd/</string>
+    <string name="ae_description">Stretch your lips wide like the /ɛ/ but open your mouth big like the /ɑ/. Your tongue should be further back than with /ɛ/.</string>
+    <string name="ae_example1" translatable="false">ash\n/æʃ/</string>
+    <string name="ae_example2" translatable="false">bad\n/bæd/</string>
+    <string name="ae_example3" translatable="false">bat\n/bæt/</string>
+    <string name="a_description">Also written as /ɑː/ in British English. Note that this is a very different sound than /ʌ/ in American English. Also note that /ɑ/ is different than the pinyin \"a\" of standard Chinese, which is written /a/ in IPA.</string>
+    <string name="a_example1" translatable="false">on\n/ɑn/</string>
+    <string name="a_example2" translatable="false">father\n/\'fɑðɚ/</string>
+    <string name="a_example3" translatable="false">ma\n/mɑ/</string>
+    <string name="c_backwards_description">This sound should be written /ɒ/ according to IPA. However, to be consistent with most dictionaries, /ɔ/ is used here. Note, though, that it is not the same sound as when /ɔː/ is used to describe British pronunciation. About 40% of Americans do not pronounce the /ɔ/ sound. They replace it with the /ɑ/ sound. The above examples would be pronounced /ɑt/, /kɑl/, ɑnd /sɑ/. The words \"cot\" and \"caught\" would also be pronounced the same (/kɑt/).</string>
+    <string name="c_backwards_example1" translatable="false">ought\n/ɔt/</string>
+    <string name="c_backwards_example2" translatable="false">call\n/kɔl/</string>
+    <string name="c_backwards_example3" translatable="false">saw\n/sɔ/</string>
+    <string name="u_short_description">Sometimes it is written incorrectly /u/, but it should be written /ʊ/ (without the "tail"). /u/ and /ʊ/ are two very different vowels.</string>
+    <string name="u_short_example1" translatable="false">put\n/pʊt/</string>
+    <string name="u_short_example2" translatable="false">good\n/gʊd/</string>
+    <string name="u_short_example3" translatable="false">should\n/ʃʊd/</string>
+    <string name="u_description">Also written /uː/, but like /iː/, /ɑː/, ɑnd /ɔː/, the long vowel dots are not needed in American English.</string>
+    <string name="u_example1" translatable="false">ooze\n/uz/</string>
+    <string name="u_example2" translatable="false">shoot\n/ʃut/</string>
+    <string name="u_example3" translatable="false">blue\n/blu/</string>
+    <string name="v_upsidedown_description">This is a different sound than /ɑ/. The difference is not so much one of long and short, but of a different position of the mouth and tongue. Note that it is also pronounced somewhat differently than the British sound that is also usually written /ʌ/. When this sound is in an unstressed syllable it is written /ə/.</string>
+    <string name="v_upsidedown_example1" translatable="false">up\n/ʌp/</string>
+    <string name="v_upsidedown_example2" translatable="false">sun\n/sʌn/</string>
+    <string name="v_upsidedown_example3" translatable="false">uh-huh\n/ə\'hʌ/</string>
+    <string name="schwa_description">The vowel /ə/ is the most common sound in American English because of its use in unstressed syllables and words. It is called a schwa. When this sound is in a stressed syllable it is written /ʌ/.</string>
+    <string name="schwa_example1" translatable="false">above\n/ə\'bʌv/</string>
+    <string name="schwa_example2" translatable="false">delicious\n/də\'lɪʃəs/</string>
+    <string name="schwa_example3" translatable="false">panda\n/\'pændə/</string>
+    <string name="ei_description">This is a diphthong, a combination of the /e/ and /ɪ/ sounds. It is sometimes also written as /e/ in some American English dictionaries. (Do not confuse this with the British English symbol /e/, which is actually pronounced /ɛ/.) Words with the American English /eɪ/ sound are pronounced /ɛɪ/ in British English. However, they still write it as /eɪ/.</string>
+    <string name="ei_example1" translatable="false">age\n/eʤ/</string>
+    <string name="ei_example2" translatable="false">safe\n/sef/</string>
+    <string name="ei_example3" translatable="false">may\n/me/</string>
+    <string name="ai_description">This is a diphthong, a combination of the /a/ and /ɪ/ sounds. Note the difference from /æ/.</string>
+    <string name="ai_example1" translatable="false">I\'m\n/aɪm/</string>
+    <string name="ai_example2" translatable="false">bite\n/baɪt/</string>
+    <string name="ai_example3" translatable="false">fly\n/flaɪ/</string>
+    <string name="au_description">This is a diphthong, a combination of the /a/ and /ʊ/ sounds. Note the difference from /ɔ/. Also note that it is different than the Chinese pinyin \"ao\" sound.</string>
+    <string name="au_example1" translatable="false">out\n/aʊt/</string>
+    <string name="au_example2" translatable="false">loud\n/laʊd/</string>
+    <string name="au_example3" translatable="false">cow\n/kaʊ/</string>
+    <string name="oi_description">The "ɔ" used in /ɔɪ/ is not the same sound as the /ɔ/ in this app. (This is because the /ɔ/ used to describe many American English words should be written /ɒ/.) The /ɔɪ/ sound begins with small rounded lips.</string>
+    <string name="oi_example1" translatable="false">oil\n/ɔɪl/</string>
+    <string name="oi_example2" translatable="false">voice\n/vɔɪs/</string>
+    <string name="oi_example3" translatable="false">boy\n/bɔɪ/</string>
+    <string name="ou_description">This is a diphthong, a combination of the /o/ and /ʊ/ sounds. Note that there is a slight difference from the British pronunciation of /əʊ/.</string>
+    <string name="ou_example1" translatable="false">oath\n/oθ/</string>
+    <string name="ou_example2" translatable="false">cove\n/kov/</string>
+    <string name="ou_example3" translatable="false">low\n/lo/</string>
+    <string name="er_stressed_description">The /ɝ/ sound is sometimes written /ər/ or /əɹ/. This is the sound in a stressed syllable or a one-syllable word. When /ɝ/ is unstressed it is written /ɚ/. In British English /ɝ/ is pronounced as /ɜː/.</string>
+    <string name="er_stressed_example1" translatable="false">earth\n/ɝθ/</string>
+    <string name="er_stressed_example2" translatable="false">birthday\n/\'bɝθde/</string>
+    <string name="er_stressed_example3" translatable="false">her\n/hɝ/</string>
+    <string name="er_unstressed_description">The /ɚ/ sound is the same as /ɝ/ except that /ɚ/ is used for unstressed syllables. It is sometimes also written as /ər/ or /əɹ/. In British English /ɚ/ is pronounced as /ə/.</string>
+    <string name="er_unstressed_example1" translatable="false">mother\n/\'mʌðɚ/</string>
+    <string name="er_unstressed_example2" translatable="false">perform\n/pɚ\'fɔrm/</string>
+    <string name="er_unstressed_example3" translatable="false">wonderful\n/\'wʌndɚfəl/</string>
+    <string name="ar_description">The /ɑr/ sound is more correctly written /ɑɹ/ or /ɑɚ/ according to IPA. It is pronounced as /ɑː/ in British English.</string>
+    <string name="ar_example1" translatable="false">arm\n/ɑrm/</string>
+    <string name="ar_example2" translatable="false">part\n/pɑrt/</string>
+    <string name="ar_example3" translatable="false">car\n/kɑr/</string>
+    <string name="er_description">The /ɛr/ sound is more correctly written /ɛɹ/ or /ɛɚ/ according to IPA. It is pronounced and written as /eə/ in British English.</string>
+    <string name="er_example1" translatable="false">aired\n/ɛrd/</string>
+    <string name="er_example2" translatable="false">chairs\n/ʧɛrz/</string>
+    <string name="er_example3" translatable="false">there\n/ðɛr/</string>
+    <string name="ir_description">The /ɪr/ sound is more correctly written /ɪɹ/ or /ɪɚ/ according to IPA. It is pronounced as /ɪə/ in British English.</string>
+    <string name="ir_example1" translatable="false">ear\n/ɪr/</string>
+    <string name="ir_example2" translatable="false">weird\n/wɪrd/</string>
+    <string name="ir_example3" translatable="false">here\n/hɪr/</string>
+    <string name="or_description">The "ɔ" used in /ɔr/ is not the same sound as the /ɔ/ in this app. (This is because the /ɔ/ used to describe many American English words should be written /ɒ/.) The /ɔr/ sound begins with small rounded lips. It is more correctly written /ɔɹ/ according to IPA. It is pronounced as /ɔː/ in British English.</string>
+    <string name="or_example1" translatable="false">oars\n/ɔrz/</string>
+    <string name="or_example2" translatable="false">north\n/nɔrθ/</string>
+    <string name="or_example3" translatable="false">roar\n/rɔr/</string>
+    <string name="glottal_stop_description">This sound is called a glottal stop. It is not usually taught in English textbooks in China, but it is an important part of American English pronunciation. Note the difference in the pronunciation of "put" here and in the example for the /ʊ/ sound. The /ʔ/ sound often replaces /t/, especially at the end of words and in middle of sentences.</string>
+    <string name="glottal_stop_example1" translatable="false">put\n/pʊʔ/</string>
+    <string name="glottal_stop_example2" translatable="false">button\n/\'bʌʔn/</string>
+    <string name="glottal_stop_example3" translatable="false">uh-oh\n/\'ʌʔo/</string>
+    <string name="flap_t_description">The /ɾ/ sound (not /r/) is called a flap t or an alveolar tap. It is not usually taught in English textbooks in China, but it is an important part of American English pronunciation. The /ɾ/ sound often replaces /t/, especially when /t/ comes between vowels in an unstressed syllable. The /ɾ/ sound can also be written /d/, though this is not as accurate. In that case, the examples would be written /\'wɑdɚ/, /\'lɪdəl/, ɑnd /\'θɝdi/.</string>
+    <string name="flap_t_example1" translatable="false">water\n/\'wɑɾɚ/</string>
+    <string name="flap_t_example2" translatable="false">little\n/\'lɪɾəl/</string>
+    <string name="flap_t_example3" translatable="false">thirty\n/\'θɝɾi/</string>
+
+
+</resources>

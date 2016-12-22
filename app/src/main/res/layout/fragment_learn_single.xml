@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1">
+
+                <com.aepronunciation.ipa.IpaTextView
+                    android:id="@+id/tvLearnSingleIpaSound"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/primary_text"
+                    android:textSize="50sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1">
+
+                <VideoView
+                    android:id="@+id/videoview"
+                    android:layout_width="80dp"
+                    android:layout_height="45dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"/>
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvLearnSingleIpaDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
+        </ScrollView>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rlExample1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:padding="5dp">
+
+                <com.aepronunciation.ipa.IpaTextView
+                    android:id="@+id/tvExample1"
+                    style="@style/AppTheme.ButtonTextStyle"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlExample2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:padding="5dp">
+
+                <com.aepronunciation.ipa.IpaTextView
+                    android:id="@+id/tvExample2"
+                    style="@style/AppTheme.ButtonTextStyle"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlExample3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:padding="5dp">
+
+                <com.aepronunciation.ipa.IpaTextView
+                    android:id="@+id/tvExample3"
+                    style="@style/AppTheme.ButtonTextStyle"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rlMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:padding="5dp">
+
+                <com.aepronunciation.ipa.IpaTextView
+                    android:id="@+id/tvMore"
+                    style="@style/AppTheme.ButtonTextStyle"
+                    android:text="@string/learn_single_show_doubles"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+    <com.aepronunciation.ipa.IpaTextView
+        android:id="@+id/tvRvItemTestNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="2dp"
+        android:textSize="12sp" />
+
+    <com.aepronunciation.ipa.IpaTextView
+        android:id="@+id/tvRvItemTestUserName"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/tvRvItemTestNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:textSize="12sp" />
+
+    <com.aepronunciation.ipa.IpaTextView
+        android:id="@+id/tvRvItemTestDate"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:textSize="12sp" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp" >
+
+        <com.aepronunciation.ipa.IpaTextView
+            android:id="@+id/tvRvItemTestScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/black" />
+
+        <com.aepronunciation.ipa.IpaTextView
+            android:id="@+id/tvRvItemTestType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/black" />
+
+        <!--<com.aepronunciation.ipa.IpaTextView-->
+            <!--android:id="@+id/tvRvItemTestNumberOfQuestions"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+            <!--android:textColor="@color/black" />-->
+
+
+    </LinearLayout>
+
+</RelativeLayout>

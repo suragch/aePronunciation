@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/keyboard_background"
+              android:padding="2dp"
+              android:orientation="vertical" >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/key_i"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_i"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_i" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_i"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_i" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_i_short"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_i_short"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_i_short" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_e_short"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_e_short"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_e_short" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_e_short"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_e_short" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_ae"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_ae"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_ae" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_a"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_a"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_a" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_a"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_a" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_c_backwards"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_c_backwards"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_c_backwards" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_c_backwards"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_c_backwards" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_u_short"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_u_short"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_u_short" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_u"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_u"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_u" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_u"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_u" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_v_upsidedown"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_v_upsidedown"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_v_upsidedown" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_shwua"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_shwua"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_shwua" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/key_ei"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_ei"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_ei" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_ai"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_ai"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_ai" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_au"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_au"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_au" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_oi"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_oi"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_oi" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_ou"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_ou"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_ou" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_ou"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_ou" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/key_er_stressed"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_er_stressed"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_er_stressed" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_er_stressed"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_er_stressed" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_er_unstressed"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_er_unstressed"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_er_unstressed" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_er_unstressed"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_er_unstressed" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_ar"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_ar"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_ar" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_ar"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_ar" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_er"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_er"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_er" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_er"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_er" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_ir"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_ir"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_ir" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_ir"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_ir" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_or"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_or"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_or" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_or"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_or" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/key_p"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_p"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_p" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_t"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_t"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_t" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_k"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_k"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_k" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_ch"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_ch"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_ch" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_f"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_f"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_f" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_th_voiceless"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_th_voiceless"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_th_voiceless" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_s"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_s"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_s" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_sh"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_sh"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_sh" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/key_b"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_b"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_b" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_d"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_d"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_d" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_g"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_g"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_g" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_dzh"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_dzh"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_dzh" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_v"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_v"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_v" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_th_voiced"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_th_voiced"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_th_voiced" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_z"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_z"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_z" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_zh"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_zh"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_zh" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/key_m"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_m"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_m" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_n"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_n"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_n" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_ng"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_ng"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_ng" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_l"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_l"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_l" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_l"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_l" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_w"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_w"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_w" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_w"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_w" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_j"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_j"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_j" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_h"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_h"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_h" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_h"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_h" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_r"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_r"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_r" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_alt_r"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_alt_r" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_glottal_stop"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_glottal_stop"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_glottal_stop" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_flap_t"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_flap_t"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_flap_t" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/key_backspace"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="2" >
+
+            <ImageView
+                style="@style/AppTheme.KeyImageStyle"
+                android:src="@mipmap/ic_keyboard_backspace_black_24dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_brackets"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_left_bracket"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_left_bracket" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_right_bracket"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_right_bracket" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_slash"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_slash"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_slash" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_space"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="2" >
+
+            <ImageView
+                style="@style/AppTheme.KeyImageStyle"
+                android:src="@mipmap/ic_space_bar_black_24dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_stress"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_primary_stress"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_primary_stress" />
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_secondary_stress"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_secondary_stress" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_long_vowel"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="1" >
+
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_long_vowel"
+                style="@style/AppTheme.KeyTextStyle"
+                android:text="@string/key_long_vowel" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/key_return"
+            style="@style/AppTheme.KeyLayoutStyle"
+            android:layout_weight="2" >
+
+            <ImageView
+                style="@style/AppTheme.KeyImageStyle"
+                android:src="@mipmap/ic_keyboard_return_black_24dp" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
