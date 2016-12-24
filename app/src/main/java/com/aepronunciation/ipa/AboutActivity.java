@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -39,16 +38,12 @@ public class AboutActivity extends AppCompatActivity {
         }
         tvAboutAppName.setText(appName);
         tvVersion.setText(String.format(getString(R.string.about_app_version), appVersion));
-
-
-
     }
 
     public void contactClick(View v) {
 
         // Start test activity
-        // TODO add this to strings?
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.aepronunciation.com/app/"));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.about_contact_url)));
         startActivity(browserIntent);
     }
 
@@ -57,7 +52,6 @@ public class AboutActivity extends AppCompatActivity {
         // handle arrow click here
         if (item.getItemId() == android.R.id.home) {
             finish(); // close this activity and return to preview activity (if there is any)
-
         }
 
         return super.onOptionsItemSelected(item);

@@ -61,6 +61,12 @@
 
     <!-- History Time Details Activity -->
     <string name="title_activity_history_time">Total time spent</string>
+    <string name="history_time_details_learning">Time Learning</string>
+    <string name="history_time_details_practicing">Time Practicing</string>
+    <string name="history_time_details_testing">Time Testing</string>
+    <string name="history_time_details_total">Total Time</string>
+    <string name="history_time_details_type_single">Singles</string>
+    <string name="history_time_details_type_double">Doubles</string>
 
     <!-- History Test Details Activity -->
     <string name="title_activity_history_tests">Past tests</string>
@@ -81,6 +87,7 @@
     <string name="about_app_version">Version %1$s</string>
     <string name="about_content">If you have any questions, comments, or suggestions, then please leave a message.</string>
     <string name="about_contact">Contact</string>
+    <string name="about_contact_url" translatable="false">http://www.aepronunciation.com/app/</string>
 
     <!-- Keyboard Input Activity -->
     <string name="title_activity_keyboard_input">Write IPA</string>
@@ -163,11 +170,13 @@
     <string name="key_secondary_stress" translatable="false">ˌ</string>
     <string name="key_long_vowel" translatable="false">ː</string>
     <string name="key_return" translatable="false">\n</string>
-    <string name="key_alt_i" translatable="false">iː</string>
+    <!--<string name="key_alt_i" translatable="false">iː</string>-->
+    <!--<string name="key_alt_i_display" translatable="false">ː</string>-->
     <string name="key_alt_e_short" translatable="false">e</string>
-    <string name="key_alt_a" translatable="false">ɑː</string>
+    <!--<string name="key_alt_a" translatable="false">ɑː</string>-->
+    <!--<string name="key_alt_a_display" translatable="false">ː</string>-->
     <string name="key_alt_c_backwards" translatable="false">ɒ</string>
-    <string name="key_alt_u" translatable="false">uː</string>
+    <!--<string name="key_alt_u" translatable="false">uː</string>-->
     <string name="key_alt_ou" translatable="false">əʊ</string>
     <string name="key_alt_er_stressed" translatable="false">ɜː</string>
     <string name="key_alt_er_unstressed" translatable="false">ə</string>

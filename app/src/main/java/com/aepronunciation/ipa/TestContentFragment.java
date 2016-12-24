@@ -180,9 +180,9 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
             String ipa;
             do {
                 if (testMode == SoundMode.Single) {
-                    ipa = singleSound.getRandomIpa(getActivity());
+                    ipa = singleSound.getRandomIpa();
                 } else {
-                    ipa = doubleSound.getRandomIpa(getActivity());
+                    ipa = doubleSound.getRandomIpa();
                 }
             } while (currentIpa.equals(ipa)); // don't allow repeat questions
 

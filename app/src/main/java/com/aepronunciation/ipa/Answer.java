@@ -7,14 +7,12 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 
 // making this parcelable (rather than serialized) improves speed
-public class Answer implements Parcelable {
+class Answer implements Parcelable {
     private String correct;
     private String user;
 
     // constructor
-    public Answer() {
-        ;
-    }
+    Answer() {}
 
     // constructor when parceled
     private Answer(Parcel in) {
@@ -23,20 +21,20 @@ public class Answer implements Parcelable {
     }
 
     // getters
-    public String getCorrectAnswer() {
+    String getCorrectAnswer() {
         return correct;
     }
 
-    public String getUserAnswer() {
+    String getUserAnswer() {
         return user;
     }
 
     // setters
-    public void setCorrectAnswer(String correct) {
+    void setCorrectAnswer(String correct) {
         this.correct = correct;
     }
 
-    public void setUserAnswer(String user) {
+    void setUserAnswer(String user) {
         this.user = user;
     }
 
@@ -64,12 +62,16 @@ public class Answer implements Parcelable {
         }
     };
 
-    public static String[] parseDouble(String ipaDouble) {
+    static String[] parseDouble(String ipaDouble) {
         if (TextUtils.isEmpty(ipaDouble)) {
             return null;
         }
         String[] returnIpa = new String[2];
+
+
+        // TODO this is error prone if changes happen elsewhere. Check for consonant instead.
         if (ipaDouble.startsWith("aɪ") || ipaDouble.startsWith("aʊ")
+                || ipaDouble.startsWith("eɪ") || ipaDouble.startsWith("oʊ")
                 || ipaDouble.startsWith("ɔɪ") || ipaDouble.startsWith("ɑr")
                 || ipaDouble.startsWith("ɛr") || ipaDouble.startsWith("ɪr")
                 || ipaDouble.startsWith("ɔr")) {
@@ -95,7 +97,7 @@ public class Answer implements Parcelable {
         return returnIpa;
     }
 
-    public static String getErrorMessage(Context context, String ipa) {
+    static String getErrorMessage(Context context, String ipa) {
 
         // Types of errors:
         //
@@ -108,6 +110,10 @@ public class Answer implements Parcelable {
         String errorMessage = "";
 
         String[] parsedIpa = parseDouble(ipa);
+        if (parsedIpa == null || parsedIpa.length != 2) {
+            // TODO return a more intelligent error message (but this situation shouldn't ever happen)
+            return errorMessage;
+        }
 
         // starts with a consonant
         if ("ptkʧfθsʃbdgʤvðzʒmnŋlwjhr".contains(parsedIpa[0])) {
@@ -147,45 +153,5 @@ public class Answer implements Parcelable {
         return errorMessage;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

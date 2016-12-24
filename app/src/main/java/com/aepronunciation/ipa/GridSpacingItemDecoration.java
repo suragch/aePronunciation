@@ -7,15 +7,15 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
+class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
     private int mItemOffset;
 
-    public GridSpacingItemDecoration(int itemOffset) {
+    private GridSpacingItemDecoration(int itemOffset) {
         mItemOffset = itemOffset;
     }
 
-    public GridSpacingItemDecoration(@NonNull Context context, @DimenRes int itemOffsetId) {
+    GridSpacingItemDecoration(@NonNull Context context, @DimenRes int itemOffsetId) {
         this(context.getResources().getDimensionPixelSize(itemOffsetId));
     }
 

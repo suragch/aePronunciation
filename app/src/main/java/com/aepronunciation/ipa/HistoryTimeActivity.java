@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.widget.TextView;
 
 import static com.aepronunciation.ipa.MainActivity.PREFS_NAME;

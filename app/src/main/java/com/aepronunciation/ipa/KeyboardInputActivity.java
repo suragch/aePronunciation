@@ -2,8 +2,6 @@ package com.aepronunciation.ipa;
 
 
 import android.annotation.SuppressLint;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -62,9 +60,6 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
         Fragment keyboardInputFragment = new KeyboardInputFragment();
         transaction.replace(R.id.keyboard_frame, keyboardInputFragment);
         transaction.commit();
-
-
-
     }
 
     @SuppressLint("NewApi")
@@ -96,7 +91,6 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
             return;
         }
 
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(getString(R.string.keyboard_menu_alert_message));
         builder.setCancelable(true);
@@ -122,7 +116,7 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
 
     private void shareText() {
 
-        CharSequence text = editText.getText();
+        CharSequence text = editText.getText().toString();
         if (TextUtils.isEmpty(text)) {
             return;
         }
@@ -132,12 +126,6 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
         sendIntent.putExtra(Intent.EXTRA_TEXT, text);
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getString(R.string.keyboard_menu_share_chooser_title)));
-//
-//        Intent sendIntent = new Intent();
-//        sendIntent.setAction(Intent.ACTION_SEND);
-//        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
-//        sendIntent.setType("text/plain");
-//        startActivity(sendIntent);
     }
 
     @Override
@@ -158,11 +146,7 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
                 clearText();
                 return true;
             case R.id.action_share:
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
-                sendIntent.setType("text/plain");
-                startActivity(sendIntent);
+                shareText();
                 return true;
             case android.R.id.home:
                 finish();
@@ -183,6 +167,4 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
     public void onBackspace() {
         editText.dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
     }
-
-
 }

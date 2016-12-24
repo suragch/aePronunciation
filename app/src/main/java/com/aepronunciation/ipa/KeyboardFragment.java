@@ -7,13 +7,11 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.content.res.Resources;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.StringTokenizer;
 
 import static com.aepronunciation.ipa.MainActivity.TEST_MODE_KEY;
 
@@ -28,8 +26,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
 
     // Container Activity must implement this interface
     public interface KeyboardListener {
-        public void onKeyTouched(String keyString);
-
+        void onKeyTouched(String keyString);
     }
 
     @Override
@@ -39,17 +36,13 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
         initializeMaps();
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_keyboard, container, false);
 
-
         if (getArguments() != null) {
-            //String args = getArguments().getString(TEST_MODE_KEY);
             SoundMode testMode = SoundMode.fromString(getArguments().getString(TEST_MODE_KEY));
             updateKeysFor(testMode);
         }
@@ -80,7 +73,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
     private void initializeMaps() {
 
         // Initialize keyboard key values
-        mLayoutToString = new HashMap<Integer, String>();
+        mLayoutToString = new HashMap<>();
 
         mLayoutToString.put(R.id.key_p, getString(R.string.key_p));
         mLayoutToString.put(R.id.key_t, getString(R.string.key_t));
@@ -133,7 +126,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
 
 
 
-        mTextViewToString = new HashMap<Integer, String>();
+        mTextViewToString = new HashMap<>();
 
         mTextViewToString.put(R.id.tvKey_p, getString(R.string.key_p));
         mTextViewToString.put(R.id.tvKey_t, getString(R.string.key_t));

@@ -1,18 +1,13 @@
 package com.aepronunciation.ipa;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Random;
-import java.util.TreeMap;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 
-public class DoubleSound {
+class DoubleSound {
 
     // private class variables
     private LinkedHashMap<String, Integer> hashMap;
@@ -20,27 +15,26 @@ public class DoubleSound {
     private ArrayList<String> doubleSounds;
 
     // constructor
-    public DoubleSound() {
-        initTreeMap();
+    DoubleSound() {
+        initMap();
     }
 
-    public int getSoundCount() {
+    int getSoundCount() {
         if (doubleSounds != null) {
             return doubleSounds.size();
         } else {
             return 0;
         }
-
     }
 
-    public void restrictListToPairsContainingAtLeastOneSoundFrom(ArrayList<String> consonants, ArrayList<String> vowels) {
+    void restrictListToPairsContainingAtLeastOneSoundFrom(ArrayList<String> consonants, ArrayList<String> vowels) {
 
         // error checking
         if (consonants.isEmpty() && vowels.isEmpty()) {
             return;
         }
 
-        // loop through all pairs and add any for with both consonant and vowel are in allowedSounds
+        // loop through all pairs and add any for which both consonant and vowel are in allowedSounds
         doubleSounds = new ArrayList<>();
         for (String key : hashMap.keySet()) {
             Pair<String,String> cv = PhonemeTable.INSTANCE.splitDoubleSound(key);
@@ -48,11 +42,9 @@ public class DoubleSound {
                 doubleSounds.add(key);
             }
         }
-
-
     }
 
-    public void restrictListToAllPairsContaining(String ipa) {
+    void restrictListToAllPairsContaining(String ipa) {
 
         // error checking
         if (TextUtils.isEmpty(ipa)) {
@@ -69,7 +61,7 @@ public class DoubleSound {
         }
     }
 
-    public void restrictListToPairsContainingBothSoundsFrom(ArrayList<String> consonants, ArrayList<String> vowels) {
+    void restrictListToPairsContainingBothSoundsFrom(ArrayList<String> consonants, ArrayList<String> vowels) {
 
         // Since every pair contains both a vowel and a consonant,
         // an exact match requires both to be present.
@@ -87,7 +79,7 @@ public class DoubleSound {
         }
     }
 
-    public void includeAllSounds() {
+    void includeAllSounds() {
         doubleSounds = new ArrayList<>(hashMap.keySet());
     }
 
@@ -100,24 +92,22 @@ public class DoubleSound {
         return false;
     }
 
-    public String getRandomIpa(Context context) {
+    String getRandomIpa() {
 
         // get double sounds string array
         // this does not include schwa and unstressed er
-        if (doubleSounds == null) {
+        if (doubleSounds == null || doubleSounds.size() == 0) {
             includeAllSounds();
         }
 
         // get random integer (0 <= x < numberOfSounds)
         int soundIndex = random.nextInt(doubleSounds.size());
 
-        // translate integer to ipa string
-        String ipa = doubleSounds.get(soundIndex);
-
-        return ipa;
+        // return ipa string
+        return doubleSounds.get(soundIndex);
     }
 
-    public int getSoundResourceId(String doubleSoundIpa) {
+    int getSoundResourceId(String doubleSoundIpa) {
 
         // returns null if no value found
         if (hashMap.containsKey(doubleSoundIpa)){
@@ -136,7 +126,7 @@ public class DoubleSound {
     }
 
     // initialize the hashMap when new object created
-    private void initTreeMap() {
+    private void initMap() {
 
         hashMap = new LinkedHashMap<>();
 
@@ -957,8 +947,6 @@ public class DoubleSound {
         hashMap.put("ɛrl", R.raw.double_er_l);
         hashMap.put("ɪrl", R.raw.double_ir_l);
         hashMap.put("ɔrl", R.raw.double_or_l);
-
-
     }
 
 }

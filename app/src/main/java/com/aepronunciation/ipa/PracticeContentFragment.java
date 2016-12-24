@@ -182,9 +182,9 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
             String ipa;
             do {
                 if (practiceMode == SoundMode.Single) {
-                    ipa = singleSound.getRandomIpa(getActivity());
+                    ipa = singleSound.getRandomIpa();
                 } else {
-                    ipa = doubleSound.getRandomIpa(getActivity());
+                    ipa = doubleSound.getRandomIpa();
                 }
 
                 // allow repeated sounds for small population sizes
@@ -495,10 +495,8 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
                             chosenConsonants.size() == PhonemeTable.NUMBER_OF_CONSONANTS_FOR_DOUBLES)) {
                 // all or none selected
                 doubleSound.includeAllSounds();
-            } else if (chosenVowels.size()==0 || chosenConsonants.size() == 0 ||
-                    chosenVowels.size() == PhonemeTable.NUMBER_OF_VOWELS_FOR_DOUBLES ||
-                    chosenConsonants.size() == PhonemeTable.NUMBER_OF_CONSONANTS_FOR_DOUBLES ) {
-                // if all/none of one kind and a few of the other kind, then do inclusive match (any containing pair)
+            } else if (chosenVowels.size()==0 || chosenConsonants.size() == 0) {
+                // if none of one kind and a few of the other kind, then do inclusive match (any containing pair)
                 doubleSound.restrictListToPairsContainingAtLeastOneSoundFrom(chosenConsonants, chosenVowels);
             } else {
                 // if a few of both kinds, then do exact match (both members of pair must match)

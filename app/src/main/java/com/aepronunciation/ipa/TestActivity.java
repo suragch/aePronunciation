@@ -2,6 +2,7 @@ package com.aepronunciation.ipa;
 
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v4.app.FragmentTransaction;
@@ -50,6 +51,10 @@ public class TestActivity extends AppCompatActivity  implements KeyboardFragment
         transaction.replace(R.id.keyboard_frame, keyboardFragment);
         transaction.commit();
 
+        // disable rotation for smaller devices
+        if(getResources().getBoolean(R.bool.portrait_only)){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
     }
 
     // required method for KeyboardFragment.KeyboardListener

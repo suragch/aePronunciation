@@ -39,6 +39,7 @@
     <color name="keyboard_keys_pressed">@color/accent</color>
     <color name="keyboard_text_normal">@color/primary_text</color>
     <color name="keyboard_text_unselected">@color/disabled_text</color>
+    <color name="keyboard_text_secondary">@color/secondary_text</color>
     <color name="keyboard_keys_border">@color/light_grey</color>
 
     <!--<color name="keyboard_keys_unselected">@color/black</color>-->

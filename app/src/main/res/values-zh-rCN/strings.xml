@@ -37,7 +37,7 @@
     <string name="r_description">根据IPA,/r/应该写为/ɹ/.(IPA中的/r/实际上是颤音，就像蒙语中的\"r\").然而，为了与中国的课本和词典保持一致，在这里使用/r/。要注意/r/和/ʒ/的不同之处，也要注意英语中的/r/与汉语拼音中的\"r\"的不同之处。</string>
     <string name="h_description">在英语中，/h/音不会出现在单词词尾。注意英语中的/h/与汉语拼音中的\"h\"不同。</string>
     <string name="j_description">在英语中，/j/音不会出现在单词词尾。注意year和ear的不同之处。</string>
-    <string name="w_description">注意/w/和/v/的不同之处。读/w/音时，嘴唇要形成一个小圆且不要触碰牙齿。一小部分美国人将\"wh\"音发成/hw/(在IPA中是/M/)。</string>
+    <string name="w_description">注意/w/和/v/的不同之处。读/w/音时，嘴唇要形成一个小圆且不要触碰牙齿。一小部分美国人将\"wh\"音发成/hw/(在IPA中是/ʍ/)。</string>
     <string name="zh_description">/ʒ/和/ʃ/嘴型相同。唯一的不同之处就是/ʒ/是浊音。注意区别/r/和/ʒ/。</string>
     <string name="z_description">/z/和/s/嘴型相同。唯一的不同之处就是/z/是浊音。不要说成/dz/。英语中的/z/和汉语拼音中的“z”不同。</string>
     <string name="l_description">当/l/在单词开头时，它就是IPA本身。当它在单词词尾时发音有所不同。当它是IPA时写为/ɫ/，但在这个app中，/l/和/ɫ/同时被使用。（在许多课本和词典中也是如此）第二个例子也能写成/kuəl/,不要把最后俩个例子读成/kuo/或/bɪo/.你的嘴唇应该放松且不能移动。</string>

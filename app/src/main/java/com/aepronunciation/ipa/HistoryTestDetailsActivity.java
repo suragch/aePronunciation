@@ -1,6 +1,5 @@
 package com.aepronunciation.ipa;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -28,15 +27,7 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
     static final String STATE_SCROLL_POSITION = "scrollPosition";
 
     int savedPosition = 0;
-    //private static String userName;
-    //private static long timeLength;
-    //public static String testMode;
-    //private static int score;
     private TestResultsRecyclerViewAdapter adapter;
-
-    //private static StringBuilder wrong;
-    //private ListView listView;
-
     private static final int SRC_QUALITY = 0;
     private static final int PRIORITY = 1;
     private SoundPool soundPool = null;
@@ -48,8 +39,6 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
     TextView tvPercent;
     TextView tvNumberOfQuestions;
     SoundMode testMode;
-    //TextView tvCorrect;
-    //TextView tvWrong;
     TextView tvTime;
 
     @Override
@@ -70,8 +59,6 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
         tvDate = (TextView) findViewById(R.id.tvResultDate);
         tvPercent = (TextView) findViewById(R.id.tvResultPercent);
         tvNumberOfQuestions = (TextView) findViewById(R.id.tvResultNumberQuestions);
-        //tvCorrect = (Text View) findViewById(R.id.tvResultCorrect);
-        //tvWrong = (TextView) findViewById(R.id.tvResultWrong);
         tvTime = (TextView) findViewById(R.id.tvResultTime);
 
         // Get extras from Test Activity
@@ -82,8 +69,6 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
 
         singleSound = new SingleSound();
         doubleSound = new DoubleSound();
-        //wrong = new StringBuilder();
-
     }
 
 
@@ -107,32 +92,6 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-
-//        // Save the user's current game state
-//        int currentPosition = listView.getFirstVisiblePosition();
-//        savedInstanceState.putInt(STATE_SCROLL_POSITION,
-//                currentPosition);
-
-        // Always call the superclass so it can save the view hierarchy state
-        super.onSaveInstanceState(savedInstanceState);
-    }
-
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        // Always call the superclass so it can restore the view hierarchy
-        super.onRestoreInstanceState(savedInstanceState);
-
-        savedPosition = savedInstanceState
-                .getInt(STATE_SCROLL_POSITION);
-        //listView.setSelection(savedPosition);
-
-    }
-
-
-
-
-
-    @Override
     public void onItemClick(View view, int position) {
 
         Answer answer = adapter.getItem(position);
@@ -143,8 +102,8 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
         playSound(correctIpa);
         if (!correctIpa.equals(userIpa)) {
             int delay = 1000;
-            if (correctIpa.equals("l")) {
-                delay = 2000; // this sound needs a longer delay
+            if (PhonemeTable.INSTANCE.hasTwoPronunciations(correctIpa)) {
+                delay = 2000; // these sounds need a longer delay
             }
             // delay playing second sound
             Handler handler = new Handler();

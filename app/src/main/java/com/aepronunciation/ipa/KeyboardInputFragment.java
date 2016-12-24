@@ -140,11 +140,11 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
 
         mLongClickMap = new HashMap<Integer, String>();
 
-        mLongClickMap.put(R.id.key_i, getString(R.string.key_alt_i));
+        //mLongClickMap.put(R.id.key_i, getString(R.string.key_alt_i));
         mLongClickMap.put(R.id.key_e_short, getString(R.string.key_alt_e_short));
-        mLongClickMap.put(R.id.key_a, getString(R.string.key_alt_a));
+        //mLongClickMap.put(R.id.key_a, getString(R.string.key_alt_a));
         mLongClickMap.put(R.id.key_c_backwards, getString(R.string.key_alt_c_backwards));
-        mLongClickMap.put(R.id.key_u, getString(R.string.key_alt_u));
+        //mLongClickMap.put(R.id.key_u, getString(R.string.key_alt_u));
         mLongClickMap.put(R.id.key_ou, getString(R.string.key_alt_ou));
         mLongClickMap.put(R.id.key_er_stressed, getString(R.string.key_alt_er_stressed));
         mLongClickMap.put(R.id.key_er_unstressed, getString(R.string.key_alt_er_unstressed));

@@ -7,8 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -24,17 +22,6 @@ import static com.aepronunciation.ipa.MainActivity.TIME_TEST_SINGLE_KEY;
 
 public class HistoryActivity extends AppCompatActivity {
 
-//    protected static final String PREFS_NAME = "MyPrefsFile";
-//    protected static final String TIME_LEARN_SINGLE_KEY = "timeLearnSingle";
-//    protected static final String TIME_LEARN_DOUBLE_KEY = "timeLearnDouble";
-//    protected static final String TIME_PRACTICE_SINGLE_KEY = "timePracticeSingle";
-//    protected static final String TIME_PRACTICE_DOUBLE_KEY = "timePracticeDouble";
-//    protected static final String TIME_TEST_SINGLE_KEY = "timeTestSingle";
-//    protected static final String TIME_TEST_DOUBLE_KEY = "timeTestDouble";
-//    protected static final long TIME_DEFAULT = 0;
-
-    // TextView tvName;
-    // Spinner spinner;
     TextView tvHighSingle;
     TextView tvHighDouble;
 
@@ -70,10 +57,8 @@ public class HistoryActivity extends AppCompatActivity {
         // format in human readable
         tvTime.setText(TimeUtil.getTimeString(totalTime));
 
-
         // Get the high scores
         new GetHighScores().execute();
-
     }
 
     public void timeDetailsClick(View v) {
@@ -95,9 +80,7 @@ public class HistoryActivity extends AppCompatActivity {
         // handle arrow click here
         if (item.getItemId() == android.R.id.home) {
             finish(); // close this activity and return to preview activity (if there is any)
-
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -116,9 +99,7 @@ public class HistoryActivity extends AppCompatActivity {
             } catch (Exception e) {
                 //Log.i("app", e.toString());
             }
-
             return result;
-
         }
 
         @Override
@@ -138,6 +119,4 @@ public class HistoryActivity extends AppCompatActivity {
 
         }
     }
-
-
 }

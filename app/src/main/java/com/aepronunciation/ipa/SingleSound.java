@@ -31,23 +31,18 @@ public class SingleSound {
         }
     }
 
-    public String getRandomIpa(Context context) {
+    public String getRandomIpa() {
 
         // get single sounds string array
-        // this does not include schwa and unstressed er
         if (singleSounds == null) {
-            //singleSounds = context.getResources().getStringArray(
-            //        R.array.single_sounds);
             includeAllSounds();
         }
 
         // get random integer (0 <= x < numberOfSounds)
         int soundIndex = random.nextInt(singleSounds.size());
 
-        // translate integer to ipa string
-        String ipa = singleSounds.get(soundIndex);
-
-        return ipa;
+        // return ipa string
+        return singleSounds.get(soundIndex);
     }
 
     private void includeAllSounds() {
@@ -63,51 +58,6 @@ public class SingleSound {
         singleSounds.addAll(consonants);
         singleSounds.addAll(vowels);
     }
-
-//    public String getRandomVowelIpa(Context context) {
-//
-//        // this is where the vowels start in single_sounds array
-//        int VOWEL_INDEX_START = 24;
-//
-//        // get single sounds string array
-//        // this does not include schwa and unstressed er
-//        if (singleSounds == null) {
-//            singleSounds = context.getResources().getStringArray(
-//                    R.array.single_sounds);
-//        }
-//
-//        // formula: rand.nextInt((max - min) + 1) + min
-//        int soundIndex = random
-//                .nextInt(singleSounds.length - VOWEL_INDEX_START)
-//                + VOWEL_INDEX_START;
-//
-//        // translate integer to ipa string
-//        String ipa = singleSounds[soundIndex];
-//
-//        return ipa;
-//    }
-//
-//    public String getRandomConsonantIpa(Context context) {
-//
-//        // this is where the vowels start in single_sounds array
-//        // The consonants are before that
-//        int VOWEL_INDEX_START = 24;
-//
-//        // get single sounds string array
-//        // this does not include schwa and unstressed er
-//        if (singleSounds == null) {
-//            singleSounds = context.getResources().getStringArray(
-//                    R.array.single_sounds);
-//        }
-//
-//        // formula: rand.nextInt((max - min) + 1) + min
-//        int soundIndex = random.nextInt(VOWEL_INDEX_START);
-//
-//        // translate integer to ipa string
-//        String ipa = singleSounds[soundIndex];
-//
-//        return ipa;
-//    }
 
     public int getSoundResourceId(String singleSoundIpa) {
 

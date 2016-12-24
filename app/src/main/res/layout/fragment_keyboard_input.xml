@@ -24,10 +24,10 @@
                 style="@style/AppTheme.KeyTextStyle"
                 android:text="@string/key_i" />
 
-            <com.aepronunciation.ipa.IpaTextView
-                android:id="@+id/tvKey_alt_i"
-                style="@style/AppTheme.LongPressKeyTextStyle"
-                android:text="@string/key_alt_i" />
+            <!--<com.aepronunciation.ipa.IpaTextView-->
+                <!--android:id="@+id/tvKey_alt_i"-->
+                <!--style="@style/AppTheme.LongPressKeyTextStyle"-->
+                <!--android:text="@string/key_alt_i" />-->
 
         </RelativeLayout>
 
@@ -79,10 +79,10 @@
                 style="@style/AppTheme.KeyTextStyle"
                 android:text="@string/key_a" />
 
-            <com.aepronunciation.ipa.IpaTextView
-                android:id="@+id/tvKey_alt_a"
-                style="@style/AppTheme.LongPressKeyTextStyle"
-                android:text="@string/key_alt_a" />
+            <!--<com.aepronunciation.ipa.IpaTextView-->
+                <!--android:id="@+id/tvKey_alt_a"-->
+                <!--style="@style/AppTheme.LongPressKeyTextStyle"-->
+                <!--android:text="@string/key_alt_a" />-->
         </RelativeLayout>
 
         <RelativeLayout
@@ -122,10 +122,10 @@
                 style="@style/AppTheme.KeyTextStyle"
                 android:text="@string/key_u" />
 
-            <com.aepronunciation.ipa.IpaTextView
-                android:id="@+id/tvKey_alt_u"
-                style="@style/AppTheme.LongPressKeyTextStyle"
-                android:text="@string/key_alt_u" />
+            <!--<com.aepronunciation.ipa.IpaTextView-->
+                <!--android:id="@+id/tvKey_alt_u"-->
+                <!--style="@style/AppTheme.LongPressKeyTextStyle"-->
+                <!--android:text="@string/key_alt_u" />-->
         </RelativeLayout>
 
         <RelativeLayout

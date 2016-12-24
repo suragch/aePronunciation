@@ -9,23 +9,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
-                  android:launchMode="singleTop">
+                  android:launchMode="singleTop"
+                  android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LearnDoubleActivity"
-                  android:label="@string/title_activity_learn_double"
-                  android:parentActivityName=".MainActivity" >
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-            >
-        </activity>
         <activity android:name=".KeyboardInputActivity"
+                  android:windowSoftInputMode="stateHidden"
                   android:label="@string/title_activity_keyboard_input"
                   android:parentActivityName=".MainActivity" >
             <meta-data

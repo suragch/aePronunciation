@@ -31,14 +31,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="Time Learning" />
+                android:text="@string/history_time_details_learning" />
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvTimeLearning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="28 minutes" />
+                android:layout_marginLeft="10dp" />
         </TableRow>
 
         <TableRow
@@ -49,14 +48,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Singles" />
+                android:text="@string/history_time_details_type_single" />
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvTimeLearningSingles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="20 minutes" />
+                android:layout_marginLeft="10dp" />
         </TableRow>
 
         <TableRow
@@ -67,14 +65,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Doubles" />
+                android:text="@string/history_time_details_type_double" />
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvTimeLearningDoubles"
                 android:layout_width="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_height="wrap_content"
-                android:text="8 minutes" />
+                android:layout_height="wrap_content" />
         </TableRow>
 
         <TableRow
@@ -87,14 +84,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="Time Practicing" />
+                android:text="@string/history_time_details_practicing" />
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvTimePracticing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="50 minutes" />
+                android:layout_marginLeft="10dp" />
         </TableRow>
 
         <TableRow
@@ -105,14 +101,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Singles" />
+                android:text="@string/history_time_details_type_single" />
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvTimePracticingSingles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="30 minutes" />
+                android:layout_marginLeft="10dp" />
         </TableRow>
 
         <TableRow
@@ -123,14 +118,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Doubles" />
+                android:text="@string/history_time_details_type_double" />
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvTimePracticingDoubles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="20 minutes" />
+                android:layout_marginLeft="10dp" />
         </TableRow>
 
         <TableRow
@@ -143,14 +137,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="Time Testing" />
+                android:text="@string/history_time_details_testing" />
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvTimeTesting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="2 hours" />
+                android:layout_marginLeft="10dp" />
         </TableRow>
 
         <TableRow
@@ -161,14 +154,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Singles" />
+                android:text="@string/history_time_details_type_single" />
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvTimeTestingSingles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="1 hour" />
+                android:layout_marginLeft="10dp" />
         </TableRow>
 
         <TableRow
@@ -179,14 +171,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Doubles" />
+                android:text="@string/history_time_details_type_double" />
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvTimeTestingDoubles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="1 hour" />
+                android:layout_marginLeft="10dp" />
         </TableRow>
 
         <TableRow
@@ -199,14 +190,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="Total Time" />
+                android:text="@string/history_time_details_total" />
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvTotalTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="3 hours 24 minutes" />
+                android:layout_marginLeft="10dp" />
         </TableRow>
     </TableLayout>
 

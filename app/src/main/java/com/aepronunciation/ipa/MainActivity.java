@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager viewPager;
-    //CustomPagerAdapter adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         CustomPagerAdapter adapter = new CustomPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        viewPager.setOffscreenPageLimit(2);
         tabLayout.addOnTabSelectedListener(tabListener);
 
         // disable rotation for smaller devices
@@ -169,12 +168,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void practiceDifficultSounds(SoundMode numberSounds,
-                                        ArrayList<String> chosenVowels,
-                                        ArrayList<String> chosenConsonants) {
-
-
-    }
+//    public void practiceDifficultSounds(SoundMode numberSounds,
+//                                        ArrayList<String> chosenVowels,
+//                                        ArrayList<String> chosenConsonants) {
+//
+//
+//    }
 
     @Override
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {

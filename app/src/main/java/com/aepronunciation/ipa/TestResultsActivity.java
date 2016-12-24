@@ -19,6 +19,7 @@ import java.text.DateFormat;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -119,6 +120,12 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
             totalNumber *= 2;
         }
         score = (numberCorrect * 100) / totalNumber; // round down
+
+        // hide practice button if all correct
+        if (numberCorrect == totalNumber) {
+            RelativeLayout practiceButton = (RelativeLayout) findViewById(R.id.rlPracticeDifficultButton);
+            practiceButton.setVisibility(View.INVISIBLE);
+        }
 
         // get date/time
         Locale locale = Locale.US; // default
@@ -290,8 +297,8 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         playSound(correctIpa);
         if (!correctIpa.equals(userIpa)) {
             int delay = 1000;
-            if (correctIpa.equals("l")) {
-                delay = 2000; // this sound needs a longer delay
+            if (PhonemeTable.INSTANCE.hasTwoPronunciations(correctIpa)) {
+                delay = 2000; // these sounds need a longer delay
             }
             // delay playing second sound
             Handler handler = new Handler();
@@ -303,7 +310,6 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         }
     }
 
-    // call: new AddTestToDb().execute();
     private class AddTestToDb extends AsyncTask<Void, Void, Void> {
 
         @Override

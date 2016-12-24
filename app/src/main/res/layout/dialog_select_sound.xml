@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="10dp">
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/select_sounds_radio_group"
@@ -10,39 +12,44 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/rounded_outline"
-                android:paddingRight="5dp"
-                android:orientation="vertical">
-        <RadioButton android:id="@+id/radio_single"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/select_sounds_radio_single"/>
-        <RadioButton android:id="@+id/radio_double"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:text="@string/select_sounds_radio_double"/>
+                android:orientation="vertical"
+                android:paddingRight="5dp">
+
+        <RadioButton
+            android:id="@+id/radio_single"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_sounds_radio_single"/>
+
+        <RadioButton
+            android:id="@+id/radio_double"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_sounds_radio_double"/>
     </RadioGroup>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
+        android:baselineAligned="false"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/rounded_outline"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <CheckBox
-                android:text="@string/select_sounds_cb_vowels"
+                android:id="@+id/cbVowels"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:id="@+id/cbVowels"/>
+                android:text="@string/select_sounds_cb_vowels"/>
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -55,151 +62,151 @@
                     android:orientation="vertical">
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_i"
+                        android:id="@+id/cb_i"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_i"/>
+                        android:text="@string/key_i"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_i_short"
+                        android:id="@+id/cb_i_short"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_i_short"/>
+                        android:text="@string/key_i_short"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_e_short"
+                        android:id="@+id/cb_e_short"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_e_short"/>
+                        android:text="@string/key_e_short"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_ae"
+                        android:id="@+id/cb_ae"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_ae"/>
+                        android:text="@string/key_ae"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_a"
+                        android:id="@+id/cb_a"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_a"/>
+                        android:text="@string/key_a"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_c_backwards"
+                        android:id="@+id/cb_c_backwards"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_c_backwards"/>
+                        android:text="@string/key_c_backwards"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_u_short"
+                        android:id="@+id/cb_u_short"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_u_short"/>
+                        android:text="@string/key_u_short"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_u"
+                        android:id="@+id/cb_u"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_u"/>
+                        android:text="@string/key_u"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_v_upsidedown"
+                        android:id="@+id/cb_v_upsidedown"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_v_upsidedown"/>
+                        android:text="@string/key_v_upsidedown"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_shwua"
+                        android:id="@+id/cb_shwua"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_shwua"/>
+                        android:text="@string/key_shwua"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_ei"
+                        android:id="@+id/cb_ei"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_ei"/>
+                        android:text="@string/key_ei"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_ai"
+                        android:id="@+id/cb_ai"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_ai"/>
+                        android:text="@string/key_ai"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_au"
+                        android:id="@+id/cb_au"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_au"/>
+                        android:text="@string/key_au"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_oi"
+                        android:id="@+id/cb_oi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_oi"/>
+                        android:text="@string/key_oi"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_ou"
+                        android:id="@+id/cb_ou"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_ou"/>
+                        android:text="@string/key_ou"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_er_stressed"
+                        android:id="@+id/cb_er_stressed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_er_stressed"/>
+                        android:text="@string/key_er_stressed"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_er_unstressed"
+                        android:id="@+id/cb_er_unstressed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_er_unstressed"/>
+                        android:text="@string/key_er_unstressed"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_ar"
+                        android:id="@+id/cb_ar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_ar"/>
+                        android:text="@string/key_ar"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_er"
+                        android:id="@+id/cb_er"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_er"/>
+                        android:text="@string/key_er"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_ir"
+                        android:id="@+id/cb_ir"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_ir"/>
+                        android:text="@string/key_ir"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_or"
+                        android:id="@+id/cb_or"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_or"/>
+                        android:text="@string/key_or"/>
 
 
                 </LinearLayout>
@@ -209,15 +216,15 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <CheckBox
-                android:text="@string/select_sounds_cb_consonants"
+                android:id="@+id/cbConsonants"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:id="@+id/cbConsonants"/>
+                android:text="@string/select_sounds_cb_consonants"/>
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -230,194 +237,192 @@
                     android:orientation="vertical">
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_p"
+                        android:id="@+id/cb_p"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_p"/>
+                        android:text="@string/key_p"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_b"
+                        android:id="@+id/cb_b"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_b"/>
+                        android:text="@string/key_b"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_t"
+                        android:id="@+id/cb_t"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_t"/>
+                        android:text="@string/key_t"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_d"
+                        android:id="@+id/cb_d"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_d"/>
+                        android:text="@string/key_d"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_k"
+                        android:id="@+id/cb_k"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_k"/>
+                        android:text="@string/key_k"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_g"
+                        android:id="@+id/cb_g"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_g"/>
+                        android:text="@string/key_g"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_ch"
+                        android:id="@+id/cb_ch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_ch"/>
+                        android:text="@string/key_ch"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_dzh"
+                        android:id="@+id/cb_dzh"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_dzh"/>
+                        android:text="@string/key_dzh"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_f"
+                        android:id="@+id/cb_f"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_f"/>
+                        android:text="@string/key_f"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_v"
+                        android:id="@+id/cb_v"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_v"/>
+                        android:text="@string/key_v"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_th_voiceless"
+                        android:id="@+id/cb_th_voiceless"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_th_voiceless"/>
+                        android:text="@string/key_th_voiceless"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_th_voiced"
+                        android:id="@+id/cb_th_voiced"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_th_voiced"/>
+                        android:text="@string/key_th_voiced"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_s"
+                        android:id="@+id/cb_s"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_s"/>
+                        android:text="@string/key_s"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_z"
+                        android:id="@+id/cb_z"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_z"/>
+                        android:text="@string/key_z"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_sh"
+                        android:id="@+id/cb_sh"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_sh"/>
+                        android:text="@string/key_sh"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_zh"
+                        android:id="@+id/cb_zh"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_zh"/>
+                        android:text="@string/key_zh"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_m"
+                        android:id="@+id/cb_m"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_m"/>
+                        android:text="@string/key_m"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_n"
+                        android:id="@+id/cb_n"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_n"/>
+                        android:text="@string/key_n"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_ng"
+                        android:id="@+id/cb_ng"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_ng"/>
+                        android:text="@string/key_ng"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_l"
+                        android:id="@+id/cb_l"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_l"/>
+                        android:text="@string/key_l"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_w"
+                        android:id="@+id/cb_w"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_w"/>
+                        android:text="@string/key_w"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_j"
+                        android:id="@+id/cb_j"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_j"/>
+                        android:text="@string/key_j"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_h"
+                        android:id="@+id/cb_h"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_h"/>
+                        android:text="@string/key_h"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_r"
+                        android:id="@+id/cb_r"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_r"/>
+                        android:text="@string/key_r"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_glottal_stop"
+                        android:id="@+id/cb_glottal_stop"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_glottal_stop"/>
+                        android:text="@string/key_glottal_stop"/>
 
                     <com.aepronunciation.ipa.IpaCheckBox
-                        android:text="@string/key_flap_t"
+                        android:id="@+id/cb_flap_t"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:id="@+id/cb_flap_t"/>
+                        android:text="@string/key_flap_t"/>
 
                 </LinearLayout>
             </ScrollView>
 
         </LinearLayout>
     </LinearLayout>
-
-
 
 
 </LinearLayout>

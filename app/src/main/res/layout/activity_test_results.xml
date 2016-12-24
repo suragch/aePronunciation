@@ -72,7 +72,7 @@
             <!-- Then send to practice tab and practice both right and wrong from sounds wrong -->
 
             <RelativeLayout
-                android:id="@+id/tryAgainButtonLayout"
+                android:id="@+id/rlPracticeDifficultButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

@@ -11,6 +11,7 @@ public class PhonemeTable {
     private static final int P_CONSONANT = 2;
     private static final int P_SPECIAL = 4;
     private static final int P_UNSTRESSED = 8;
+    private static final int P_INITIAL_FINAL = 16;
 
     public static final int NUMBER_OF_VOWELS = 21;
     public static final int NUMBER_OF_VOWELS_FOR_DOUBLES = 19; // not ə, ɚ
@@ -39,6 +40,10 @@ public class PhonemeTable {
 
     public boolean isSpecial(String s) {
         return (getFlags(s) & P_SPECIAL) != 0;
+    }
+
+    public boolean hasTwoPronunciations(String s) {
+        return (getFlags(s) & P_INITIAL_FINAL) != 0;
     }
 
 
@@ -88,22 +93,22 @@ public class PhonemeTable {
         soundFlagsMap.put("t", P_CONSONANT);
         soundFlagsMap.put("k", P_CONSONANT);
         soundFlagsMap.put("ʧ", P_CONSONANT);
-        soundFlagsMap.put("f", P_CONSONANT);
-        soundFlagsMap.put("θ", P_CONSONANT);
+        soundFlagsMap.put("f", P_CONSONANT | P_INITIAL_FINAL);
+        soundFlagsMap.put("θ", P_CONSONANT | P_INITIAL_FINAL);
         soundFlagsMap.put("s", P_CONSONANT);
         soundFlagsMap.put("ʃ", P_CONSONANT);
         soundFlagsMap.put("b", P_CONSONANT);
         soundFlagsMap.put("d", P_CONSONANT);
         soundFlagsMap.put("g", P_CONSONANT);
         soundFlagsMap.put("ʤ", P_CONSONANT);
-        soundFlagsMap.put("v", P_CONSONANT);
-        soundFlagsMap.put("ð", P_CONSONANT);
+        soundFlagsMap.put("v", P_CONSONANT | P_INITIAL_FINAL);
+        soundFlagsMap.put("ð", P_CONSONANT | P_INITIAL_FINAL);
         soundFlagsMap.put("z", P_CONSONANT);
         soundFlagsMap.put("ʒ", P_CONSONANT);
-        soundFlagsMap.put("m", P_CONSONANT);
-        soundFlagsMap.put("n", P_CONSONANT);
+        soundFlagsMap.put("m", P_CONSONANT | P_INITIAL_FINAL);
+        soundFlagsMap.put("n", P_CONSONANT | P_INITIAL_FINAL);
         soundFlagsMap.put("ŋ", P_CONSONANT);
-        soundFlagsMap.put("l", P_CONSONANT);
+        soundFlagsMap.put("l", P_CONSONANT | P_INITIAL_FINAL);
         soundFlagsMap.put("w", P_CONSONANT);
         soundFlagsMap.put("j", P_CONSONANT);
         soundFlagsMap.put("h", P_CONSONANT);
