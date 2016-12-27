@@ -9,9 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -26,31 +24,24 @@ import static com.aepronunciation.ipa.MainActivity.TEST_RESULTS_RESULT;
 
 public class TestFragment extends Fragment implements View.OnClickListener {
 
-    protected static final String DEFAULT_NAME = "Me";
     protected static final String DEFAULT_QUESTIONS = "50";
-    //protected static final String DOUBLE_MODE = "double";
-    //protected static final String SINGLE_MODE = "single";
-    //protected static final String DEFAULT_MODE = SINGLE_MODE;
 
     private EditText etName;
     private Spinner spinner;
     RadioButton rbSingle;
-    //RadioButton rbDouble;
     SharedPreferences settings;
-    Button rlBeginButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-
         View view = inflater.inflate(R.layout.tab_fragment_test, container, false);
 
-        SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-
         // setup name
-        String name = settings.getString(TEST_NAME_KEY, DEFAULT_NAME);
+        SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        String defaultName = getString(R.string.test_default_name);
+        String name = settings.getString(TEST_NAME_KEY, defaultName);
         etName = (EditText)  view.findViewById(R.id.etName);
-        if (!name.equals(DEFAULT_NAME)) {
+        if (!name.equals(defaultName)) {
             etName.setText(name);
             etName.clearFocus();
         }
@@ -64,8 +55,6 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         } else { // default
             rbSingle.setChecked(true);
         }
-
-
 
         // Setup spinner
         spinner = (Spinner)  view.findViewById(R.id.spinnerQuestions);
@@ -91,7 +80,7 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         String name = etName.getText().toString();
         name = name.trim(); // remove any extra spaces
         if (TextUtils.isEmpty(name)) {
-            name = DEFAULT_NAME;
+            name = getString(R.string.test_default_name);
         }
 
         // Number of questions
@@ -111,7 +100,7 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         editor.putString(NUMBER_OF_QUESTIONS_KEY, questions);
         editor.putString(TEST_MODE_KEY, testModeString);
         editor.putString(TEST_NAME_KEY, name);
-        editor.commit();
+        editor.apply();
 
         // Start test activity
         Intent intent = new Intent(getActivity(), TestActivity.class);

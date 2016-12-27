@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--<color name="primary">#212121</color>-->
-    <!--<color name="primary_dark">#000000</color>-->
-    <!--<color name="primary_light">#424242</color>-->
-    <!--<color name="accent">#4caf50</color>-->
-    <!--<color name="primary_text">#212121</color>-->
-    <!--<color name="secondary_text">#757575</color>-->
-    <!--<color name="icons">#FFFFFF</color>-->
-    <!--<color name="divider">#BDBDBD</color>-->
-
-
     <color name="primary">#3F51B5</color>
     <color name="primary_dark">#303F9F</color>
     <color name="primary_light">#C5CAE9</color>
@@ -21,8 +11,6 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#1F000000</color>
 
-
-
     <!-- other colors -->
     <color name="clear">#00000000</color>
     <color name="white">#ffffffff</color>
@@ -32,8 +20,6 @@
     <color name="light_grey">#ffacacac</color>
     <color name="very_light_grey">#ffe4e4e4</color>
 
-
-
     <color name="keyboard_background">@color/clear</color>
     <color name="keyboard_keys_normal">@color/clear</color>
     <color name="keyboard_keys_pressed">@color/accent</color>
@@ -41,8 +27,6 @@
     <color name="keyboard_text_unselected">@color/disabled_text</color>
     <color name="keyboard_text_secondary">@color/secondary_text</color>
     <color name="keyboard_keys_border">@color/light_grey</color>
-
-    <!--<color name="keyboard_keys_unselected">@color/black</color>-->
 
     <color name="input_window_bg">@color/clear</color>
     <color name="input_window_border">@color/black</color>

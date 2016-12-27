@@ -3,19 +3,13 @@ package com.aepronunciation.ipa;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.content.res.Resources;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.StringTokenizer;
-
-import static com.aepronunciation.ipa.MainActivity.TEST_MODE_KEY;
 
 public class KeyboardInputFragment extends Fragment implements OnClickListener, View.OnLongClickListener {
 
@@ -28,8 +22,8 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
 
     // Container Activity must implement this interface
     public interface KeyboardInputListener {
-        public void onKeyTouched(String keyString);
-        public void onBackspace();
+        void onKeyTouched(String keyString);
+        void onBackspace();
     }
 
     @Override
@@ -39,15 +33,11 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
         initializeMaps();
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_keyboard_input, container, false);
-
-
 
         // Add listeners for all keys
         for (int id : mClickMap.keySet()) {
@@ -81,7 +71,7 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
     private void initializeMaps() {
 
         // Initialize keyboard key values
-        mClickMap = new HashMap<Integer, String>();
+        mClickMap = new HashMap<>();
 
         mClickMap.put(R.id.key_i, getString(R.string.key_i));
         mClickMap.put(R.id.key_i_short, getString(R.string.key_i_short));
@@ -138,13 +128,10 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
         mClickMap.put(R.id.key_long_vowel, getString(R.string.key_long_vowel));
         mClickMap.put(R.id.key_return, getString(R.string.key_return));
 
-        mLongClickMap = new HashMap<Integer, String>();
+        mLongClickMap = new HashMap<>();
 
-        //mLongClickMap.put(R.id.key_i, getString(R.string.key_alt_i));
         mLongClickMap.put(R.id.key_e_short, getString(R.string.key_alt_e_short));
-        //mLongClickMap.put(R.id.key_a, getString(R.string.key_alt_a));
         mLongClickMap.put(R.id.key_c_backwards, getString(R.string.key_alt_c_backwards));
-        //mLongClickMap.put(R.id.key_u, getString(R.string.key_alt_u));
         mLongClickMap.put(R.id.key_ou, getString(R.string.key_alt_ou));
         mLongClickMap.put(R.id.key_er_stressed, getString(R.string.key_alt_er_stressed));
         mLongClickMap.put(R.id.key_er_unstressed, getString(R.string.key_alt_er_unstressed));
@@ -157,10 +144,8 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
         mLongClickMap.put(R.id.key_h, getString(R.string.key_alt_h));
         mLongClickMap.put(R.id.key_r, getString(R.string.key_alt_r));
         mLongClickMap.put(R.id.key_brackets, getString(R.string.key_right_bracket));
+        mLongClickMap.put(R.id.key_slash, getString(R.string.key_undertie));
         mLongClickMap.put(R.id.key_stress, getString(R.string.key_secondary_stress));
-
-
-
     }
 
     private OnClickListener backspaceClick = new OnClickListener() {
@@ -174,7 +159,6 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
     public void onClick(View v) {
         mListener.onKeyTouched(mClickMap.get(v.getId()));
     }
-
 
     @Override
     public boolean onLongClick(View view) {

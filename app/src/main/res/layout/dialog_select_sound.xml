@@ -208,7 +208,6 @@
                         android:checked="true"
                         android:text="@string/key_or"/>
 
-
                 </LinearLayout>
             </ScrollView>
         </LinearLayout>

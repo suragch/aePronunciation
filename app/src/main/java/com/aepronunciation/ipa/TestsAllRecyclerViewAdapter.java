@@ -2,24 +2,18 @@ package com.aepronunciation.ipa;
 
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 
-public class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRecyclerViewAdapter.ViewHolder> {
+class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRecyclerViewAdapter.ViewHolder> {
 
     private ArrayList<Test> mData;
     private LayoutInflater mInflater;
@@ -27,7 +21,7 @@ public class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRe
     private Context mContext;
 
     // data is passed into the constructor
-    public TestsAllRecyclerViewAdapter(Context context, ArrayList<Test> data) {
+    TestsAllRecyclerViewAdapter(Context context, ArrayList<Test> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.mContext = context;
@@ -37,8 +31,7 @@ public class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRe
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item_rv_all_tests, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+        return new ViewHolder(view);
     }
 
     // binds the data to the textview in each row
@@ -80,7 +73,7 @@ public class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRe
 
 
     // stores and recycles views as they are scrolled off screen
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         IpaTextView tvNumber;
         IpaTextView tvUserName;
@@ -90,7 +83,7 @@ public class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRe
         //IpaTextView tvNumberOfQuestions;
         //IpaTextView tvWrong;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             tvNumber = (IpaTextView) itemView.findViewById(R.id.tvRvItemTestNumber);
             tvUserName = (IpaTextView) itemView.findViewById(R.id.tvRvItemTestUserName);
@@ -108,17 +101,17 @@ public class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRe
     }
 
     // convenience method for getting data at click position
-    public Test getItem(int id) {
+    Test getItem(int id) {
         return mData.get(id);
     }
 
     // allows clicks events to be caught
-    public void setClickListener(ItemClickListener itemClickListener) {
+    void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 
     // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
+    interface ItemClickListener {
         void onItemClick(View view, int position);
     }
 }

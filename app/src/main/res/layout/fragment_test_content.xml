@@ -43,8 +43,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/button"
-            android:clickable="true"
-            android:onClick="playClick"
             android:padding="15dp" >
 
             <ImageView
@@ -85,7 +83,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_margin="5dp"
-        android:text="37"
         android:textSize="20sp" />
 
     <!-- Label for Single/Double test mode -->

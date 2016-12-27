@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int LEARN_TAB_POSITION = 0;
     private static final int PRACTICE_TAB_POSITION = 1;
-    private static final int TEST_TAB_POSITION = 2;
+    //private static final int TEST_TAB_POSITION = 2;
 
     public static final int TEST_RESULTS_RESULT = 0;
 
@@ -168,13 +168,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    public void practiceDifficultSounds(SoundMode numberSounds,
-//                                        ArrayList<String> chosenVowels,
-//                                        ArrayList<String> chosenConsonants) {
-//
-//
-//    }
-
     @Override
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
 
@@ -203,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
 
         int mNumOfTabs;
 
-        public CustomPagerAdapter(FragmentManager fm, int NumOfTabs) {
+        CustomPagerAdapter(FragmentManager fm, int NumOfTabs) {
             super(fm);
             this.mNumOfTabs = NumOfTabs;
         }

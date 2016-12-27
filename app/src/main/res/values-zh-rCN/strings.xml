@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
-
     <string-array name="listvalues">
         <item>5</item>
         <item>10</item>
@@ -59,7 +57,6 @@
     <string name="b_description">特别注意/b/在单词词尾的发音，注意第三个例子不要读成/rɪbə/或者是/rɪp/。</string>
     <string name="p_description">位于单词词首时是送气音，但在字母s后和单词词胃时不是送气音。注意不要读成第三个例子/stapə/。</string>
     <string name="app_name">美式发音</string>
-    <string name="app_name_short">美式发音</string>
     <string name="main_menu_keyboard">输入音标</string>
     <string name="main_menu_about">关于应用</string>
     <string name="main_menu_history">历史记录</string>
@@ -121,5 +118,12 @@
     <string name="history_tests_type_single">单音标： %1$d%%</string>
     <string name="history_test_details_specific_test_number_of_questions">数量： %1$d</string>
     <string name="about_app_version">版本%1$s</string>
+    <string name="history_time_details_learning">学习时长</string>
+    <string name="history_time_details_practicing">练习时长</string>
+    <string name="history_time_details_testing">考试时长</string>
+    <string name="history_time_details_total">总时长</string>
+    <string name="history_time_details_type_double">双音标</string>
+    <string name="history_time_details_type_single">单音标</string>
+    <string name="test_default_name">无名</string>
 
 </resources>

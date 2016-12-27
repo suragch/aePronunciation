@@ -9,36 +9,31 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class Wrong {
+class Wrong {
 
-    // TODO
-    private String ipa;
-    private int frequency;
-    private String substitutes;
+    // TODO This class is not being used for much and could be removed.
 
     // constructor
-    public Wrong() {
-        ;
-    }
+    Wrong() {}
 
     /*
      * @param String contat is in the form of wrongIpa ; substitute , wrongIpa ;
      * substitute , ...
      */
-    public String getIpaSortedByFrequency(String concat) {
+    String getIpaSortedByFrequency(String concat) {
 
-        Map<String, Integer> ipaMap = new HashMap<String, Integer>();
+        Map<String, Integer> ipaMap = new HashMap<>();
 
         // parse string and put it in a frequency map
         boolean matchFound = false;
-        String[] wrongList = concat.toString().split(",");
-        String[] item = new String[2];
-        for (int i = 0; i < wrongList.length; i++) {
-            item = wrongList[i].split(";");
+        String[] wrongList = concat.split(",");
+        String[] pair = new String[2];
+        for (String item : wrongList) {
+            pair = item.split(";");
             // item[0] is correct answer (that was gotten wrong)
             // item[1] is substitute (wrong guess)
             for (Map.Entry<String, Integer> entry : ipaMap.entrySet()) {
-                if (entry.getKey().equals(item[0])) {
+                if (entry.getKey().equals(pair[0])) {
                     // increment frequency
                     ipaMap.put(entry.getKey(), entry.getValue() + 1);
                     matchFound = true;
@@ -49,7 +44,7 @@ public class Wrong {
                 matchFound = false;
             } else {
                 // if no matches then add new ipa to list
-                ipaMap.put(item[0], 1);
+                ipaMap.put(pair[0], 1);
             }
         }
 
@@ -59,13 +54,11 @@ public class Wrong {
         boolean firstLoop = true;
         for (Map.Entry<String, Integer> entry : sorted.entrySet()) {
             if (firstLoop) {
-                returnString.append(entry.getKey() + "(" + entry.getValue()
-                        + ")");
+                returnString.append(entry.getKey()).append("(").append(entry.getValue()).append(")");
                 firstLoop = false;
             } else {
                 returnString.append(", ");
-                returnString.append(entry.getKey() + "(" + entry.getValue()
-                        + ")");
+                returnString.append(entry.getKey()).append("(").append(entry.getValue()).append(")");
             }
         }
 
@@ -77,7 +70,7 @@ public class Wrong {
      * NullPointerException if Map contains null values It also sort values even
      * if they are duplicates
      */
-    public static <K extends Comparable, V extends Comparable> Map<K, V> sortByValues(
+    private static <K extends Comparable, V extends Comparable> Map<K, V> sortByValues(
             Map<K, V> map) {
         List<Map.Entry<K, V>> entries = new LinkedList<Map.Entry<K, V>>(
                 map.entrySet());

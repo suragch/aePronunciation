@@ -11,7 +11,6 @@ import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -21,7 +20,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,22 +28,15 @@ import java.util.ArrayList;
 import static android.content.Context.MODE_PRIVATE;
 import static com.aepronunciation.ipa.MainActivity.PRACTICE_MODE_IS_SINGLE_KEY;
 import static com.aepronunciation.ipa.MainActivity.PREFS_NAME;
-import static com.aepronunciation.ipa.MainActivity.TIME_DEFAULT;
-import static com.aepronunciation.ipa.MainActivity.TIME_PRACTICE_DOUBLE_KEY;
 
 public class PracticeContentFragment extends Fragment implements View.OnClickListener,
         SoundPool.OnLoadCompleteListener, SelectSoundDialogFragment.SelectSoundDialogListener {
 
 
     public interface PracticeScreenListener {
-        public void updateKeyboardKeysFor(SoundMode mode);
-        public void updateKeyboardKeySelectionFor(ArrayList<String> selectedSounds);
+        void updateKeyboardKeysFor(SoundMode mode);
+        void updateKeyboardKeySelectionFor(ArrayList<String> selectedSounds);
     }
-
-//    static final String STATE_READY_FOR_NEW_SOUND = "ready";
-//    static final String STATE_IPA = "ipaSymbol";
-//    static final String STATE_ALLOWED_SOUND = "allowedSounds";
-//    static final int SETTINGS_CODE = 1000;
 
     private PracticeScreenListener mListener;
     private SingleSound singleSound;
@@ -62,8 +53,6 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
     private static final int PRIORITY = 1;
     private SoundPool soundPool = null;
     boolean readyForNewSound = true;
-    long startTime;
-    SharedPreferences settings;
     private SoundMode practiceMode = SoundMode.Single;
     private int numberCorrect = 0;
     private int numberWrong = 0;
@@ -72,12 +61,7 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
     ArrayList<String> previouslyChosenVowels;
     ArrayList<String> previouslyChosenConsonants;
 
-    // single only keys
-
     static final int MINIMUM_POPULATION_SIZE_FOR_WHICH_REPEATS_NOT_ALLOWED = 4;
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,8 +77,6 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         tvWrong = (TextView) layout.findViewById(R.id.tvPracticeNumberWrong);
         singleSound = new SingleSound();
         doubleSound = new DoubleSound();
-        //allowedSounds = PhonemeTable.INSTANCE.getAllVowelsWithoutUnstressed();
-        //allowedSounds.addAll(PhonemeTable.INSTANCE.getAllConsonants());
         RelativeLayout rlPlayButton = (RelativeLayout) layout.findViewById(R.id.playButtonLayout);
         RelativeLayout rlSettingsButton = (RelativeLayout) layout.findViewById(R.id.settingsButtonLayout);
         RelativeLayout rlTellMeButton = (RelativeLayout) layout.findViewById(R.id.tellMeButtonLayout);
@@ -130,35 +112,17 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
 
     @Override
     public void onResume() {
-
-        // start timing
-        // TODO do different timings for single double
-        //startTime = System.nanoTime();
-
         soundPool = new SoundPool(2, AudioManager.STREAM_MUSIC, SRC_QUALITY);
         soundPool.setOnLoadCompleteListener(this);
-
         super.onResume();
     }
 
     @Override
     public void onPause() {
-
-        // Increment stored time by elapsed time
-        // TODO do different timings for single double
-//        settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-//        long formerTime = settings
-//                .getLong(TIME_PRACTICE_DOUBLE_KEY, TIME_DEFAULT);
-//        long elapsedTime = System.nanoTime() - startTime;
-//        SharedPreferences.Editor editor = settings.edit();
-//        editor.putLong(TIME_PRACTICE_DOUBLE_KEY, formerTime + elapsedTime);
-//        editor.commit();
-
         if (soundPool != null) {
             soundPool.release();
             soundPool = null;
         }
-
         super.onPause();
     }
 
@@ -206,7 +170,6 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         }
 
         playSound(currentIpa);
-
     }
 
     public void tellMeClick() {
@@ -282,12 +245,11 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         }
 
         updateStatLabels();
-
     }
 
     private void playSound(String ipaSound) {
 
-        int soundId = -1;
+        int soundId;
         if (practiceMode == SoundMode.Single) {
 
             soundId = singleSound.getSoundResourceId(ipaSound);
@@ -316,7 +278,6 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
 
         // load (and play) sound
         soundPool.load(getActivity(), soundId, PRIORITY);
-
     }
 
 
@@ -334,7 +295,6 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         } else {
             tvPracticeMode.setText(getString(R.string.practice_mode_double));
         }
-
     }
 
     private void updateStatLabels() {
@@ -453,7 +413,7 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
 
         // update keyboard
         mListener.updateKeyboardKeysFor(practiceMode);
-        ArrayList<String> allChosenSounds = new ArrayList<String>();
+        ArrayList<String> allChosenSounds = new ArrayList<>();
         allChosenSounds.addAll(chosenVowels);
         allChosenSounds.addAll(chosenConsonants);
         if (practiceMode == SoundMode.Double) {
@@ -477,7 +437,7 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
             editor.putBoolean(PRACTICE_MODE_IS_SINGLE_KEY, false);
             timer.start(getActivity(), StudyTimer.StudyType.PracticeDouble);
         }
-        editor.commit();
+        editor.apply();
 
         // update practice mode label
         if (practiceMode== SoundMode.Single) {

@@ -31,35 +31,30 @@
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvResultName"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name"/>
+                android:layout_height="wrap_content"/>
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvResultDate"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date"/>
+                android:layout_height="wrap_content"/>
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvResultPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="97%"
                 android:textSize="50sp"/>
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvResultNumberQuestions"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Questions (filler text): 100"/>
+                android:layout_height="wrap_content"/>
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvResultTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="Time (filler text):\n16 minutes, 27 seconds"/>
+                android:layout_marginBottom="10dp"/>
 
 
         </LinearLayout>

@@ -14,81 +14,79 @@ public class Test {
     private String wrong;
 
     // constructor
-    public Test() {
-        ;
-    }
+    public Test() {}
 
     // getters
-    public long getId() {
+    long getId() {
         return id;
     }
 
-    public String getUserName() {
+    String getUserName() {
         return username;
     }
 
-    public long getDate() {
+    long getDate() {
         return date;
     }
 
-    public long getTimeLength() {
+    long getTimeLength() {
         return timelength;
     }
 
-    public SoundMode getMode() {
+    SoundMode getMode() {
         return mode;
     }
 
-    public int getScore() {
+    int getScore() {
         return score;
     }
 
-    public String getCorrectAnswers() {
+    String getCorrectAnswers() {
         return correctAnswers;
     }
 
-    public String getUserAnswers() {
+    String getUserAnswers() {
         return userAnswers;
     }
 
-    public String getWrong() {
+    String getWrong() {
         return wrong;
     }
 
     // setters
-    public void setId(long id) {
+    void setId(long id) {
         this.id = id;
     }
 
-    public void setUserName(String username) {
+    void setUserName(String username) {
         this.username = username;
     }
 
-    public void setDate(long date) {
+    void setDate(long date) {
         this.date = date;
     }
 
-    public void setTimeLength (long timelength) {
+    void setTimeLength (long timelength) {
         this.timelength = timelength;
     }
 
-    public void setMode(SoundMode mode) {
+    void setMode(SoundMode mode) {
         this.mode = mode;
     }
 
-    public void setScore(int score) {
+    void setScore(int score) {
         this.score = score;
     }
 
-    public void setCorrectAnswers(String correctAnswers) {
+    void setCorrectAnswers(String correctAnswers) {
         this.correctAnswers = correctAnswers;
     }
 
-    public void setUserAnswers(String userAnswers) {
+    void setUserAnswers(String userAnswers) {
         this.userAnswers = userAnswers;
     }
 
-    public void setWrong(String wrong) {
+    void setWrong(String wrong) {
         this.wrong = wrong;
     }
 

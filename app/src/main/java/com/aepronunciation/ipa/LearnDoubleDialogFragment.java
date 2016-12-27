@@ -5,11 +5,11 @@ import android.content.DialogInterface;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -30,6 +30,7 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
     private SoundPool soundPool = null;
 
     @Override
+    @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -93,7 +94,6 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
         // update time
         StudyTimer timer = StudyTimer.getInstance();
         timer.start(getActivity(), StudyTimer.StudyType.LearnSingle);
-
 
         if (soundPool != null) {
             soundPool.release();

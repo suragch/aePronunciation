@@ -24,11 +24,6 @@
                 style="@style/AppTheme.KeyTextStyle"
                 android:text="@string/key_i" />
 
-            <!--<com.aepronunciation.ipa.IpaTextView-->
-                <!--android:id="@+id/tvKey_alt_i"-->
-                <!--style="@style/AppTheme.LongPressKeyTextStyle"-->
-                <!--android:text="@string/key_alt_i" />-->
-
         </RelativeLayout>
 
         <RelativeLayout
@@ -78,11 +73,6 @@
                 android:id="@+id/tvKey_a"
                 style="@style/AppTheme.KeyTextStyle"
                 android:text="@string/key_a" />
-
-            <!--<com.aepronunciation.ipa.IpaTextView-->
-                <!--android:id="@+id/tvKey_alt_a"-->
-                <!--style="@style/AppTheme.LongPressKeyTextStyle"-->
-                <!--android:text="@string/key_alt_a" />-->
         </RelativeLayout>
 
         <RelativeLayout
@@ -121,11 +111,6 @@
                 android:id="@+id/tvKey_u"
                 style="@style/AppTheme.KeyTextStyle"
                 android:text="@string/key_u" />
-
-            <!--<com.aepronunciation.ipa.IpaTextView-->
-                <!--android:id="@+id/tvKey_alt_u"-->
-                <!--style="@style/AppTheme.LongPressKeyTextStyle"-->
-                <!--android:text="@string/key_alt_u" />-->
         </RelativeLayout>
 
         <RelativeLayout
@@ -218,8 +203,6 @@
                 android:text="@string/key_alt_ou" />
 
         </RelativeLayout>
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -701,6 +684,11 @@
                 style="@style/AppTheme.KeyTextStyle"
                 android:text="@string/key_slash" />
 
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvKey_undertie"
+                style="@style/AppTheme.LongPressKeyTextStyle"
+                android:text="@string/key_undertie" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -751,8 +739,5 @@
                 android:src="@mipmap/ic_keyboard_return_black_24dp" />
         </RelativeLayout>
 
-
     </LinearLayout>
-
-
 </LinearLayout>

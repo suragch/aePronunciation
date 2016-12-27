@@ -9,12 +9,10 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-public class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestResultsRecyclerViewAdapter.ViewHolder> {
+class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestResultsRecyclerViewAdapter.ViewHolder> {
 
     private ArrayList<Answer> mData;
     private SoundMode mTestMode;
@@ -22,7 +20,7 @@ public class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestRes
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    public TestResultsRecyclerViewAdapter(Context context, ArrayList<Answer> data, SoundMode testMode) {
+    TestResultsRecyclerViewAdapter(Context context, ArrayList<Answer> data, SoundMode testMode) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.mTestMode = testMode;
@@ -32,8 +30,7 @@ public class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestRes
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item_rv_test_results, parent, false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+        return new ViewHolder(view);
     }
 
     // binds the data to the textview in each row
@@ -52,6 +49,10 @@ public class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestRes
 
                 // find wrong sound(s)
                 String[] parcedUser = Answer.parseDouble(userAnswer.toString());
+                if (parcedUser == null) {
+                    holder.tvUser.setText(userAnswer);
+                    return;
+                }
                 boolean firstWrong = !answer.getCorrectAnswer().startsWith(
                         parcedUser[0]);
                 boolean secondWrong = !answer.getCorrectAnswer().endsWith(
@@ -90,13 +91,13 @@ public class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestRes
 
 
     // stores and recycles views as they are scrolled off screen
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         IpaTextView tvNumber;
         IpaTextView tvCorrect;
         IpaTextView tvUser;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             tvNumber = (IpaTextView) itemView.findViewById(R.id.tvNumberItem);
             tvCorrect = (IpaTextView) itemView.findViewById(R.id.tvCorrectAnswerItem);
@@ -111,17 +112,17 @@ public class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestRes
     }
 
     // convenience method for getting data at click position
-    public Answer getItem(int id) {
+    Answer getItem(int id) {
         return mData.get(id);
     }
 
     // allows clicks events to be caught
-    public void setClickListener(ItemClickListener itemClickListener) {
+    void setClickListener(ItemClickListener itemClickListener) {
         this.mClickListener = itemClickListener;
     }
 
     // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
+    interface ItemClickListener {
         void onItemClick(View view, int position);
     }
 }

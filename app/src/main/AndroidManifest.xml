@@ -75,8 +75,6 @@
             android:name=".TestResultsActivity"
             android:label="@string/title_activity_test_results" >
         </activity>
-        <activity android:name=".UnicodeInputActivity">
-        </activity>
     </application>
 
 </manifest>

@@ -1,18 +1,14 @@
 package com.aepronunciation.ipa;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.TreeMap;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
 
-public class SpecialSound {
+class SpecialSound {
+
+    // These are double sounds that are used in the learning tab but not in
+    // the practice or tests.
 
     // private class variables
     private LinkedHashMap<String, Integer> glottalHashMap;
@@ -27,12 +23,12 @@ public class SpecialSound {
     private static final String ER_UNSTRESSED = "ɚ";
 
     // constructor
-    public SpecialSound() {
+    SpecialSound() {
         initTreeMap();
     }
 
 
-    public void loadSoundsFor(String ipa) {
+    void loadSoundsFor(String ipa) {
 
         // error checking
         if (TextUtils.isEmpty(ipa)) {
@@ -52,7 +48,7 @@ public class SpecialSound {
     }
 
 
-    public int getSoundResourceId(String doubleSoundIpa) {
+    int getSoundResourceId(String doubleSoundIpa) {
 
         // returns null if no value found
         if (glottalHashMap.containsKey(doubleSoundIpa)) {

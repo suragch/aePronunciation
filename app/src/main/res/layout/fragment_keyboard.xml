@@ -263,12 +263,7 @@
                 android:text="@string/key_or" />
         </RelativeLayout>
 
-
     </LinearLayout>
-
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="5dp"/>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -579,7 +574,5 @@
                 android:text="@string/key_flap_t" />
         </RelativeLayout>
     </LinearLayout>
-
-
 
 </LinearLayout>

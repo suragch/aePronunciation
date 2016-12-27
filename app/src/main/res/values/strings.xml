@@ -1,7 +1,6 @@
 <resources>
 
     <string name="app_name">ae Pronunciation</string>
-    <string name="app_name_short">aep</string>
     <string name="locale">en</string>
 
     <!-- Main menu -->
@@ -13,7 +12,6 @@
     <string name="main_tab_learn">Learn</string>
     <string name="main_tab_practice">Practice</string>
     <string name="main_tab_test">Test</string>
-
 
     <!-- Learn Single fragment -->
     <string name="learn_single_show_doubles">more…</string>
@@ -36,6 +34,7 @@
 
     <!-- Test setup tab -->
     <string name="test_setup_name">Name</string>
+    <string name="test_default_name">Me</string>
     <string name="test_setup_number_of_questions">Questions:</string>
     <string name="test_setup_type">Type:</string>
     <string name="test_setup_single">Single</string>
@@ -109,7 +108,6 @@
     <string name="error_dialog_ok_button">OK</string>
 
     <!-- general dialog buttons -->
-    <!--<string name="dialog_ok_button">OK</string>-->
     <string name="dialog_cancel_button">Cancel</string>
 
 
@@ -165,18 +163,14 @@
     <string name="key_left_bracket" translatable="false">[</string>
     <string name="key_right_bracket" translatable="false">]</string>
     <string name="key_slash" translatable="false">/</string>
+    <string name="key_undertie" translatable="false">‿</string>
     <string name="key_space" translatable="false">\u0020</string>
     <string name="key_primary_stress" translatable="false">ˈ</string>
     <string name="key_secondary_stress" translatable="false">ˌ</string>
     <string name="key_long_vowel" translatable="false">ː</string>
     <string name="key_return" translatable="false">\n</string>
-    <!--<string name="key_alt_i" translatable="false">iː</string>-->
-    <!--<string name="key_alt_i_display" translatable="false">ː</string>-->
     <string name="key_alt_e_short" translatable="false">e</string>
-    <!--<string name="key_alt_a" translatable="false">ɑː</string>-->
-    <!--<string name="key_alt_a_display" translatable="false">ː</string>-->
     <string name="key_alt_c_backwards" translatable="false">ɒ</string>
-    <!--<string name="key_alt_u" translatable="false">uː</string>-->
     <string name="key_alt_ou" translatable="false">əʊ</string>
     <string name="key_alt_er_stressed" translatable="false">ɜː</string>
     <string name="key_alt_er_unstressed" translatable="false">ə</string>
@@ -378,6 +372,5 @@
     <string name="flap_t_example1" translatable="false">water\n/\'wɑɾɚ/</string>
     <string name="flap_t_example2" translatable="false">little\n/\'lɪɾəl/</string>
     <string name="flap_t_example3" translatable="false">thirty\n/\'θɝɾi/</string>
-
 
 </resources>

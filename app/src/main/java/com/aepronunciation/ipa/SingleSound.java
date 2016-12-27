@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
-import android.content.Context;
-
-public class SingleSound {
+class SingleSound {
 
     // private class variables
     private HashMap<String, Integer> soundMap;
@@ -17,13 +15,12 @@ public class SingleSound {
     private ArrayList<String> singleSounds;
 
     // constructor
-    public SingleSound() {
-        // this.privateClassVariable = something
+    SingleSound() {
         initSound();
     }
 
 
-    public int getSoundCount() {
+    int getSoundCount() {
         if (singleSounds != null) {
             return singleSounds.size();
         } else {
@@ -31,7 +28,7 @@ public class SingleSound {
         }
     }
 
-    public String getRandomIpa() {
+    String getRandomIpa() {
 
         // get single sounds string array
         if (singleSounds == null) {
@@ -49,17 +46,17 @@ public class SingleSound {
         singleSounds = new ArrayList<>(soundMap.keySet());
     }
 
-    public void restrictListTo(ArrayList<String> consonants, ArrayList<String> vowels) {
+    void restrictListTo(ArrayList<String> consonants, ArrayList<String> vowels) {
         if (vowels.isEmpty() && consonants.isEmpty()) {
             return;
         }
 
-        singleSounds = new ArrayList<String>();
+        singleSounds = new ArrayList<>();
         singleSounds.addAll(consonants);
         singleSounds.addAll(vowels);
     }
 
-    public int getSoundResourceId(String singleSoundIpa) {
+    int getSoundResourceId(String singleSoundIpa) {
 
         if (soundMap == null) {
             initSound();
@@ -69,7 +66,7 @@ public class SingleSound {
         return soundMap.get(singleSoundIpa);
     }
 
-    public int getExampleOneResourceId(String singleSoundIpa) {
+    int getExampleOneResourceId(String singleSoundIpa) {
 
         if (exampleOneMap == null) {
             initExampleOne();
@@ -79,7 +76,7 @@ public class SingleSound {
         return exampleOneMap.get(singleSoundIpa);
     }
 
-    public int getExampleTwoResourceId(String singleSoundIpa) {
+    int getExampleTwoResourceId(String singleSoundIpa) {
 
         if (exampleTwoMap == null) {
             initExampleTwo();
@@ -89,7 +86,7 @@ public class SingleSound {
         return exampleTwoMap.get(singleSoundIpa);
     }
 
-    public int getExampleThreeResourceId(String singleSoundIpa) {
+    int getExampleThreeResourceId(String singleSoundIpa) {
 
         if (exampleThreeMap == null) {
             initExampleThree();
@@ -99,24 +96,10 @@ public class SingleSound {
         return exampleThreeMap.get(singleSoundIpa);
     }
 
-//    public String getRandomFromAllowedSounds(Context context, ArrayList<String> sounds) {
-//        if (singleSounds == null) {
-//            //singleSounds = context.getResources().getStringArray(R.array.single_sounds);
-//            includeAllSounds();
-//        }
-//
-//        if (sounds == null || sounds.isEmpty()) {
-//            return getRandomIpa(context);
-//        }
-//
-//        int soundIndex = random.nextInt(sounds.size());
-//        return sounds.get(soundIndex);
-//    }
-
     // initialize the hashmap when new object created
     private void initSound() {
 
-        soundMap = new HashMap<String, Integer>();
+        soundMap = new HashMap<>();
 
         soundMap.put("p", R.raw.single_p);
         soundMap.put("t", R.raw.single_t);
@@ -170,7 +153,7 @@ public class SingleSound {
 
     private void initExampleOne() {
 
-        exampleOneMap = new HashMap<String, Integer>();
+        exampleOneMap = new HashMap<>();
 
         exampleOneMap.put("p", R.raw.word_pass);
         exampleOneMap.put("t", R.raw.word_toad);
@@ -224,7 +207,7 @@ public class SingleSound {
 
     private void initExampleTwo() {
 
-        exampleTwoMap = new HashMap<String, Integer>();
+        exampleTwoMap = new HashMap<>();
 
         exampleTwoMap.put("p", R.raw.word_speak);
         exampleTwoMap.put("t", R.raw.word_sting);
@@ -278,7 +261,7 @@ public class SingleSound {
 
     private void initExampleThree() {
 
-        exampleThreeMap = new HashMap<String, Integer>();
+        exampleThreeMap = new HashMap<>();
 
         exampleThreeMap.put("p", R.raw.word_stop);
         exampleThreeMap.put("t", R.raw.word_it);
@@ -329,5 +312,4 @@ public class SingleSound {
         exampleThreeMap.put("ɾ", R.raw.word_thirty);
 
     }
-
 }

@@ -60,15 +60,6 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/black"/>
 
-        <!--<com.aepronunciation.ipa.IpaTextView-->
-        <!--android:id="@+id/tvRvItemTestNumberOfQuestions"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="center_vertical"-->
-        <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
-        <!--android:textColor="@color/black" />-->
-
-
     </LinearLayout>
 
 </RelativeLayout>

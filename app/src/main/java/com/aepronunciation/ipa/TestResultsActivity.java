@@ -1,9 +1,7 @@
 package com.aepronunciation.ipa;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.AsyncTask;
@@ -14,11 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import java.text.DateFormat;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -28,15 +24,10 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import static com.aepronunciation.ipa.MainActivity.CONSONANT_ARRAY_KEY;
-import static com.aepronunciation.ipa.MainActivity.PREFS_NAME;
 import static com.aepronunciation.ipa.MainActivity.TEST_MODE_KEY;
 import static com.aepronunciation.ipa.MainActivity.TEST_NAME_KEY;
-import static com.aepronunciation.ipa.MainActivity.TIME_DEFAULT;
-import static com.aepronunciation.ipa.MainActivity.TIME_TEST_DOUBLE_KEY;
-import static com.aepronunciation.ipa.MainActivity.TIME_TEST_SINGLE_KEY;
 import static com.aepronunciation.ipa.MainActivity.VOWEL_ARRAY_KEY;
 
 
@@ -50,8 +41,6 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
     // semicolon (;) separates main sound from substituted sounds
     // first sound is always main, following are all subs
     // number sign (#) separates ipa sounds from their count values
-
-    static final String STATE_SCROLL_POSITION = "scrollPosition";
 
     //ListView listView;
     private static String userName;
@@ -67,9 +56,6 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
     private SoundPool soundPool = null;
     private DoubleSound doubleSound;
     private SingleSound singleSound;
-    int savedPosition = 0;
-    long startTime = 0;
-    SharedPreferences settings;
 
 
     @Override
@@ -132,15 +118,9 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         if (getString(R.string.locale).equals(Locale.CHINESE.toString())) {
             locale = Locale.CHINESE;
         }
-
         Date date = new Date(System.currentTimeMillis());
         DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT, locale);
         String formattedDate = df.format(date);
-        //formattedDate = formattedDate.replace("AM", "am").replace("PM", "pm");
-
-//        DateFormat f = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT, Locale.getDefault());
-//        String formattedDate = f.format(new Date());
-
 
         // update textviews
         tvName.setText(userName);
@@ -153,7 +133,6 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         // update the database (only on first creation)
         if (savedInstanceState == null) {
             new AddTestToDb().execute();
-            // new AddWrongToDb().execute();
         }
 
     }
@@ -184,7 +163,6 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
             soundPool.release();
             soundPool = null;
         }
-
         super.onPause();
     }
 
@@ -194,7 +172,6 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         Answer tempAnswer;
         String correct;
         String user;
-        // int total=userAnswers.length;
         int numCorrect = 0;
         for (int i = 0; i < answers.size(); i++) {
 
@@ -205,20 +182,22 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
             if (testMode == SoundMode.Double) {
                 String[] parsedCorrect;
                 String[] parcedUser;
-                // total = total * 2;
 
                 if (correct.equals(user)) {
                     numCorrect += 2;
                 } else {
                     parsedCorrect = Answer.parseDouble(correct);
                     parcedUser = Answer.parseDouble(user);
+                    if (parsedCorrect == null || parcedUser == null) {
+                        return 0;
+                    }
                     if (parsedCorrect[0].equals(parcedUser[0])) {
                         numCorrect++;
                     } else {
                         if (wrong.length() > 0) {
                             wrong.append(",");
                         }
-                        wrong.append(parsedCorrect[0] + ";" + parcedUser[0]);
+                        wrong.append(parsedCorrect[0]).append(";").append(parcedUser[0]);
                     }
                     if (parsedCorrect[1].equals(parcedUser[1])) {
                         numCorrect++;
@@ -226,7 +205,7 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
                         if (wrong.length() > 0) {
                             wrong.append(",");
                         }
-                        wrong.append(parsedCorrect[1] + ";" + parcedUser[1]);
+                        wrong.append(parsedCorrect[1]).append(";").append(parcedUser[1]);
                     }
                 }
             } else { // single
@@ -236,7 +215,7 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
                     if (wrong.length() > 0) {
                         wrong.append(",");
                     }
-                    wrong.append(correct + ";" + user);
+                    wrong.append(correct).append(";").append(user);
                 }
             }
         }
@@ -246,19 +225,21 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
     }
 
 
-    private Set findNeedToPracticeSounds(ArrayList<Answer> answers) {
+    private Set<String> findNeedToPracticeSounds(ArrayList<Answer> answers) {
 
         String userAnswer;
         String correctAnswer;
         String[] parsedCorrect;
         String[] parcedUser;
 
-        Set practiceSet = new HashSet();
+        Set<String> practiceSet = new HashSet<>();
         for (Answer answer : answers) {
 
             userAnswer = answer.getUserAnswer();
             correctAnswer = answer.getCorrectAnswer();
-
+//            if (userAnswer == null || correctAnswer == null) {
+//                return practiceSet;
+//            }
             if (testMode == SoundMode.Single) {
 
                 if (!userAnswer.equals(correctAnswer)) {
@@ -270,7 +251,7 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
                 parsedCorrect = Answer.parseDouble(correctAnswer);
                 parcedUser = Answer.parseDouble(userAnswer);
-
+                if (parcedUser == null || parsedCorrect == null) return practiceSet;
                 if (!parcedUser[0].equals(parsedCorrect[0])) {
                     practiceSet.add(parcedUser[0]);
                     practiceSet.add(parsedCorrect[0]);
@@ -315,8 +296,6 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         @Override
         protected Void doInBackground(Void... params) {
 
-            // android.os.Debug.waitForDebugger();
-
             StringBuilder correctAnswersConcat = new StringBuilder();
             StringBuilder userAnswersConcat = new StringBuilder();
             for (int i = 0; i < answers.size(); i++) {
@@ -341,7 +320,7 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
                         correctAnswersConcat.toString(),
                         userAnswersConcat.toString(), sortedWrong);
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
             return null;
 
@@ -376,11 +355,7 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
         // load (and play) sound
         soundPool.load(this, soundId, PRIORITY);
-
-
     }
-
-
 
     @Override
     public void onLoadComplete(SoundPool sPool, int sid, int status) {
@@ -390,7 +365,6 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
         soundPool.play(sid, 1, 1, PRIORITY, 0, 1.0f);
         soundPool.unload(sid);
-
     }
 
     @Override
@@ -426,5 +400,4 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         setResult(RESULT_OK, intent);
         finish();
     }
-
 }

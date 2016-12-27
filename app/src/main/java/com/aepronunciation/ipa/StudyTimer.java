@@ -2,7 +2,6 @@ package com.aepronunciation.ipa;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.aepronunciation.ipa.MainActivity.PREFS_NAME;
@@ -16,10 +15,10 @@ import static com.aepronunciation.ipa.MainActivity.TIME_TEST_SINGLE_KEY;
 
 // Timer for handling learning, practice, and test times
 // WARNING: Singletons are not thread safe. Only instantiate on the UI thread.
-public final class StudyTimer {
+final class StudyTimer {
 
     private long startTime;
-    public enum StudyType {
+    enum StudyType {
         LearnSingle,
         LearnDouble,
         PracticeSingle,
@@ -32,7 +31,7 @@ public final class StudyTimer {
     private static StudyTimer instance = null;
     private StudyTimer() {}
 
-    public static StudyTimer getInstance() {
+    static StudyTimer getInstance() {
         if(instance == null) {
             instance = new StudyTimer();
         }
@@ -52,11 +51,9 @@ public final class StudyTimer {
         // start time for this type
         startTime = System.nanoTime();
         this.studyType = type;
-
-        Log.i("TAG", "start time: " + type.name());
     }
 
-    public void stop(Context context) {
+    void stop(Context context) {
 
         if (studyType == null) {
             return;
@@ -92,9 +89,7 @@ public final class StudyTimer {
         long elapsedTime = System.nanoTime() - startTime;
         SharedPreferences.Editor editor = settings.edit();
         editor.putLong(key, formerTime + elapsedTime);
-        editor.commit();
-
-        Log.i("TAG", "stop time: " + studyType.name());
+        editor.apply();
 
         // set to null so that not saving multiple times
         studyType = null;

@@ -10,19 +10,18 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class MyDatabaseAdapter {
+class MyDatabaseAdapter {
 
-    MyDatabaseHelper helper;
+    private MyDatabaseHelper helper;
 
     // Constructor
-    public MyDatabaseAdapter(Context context) {
-
+    MyDatabaseAdapter(Context context) {
         helper = new MyDatabaseHelper(context);
     }
 
-    public ArrayList<Test> getAllTestScores() {
+    ArrayList<Test> getAllTestScores() {
 
-        ArrayList<Test> allTests = new ArrayList<Test>();
+        ArrayList<Test> allTests = new ArrayList<>();
 
         SQLiteDatabase db = helper.getWritableDatabase();
         String[] columns = { MyDatabaseHelper.ID, MyDatabaseHelper.USER_NAME,
@@ -68,7 +67,7 @@ public class MyDatabaseAdapter {
         return allTests;
     }
 
-    public Test getTest(long rowId) {
+    Test getTest(long rowId) {
 
         Test test = new Test();
 
@@ -117,7 +116,7 @@ public class MyDatabaseAdapter {
         return test;
     }
 
-    public int[] getHighScores() {
+    int[] getHighScores() {
 
         int[] highScores = new int[2];
 
@@ -161,7 +160,7 @@ public class MyDatabaseAdapter {
 
     public ArrayList<String> getAllUsers() {
 
-        ArrayList<String> results = new ArrayList<String>();
+        ArrayList<String> results = new ArrayList<>();
         SQLiteDatabase db = helper.getReadableDatabase();
         String[] columns = { MyDatabaseHelper.USER_NAME };
         Cursor cursor = db.query(true, MyDatabaseHelper.TESTS_TABLE_NAME,
@@ -182,7 +181,7 @@ public class MyDatabaseAdapter {
 
     }
 
-    public long addTest(String name, long time, String testmode, int score,
+    long addTest(String name, long time, String testmode, int score,
                         String correctAnswers, String userAnswers, String wrong) {
 
         // get current Unix epoc time in milliseconds
@@ -217,7 +216,7 @@ public class MyDatabaseAdapter {
 
     // Making this an inner class rather than a separate class so that outer
     // class can securely refer to private variables in this class
-    static class MyDatabaseHelper extends SQLiteOpenHelper {
+    private static class MyDatabaseHelper extends SQLiteOpenHelper {
 
         // This creates two tables (one for now, version 2 add second)
         // In the first table, every row stores the user test scores
@@ -248,38 +247,17 @@ public class MyDatabaseAdapter {
         private static final String DROP_TEST_TABLE = "DROP TABLE IF EXISTS "
                 + TESTS_TABLE_NAME;
 
-        // TODO ////////////Wrong answers table //////////////////
-		/*
-		 * private static final String WRONG_TABLE_NAME = "WRONG"; // Column
-		 * names // private static final String ID = "_id"; // private static
-		 * final String USER_NAME = "name"; private static final String SYMBOL =
-		 * "symbol"; private static final String FREQUENCY = "frequency";
-		 * private static final String SUBSTITUTE = "substitute"; // SQL
-		 * statements private static final String CREATE_WRONG_TABLE =
-		 * "CREATE TABLE " + WRONG_TABLE_NAME + " (" + ID +
-		 * " INTEGER PRIMARY KEY," + USER_NAME + " TEXT NOT NULL," + SYMBOL +
-		 * " TEXT UNIQUE," + FREQUENCY + " INTEGER," + SUBSTITUTE +
-		 * " TEXT NOT NULL)"; private static final String DROP_WRONG_TABLE =
-		 * "DROP TABLE IF EXISTS " + TESTS_TABLE_NAME;
-		 */
-
-        private Context context;
-
-        public MyDatabaseHelper(Context context) {
+        MyDatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
-            this.context = context;
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-
             try {
                 db.execSQL(CREATE_TEST_TABLE);
-                // db.execSQL(CREATE_WRONG_TABLE);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
         }
 
         @Override
@@ -287,14 +265,10 @@ public class MyDatabaseAdapter {
 
             try {
                 db.execSQL(DROP_TEST_TABLE);
-                // db.execSQL(DROP_WRONG_TABLE);
                 onCreate(db);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
-
     }
-
 }

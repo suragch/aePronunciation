@@ -6,56 +6,53 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PhonemeTable {
+class PhonemeTable {
+
     private static final int P_VOWEL = 1;
     private static final int P_CONSONANT = 2;
     private static final int P_SPECIAL = 4;
     private static final int P_UNSTRESSED = 8;
     private static final int P_INITIAL_FINAL = 16;
 
-    public static final int NUMBER_OF_VOWELS = 21;
-    public static final int NUMBER_OF_VOWELS_FOR_DOUBLES = 19; // not ə, ɚ
-    public static final int NUMBER_OF_CONSONANTS = 26;
-    public static final int NUMBER_OF_CONSONANTS_FOR_DOUBLES = 24; // not ʔ. ɾ
+    static final int NUMBER_OF_VOWELS = 21;
+    static final int NUMBER_OF_VOWELS_FOR_DOUBLES = 19; // not ə, ɚ
+    static final int NUMBER_OF_CONSONANTS = 26;
+    static final int NUMBER_OF_CONSONANTS_FOR_DOUBLES = 24; // not ʔ. ɾ
 
     static final PhonemeTable INSTANCE = new PhonemeTable();
 
     private HashMap<String, Integer> soundFlagsMap;
 
-    public PhonemeTable() {
+    private PhonemeTable() {
         init();
     }
 
-    public boolean isVowel(String s) {
+    boolean isVowel(String s) {
         return (getFlags(s) & P_VOWEL) != 0;
     }
 
-    public boolean isConsonant(String s) {
+    boolean isConsonant(String s) {
         return (getFlags(s) & P_CONSONANT) != 0;
     }
 
-    public boolean isStress(String s) {
-        return (getFlags(s) & P_UNSTRESSED) != 0;
-    }
-
-    public boolean isSpecial(String s) {
+    boolean isSpecial(String s) {
         return (getFlags(s) & P_SPECIAL) != 0;
     }
 
-    public boolean hasTwoPronunciations(String s) {
+    boolean hasTwoPronunciations(String s) {
         return (getFlags(s) & P_INITIAL_FINAL) != 0;
     }
 
 
-    public int getFlags(String s) {
+    private int getFlags(String s) {
         if (soundFlagsMap.containsKey(s)) {
             return soundFlagsMap.get(s);
         }
         return 0;
     }
 
-    public ArrayList<String> getAllVowels() {
-        ArrayList<String> vowels = new ArrayList<String>();
+    ArrayList<String> getAllVowels() {
+        ArrayList<String> vowels = new ArrayList<>();
         for (Map.Entry<String, Integer> entry: soundFlagsMap.entrySet()) {
             if ((entry.getValue() & P_VOWEL) != 0) {
                 vowels.add(entry.getKey());
@@ -64,18 +61,8 @@ public class PhonemeTable {
         return vowels;
     }
 
-    public ArrayList<String> getAllVowelsWithoutUnstressed() {
-        ArrayList<String> vowels = new ArrayList<String>();
-        for (Map.Entry<String, Integer> entry: soundFlagsMap.entrySet()) {
-            if (entry.getValue() == P_VOWEL) {
-                vowels.add(entry.getKey());
-            }
-        }
-        return vowels;
-    }
-
-    public ArrayList<String> getAllConsonants() {
-        ArrayList<String> vowels = new ArrayList<String>();
+    ArrayList<String> getAllConsonants() {
+        ArrayList<String> vowels = new ArrayList<>();
         for (Map.Entry<String, Integer> entry: soundFlagsMap.entrySet()) {
             if ((entry.getValue() & P_CONSONANT) != 0) {
                 vowels.add(entry.getKey());
@@ -84,10 +71,8 @@ public class PhonemeTable {
         return vowels;
     }
 
-
-
     private void init() {
-        soundFlagsMap = new HashMap<String, Integer>();
+        soundFlagsMap = new HashMap<>();
 
         soundFlagsMap.put("p", P_CONSONANT);
         soundFlagsMap.put("t", P_CONSONANT);
@@ -139,12 +124,11 @@ public class PhonemeTable {
     }
 
     // return <C, V>
-    public Pair<String, String> splitDoubleSound(String s) {
+    Pair<String, String> splitDoubleSound(String s) {
         if (isConsonant(s.substring(0, 1))) {
             return Pair.create(s.substring(0,1), s.substring(1));
         } else {
             return Pair.create(s.substring(s.length()-1), s.substring(0, s.length()-1));
         }
     }
-
 }

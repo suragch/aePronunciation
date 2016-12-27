@@ -4,17 +4,9 @@ package com.aepronunciation.ipa;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.app.FragmentTransaction;
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.View;
-
-import java.util.ArrayList;
 
 import static com.aepronunciation.ipa.MainActivity.NUMBER_OF_QUESTIONS_KEY;
 import static com.aepronunciation.ipa.MainActivity.TEST_MODE_KEY;
@@ -23,7 +15,6 @@ import static com.aepronunciation.ipa.MainActivity.TEST_RESULTS_RESULT;
 
 
 public class TestActivity extends AppCompatActivity  implements KeyboardFragment.KeyboardListener {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +64,6 @@ public class TestActivity extends AppCompatActivity  implements KeyboardFragment
     @Override
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        Log.i("TAG", "onActivityResult: activity was called" + resultCode);
 
         if (requestCode == TEST_RESULTS_RESULT) {
             if (resultCode == RESULT_OK) {

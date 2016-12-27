@@ -6,10 +6,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -27,12 +26,12 @@ import static com.aepronunciation.ipa.MainActivity.PREFS_NAME;
 public class SelectSoundDialogFragment extends DialogFragment {
 
     public interface SelectSoundDialogListener {
-        public void onDialogPositiveClick(
+        void onDialogPositiveClick(
                 SoundMode numberSounds,
                 ArrayList<String> chosenVowels,
                 ArrayList<String> chosenConsonants);
-        public void onDialogNegativeClick(DialogFragment dialog);
-        //public Bundle getSavedDialogState();
+
+        void onDialogNegativeClick(DialogFragment dialog);
     }
 
     public static final String KEY_DIALOG_IS_SINGLE_MODE = "isSingleMode";
@@ -53,9 +52,8 @@ public class SelectSoundDialogFragment extends DialogFragment {
     Button positiveButton;
     boolean listenerDisabled = false;
 
-
-
     @Override
+    @NonNull
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -110,13 +108,13 @@ public class SelectSoundDialogFragment extends DialogFragment {
                         }
 
                         // get all chosen sounds
-                        ArrayList<String> chosenVowels = new ArrayList<String>();
+                        ArrayList<String> chosenVowels = new ArrayList<>();
                         for (CheckBox cb : checkBoxesVowels) {
                             if (cb.isChecked() & cb.getVisibility() == View.VISIBLE) {
                                 chosenVowels.add(cb.getText().toString());
                             }
                         }
-                        ArrayList<String> chosenConsonants = new ArrayList<String>();
+                        ArrayList<String> chosenConsonants = new ArrayList<>();
                         for (CheckBox cb : checkBoxesConsonants) {
                             if (cb.isChecked() & cb.getVisibility() == View.VISIBLE) {
                                 chosenConsonants.add(cb.getText().toString());
@@ -138,29 +136,27 @@ public class SelectSoundDialogFragment extends DialogFragment {
     }
 
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         super.onResume();
         final AlertDialog alertDialog = (AlertDialog) getDialog();
         Button okButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 SoundMode soundType = SoundMode.Double;
                 RadioButton single = (RadioButton) alertDialog.findViewById(R.id.radio_single);
-                if (single.isChecked()) {
+                if (single != null && single.isChecked()) {
                     soundType = SoundMode.Single;
                 }
 
                 // get all chosen sounds
-                ArrayList<String> chosenVowels = new ArrayList<String>();
+                ArrayList<String> chosenVowels = new ArrayList<>();
                 for (CheckBox cb : checkBoxesVowels) {
                     if (cb.isChecked() & cb.getVisibility() == View.VISIBLE) {
                         chosenVowels.add(cb.getText().toString());
                     }
                 }
-                ArrayList<String> chosenConsonants = new ArrayList<String>();
+                ArrayList<String> chosenConsonants = new ArrayList<>();
                 for (CheckBox cb : checkBoxesConsonants) {
                     if (cb.isChecked() & cb.getVisibility() == View.VISIBLE) {
                         chosenConsonants.add(cb.getText().toString());
@@ -175,12 +171,10 @@ public class SelectSoundDialogFragment extends DialogFragment {
     }
 
 
-
     private void initializeCheckBoxes(View layout) {
 
 
-
-        checkBoxesVowels = new CheckBox[] {
+        checkBoxesVowels = new CheckBox[]{
                 (CheckBox) layout.findViewById(R.id.cb_i),
                 (CheckBox) layout.findViewById(R.id.cb_i_short),
                 (CheckBox) layout.findViewById(R.id.cb_e_short),
@@ -203,7 +197,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
                 (CheckBox) layout.findViewById(R.id.cb_ir),
                 (CheckBox) layout.findViewById(R.id.cb_or)
         };
-        checkBoxesConsonants = new CheckBox[] {
+        checkBoxesConsonants = new CheckBox[]{
                 (CheckBox) layout.findViewById(R.id.cb_p),
                 (CheckBox) layout.findViewById(R.id.cb_b),
                 (CheckBox) layout.findViewById(R.id.cb_t),
@@ -271,48 +265,42 @@ public class SelectSoundDialogFragment extends DialogFragment {
             return;
         }
 
-                // radio group
-                if (mode == SoundMode.Single) {
-                    rbSingle.setChecked(true);
-                } else {
-                    rbDouble.setChecked(true);
+        // radio group
+        if (mode == SoundMode.Single) {
+            rbSingle.setChecked(true);
+        } else {
+            rbDouble.setChecked(true);
+        }
+
+        // uncheck the vowel/consonant boxes if some of the small boxes are unchecked
+        listenerDisabled = true;
+        cbVowelsCategory.setChecked(checkBoxesVowels.length == vowelSounds.size());
+        cbConsonantsCategory.setChecked(checkBoxesConsonants.length == consonantSounds.size());
+        listenerDisabled = false;
+
+        // check individual boxes
+        String currentCbString;
+        boolean found;
+        for (CheckBox cb : checkBoxesVowels) {
+            currentCbString = cb.getText().toString();
+            found = false;
+            for (String sound : vowelSounds) {
+                if (currentCbString.equals(sound)) {
+                    found = true;
                 }
-
-                // uncheck the vowel/consonant boxes if some of the small boxes are unchecked
-                listenerDisabled = true;
-                cbVowelsCategory.setChecked(checkBoxesVowels.length == vowelSounds.size());
-                cbConsonantsCategory.setChecked(checkBoxesConsonants.length == consonantSounds.size());
-                listenerDisabled = false;
-
-                // check individual boxes
-                String currentCbString = "";
-                boolean found = false;
-                for (CheckBox cb : checkBoxesVowels) {
-                    currentCbString = cb.getText().toString();
-                    found = false;
-                    for (String sound : vowelSounds) {
-                        if (currentCbString.equals(sound)) {
-                            found = true;
-                        }
-                    }
-                    cb.setChecked(found);
+            }
+            cb.setChecked(found);
+        }
+        for (CheckBox cb : checkBoxesConsonants) {
+            currentCbString = cb.getText().toString();
+            found = false;
+            for (String sound : consonantSounds) {
+                if (currentCbString.equals(sound)) {
+                    found = true;
                 }
-                for (CheckBox cb : checkBoxesConsonants) {
-                    currentCbString = cb.getText().toString();
-                    found = false;
-                    for (String sound : consonantSounds) {
-                        if (currentCbString.equals(sound)) {
-                            found = true;
-                        }
-                    }
-                    cb.setChecked(found);
-                }
-
-
-
-
-
-
+            }
+            cb.setChecked(found);
+        }
     }
 
     @Override
@@ -394,14 +382,14 @@ public class SelectSoundDialogFragment extends DialogFragment {
         // count the number of checked boxes for conconants and vowels
         int vowelsChecked = 0;
         for (CheckBox cb : checkBoxesVowels) {
-            if (cb.isChecked() && cb.getVisibility()==View.VISIBLE) {
+            if (cb.isChecked() && cb.getVisibility() == View.VISIBLE) {
                 vowelsChecked++;
                 if (vowelsChecked > 1) break;
             }
         }
         int consonantsChecked = 0;
         for (CheckBox cb : checkBoxesConsonants) {
-            if (cb.isChecked() && cb.getVisibility()==View.VISIBLE) {
+            if (cb.isChecked() && cb.getVisibility() == View.VISIBLE) {
                 consonantsChecked++;
                 if (consonantsChecked > 1) break;
             }

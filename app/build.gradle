@@ -7,13 +7,13 @@ android {
         applicationId "com.aepronunciation.ipa"
         minSdkVersion 9
         targetSdkVersion 25
-        versionCode 7
-        versionName "2.0.0 beta 6"
+        versionCode 9
+        versionName "2.0.0 beta 8"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

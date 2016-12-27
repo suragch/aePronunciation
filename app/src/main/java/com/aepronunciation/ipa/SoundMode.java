@@ -1,9 +1,5 @@
 package com.aepronunciation.ipa;
 
-/**
- * Created by yonghu on 16-11-17.
- */
-
 public enum SoundMode {
 
     // Do not change the hardcoded string values unless you take into consideration
@@ -13,7 +9,7 @@ public enum SoundMode {
 
     private String persistentMemoryString;
 
-    private SoundMode(String s) {
+    SoundMode(String s) {
         persistentMemoryString = s;
     }
 

@@ -30,7 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:text="Version x.x"
         android:textSize="15sp" />
 
     <com.aepronunciation.ipa.IpaTextView

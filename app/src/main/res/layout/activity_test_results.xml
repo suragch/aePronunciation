@@ -30,46 +30,37 @@
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvResultName"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name"/>
+                android:layout_height="wrap_content"/>
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvResultDate"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date"/>
+                android:layout_height="wrap_content"/>
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvResultPercent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="97%"
                 android:textSize="50sp"/>
 
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvResultCorrect"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Right: 97"/>
+                android:layout_height="wrap_content"/>
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvResultWrong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="Wrong: 3"/>
+                android:layout_marginBottom="10dp"/>
 
             <com.aepronunciation.ipa.IpaTextView
                 android:id="@+id/tvResultTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="Time:\n16 minutes, 27 seconds"/>
-
-            <!-- TODO make a button "Practice the ones I got wrong" -->
-            <!-- Then send to practice tab and practice both right and wrong from sounds wrong -->
+                android:layout_marginBottom="10dp"/>
 
             <RelativeLayout
                 android:id="@+id/rlPracticeDifficultButton"
