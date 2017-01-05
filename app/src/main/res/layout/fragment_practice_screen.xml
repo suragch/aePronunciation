@@ -44,21 +44,37 @@
         android:layout_centerVertical="true"
         android:orientation="vertical">
 
-        <com.aepronunciation.ipa.IpaTextView
-            android:id="@+id/tvInputWindow"
-            android:layout_width="150dp"
+        <LinearLayout
+            android:id="@+id/llInputWindowBorder"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="15dp"
             android:background="@drawable/input_window_normal"
-            android:gravity="center_horizontal"
-            android:textSize="50sp"/>
+            android:orientation="horizontal" >
 
+            <com.aepronunciation.ipa.IpaTextView
+                android:id="@+id/tvInputWindow"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"
+                android:textSize="50sp" />
+
+            <ImageView
+                android:id="@+id/ivClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="5dp"
+                android:src="@mipmap/ic_clear_black_24dp" />
+        </LinearLayout>
 
         <!-- play button -->
         <RelativeLayout
             android:id="@+id/playButtonLayout"
-            android:layout_width="150dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/button"

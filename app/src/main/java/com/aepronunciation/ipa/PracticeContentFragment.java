@@ -20,6 +20,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -41,6 +43,7 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
     private PracticeScreenListener mListener;
     private SingleSound singleSound;
     private DoubleSound doubleSound;
+    private LinearLayout llInputWindowBorder;
     private TextView tvInputWindow;
     private TextView tvPracticeMode;
     private TextView tvRight;
@@ -71,6 +74,7 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
 
         // create objects
         tvInputWindow = (TextView) layout.findViewById(R.id.tvInputWindow);
+        llInputWindowBorder = (LinearLayout) layout.findViewById(R.id.llInputWindowBorder);
         tvPracticeMode = (TextView) layout.findViewById(R.id.tvPracticeMode);
         tvRight = (TextView) layout.findViewById(R.id.tvPracticeNumberRight);
         tvPercent = (TextView) layout.findViewById(R.id.tvPracticePercentRight);
@@ -80,11 +84,13 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         RelativeLayout rlPlayButton = (RelativeLayout) layout.findViewById(R.id.playButtonLayout);
         RelativeLayout rlSettingsButton = (RelativeLayout) layout.findViewById(R.id.settingsButtonLayout);
         RelativeLayout rlTellMeButton = (RelativeLayout) layout.findViewById(R.id.tellMeButtonLayout);
+        ImageView clearButton = (ImageView) layout.findViewById(R.id.ivClear);
 
         // set listeners
         rlPlayButton.setOnClickListener(this);
         rlSettingsButton.setOnClickListener(this);
         rlTellMeButton.setOnClickListener(this);
+        clearButton.setOnClickListener(this);
 
         // Create the green and red effects for right/wrong answers
         Drawable backgrounds[] = new Drawable[2];
@@ -186,6 +192,12 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         animateBackground(true);
         playSound(currentIpa);
         readyForNewSound = true;
+    }
+
+    public void clearClick() {
+        tvInputWindow.setText("");
+        inputKeyCounter = 0;
+        rightAnswerTransistion.resetTransition();
     }
 
     public void onKeyTouched(String keyString) {
@@ -315,9 +327,11 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         if (answerIsCorrect) {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                tvInputWindow.setBackground(rightAnswerTransistion);
+
+                //tvInputWindow.setBackground(rightAnswerTransistion);
+                llInputWindowBorder.setBackground(rightAnswerTransistion);
             } else {
-                tvInputWindow.setBackgroundDrawable(rightAnswerTransistion);
+                llInputWindowBorder.setBackgroundDrawable(rightAnswerTransistion);
             }
 
             rightAnswerTransistion.startTransition(300);
@@ -329,9 +343,9 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
             final int TRANSITION_REVERSE_TIME = 300;
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                tvInputWindow.setBackground(wrongAnswerTransistion);
+                llInputWindowBorder.setBackground(wrongAnswerTransistion);
             } else {
-                tvInputWindow.setBackgroundDrawable(wrongAnswerTransistion);
+                llInputWindowBorder.setBackgroundDrawable(wrongAnswerTransistion);
             }
 
             wrongAnswerTransistion.startTransition(300);
@@ -378,6 +392,8 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
             settingsClick();
         } else if (view.getId() == R.id.tellMeButtonLayout) {
             tellMeClick();
+        } else if (view.getId() == R.id.ivClear) {
+            clearClick();
         }
 
     }

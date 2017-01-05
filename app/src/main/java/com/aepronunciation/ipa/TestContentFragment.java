@@ -223,7 +223,8 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
         if (testMode == SoundMode.Single) {
             tvInputWindow.setText(keyString);
 
-        } else {
+        } else if (testMode == SoundMode.Double && inputKeyCounter <= 2) {
+
             String oldText = tvInputWindow.getText().toString();
             tvInputWindow.setText(oldText + keyString);
             if (TextUtils.isEmpty(oldText)) return;
