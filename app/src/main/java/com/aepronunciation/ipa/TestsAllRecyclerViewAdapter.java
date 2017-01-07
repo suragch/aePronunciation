@@ -80,8 +80,6 @@ class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRecyclerV
         IpaTextView tvDateTime;
         IpaTextView tvScore;
         IpaTextView tvType;
-        //IpaTextView tvNumberOfQuestions;
-        //IpaTextView tvWrong;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -90,7 +88,6 @@ class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRecyclerV
             tvDateTime = (IpaTextView) itemView.findViewById(R.id.tvRvItemTestDate);
             tvScore = (IpaTextView) itemView.findViewById(R.id.tvRvItemTestScore);
             tvType = (IpaTextView) itemView.findViewById(R.id.tvRvItemTestType);
-            //tvNumberOfQuestions = (IpaTextView) itemView.findViewById(R.id.tvRvItemTestNumberOfQuestions);
             itemView.setOnClickListener(this);
         }
 

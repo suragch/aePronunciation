@@ -58,7 +58,6 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
         GridSpacingItemDecoration itemDecoration = new GridSpacingItemDecoration(getActivity(), R.dimen.grid_item_spacing);
         recyclerView.addItemDecoration(itemDecoration);
-        //adapter = new LearnDoubleRecyclerViewAdapter(getActivity(), doubleSound.getSounds());
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 

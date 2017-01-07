@@ -120,7 +120,6 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
         mClickMap.put(R.id.key_r, getString(R.string.key_r));
         mClickMap.put(R.id.key_flap_t, getString(R.string.key_flap_t));
         mClickMap.put(R.id.key_glottal_stop, getString(R.string.key_glottal_stop));
-        //mClickMap.put(R.id.key_backspace, "");
         mClickMap.put(R.id.key_brackets, getString(R.string.key_left_bracket));
         mClickMap.put(R.id.key_slash, getString(R.string.key_slash));
         mClickMap.put(R.id.key_space, getString(R.string.key_space));

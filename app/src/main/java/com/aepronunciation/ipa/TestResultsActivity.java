@@ -237,9 +237,7 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
             userAnswer = answer.getUserAnswer();
             correctAnswer = answer.getCorrectAnswer();
-//            if (userAnswer == null || correctAnswer == null) {
-//                return practiceSet;
-//            }
+
             if (testMode == SoundMode.Single) {
 
                 if (!userAnswer.equals(correctAnswer)) {

@@ -55,7 +55,7 @@ public class HistoryTestsActivity extends AppCompatActivity implements
                 MyDatabaseAdapter dbAdapter = new MyDatabaseAdapter(getApplicationContext());
                 result = dbAdapter.getAllTestScores();
             } catch (Exception e) {
-                //Log.i("app", e.toString());
+                e.printStackTrace();
             }
 
             return result;

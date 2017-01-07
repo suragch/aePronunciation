@@ -118,8 +118,6 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
     // call: new GetTest().execute();
     private class GetTest extends AsyncTask<Long, Void, Test> {
 
-        //Context context = getApplicationContext();
-
         private HistoryTestDetailsActivity activity;
 
         public GetTest(HistoryTestDetailsActivity activity) {
@@ -128,8 +126,6 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
 
         @Override
         protected Test doInBackground(Long... params) {
-
-            // android.os.Debug.waitForDebugger();
 
             long id = params[0];
 
@@ -141,7 +137,7 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
                         getApplicationContext());
                 test = dbAdapter.getTest(id);
             } catch (Exception e) {
-                //Log.e("app", e.toString());
+                e.printStackTrace();
             }
             return test;
 
@@ -173,7 +169,6 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
             // error checking
             int length = correctAnswers.length;
             if (length != userAnswers.length) {
-                //Log.e("app", "HistorTestDetails wrong length");
                 if (length > userAnswers.length) {
                     length = userAnswers.length;
                 }
@@ -201,8 +196,6 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
             tvDate.setText(formattedDate);
             tvPercent.setText(String.format(getString(R.string.test_results_percent), score));
             tvNumberOfQuestions.setText(String.format(getString(R.string.history_test_details_specific_test_number_of_questions), length));
-            //tvCorrect.setText(String.format(getString(R.string.test_results_right), numberCorrect));
-            //tvWrong.setText(String.format(getString(R.string.test_results_wrong), totalNumber - numberCorrect));
             tvTime.setText(String.format(getString(R.string.test_results_time), TimeUtil.getTimeString(timeLength)));
 
         }
