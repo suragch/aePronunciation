@@ -232,19 +232,19 @@
     <string name="dzh_example1" translatable="false">jump\n/ʤʌmp/</string>
     <string name="dzh_example2" translatable="false">agile\n/\'æʤəl/</string>
     <string name="dzh_example3" translatable="false">edge\n/ɛʤ/</string>
-    <string name="v_description">Note the difference between /v/ and /w/. In the /v/ sound the top teeth touch the bottom lip. This is the same mouth position as /f/. The only differenced is that /v/ is voiced. Also be careful not to read the third example /hævə/.</string>
+    <string name="v_description">Note the difference between /v/ and /w/. In the /v/ sound the top teeth touch the bottom lip. This is the same mouth position as /f/. The only difference is that /v/ is voiced. Also be careful not to read the third example /hævə/.</string>
     <string name="v_example1" translatable="false">very\n/\'vɛri/</string>
     <string name="v_example2" translatable="false">every\n/\'ɛvri/</string>
     <string name="v_example3" translatable="false">have\n/hæv/</string>
-    <string name="th_voiced_description">In this sound the tongue lightly touches the bottom of the top teeth. This is the same mouth position as /θ/. The main differenced is that /ð/ is voiced.</string>
+    <string name="th_voiced_description">In this sound the tongue lightly touches the bottom of the top teeth. This is the same mouth position as /θ/. The main difference is that /ð/ is voiced.</string>
     <string name="th_voiced_example1" translatable="false">they\'re\n/ðɛr/</string>
     <string name="th_voiced_example2" translatable="false">father\n/fɑðɚ/</string>
     <string name="th_voiced_example3" translatable="false">bathe\n/beð/</string>
-    <string name="z_description">This sound uses the same mouth position as /s/. The only differenced is that /z/ is voiced. Do not say /dz/. The English /z/ is different than the Chinese pinyin \"z\".</string>
+    <string name="z_description">This sound uses the same mouth position as /s/. The only difference is that /z/ is voiced.</string>
     <string name="z_example1" translatable="false">zoo\n/zu/</string>
     <string name="z_example2" translatable="false">raised\n/rezd/</string>
     <string name="z_example3" translatable="false">cars\n/kɑrz/</string>
-    <string name="zh_description">This sound uses the same mouth position as /ʃ/. The only differenced is that /ʒ/ is voiced. Note the difference between /r/ and /ʒ/.</string>
+    <string name="zh_description">This sound uses the same mouth position as /ʃ/. The only difference is that /ʒ/ is voiced.</string>
     <string name="zh_example1" translatable="false">usually\n/\'juʒli/</string>
     <string name="zh_example2" translatable="false">pleasure\n/\'plɛʒɚ/</string>
     <string name="zh_example3" translatable="false">beige\n/beʒ/</string>
@@ -260,7 +260,7 @@
     <string name="ng_example1" translatable="false">ringing\n/\'rɪŋɪŋ/</string>
     <string name="ng_example2" translatable="false">think\n/θɪŋk/</string>
     <string name="ng_example3" translatable="false">sung\n/sʌŋ/</string>
-    <string name="l_description">At the beginning of words, [l] is the proper IPA symbol. However, at the end of words it is pronounced differently. The IPA for this sound is written [ɫ] but we use the /l/ symbol for both [l] and [ɫ] in this app (as do many textbooks and dictionaries). Example 2 could also be written /kuəl/. Do not pronounce the last two examples /kuo/ or /bɪo/. Your lips should be relaxed and not move.</string>
+    <string name="l_description">At the beginning of words, [l] is the proper IPA symbol. However, at the end of words it is pronounced differently. The IPA for this sound is written [ɫ] but we use the /l/ symbol for both [l] and [ɫ] in this app (as do many textbooks and dictionaries). Example 2 could also be written /kuəl/.</string>
     <string name="l_example1" translatable="false">loud\n/laʊd/</string>
     <string name="l_example2" translatable="false">cool\n/kul/</string>
     <string name="l_example3" translatable="false">bill\n/bɪl/</string>
@@ -272,23 +272,23 @@
     <string name="j_example1" translatable="false">year\n/jɪr/</string>
     <string name="j_example2" translatable="false">cube\n/kjub/</string>
     <string name="j_example3" translatable="false">yellow\n/\'jɛlo/</string>
-    <string name="h_description">This sound does not come at the end of any words in English. Note that the English /h/ is different than the Chinese pinyin \"h\".</string>
+    <string name="h_description">This sound does not come at the end of any words in English.</string>
     <string name="h_example1" translatable="false">her\n/hɝ/</string>
     <string name="h_example2" translatable="false">have\n/hæv/</string>
     <string name="h_example3" translatable="false">ahead\n/ə\'hɛd/</string>
-    <string name="r_description">This sound should be written /ɹ/ according to IPA. (The IPA /r/ is actually trilled, like the Mongolian \"r\".) However, in order to maintain consistency with many dictionaries and textbooks in China, the symbol /r/ is used here. Note the difference between /r/ and /ʒ/. Also note that the English /r/ is different than the Chinese pinyin \"r\".</string>
+    <string name="r_description">This sound should be written /ɹ/ according to IPA. (The IPA /r/ is actually a trilled r.) However, in order to maintain consistency with many dictionaries and textbooks, the symbol /r/ is used here.</string>
     <string name="r_example1" translatable="false">real\n/ril/</string>
     <string name="r_example2" translatable="false">rib\n/rɪb/</string>
     <string name="r_example3" translatable="false">roar\n/rɔr/</string>
-    <string name="i_description">In British English pronunciation this sound is usually written as /iː/ where the two dots represent a long vowel sound. Long and short vowels are not differentiated as much in American English and so the two dots are not written. If a vowel is before a voiced consonant then it is long. If it is before a voiceless consonant then it is short.</string>
+    <string name="i_description">In British English pronunciation this sound is usually written as /iː/, where the two dots represent a long vowel sound. Long and short vowels are not differentiated as much in American English and so the two dots are not written. If a vowel is before a voiced consonant then it is long. If it is before a voiceless consonant then it is short.</string>
     <string name="i_example1" translatable="false">each\n/iʧ/</string>
     <string name="i_example2" translatable="false">read\n/rid/</string>
     <string name="i_example3" translatable="false">me\n/mi/</string>
-    <string name="i_short_description">This is a different sound than /i/. The difference is not so much one of long and short, but of a different position of the mouth and tongue. The mouth is open just a little wider and the toungue is just a little further back than /i/</string>
+    <string name="i_short_description">This is a different sound than /i/. The difference is not so much one of long and short, but of a different position of the mouth and tongue. The mouth is open just a little wider and the tongue is just a little further back than /i/.</string>
     <string name="i_short_example1" translatable="false">it\n/ɪt/</string>
     <string name="i_short_example2" translatable="false">him\n/hɪm/</string>
     <string name="i_short_example3" translatable="false">rib\n/rɪb/</string>
-    <string name="e_short_description">Many dictionaries and textbooks in China that describe British English use the symbol /e/ for this sound. According to IPA, though, it should be written /ɛ/. The mouth is open less than with /æ/ and the tongue is a little more forward.</string>
+    <string name="e_short_description">Many dictionaries and textbooks that describe British English use the symbol /e/ for this sound. According to IPA, though, it should be written /ɛ/. The mouth is open less than with /æ/ and the tongue is a little more forward.</string>
     <string name="e_short_example1" translatable="false">edge\n/ɛʤ/</string>
     <string name="e_short_example2" translatable="false">set\n/sɛt/</string>
     <string name="e_short_example3" translatable="false">said\n/sɛd/</string>
@@ -296,7 +296,7 @@
     <string name="ae_example1" translatable="false">ash\n/æʃ/</string>
     <string name="ae_example2" translatable="false">bad\n/bæd/</string>
     <string name="ae_example3" translatable="false">bat\n/bæt/</string>
-    <string name="a_description">Also written as /ɑː/ in British English. Note that this is a very different sound than /ʌ/ in American English. Also note that /ɑ/ is different than the pinyin \"a\" of standard Chinese, which is written /a/ in IPA.</string>
+    <string name="a_description">Also written as /ɑː/ in British English. Note that this is a very different sound than /ʌ/ in American English.</string>
     <string name="a_example1" translatable="false">on\n/ɑn/</string>
     <string name="a_example2" translatable="false">father\n/\'fɑðɚ/</string>
     <string name="a_example3" translatable="false">ma\n/mɑ/</string>
@@ -304,7 +304,7 @@
     <string name="c_backwards_example1" translatable="false">ought\n/ɔt/</string>
     <string name="c_backwards_example2" translatable="false">call\n/kɔl/</string>
     <string name="c_backwards_example3" translatable="false">saw\n/sɔ/</string>
-    <string name="u_short_description">Sometimes it is written incorrectly /u/, but it should be written /ʊ/ (without the "tail"). /u/ and /ʊ/ are two very different vowels.</string>
+    <string name="u_short_description">Sometimes it is written incorrectly as /u/, but it should be written /ʊ/ (without the "tail"). /u/ and /ʊ/ are two very different vowels.</string>
     <string name="u_short_example1" translatable="false">put\n/pʊt/</string>
     <string name="u_short_example2" translatable="false">good\n/gʊd/</string>
     <string name="u_short_example3" translatable="false">should\n/ʃʊd/</string>
@@ -328,11 +328,11 @@
     <string name="ai_example1" translatable="false">I\'m\n/aɪm/</string>
     <string name="ai_example2" translatable="false">bite\n/baɪt/</string>
     <string name="ai_example3" translatable="false">fly\n/flaɪ/</string>
-    <string name="au_description">This is a diphthong, a combination of the /a/ and /ʊ/ sounds. Note the difference from /ɔ/. Also note that it is different than the Chinese pinyin \"ao\" sound.</string>
+    <string name="au_description">This is a diphthong, a combination of the /a/ and /ʊ/ sounds. Note the difference from /ɔ/.</string>
     <string name="au_example1" translatable="false">out\n/aʊt/</string>
     <string name="au_example2" translatable="false">loud\n/laʊd/</string>
     <string name="au_example3" translatable="false">cow\n/kaʊ/</string>
-    <string name="oi_description">The "ɔ" used in /ɔɪ/ is not the same sound as the /ɔ/ in this app. (This is because the /ɔ/ used to describe many American English words should be written /ɒ/.) The /ɔɪ/ sound begins with small rounded lips.</string>
+    <string name="oi_description">The "ɔ" used in /ɔɪ/ is not the same sound as the /ɔ/ in this app. (This is because the /ɔ/ used to describe many American English words should actually be written /ɒ/.) The /ɔɪ/ sound begins with small rounded lips.</string>
     <string name="oi_example1" translatable="false">oil\n/ɔɪl/</string>
     <string name="oi_example2" translatable="false">voice\n/vɔɪs/</string>
     <string name="oi_example3" translatable="false">boy\n/bɔɪ/</string>
@@ -364,11 +364,11 @@
     <string name="or_example1" translatable="false">oars\n/ɔrz/</string>
     <string name="or_example2" translatable="false">north\n/nɔrθ/</string>
     <string name="or_example3" translatable="false">roar\n/rɔr/</string>
-    <string name="glottal_stop_description">This sound is called a glottal stop. It is not usually taught in English textbooks in China, but it is an important part of American English pronunciation. Note the difference in the pronunciation of "put" here and in the example for the /ʊ/ sound. The /ʔ/ sound often replaces /t/, especially at the end of words and in middle of sentences.</string>
+    <string name="glottal_stop_description">This sound is called a glottal stop. It is not always taught in English textbooks, but it is an important part of American English pronunciation. Note the difference in the pronunciation of "put" here and in the example for the /ʊ/ sound. The /ʔ/ sound often replaces /t/, especially at the end of words and in middle of sentences.</string>
     <string name="glottal_stop_example1" translatable="false">put\n/pʊʔ/</string>
     <string name="glottal_stop_example2" translatable="false">button\n/\'bʌʔn/</string>
     <string name="glottal_stop_example3" translatable="false">uh-oh\n/\'ʌʔo/</string>
-    <string name="flap_t_description">The /ɾ/ sound (not /r/) is called a flap t or an alveolar tap. It is not usually taught in English textbooks in China, but it is an important part of American English pronunciation. The /ɾ/ sound often replaces /t/, especially when /t/ comes between vowels in an unstressed syllable. The /ɾ/ sound can also be written /d/, though this is not as accurate. In that case, the examples would be written /\'wɑdɚ/, /\'lɪdəl/, ɑnd /\'θɝdi/.</string>
+    <string name="flap_t_description">The /ɾ/ sound (not /r/) is called a flap t or an alveolar tap. It is not usually taught in English textbooks, but it is an important part of American English pronunciation. The /ɾ/ sound often replaces /t/, especially when /t/ comes between vowels in an unstressed syllable. The /ɾ/ sound can also be written /d/, though this is not as accurate. In that case, the examples would be written /\'wɑdɚ/, /\'lɪdəl/, ɑnd /\'θɝdi/.</string>
     <string name="flap_t_example1" translatable="false">water\n/\'wɑɾɚ/</string>
     <string name="flap_t_example2" translatable="false">little\n/\'lɪɾəl/</string>
     <string name="flap_t_example3" translatable="false">thirty\n/\'θɝɾi/</string>
