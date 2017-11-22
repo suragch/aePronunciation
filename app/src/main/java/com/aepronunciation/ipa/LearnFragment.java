@@ -21,15 +21,13 @@ public class LearnFragment extends Fragment implements KeyboardFragment.Keyboard
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         Fragment childLearnSingleFragment = new LearnSingleFragment();
         transaction.replace(R.id.learn_content_frame, childLearnSingleFragment);
-        Fragment childKeybaordFragment = new KeyboardFragment();
-        transaction.replace(R.id.keyboard_frame, childKeybaordFragment);
+        Fragment childKeyboardFragment = new KeyboardFragment();
+        transaction.replace(R.id.keyboard_frame, childKeyboardFragment);
         transaction.commit();
     }
 
     @Override
     public void onKeyTouched(String keyString) {
-
-        // find the currect fragment and then perform the appropriate action on it
         Fragment f = getChildFragmentManager().findFragmentById(R.id.learn_content_frame);
         if (f instanceof LearnSingleFragment) {
             // update display

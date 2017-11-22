@@ -17,7 +17,7 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // add back arrow to toolbar
         if (getSupportActionBar() != null){
@@ -25,8 +25,8 @@ public class AboutActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        TextView tvAboutAppName = (TextView) findViewById(R.id.tvAboutAppName);
-        TextView tvVersion = (TextView) findViewById(R.id.tvAboutVersion);
+        TextView tvAboutAppName = findViewById(R.id.tvAboutAppName);
+        TextView tvVersion = findViewById(R.id.tvAboutVersion);
         String appName = getResources().getString(R.string.app_name);
         String appVersion = "";
         try {

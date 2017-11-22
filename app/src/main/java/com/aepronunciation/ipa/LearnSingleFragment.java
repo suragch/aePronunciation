@@ -45,16 +45,16 @@ public class LearnSingleFragment extends Fragment implements View.OnClickListene
 
         View layout = inflater.inflate(R.layout.fragment_learn_single, container, false);
 
-        tvIpaSymbol = (TextView) layout.findViewById(R.id.tvLearnSingleIpaSound);
-        videoView = (VideoView) layout.findViewById(R.id.videoview);
-        tvIpaDescription = (TextView) layout.findViewById(R.id.tvLearnSingleIpaDescription);
-        rlExample1 = (RelativeLayout) layout.findViewById(R.id.rlExample1);
-        rlExample2 = (RelativeLayout) layout.findViewById(R.id.rlExample2);
-        rlExample3 = (RelativeLayout) layout.findViewById(R.id.rlExample3);
-        rlMore = (RelativeLayout) layout.findViewById(R.id.rlMore);
-        tvExample1 = (TextView) layout.findViewById(R.id.tvExample1);
-        tvExample2 = (TextView) layout.findViewById(R.id.tvExample2);
-        tvExample3 = (TextView) layout.findViewById(R.id.tvExample3);
+        tvIpaSymbol = layout.findViewById(R.id.tvLearnSingleIpaSound);
+        videoView = layout.findViewById(R.id.videoview);
+        tvIpaDescription = layout.findViewById(R.id.tvLearnSingleIpaDescription);
+        rlExample1 = layout.findViewById(R.id.rlExample1);
+        rlExample2 = layout.findViewById(R.id.rlExample2);
+        rlExample3 = layout.findViewById(R.id.rlExample3);
+        rlMore = layout.findViewById(R.id.rlMore);
+        tvExample1 = layout.findViewById(R.id.tvExample1);
+        tvExample2 = layout.findViewById(R.id.tvExample2);
+        tvExample3 = layout.findViewById(R.id.tvExample3);
 
         // set listeners
         rlExample1.setOnClickListener(this);
