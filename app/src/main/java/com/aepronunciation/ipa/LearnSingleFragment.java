@@ -162,7 +162,7 @@ public class LearnSingleFragment extends Fragment implements View.OnClickListene
         } else { // Button: "more..."
 
             Bundle args = new Bundle();
-            args.putString(LearnDoubleDialogFragment.KEY_DIALOG_IPA, tvIpaSymbol.getText().toString());
+            args.putString(LearnDoubleDialogFragment.KEY_DIALOG_IPA, ipa);
             LearnDoubleDialogFragment dialog = new LearnDoubleDialogFragment();
             dialog.setArguments(args);
             dialog.show(getChildFragmentManager(), "TagDoubleSounds");

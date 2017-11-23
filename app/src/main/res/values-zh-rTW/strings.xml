@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="listvalues">
+        <item>5</item>
+        <item>10</item>
+        <item>25</item>
+        <item>50</item>
+        <item>100</item>
+    </string-array>
+
+    <string name="i_description">在英式英語中/i/音標通常寫作/i:/，兩個點代表發長音。但是在美式發音中加點與不加點沒多大區別。所以美式音標不加兩個點。它在濁輔音前發長音，清輔音前發短音。</string>
+    <string name="a_description">在英式英語中/ɑ/音標通常寫作/ɑː/。注意在美式英語中它的發音與/ʌ/有很大區別。還有/ɑ/與漢語拼音中\"a\"也不同。（在國際音標中，漢語拼音的\"a\"寫作/a/）。</string>
+    <string name="u_description">在英式英語中/u/音標通常寫作/uː/，但是像/iː/、/aː/、/ɔː/這些長元音的點在美式英語中不必加。美式英語中所有重讀的元音在濁輔音前發長音，清輔音前發短音。</string>
+    <string name="i_short_description">/ɪ/與/i/發音不同。在長音與短音方面區別不是很大，最主要的區別是你嘴型的大小和舌頭的位置。跟/i/音相比，嘴要稍微再咧開一點，舌頭的放置要靠後一點。</string>
+    <string name="u_short_description">/ʊ/與/u/發音不同。在長音與短音方面區別不是很大，而是嘴型的大小和舌頭的位置。</string>
+    <string name="v_upsidedown_description">/ʌ/與/ɑ/讀音不同。在長音與短音方面區別不是很大，而是嘴型的大小和舌頭的位置。注意它的發音與英式英語/ʌ/音標的發音稍微有所不同。當/ʌ/不讀成重音時，通常寫成/ə/。</string>
+    <string name="e_short_description">英式英語的音標中使用/e/音標來表示這個發音。實際上，根據標準國際音標它應該被寫成/ɛ/。嘴張開的程度比/æ/小，舌尖更靠前一點。</string>
+    <string name="ae_description">"發/æ/音時，嘴張開的程度要像/ɑ/一樣大，嘴角像/ɛ/那樣拉向兩邊，但舌頭應該比/ɛ/更往後一些。</string>
+    <string name="c_backwards_description">根據國際音標，美式英語中使用的/ɔ/這個音標應該被寫成/ɒ/，但為了和大多數詞典保持一致，我們使用了/ɔ/。（注意，/ɔː/用於英式音標時發音是不一樣的，英式音標的/ɔː/是標準國際音標。）大約40%的美國人不發這個音，他們用/ɑ/代替，上述的例子可以這樣發音：/ɑt/，/kɑt/，和/sɑ/。</string>
+    <string name="schwa_description">元音/ə/是美式發音中最常見的一個音。它常用於非重讀音節的單詞。當此元音重讀時通常寫成/ʌ/。</string>
+    <string name="ei_description">/eɪ/是雙元音。它由/e/和/ɪ/兩個單音組成。在有些美式發音的詞典中有時也寫成/e/。不要與英式音標/e/混淆，事實上它發/ɛ/音，美式英語中帶/eɪ/音的詞，英式英語中的發音應該為/ɛi/。但是它們依舊都寫成/eɪ/。</string>
+    <string name="ai_description">/aɪ/是雙元音。它由/a/和/ɪ/兩個單音組成。注意：/aɪ/與/æ/發音不同。</string>
+    <string name="au_description">/aʊ/是雙元音。它由/a/和/ʊ/兩個單音組成。注意：/aʊ/與/ɔ/發音不同。還要注意/aʊ/與漢語拼音中\"ao\"發音也不同。</string>
+    <string name="oi_description">/ɔɪ/是雙元音。它由/ɔ/和/ɪ/兩個單音組成。/ɔɪ/中的ɔ與此應用中的/ɔ/發音不同。（這是因為在美式英語中，/ɔ/應該寫為/ɒ/。）讀/ɔɪ/時，口型由小而圓開始。</string>
+    <string name="ou_description">/oʊ/是雙元音。它由/o/和/ʊ/兩個單音組成。在有些美式發音的詞典中有時也寫成/o/。注意它與英式發音/əʊ/有輕微的不同。</string>
+    <string name="er_stressed_description">/ɝ/音有時候寫為/ər/或/əɹ/。這是在重讀音節或單音節詞中的發音。當/ɝ/非重讀時，寫成/ɚ/。英式英語中沒有/ɝ​​/音，美國人發/ɝ/的單詞中英國人發/ɜː/音。</string>
+    <string name="er_unstressed_description">/ɚ/的發音與/ɝ/相同，/ɚ/用於輕讀的音節，而/ɝ/用於重讀的音節。它有時寫為/ər/或/əɹ/。英式英語中沒有/ɚ/音，美國人發/ɚ/的單詞中英國人發/ə/音。</string>
+    <string name="ar_description">根據國際音標更加正確地寫法是/ɑɹ/或者/ɑɚ/。英式英語中沒有/ɑr/音，美國人發/ɑr/的單詞中英國人發/ɑː/音。</string>
+    <string name="er_description">根據國際音標更加正確的寫法是/ɛɹ/或者/ɛɚ/。英式英語中沒有/ɛr/音，美國人發/ɛr/的單詞中英國人發/eə/音。</string>
+    <string name="ir_description">根據國際音標更加正確的寫法是/ɪɹ/或者/ɪɚ/。英式英語中沒有/ɪr/音，美國人發/ɑr/的單詞中英國人發/ɪr/音。</string>
+    <string name="or_description">根據國際音標更加正確的寫法是/ɔɹ/或者/ɔɚ/。/ɔr/中的ɔ與此應用中的/ɔ/發音不同。（這是因為在美式英語中，/ɔ/應該寫為/ɒ/。）讀/ɔr/時，口型由小而圓開始。英式英語中沒有/ɔr/音，美國人發/ɔr/的單詞中英國人發/ɔ:/音。</string>
+    <string name="p_description">位於詞首時是送氣音[pʰ]，但在字母s後和詞尾時是非送氣的[p]（跟漢語拼音的\"b\"音一樣）。注意不要把第三個例子讀成/stapə/。</string>
+    <string name="t_description">位於詞首時是送氣音[tʰ]，但在字母s後和詞尾時是非送氣的[t]（跟漢語拼音的\"d\"音一樣）。注意不要把第三個例子讀成/ɪtə/，/ɪts/或/ɪtʰ/，還要注意\"t\"在美式英語發音中經常改變發音，像/ɾ/和/ʔ/。</string>
+    <string name="k_description">位於詞首時是送氣音[kʰ]，但在字母s後和詞尾時是非送氣的[k]（跟漢語拼音的\"g\"音一樣）。注意不要把第三個例子讀成/wikə/。</string>
+    <string name="b_description">注意/b/在單詞詞尾的發音，不要把第三個例子讀成/rɪbə/或者是/rɪp/。英語中的/b/和漢語拼音中的\"b\"不同。</string>
+    <string name="d_description">注意/d/在單詞詞尾的發音，不要把第三個例子讀成/kɑrdə/或者是/kɑrt/。英語中的/d/和漢語拼音中的\"d\"不同。</string>
+    <string name="g_description">注意/g/在單詞詞尾的發音，不要把第三個例子讀成/pɪgə/或者是/pɪk/。英語中的/g/和漢語拼音中的\"g\"不同。</string>
+    <string name="f_description">注意/f/在單詞詞尾的發音，不要把第三個例子讀成/ɪfə/。</string>
+    <string name="s_description">注意/s/在單詞詞尾的發音，不要把第三個例子讀成/pæsə/。</string>
+    <string name="ch_description">注意/ʧ/在單詞詞尾的發音，不要把第三個例子讀成/ʧɝʧə/。英語中的/ʧ/和漢語拼音中的\"ch\"、\"q\"不同。（在國際音標中，漢語拼音的\"ch\"是[ʈʂʰ]音，\"q\"是[tɕʰ]音。）</string>
+    <string name="sh_description">注意/ʃ/在單詞詞尾的發音，不要把第三個例子讀成/æʃə/。英語中的/ʃ/和漢語拼音中的\"sh\"、\"x\"不同。（在國際音標中，漢語拼音的\"sh\"是[ʂ]音，\"x\"是[ɕ]音。）</string>
+    <string name="dzh_description">注意/ʤ/在單詞詞尾的發音，不要把第三個例子讀成/ɛʤə/。英語中的/ʤ/和漢語拼音中的\"zh\"、\"j\"不同。（在國際音標中，漢語拼音的\"zh\"是[ʈʂ]音，\"j\"是[tɕ]音。）</string>
+    <string name="v_description">/v/和/f/口型相同。唯一的不同之處就是/v/是濁音。注意/v/與/w/兩者發音的不同。發/v/音時，上齒要輕輕接觸下唇。還要注意第三個例子不要讀成/hævə/。</string>
+    <string name="z_description">/z/和/s/口型相同。唯一的不同之處就是/z/是濁音。不要讀成/dz/。英語中的/z/和漢語拼音中的\"z\"不同。（在國際音標中，漢語拼音的\"z\"是[ts]音，\"c\"是[tsʰ]音。）</string>
+    <string name="zh_description">/ʒ/和/ʃ/口型相同。唯一的不同之處就是/ʒ/是濁音。注意區別/r/和/ʒ/。</string>
+    <string name="th_voiced_description">/ð/和/θ/口型相同，最主要的區別就是/ð/是濁音。發/ð/時舌頭輕觸上齒的底部。</string>
+    <string name="th_voiceless_description">這個音標的發音，舌頭輕微觸到上齒底部，不要讀成/s/。</string>
+    <string name="m_description">注意/m/在單詞詞尾的發音，不要把第三個例子讀成/ɑrmə/。</string>
+    <string name="n_description">注意/n/在單詞詞尾的發音，不要把第三個例子讀成/sʌnə/。</string>
+    <string name="ng_description">這個音不會出現在英語單詞的詞首。</string>
+    <string name="w_description">這個音不會出現在英語單詞的詞尾。注意/w/和/v/的不同之處。讀/w/音時，嘴唇要形成一個小圓且不要觸碰牙齒。一小部分美國人將\"wh\"音發成/hw/(在國際音標中是/ʍ/)。</string>
+    <string name="j_description">這個音不會出現在英語單詞的詞尾。注意year和ear的不同之處。</string>
+    <string name="h_description">這個音不會出現在英語單詞的詞尾。注意英語中的/h/與漢語拼音中的\"h\"不同。（在國際音標中，漢語拼音的\"h\"是[x]音。）</string>
+    <string name="l_description">當/l/在單詞開頭時，它就讀國際音標中本身的音標。當字母l在單詞詞尾時發音有所不同，它就發國際音標的[ɫ]音。但是在這個應用的練習和考試中，我們用/l/音標代替[ɫ]音（在許多課本和詞典中也是如此）。第二個例子也能寫成/kuəl/，不要把最後倆個例子讀成/kuo/或/bɪo/。你的嘴唇應該放鬆且不能移動。</string>
+    <string name="r_description">根據國際音標，這個音應該寫為/ɹ/。(國際音標中的/r/實際上是顫音，就像蒙語中的\"r\")。然而，為了與許多課本和詞典保持一致，在這裡使用/r/音標。要注意/r/和/ʒ/的不同之處，也要注意英語中的/r/與漢語拼音中的\"r\"的不同之處。（在國際音標中，漢語拼音的\"r\"是/ɻ/音。）</string>
+    <string name="glottal_stop_description">這個音被稱作為聲門塞音。在中國的英語課本中通常不講，但是它在美式發音中非常重要。注意例一put的不同發音，/pʊt/與/pʊʔ/。/ʔ/音經常代替/t/音，特別是在單詞詞尾和句子中間。</string>
+    <string name="flap_t_description">這個音標叫做齒齦閃音，在中國英語課本中通常不教，但是它在美式發音中非常重要。當/t/音出現在非重讀的音節中並在兩個元音之間，/ɾ/音通常會代替/t/音。儘管不準確，但是/ɾ/音標也可以寫成/d/。這種情況下，上述例子應該被寫成/ˈwɑdɚ/，/ˈlɪdəl/和/\'θɝdi/。</string>
+    <string name="app_name">美式發音</string>
+    <string name="main_menu_keyboard">輸入音標</string>
+    <string name="main_menu_about">關於應用</string>
+    <string name="main_menu_history">歷史記錄</string>
+    <string name="title_activity_learn_double">/%1$s/的延伸</string>
+    <string name="practice_mode_double">雙音標</string>
+    <string name="select_sounds_title">選擇音標</string>
+    <string name="select_sounds_radio_double">雙音標</string>
+    <string name="select_sounds_radio_single">單音標</string>
+    <string name="select_sounds_positive_button">確定</string>
+    <string name="dialog_cancel_button">取消</string>
+    <string name="select_sounds_cb_consonants">輔音</string>
+    <string name="select_sounds_cb_vowels">元音</string>
+    <string name="test_setup_name">姓名</string>
+    <string name="test_setup_number_of_questions">數量：</string>
+    <string name="test_setup_begin_button">開始</string>
+    <string name="test_setup_double">雙音標</string>
+    <string name="test_setup_single">單音標</string>
+    <string name="test_setup_type">類型：</string>
+    <string name="title_activity_test">測試</string>
+    <string name="title_activity_test_results">考試結果</string>
+    <string name="test_results_right">正確： %1$d</string>
+    <string name="test_results_wrong">錯誤： %1$d</string>
+    <string name="test_results_time">用時： %1$s</string>
+    <string name="test_results_practice_difficult_button">糾錯練習</string>
+    <string name="title_activity_history">歷史記錄</string>
+    <string name="history_time_title">總時長</string>
+    <string name="history_test_title">最佳記錄</string>
+    <string name="history_details">詳情</string>
+    <string name="title_activity_history_time">時間詳情</string>
+    <string name="title_activity_history_tests">測試詳情</string>
+    <string name="about_app_name">美式發音</string>
+    <string name="title_activity_about">關於應用</string>
+    <string name="about_content">如果你有任何問題或者建議，請聯繫我們。</string>
+    <string name="about_contact">聯繫方式</string>
+    <string name="keyboard_input_toast_text_copied">已複製</string>
+    <string name="keyboard_menu_clear">刪除</string>
+    <string name="keyboard_menu_copy">複製</string>
+    <string name="keyboard_menu_share">分享</string>
+    <string name="keyboard_menu_share_chooser_title">分享到</string>
+    <string name="title_activity_keyboard_input">輸入音標</string>
+    <string name="title_activity_history_test_details">測試詳情</string>
+    <string name="keyboard_menu_alert_message">確定要全部刪除嗎？</string>
+    <string name="keyboard_menu_alert_clear_all_button">刪除</string>
+    <string name="error_final_r">在此應用以r結尾的只有這5個（ɝ，ɑr，ɛr，ɪr，ɔr），不需要另外加工。</string>
+    <string name="error_two_consonants">你輸入的是%1$s和%2$s(兩個輔音)。你應該輸入一個元音和一個輔音。</string>
+    <string name="error_two_vowels">你輸入的是%1$s和%2$s(兩個元音)。你應該輸入一個元音和一個輔音。</string>
+    <string name="error_final_wjh">你輸入的是%1$s和%2$s。但是%2$s不會出現在單詞結尾。</string>
+    <string name="error_initial_ng">你輸入的是%1$s和%2$s。但是在英語中，%2$s不會出現在單詞開頭。</string>
+    <string name="error_dialog_ok_button">知道了</string>
+    <string name="learn_single_show_doubles">更多示例</string>
+    <string name="main_tab_learn">學習</string>
+    <string name="main_tab_practice">練習</string>
+    <string name="main_tab_test">測試</string>
+    <string name="practice_mode_single">單音標</string>
+    <string name="locale">zh</string>
+    <string name="history_test_details_type_double">雙音標 （%1$d）</string>
+    <string name="history_test_details_type_single">單音標 （%1$d）</string>
+    <string name="history_tests_type_double">雙音標： %1$d%%</string>
+    <string name="history_tests_type_single">單音標： %1$d%%</string>
+    <string name="history_test_details_specific_test_number_of_questions">數量： %1$d</string>
+    <string name="about_app_version">版本%1$s</string>
+    <string name="history_time_details_learning">學習時長</string>
+    <string name="history_time_details_practicing">練習時長</string>
+    <string name="history_time_details_testing">考試時長</string>
+    <string name="history_time_details_total">總時長</string>
+    <string name="history_time_details_type_double">雙音標</string>
+    <string name="history_time_details_type_single">單音標</string>
+    <string name="test_default_name">無名</string>
+
+</resources>

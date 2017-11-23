@@ -53,7 +53,7 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
         }
 
         // set up the RecyclerView
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rvLearnDouble);
+        RecyclerView recyclerView = view.findViewById(R.id.rvLearnDouble);
         int numberOfColumns = 6;
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
         GridSpacingItemDecoration itemDecoration = new GridSpacingItemDecoration(getActivity(), R.dimen.grid_item_spacing);
