@@ -42,7 +42,7 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
         doubleSound = new DoubleSound();
         doubleSound.restrictListToAllPairsContaining(ipa);
 
-        if (PhonemeTable.INSTANCE.isSpecial(ipa)) {
+        if (Ipa.isSpecial(ipa)) {
             specialSound = new SpecialSound();
             specialSound.loadSoundsFor(ipa);
             adapter = new LearnDoubleRecyclerViewAdapter(getActivity(), specialSound.getSounds());
@@ -119,7 +119,7 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
 
         // use the string to look up the audio resource id
         int soundId;
-        if (PhonemeTable.INSTANCE.isSpecial(ipa)) {
+        if (Ipa.isSpecial(ipa)) {
             soundId = specialSound.getSoundResourceId(clickedIpaString);
         } else {
             soundId = doubleSound.getSoundResourceId(clickedIpaString);

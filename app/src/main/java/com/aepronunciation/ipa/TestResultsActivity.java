@@ -276,7 +276,7 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         playSound(correctIpa);
         if (!correctIpa.equals(userIpa)) {
             int delay = 1000;
-            if (PhonemeTable.INSTANCE.hasTwoPronunciations(correctIpa)) {
+            if (Ipa.hasTwoPronunciations(correctIpa)) {
                 delay = 2000; // these sounds need a longer delay
             }
             // delay playing second sound
@@ -383,10 +383,10 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         ArrayList<String> consonantArray = new ArrayList<>();
         Set<String> allSounds = findNeedToPracticeSounds(answers);
         for (String sound : allSounds) {
-            if (PhonemeTable.INSTANCE.isVowel(sound)) {
-                vowelArray.add(sound);
-            } else {
+            if (Ipa.isConsonant(sound)) {
                 consonantArray.add(sound);
+            } else {
+                vowelArray.add(sound);
             }
         }
 

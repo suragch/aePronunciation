@@ -434,10 +434,10 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         allChosenSounds.addAll(chosenConsonants);
         if (practiceMode == SoundMode.Double) {
             if (chosenVowels.isEmpty()) {
-                allChosenSounds.addAll(PhonemeTable.INSTANCE.getAllVowels());
+                allChosenSounds.addAll(Ipa.getAllVowels());
             }
             if (chosenConsonants.isEmpty()) {
-                allChosenSounds.addAll(PhonemeTable.INSTANCE.getAllConsonants());
+                allChosenSounds.addAll(Ipa.getAllConsonants());
             }
         }
         mListener.updateKeyboardKeySelectionFor(allChosenSounds);
@@ -467,8 +467,8 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
             singleSound.restrictListTo(chosenConsonants, chosenVowels);
         } else { // Double
             if ((chosenVowels.size()==0 && chosenConsonants.size() == 0) ||
-                    (chosenVowels.size() == PhonemeTable.NUMBER_OF_VOWELS_FOR_DOUBLES &&
-                            chosenConsonants.size() == PhonemeTable.NUMBER_OF_CONSONANTS_FOR_DOUBLES)) {
+                    (chosenVowels.size() == Ipa.NUMBER_OF_VOWELS_FOR_DOUBLES &&
+                            chosenConsonants.size() == Ipa.NUMBER_OF_CONSONANTS_FOR_DOUBLES)) {
                 // all or none selected
                 doubleSound.includeAllSounds();
             } else if (chosenVowels.size()==0 || chosenConsonants.size() == 0) {

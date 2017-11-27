@@ -102,7 +102,7 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
         playSound(correctIpa);
         if (!correctIpa.equals(userIpa)) {
             int delay = 1000;
-            if (PhonemeTable.INSTANCE.hasTwoPronunciations(correctIpa)) {
+            if (Ipa.hasTwoPronunciations(correctIpa)) {
                 delay = 2000; // these sounds need a longer delay
             }
             // delay playing second sound

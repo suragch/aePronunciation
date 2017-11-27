@@ -225,8 +225,8 @@ public class SelectSoundDialogFragment extends DialogFragment {
                 cbGlottalStop,
                 cbFlapT
         };
-        if (checkBoxesConsonants.length != PhonemeTable.NUMBER_OF_CONSONANTS ||
-                checkBoxesVowels.length != PhonemeTable.NUMBER_OF_VOWELS) {
+        if (checkBoxesConsonants.length != Ipa.NUMBER_OF_CONSONANTS ||
+                checkBoxesVowels.length != Ipa.NUMBER_OF_VOWELS) {
             throw new RuntimeException("update number of checkboxes if vowels or consonant number changes");
         }
 

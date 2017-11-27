@@ -37,7 +37,7 @@ class DoubleSound {
         // loop through all pairs and add any for which both consonant and vowel are in allowedSounds
         doubleSounds = new ArrayList<>();
         for (String key : hashMap.keySet()) {
-            Pair<String,String> cv = PhonemeTable.INSTANCE.splitDoubleSound(key);
+            Pair<String,String> cv = Ipa.splitDoubleSound(key);
             if (stringContainsItemFromList(cv.first, consonants) || stringContainsItemFromList(cv.second, vowels)) {
                 doubleSounds.add(key);
             }
@@ -54,9 +54,9 @@ class DoubleSound {
         ArrayList<String> singleItemArray = new ArrayList<>();
         singleItemArray.add(ipa);
 
-        if (PhonemeTable.INSTANCE.isConsonant(ipa)) {
+        if (Ipa.isConsonant(ipa)) {
             restrictListToPairsContainingAtLeastOneSoundFrom(singleItemArray, new ArrayList<String>());
-        } else if (PhonemeTable.INSTANCE.isVowel(ipa)) {
+        } else { // vowel
             restrictListToPairsContainingAtLeastOneSoundFrom(new ArrayList<String>(), singleItemArray);
         }
     }
@@ -72,7 +72,7 @@ class DoubleSound {
         // loop through all pairs and add any for with both consonant and vowel are in allowedSounds
         doubleSounds = new ArrayList<>();
         for (String key : hashMap.keySet()) {
-            Pair<String,String> cv = PhonemeTable.INSTANCE.splitDoubleSound(key);
+            Pair<String,String> cv = Ipa.splitDoubleSound(key);
             if (stringContainsItemFromList(cv.first, consonants) && stringContainsItemFromList(cv.second, vowels)) {
                 doubleSounds.add(key);
             }
