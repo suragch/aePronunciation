@@ -21,7 +21,7 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
     private DoubleSound doubleSound;
     LearnDoubleRecyclerViewAdapter adapter;
 
-    private SpecialSound specialSound;
+    //private SpecialSound specialSound;
     String ipa;
 
     private static final int SRC_QUALITY = 0;
@@ -39,18 +39,18 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
         Bundle mArgs = getArguments();
         ipa = mArgs.getString(KEY_DIALOG_IPA);
 
-        doubleSound = new DoubleSound();
-        doubleSound.restrictListToAllPairsContaining(ipa);
+        //doubleSound = new DoubleSound();
+        // doubleSound.restrictListToAllPairsContaining(ipa);
 
-        if (Ipa.isSpecial(ipa)) {
-            specialSound = new SpecialSound();
-            specialSound.loadSoundsFor(ipa);
-            adapter = new LearnDoubleRecyclerViewAdapter(getActivity(), specialSound.getSounds());
-        } else {
+        //if (Ipa.isSpecial(ipa)) {
+        //    specialSound = new SpecialSound();
+        //    specialSound.loadSoundsFor(ipa);
+        //    adapter = new LearnDoubleRecyclerViewAdapter(getActivity(), specialSound.getSounds());
+        //} else {
             doubleSound = new DoubleSound();
             doubleSound.restrictListToAllPairsContaining(ipa);
             adapter = new LearnDoubleRecyclerViewAdapter(getActivity(), doubleSound.getSounds());
-        }
+        //}
 
         // set up the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.rvLearnDouble);
@@ -118,12 +118,12 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
         String clickedIpaString = adapter.getItem(position);
 
         // use the string to look up the audio resource id
-        int soundId;
-        if (Ipa.isSpecial(ipa)) {
-            soundId = specialSound.getSoundResourceId(clickedIpaString);
-        } else {
-            soundId = doubleSound.getSoundResourceId(clickedIpaString);
-        }
+        //int soundId;
+        //if (Ipa.isSpecial(ipa)) {
+        //    soundId = specialSound.getSoundResourceId(clickedIpaString);
+        //} else {
+            int soundId = doubleSound.getSoundResourceId(clickedIpaString);
+        //}
 
         // use the id to load (and play) the sound
         soundPool.load(getActivity(), soundId, PRIORITY);

@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 
 import android.text.TextUtils;
 
-class SpecialSound {
+class SpecialSounda {
 
     // These are double sounds that are used in the learning tab but not in
     // the practice or tests.
@@ -23,9 +23,9 @@ class SpecialSound {
     private static final String ER_UNSTRESSED = "ɚ";
 
     // constructor
-    SpecialSound() {
-        initTreeMap();
-    }
+    //SpecialSound() {
+    //    initTreeMap();
+    //}
 
 
     void loadSoundsFor(String ipa) {

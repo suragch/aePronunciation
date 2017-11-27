@@ -4,24 +4,8 @@ package com.aepronunciation.ipa;
 import android.util.Pair;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Ipa {
-
-//    static func splitDoubleSound(str:String) ->(String,String)
-//
-//    {
-//        //let firstChar = s.prefix(1)
-//        var index = s.index(str.startIndex, offsetBy:1)
-//        let firstChar = str.prefix(upTo:index)
-//
-//        if isConsonant(ipa:firstChar){
-//        return (String(firstChar),String(s[index...]))
-//    }
-//        index = s.index(str.endIndex, offsetBy:-1)
-//        let lastChar = str.suffix(1)
-//        return (String(lastChar),String(s[..<index]))
-//    }
 
     static final int NUMBER_OF_VOWELS = 21;
     static final int NUMBER_OF_VOWELS_FOR_DOUBLES = 19; // not ə, ɚ
