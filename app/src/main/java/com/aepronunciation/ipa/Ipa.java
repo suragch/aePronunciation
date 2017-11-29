@@ -43,7 +43,7 @@ public class Ipa {
         vowels.add(u_short);
         vowels.add(u);
         vowels.add(v_upsidedown);
-        vowels.add(shwua);
+        vowels.add(schwa);
         vowels.add(ei);
         vowels.add(ai);
         vowels.add(au);
@@ -123,7 +123,7 @@ public class Ipa {
     static final String u_short = "ʊ";
     static final String u = "u";
     static final String v_upsidedown = "ʌ";
-    static final String shwua = "ə";
+    static final String schwa = "ə";
     static final String ei = "eɪ";
     static final String ai = "aɪ";
     static final String au = "aʊ";

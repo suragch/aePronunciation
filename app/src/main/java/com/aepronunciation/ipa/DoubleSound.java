@@ -87,7 +87,7 @@ class DoubleSound {
 
     private boolean shouldIncludeSpecialSoundForIpa(String specialSound, String ipa) {
         if (!specialSound.contains(ipa)) return false;
-        if (specialSound.contains(Ipa.flap_t) && ipa.equals(Ipa.shwua)) return false;
+        if (specialSound.contains(Ipa.flap_t) && ipa.equals(Ipa.schwa)) return false;
         return true;
     }
 
