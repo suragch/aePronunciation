@@ -13,6 +13,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import java.text.DateFormat;
+
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -180,32 +182,32 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
             user = tempAnswer.getUserAnswer();
 
             if (testMode == SoundMode.Double) {
-                String[] parsedCorrect;
-                String[] parcedUser;
+                Pair<String, String> parsedCorrect;
+                Pair<String, String> parcedUser;
 
                 if (correct.equals(user)) {
                     numCorrect += 2;
                 } else {
-                    parsedCorrect = Answer.parseDouble(correct);
-                    parcedUser = Answer.parseDouble(user);
+                    parsedCorrect = DoubleSound.parse(correct);
+                    parcedUser = DoubleSound.parse(user);
                     if (parsedCorrect == null || parcedUser == null) {
                         return 0;
                     }
-                    if (parsedCorrect[0].equals(parcedUser[0])) {
+                    if (parsedCorrect.first.equals(parcedUser.first)) {
                         numCorrect++;
                     } else {
                         if (wrong.length() > 0) {
                             wrong.append(",");
                         }
-                        wrong.append(parsedCorrect[0]).append(";").append(parcedUser[0]);
+                        wrong.append(parsedCorrect.first).append(";").append(parcedUser.first);
                     }
-                    if (parsedCorrect[1].equals(parcedUser[1])) {
+                    if (parsedCorrect.second.equals(parcedUser.second)) {
                         numCorrect++;
                     } else {
                         if (wrong.length() > 0) {
                             wrong.append(",");
                         }
-                        wrong.append(parsedCorrect[1]).append(";").append(parcedUser[1]);
+                        wrong.append(parsedCorrect.second).append(";").append(parcedUser.second);
                     }
                 }
             } else { // single
@@ -229,8 +231,8 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
         String userAnswer;
         String correctAnswer;
-        String[] parsedCorrect;
-        String[] parcedUser;
+        Pair<String, String> parsedCorrect;
+        Pair<String, String> parcedUser;
 
         Set<String> practiceSet = new HashSet<>();
         for (Answer answer : answers) {
@@ -247,16 +249,16 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
             } else if (testMode == SoundMode.Double) {
 
-                parsedCorrect = Answer.parseDouble(correctAnswer);
-                parcedUser = Answer.parseDouble(userAnswer);
+                parsedCorrect = DoubleSound.parse(correctAnswer);
+                parcedUser = DoubleSound.parse(userAnswer);
                 if (parcedUser == null || parsedCorrect == null) return practiceSet;
-                if (!parcedUser[0].equals(parsedCorrect[0])) {
-                    practiceSet.add(parcedUser[0]);
-                    practiceSet.add(parsedCorrect[0]);
+                if (!parcedUser.first.equals(parsedCorrect.first)) {
+                    practiceSet.add(parcedUser.first);
+                    practiceSet.add(parsedCorrect.first);
                 }
-                if (!parcedUser[1].equals(parsedCorrect[1])) {
-                    practiceSet.add(parcedUser[1]);
-                    practiceSet.add(parsedCorrect[1]);
+                if (!parcedUser.second.equals(parsedCorrect.second)) {
+                    practiceSet.add(parcedUser.second);
+                    practiceSet.add(parsedCorrect.second);
                 }
 
             }

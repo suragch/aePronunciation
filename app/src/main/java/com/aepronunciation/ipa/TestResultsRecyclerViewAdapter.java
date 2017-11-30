@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,7 @@ class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestResultsRec
     public void onBindViewHolder(ViewHolder holder, int position) {
 
         Answer answer = mData.get(position);
-        holder.tvNumber.setText(Integer.toString(position + 1));
+        holder.tvNumber.setText(String.valueOf(position + 1));
         holder.tvCorrect.setText(answer.getCorrectAnswer());
         if (!answer.getCorrectAnswer().equals(answer.getUserAnswer())) {
 
@@ -48,15 +49,15 @@ class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestResultsRec
             if (mTestMode == SoundMode.Double) {
 
                 // find wrong sound(s)
-                String[] parcedUser = Answer.parseDouble(userAnswer.toString());
-                if (parcedUser == null) {
+                Pair<String, String> parsedUser = DoubleSound.parse(userAnswer.toString());
+                if (parsedUser == null) {
                     holder.tvUser.setText(userAnswer);
                     return;
                 }
                 boolean firstWrong = !answer.getCorrectAnswer().startsWith(
-                        parcedUser[0]);
+                        parsedUser.first);
                 boolean secondWrong = !answer.getCorrectAnswer().endsWith(
-                        parcedUser[1]);
+                        parsedUser.second);
 
                 // change wrong sounds to red
                 if (firstWrong && secondWrong) {
@@ -64,10 +65,10 @@ class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestResultsRec
                             userAnswer.length(), 0);
                 }else if (firstWrong) {
                     userAnswer.setSpan(new ForegroundColorSpan(Color.RED), 0,
-                            parcedUser[0].length(), 0);
+                            parsedUser.first.length(), 0);
                 }else{
                     userAnswer.setSpan(new ForegroundColorSpan(Color.RED),
-                            parcedUser[0].length(), userAnswer.length(), 0);
+                            parsedUser.first.length(), userAnswer.length(), 0);
                 }
 
                 holder.tvUser.setText(userAnswer);
@@ -99,9 +100,9 @@ class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestResultsRec
 
         ViewHolder(View itemView) {
             super(itemView);
-            tvNumber = (IpaTextView) itemView.findViewById(R.id.tvNumberItem);
-            tvCorrect = (IpaTextView) itemView.findViewById(R.id.tvCorrectAnswerItem);
-            tvUser = (IpaTextView) itemView.findViewById(R.id.tvUserAnswerItem);
+            tvNumber = itemView.findViewById(R.id.tvNumberItem);
+            tvCorrect = itemView.findViewById(R.id.tvCorrectAnswerItem);
+            tvUser = itemView.findViewById(R.id.tvUserAnswerItem);
             itemView.setOnClickListener(this);
         }
 

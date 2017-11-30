@@ -215,7 +215,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
                     break;
                 }
             }
-            textView = (IpaTextView) view.findViewById(id);
+            textView = view.findViewById(id);
             if (isSelected) {
                 textView.setTextColor(selectedColor);
             } else {

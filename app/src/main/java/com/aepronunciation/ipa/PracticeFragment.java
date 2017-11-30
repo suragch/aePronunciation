@@ -34,7 +34,7 @@ public class PracticeFragment extends Fragment implements PracticeContentFragmen
     // required method for PracticeContentFragment.PracticeScreenListener
     @Override
     public void updateKeyboardKeysFor(SoundMode mode) {
-        // find the currect fragment and then perform the appropriate action on it
+        // find the correct fragment and then perform the appropriate action on it
         Fragment f = getChildFragmentManager().findFragmentById(R.id.keyboard_frame);
         if (f instanceof KeyboardFragment) {
             // update display

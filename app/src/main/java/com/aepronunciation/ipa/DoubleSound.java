@@ -139,6 +139,38 @@ class DoubleSound {
         return doubleSounds;
     }
 
+    static Pair<String, String> parse(String ipaDouble) {
+        if (ipaDouble == null || ipaDouble.length() < 2) return null;
+
+        String first;
+        String second;
+
+        if (!startsWithTwoCharVowel(ipaDouble)) {
+            first = ipaDouble.substring(0, 1);
+            second = ipaDouble.substring(1);
+            return new Pair<>(first, second);
+        }
+
+        if (ipaDouble.length() == 2) {
+            // this is technically an error (shouldn't separate a 2-char vowel)
+            first = ipaDouble.substring(0, 1);
+            second = ipaDouble.substring(1);
+            return new Pair<>(first, second);
+        }
+
+        first = ipaDouble.substring(0, 2);
+        second = ipaDouble.substring(2);
+        return new Pair<>(first, second);
+    }
+
+    private static boolean startsWithTwoCharVowel(String ipaDouble) {
+        return ipaDouble.startsWith(Ipa.ai) || ipaDouble.startsWith(Ipa.au)
+                || ipaDouble.startsWith(Ipa.ei) || ipaDouble.startsWith(Ipa.ou)
+                || ipaDouble.startsWith(Ipa.oi) || ipaDouble.startsWith(Ipa.ar)
+                || ipaDouble.startsWith(Ipa.er) || ipaDouble.startsWith(Ipa.ir)
+                || ipaDouble.startsWith(Ipa.or);
+    }
+
     // initialize the result when new object created
     private static Map<String, Integer> createSoundMap() {
 
