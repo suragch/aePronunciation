@@ -37,10 +37,11 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.tab_fragment_test, container, false);
 
         // setup name
+        if (getActivity() == null) return view;
         SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String defaultName = getString(R.string.test_default_name);
         String name = settings.getString(TEST_NAME_KEY, defaultName);
-        etName = (EditText)  view.findViewById(R.id.etName);
+        etName = view.findViewById(R.id.etName);
         if (!name.equals(defaultName)) {
             etName.setText(name);
             etName.clearFocus();
@@ -48,8 +49,8 @@ public class TestFragment extends Fragment implements View.OnClickListener {
 
         // set up test mode
         String testModeString = settings.getString(TEST_MODE_KEY, SoundMode.Single.getPersistentMemoryString());
-        rbSingle = (RadioButton)  view.findViewById(R.id.rbTestSetupSingle);
-        RadioButton rbDouble = (RadioButton)  view.findViewById(R.id.rbTestSetupDouble);
+        rbSingle = view.findViewById(R.id.rbTestSetupSingle);
+        RadioButton rbDouble = view.findViewById(R.id.rbTestSetupDouble);
         if (testModeString.equals(SoundMode.Double.getPersistentMemoryString())) {
             rbDouble.setChecked(true);
         } else { // default
@@ -57,7 +58,7 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         }
 
         // Setup spinner
-        spinner = (Spinner)  view.findViewById(R.id.spinnerQuestions);
+        spinner = view.findViewById(R.id.spinnerQuestions);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.listvalues,
                         android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -68,7 +69,7 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         spinner.setSelection(spinnerPosition);
 
         // begin button
-        RelativeLayout beginButton = (RelativeLayout) view.findViewById(R.id.beginButtonLayout);
+        RelativeLayout beginButton = view.findViewById(R.id.beginButtonLayout);
         beginButton.setOnClickListener(this);
 
         return view;
@@ -95,12 +96,15 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         }
 
         // Save to preferences
-        settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString(NUMBER_OF_QUESTIONS_KEY, questions);
-        editor.putString(TEST_MODE_KEY, testModeString);
-        editor.putString(TEST_NAME_KEY, name);
-        editor.apply();
+        if (getActivity() != null) {
+            settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString(NUMBER_OF_QUESTIONS_KEY, questions);
+            editor.putString(TEST_MODE_KEY, testModeString);
+            editor.putString(TEST_NAME_KEY, name);
+            editor.apply();
+        }
+
 
         // Start test activity
         Intent intent = new Intent(getActivity(), TestActivity.class);

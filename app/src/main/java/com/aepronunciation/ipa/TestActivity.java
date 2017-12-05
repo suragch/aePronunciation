@@ -52,7 +52,7 @@ public class TestActivity extends AppCompatActivity  implements KeyboardFragment
     @Override
     public void onKeyTouched(String keyString) {
 
-        // find the currect fragment and then perform the appropriate action on it
+        // find the correct fragment and then perform the appropriate action on it
         Fragment f = getSupportFragmentManager().findFragmentById(R.id.test_content_frame);
         if (f instanceof TestContentFragment) {
             // update display

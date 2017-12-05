@@ -67,8 +67,10 @@ public class PracticeContentFragment extends Fragment
     private boolean alreadyMadeWrongAnswerForThisIpa = false;
     ArrayList<String> previouslyChosenVowels;
     ArrayList<String> previouslyChosenConsonants;
+    private static final int SOUND_POOL_LOAD_SUCCESS = 0;
 
     static final int MINIMUM_POPULATION_SIZE_FOR_WHICH_REPEATS_NOT_ALLOWED = 4;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -198,7 +200,8 @@ public class PracticeContentFragment extends Fragment
         }
 
         tvInputWindow.setText(currentIpa);
-        animateBackground(true);
+        //animateBackground(true);
+        animateBackgroundForCorrectAnswer();
         playSound(currentIpa);
         readyForNewSound = true;
     }
@@ -237,8 +240,9 @@ public class PracticeContentFragment extends Fragment
 
         // check if right or not
         if (userAnswer.equals(currentIpa)) {
-            // if right then animate backgound to green and back
-            animateBackground(true);
+            // if right then animate background to green and back
+            //animateBackground(true);
+            animateBackgroundForCorrectAnswer();
 
             // update label
             if (!alreadyMadeWrongAnswerForThisIpa) {
@@ -250,7 +254,8 @@ public class PracticeContentFragment extends Fragment
         } else { // wrong answer
 
             // if wrong then animate to red and back
-            animateBackground(false);
+            //animateBackground(false);
+            animateBackgroundForWrongAnswer();
 
             // update label
             if (!alreadyMadeWrongAnswerForThisIpa) {
@@ -325,46 +330,46 @@ public class PracticeContentFragment extends Fragment
 
     @SuppressWarnings("deprecation")
     @SuppressLint("NewApi")
-    private void animateBackground(boolean answerIsCorrect) {
-
-        if (answerIsCorrect) {
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                llInputWindowBorder.setBackground(rightAnswerTransition);
-            } else {
-                llInputWindowBorder.setBackgroundDrawable(rightAnswerTransition);
-            }
-
-            rightAnswerTransition.startTransition(300);
-
+    private void animateBackgroundForCorrectAnswer() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            llInputWindowBorder.setBackground(rightAnswerTransition);
         } else {
-
-            final int TRANSITION_START_TIME = 300;
-            final int TRANSITION_REVERSE_TIME = 300;
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                llInputWindowBorder.setBackground(wrongAnswerTransition);
-            } else {
-                llInputWindowBorder.setBackgroundDrawable(wrongAnswerTransition);
-            }
-
-            wrongAnswerTransition.startTransition(300);
-            wrongAnswerTransition.reverseTransition(300);
-
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    tvInputWindow.setText("");
-                }
-            }, TRANSITION_START_TIME + TRANSITION_REVERSE_TIME);
+            llInputWindowBorder.setBackgroundDrawable(rightAnswerTransition);
         }
+        rightAnswerTransition.startTransition(300);
     }
+
+    @SuppressWarnings("deprecation")
+    @SuppressLint("NewApi")
+    private void animateBackgroundForWrongAnswer() {
+
+        final int TRANSITION_START_TIME = 300;
+        final int TRANSITION_REVERSE_TIME = 300;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            llInputWindowBorder.setBackground(wrongAnswerTransition);
+        } else {
+            llInputWindowBorder.setBackgroundDrawable(wrongAnswerTransition);
+        }
+
+        wrongAnswerTransition.startTransition(300);
+        wrongAnswerTransition.reverseTransition(300);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                tvInputWindow.setText("");
+            }
+        }, TRANSITION_START_TIME + TRANSITION_REVERSE_TIME);
+
+    }
+
 
     @Override
     public void onLoadComplete(SoundPool sPool, int sid, int status) {
 
-        if (status != 0) // 0=success
+        if (status != SOUND_POOL_LOAD_SUCCESS)
             return;
 
         soundPool.play(sid, 1, 1, PRIORITY, 0, 1.0f);

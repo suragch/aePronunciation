@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -43,31 +44,36 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
     int questionNumber = 0; // zero based
     long startTime;
 
-    // single only keys
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View layout = inflater.inflate(R.layout.fragment_test_content, container, false);
 
         // get arguments
-        studentName = getArguments().getString(TEST_NAME_KEY);
-        totalNumberOfQuestions = getArguments().getInt(NUMBER_OF_QUESTIONS_KEY, 50);
-        testMode = SoundMode.fromString(getArguments().getString(TEST_MODE_KEY));
+        if (getArguments() == null) {
+            studentName = getString(R.string.test_default_name);
+            totalNumberOfQuestions = 50;
+            testMode = SoundMode.Single;
+        } else {
+            studentName = getArguments().getString(TEST_NAME_KEY);
+            totalNumberOfQuestions = getArguments().getInt(NUMBER_OF_QUESTIONS_KEY, 50);
+            testMode = SoundMode.fromString(getArguments().getString(TEST_MODE_KEY));
+        }
+
 
         // 2D answer array initialization
         answers = new ArrayList<>();
 
         // create objects
-        tvQuestionNumber = (TextView) layout.findViewById(R.id.tvQuestionNumber);
-        tvInputWindow = (TextView) layout.findViewById(R.id.tvInputWindow);
-        playButton = (RelativeLayout) layout.findViewById(R.id.playButtonLayout);
-        nextButton = (RelativeLayout) layout.findViewById(R.id.nextButtonLayout);
-        ImageView clearButton = (ImageView) layout.findViewById(R.id.ivClear);
+        tvQuestionNumber = layout.findViewById(R.id.tvQuestionNumber);
+        tvInputWindow = layout.findViewById(R.id.tvInputWindow);
+        playButton = layout.findViewById(R.id.playButtonLayout);
+        nextButton = layout.findViewById(R.id.nextButtonLayout);
+        ImageView clearButton = layout.findViewById(R.id.ivClear);
 
         // set mode label
-        TextView tvPracticeMode = (TextView) layout.findViewById(R.id.tvTestMode);
+        TextView tvPracticeMode = layout.findViewById(R.id.tvTestMode);
         if (testMode == SoundMode.Single) {
             tvPracticeMode.setText(getString(R.string.practice_mode_single));
         } else {
@@ -83,9 +89,9 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
         clearButton.setOnClickListener(this);
 
         // question number
-        tvQuestionNumber.setText(Integer.toString(questionNumber + 1));
+        tvQuestionNumber.setText(String.valueOf(questionNumber + 1));
 
-        // start timing the test (seperate from StudyTimer
+        // start timing the test (separate from StudyTimer)
         if (savedInstanceState == null) {
             startTime = System.nanoTime();
         }
@@ -156,6 +162,7 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
     }
 
     public void nextClick() {
+        if (getActivity() == null) return;
 
         String userAnswer = tvInputWindow.getText().toString();
 
@@ -187,7 +194,7 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
 
             // Auto play next sound
             playButton.performClick();
-            tvQuestionNumber.setText(Integer.toString(questionNumber + 1));
+            tvQuestionNumber.setText(String.valueOf(questionNumber + 1));
         }
 
     }
@@ -226,7 +233,8 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
         } else if (testMode == SoundMode.Double && inputKeyCounter <= 2) {
 
             String oldText = tvInputWindow.getText().toString();
-            tvInputWindow.setText(oldText + keyString);
+            String newText = oldText + keyString;
+            tvInputWindow.setText(newText);
             if (TextUtils.isEmpty(oldText)) return;
         }
         nextButton.setVisibility(View.VISIBLE);
