@@ -133,25 +133,30 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
     public void playClick() {
 
         if (readyForNewSound) {
-
-
-            String ipa;
-            do {
-                if (testMode == SoundMode.Single) {
-                    ipa = singleSound.getRandomIpa();
-                } else {
-                    ipa = doubleSound.getRandomIpa();
-                }
-            } while (currentIpa.equals(ipa)); // don't allow repeat questions
-
-
-            currentIpa = ipa;
-            readyForNewSound = false;
-            tvInputWindow.setText("");
+            prepareForNextSound();
+            return;
         }
 
         playSound(currentIpa);
+    }
 
+    private void prepareForNextSound() {
+        currentIpa = getRandomIpa();
+        readyForNewSound = false;
+        tvInputWindow.setText("");
+        tvQuestionNumber.setText(String.valueOf(questionNumber + 1));
+    }
+
+    private String getRandomIpa() {
+        String ipa;
+        do {
+            if (testMode == SoundMode.Single) {
+                ipa = singleSound.getRandomIpa();
+            } else {
+                ipa = doubleSound.getRandomIpa();
+            }
+        } while (currentIpa.equals(ipa)); // don't allow repeat questions
+        return ipa;
     }
 
     public void clearClick() {
@@ -193,10 +198,9 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
         } else {
 
             // Auto play next sound
-            playButton.performClick();
-            tvQuestionNumber.setText(String.valueOf(questionNumber + 1));
+            prepareForNextSound();
+            playSound(currentIpa);
         }
-
     }
 
     private void playSound(String ipaSound) {

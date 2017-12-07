@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- This file is the same as zh except for the "locale" string -->
-    <!-- Any changes made here should also be made to zh strings.xml -->
+    <!-- This file is the same as zh-rTW except for the "locale" string -->
+    <!-- Any changes made here should also be made to zh-rTW strings.xml -->
     <!-- This duplicate exists for pre Android 7.0 in which locale matches may fail. -->
 
-    <string name="locale">zh-rTW</string>
+    <string name="locale">zh</string>
 
     <string name="i_description">在英式英語中/i/音標通常寫作/i:/，兩個點代表發長音。但是在美式發音中加點與不加點沒多大區別。所以美式音標不加兩個點。它在濁輔音前發長音，清輔音前發短音。</string>
     <string name="a_description">在英式英語中/ɑ/音標通常寫作/ɑː/。注意在美式英語中它的發音與/ʌ/有很大區別。還有/ɑ/與漢語拼音中\"a\"也不同。（在國際音標中，漢語拼音的\"a\"寫作/a/）。</string>
@@ -122,5 +122,6 @@
     <string name="history_time_details_type_double">雙音標</string>
     <string name="history_time_details_type_single">單音標</string>
     <string name="test_default_name">無名</string>
+
 
 </resources>

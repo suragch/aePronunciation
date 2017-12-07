@@ -46,7 +46,7 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_test_details);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // add back arrow to toolbar
         if (getSupportActionBar() != null){
@@ -55,11 +55,11 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
         }
 
         // create objects
-        tvName = (TextView) findViewById(R.id.tvResultName);
-        tvDate = (TextView) findViewById(R.id.tvResultDate);
-        tvPercent = (TextView) findViewById(R.id.tvResultPercent);
-        tvNumberOfQuestions = (TextView) findViewById(R.id.tvResultNumberQuestions);
-        tvTime = (TextView) findViewById(R.id.tvResultTime);
+        tvName = findViewById(R.id.tvResultName);
+        tvDate = findViewById(R.id.tvResultDate);
+        tvPercent = findViewById(R.id.tvResultPercent);
+        tvNumberOfQuestions = findViewById(R.id.tvResultNumberQuestions);
+        tvTime = findViewById(R.id.tvResultTime);
 
         // Get extras from Test Activity
         Bundle bundle = getIntent().getExtras();
@@ -120,7 +120,7 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
 
         private HistoryTestDetailsActivity activity;
 
-        public GetTest(HistoryTestDetailsActivity activity) {
+        GetTest(HistoryTestDetailsActivity activity) {
             this.activity = activity;
         }
 

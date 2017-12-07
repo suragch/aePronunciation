@@ -23,7 +23,7 @@ public class HistoryTestsActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_test);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // add back arrow to toolbar
         if (getSupportActionBar() != null){
@@ -32,7 +32,7 @@ public class HistoryTestsActivity extends AppCompatActivity implements
         }
 
         // set up the RecyclerView
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rvAllTests);
+        RecyclerView recyclerView = findViewById(R.id.rvAllTests);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, R.drawable.divider));
         mData = new ArrayList<>();

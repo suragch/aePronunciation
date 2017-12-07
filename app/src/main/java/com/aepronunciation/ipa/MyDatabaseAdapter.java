@@ -26,7 +26,7 @@ class MyDatabaseAdapter {
         SQLiteDatabase db = helper.getWritableDatabase();
         String[] columns = { MyDatabaseHelper.ID, MyDatabaseHelper.USER_NAME,
                 MyDatabaseHelper.TEST_DATE, MyDatabaseHelper.TEST_MODE,
-                MyDatabaseHelper.SCORE, MyDatabaseHelper.CORRECT_ANSWER, MyDatabaseHelper.WRONG };
+                MyDatabaseHelper.SCORE, MyDatabaseHelper.CORRECT_ANSWER };
         String orderBy = MyDatabaseHelper.TEST_DATE + " DESC";
         Cursor cursor = db.query(MyDatabaseHelper.TESTS_TABLE_NAME, columns,
                 null, null, null, null, orderBy, null);
@@ -36,7 +36,7 @@ class MyDatabaseAdapter {
         int indexMode = cursor.getColumnIndex(MyDatabaseHelper.TEST_MODE);
         int indexScore = cursor.getColumnIndex(MyDatabaseHelper.SCORE);
         int indexCorrect = cursor.getColumnIndex(MyDatabaseHelper.CORRECT_ANSWER);
-        int indexWrong = cursor.getColumnIndex(MyDatabaseHelper.WRONG);
+        //int indexWrong = cursor.getColumnIndex(MyDatabaseHelper.WRONG);
 
 
         while (cursor.moveToNext()) {
@@ -56,7 +56,7 @@ class MyDatabaseAdapter {
 
             test.setScore(cursor.getInt(indexScore));
             test.setCorrectAnswers(cursor.getString(indexCorrect));
-            test.setWrong(cursor.getString(indexWrong));
+            //test.setWrong(cursor.getString(indexWrong));
 
             allTests.add(test);
         }
@@ -75,8 +75,7 @@ class MyDatabaseAdapter {
         String[] columns = { MyDatabaseHelper.ID, MyDatabaseHelper.USER_NAME,
                 MyDatabaseHelper.TEST_DATE, MyDatabaseHelper.TIME_LENGTH,
                 MyDatabaseHelper.TEST_MODE, MyDatabaseHelper.SCORE,
-                MyDatabaseHelper.CORRECT_ANSWER, MyDatabaseHelper.USER_ANSWER,
-                MyDatabaseHelper.WRONG };
+                MyDatabaseHelper.CORRECT_ANSWER, MyDatabaseHelper.USER_ANSWER };
         String whereClause = MyDatabaseHelper.ID + " =?";
         String[] whereArgs = { Long.toString(rowId) };
         Cursor cursor = db.query(MyDatabaseHelper.TESTS_TABLE_NAME, columns,
@@ -90,7 +89,7 @@ class MyDatabaseAdapter {
         int indexScore = cursor.getColumnIndex(MyDatabaseHelper.SCORE);
         int indexCorrect = cursor.getColumnIndex(MyDatabaseHelper.CORRECT_ANSWER);
         int indexUserAnswer = cursor.getColumnIndex(MyDatabaseHelper.USER_ANSWER);
-        int indexWrong = cursor.getColumnIndex(MyDatabaseHelper.WRONG);
+        //int indexWrong = cursor.getColumnIndex(MyDatabaseHelper.WRONG);
 
         while (cursor.moveToNext()) {
             test.setId(cursor.getLong(indexId));
@@ -107,7 +106,7 @@ class MyDatabaseAdapter {
             test.setScore(cursor.getInt(indexScore));
             test.setCorrectAnswers(cursor.getString(indexCorrect));
             test.setUserAnswers(cursor.getString(indexUserAnswer));
-            test.setWrong(cursor.getString(indexWrong));
+            //test.setWrong(cursor.getString(indexWrong));
         }
 
         cursor.close();
@@ -182,7 +181,7 @@ class MyDatabaseAdapter {
     }
 
     long addTest(String name, long time, String testmode, int score,
-                        String correctAnswers, String userAnswers, String wrong) {
+                        String correctAnswers, String userAnswers) {
 
         // get current Unix epoc time in milliseconds
         long date = System.currentTimeMillis();
@@ -196,7 +195,7 @@ class MyDatabaseAdapter {
         contentValues.put(MyDatabaseHelper.SCORE, score);
         contentValues.put(MyDatabaseHelper.CORRECT_ANSWER, correctAnswers);
         contentValues.put(MyDatabaseHelper.USER_ANSWER, userAnswers);
-        contentValues.put(MyDatabaseHelper.WRONG, wrong);
+        contentValues.put(MyDatabaseHelper.WRONG, ""); // Deprecated, inserting dummy value
         long id = db.insert(MyDatabaseHelper.TESTS_TABLE_NAME, null,
                 contentValues);
         db.close();
@@ -236,14 +235,22 @@ class MyDatabaseAdapter {
         private static final String SCORE = "score";
         private static final String CORRECT_ANSWER = "correct";
         private static final String USER_ANSWER = "user_answer";
-        private static final String WRONG = "wrong";
+        private static final String WRONG = "wrong"; // DEPRECATED
+        // I'm only leaving in the WRONG column so that I don't have to
+        // upgrade the database. Just ignoring it for now.
         // SQL statements
         private static final String CREATE_TEST_TABLE = "CREATE TABLE "
-                + TESTS_TABLE_NAME + " (" + ID + " INTEGER PRIMARY KEY,"
-                + USER_NAME + " TEXT NOT NULL," + TEST_DATE + " INTEGER,"
-                + TIME_LENGTH + " INTEGER," + TEST_MODE + " TEXT NOT NULL,"
-                + SCORE + " INTEGER," + CORRECT_ANSWER + " TEXT NOT NULL,"
-                + USER_ANSWER + " TEXT NOT NULL," + WRONG + " TEXT NOT NULL)";
+                + TESTS_TABLE_NAME + " ("
+                + ID + " INTEGER PRIMARY KEY,"
+                + USER_NAME + " TEXT NOT NULL,"
+                + TEST_DATE + " INTEGER,"
+                + TIME_LENGTH + " INTEGER,"
+                + TEST_MODE + " TEXT NOT NULL,"
+                + SCORE + " INTEGER,"
+                + CORRECT_ANSWER + " TEXT NOT NULL,"
+                + USER_ANSWER + " TEXT NOT NULL,"
+                + WRONG + " TEXT NOT NULL"
+                + ")";
         private static final String DROP_TEST_TABLE = "DROP TABLE IF EXISTS "
                 + TESTS_TABLE_NAME;
 

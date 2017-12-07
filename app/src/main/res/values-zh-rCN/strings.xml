@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="listvalues">
-        <item>5</item>
-        <item>10</item>
-        <item>25</item>
-        <item>50</item>
-        <item>100</item>
-    </string-array>
+
+    <string name="locale">zh-rCN</string>
 
     <string name="i_description">在英式英语中/i/音标通常写作/i:/，两个点代表发长音。但是在美式发音中加点与不加点没多大区别。所以美式音标不加两个点。它在浊辅音前发长音，清辅音前发短音。</string>
     <string name="a_description">在英式英语中/ɑ/音标通常写作/ɑː/。注意在美式英语中它的发音与/ʌ/有很大区别。还有/ɑ/与汉语拼音中\"a\"也不同。（在国际音标中，汉语拼音的\"a\"写作/a/）。</string>
@@ -111,7 +106,6 @@
     <string name="main_tab_practice">练习</string>
     <string name="main_tab_test">测试</string>
     <string name="practice_mode_single">单音标</string>
-    <string name="locale">zh</string>
     <string name="history_test_details_type_double">双音标 （%1$d）</string>
     <string name="history_test_details_type_single">单音标 （%1$d）</string>
     <string name="history_tests_type_double">双音标： %1$d%%</string>
