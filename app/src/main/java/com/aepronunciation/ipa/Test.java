@@ -11,7 +11,7 @@ public class Test {
     private int score;
     private String correctAnswers;
     private String userAnswers;
-    private String wrong;
+    //private String wrong;
 
     // constructor
     public Test() {}
