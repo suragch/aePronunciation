@@ -117,6 +117,8 @@ class MyDatabaseAdapter {
 
     int[] getHighScores() {
 
+        // TODO this could be refactored to use a SQL max function
+
         int[] highScores = new int[2];
 
         SQLiteDatabase db = helper.getWritableDatabase();

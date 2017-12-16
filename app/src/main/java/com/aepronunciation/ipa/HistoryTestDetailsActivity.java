@@ -151,10 +151,7 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
             // Get answers from test
             String userName = test.getUserName();
             long dateMilliseconds = test.getDate();
-            Locale locale = Locale.US; // default
-            if (getString(R.string.locale).equals(Locale.CHINESE.toString())) {
-                locale = Locale.CHINESE;
-            }
+            Locale locale = AppLocale.getLocale(getApplicationContext());
             Date date = new Date(dateMilliseconds);
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT, locale);
             String formattedDate = df.format(date);

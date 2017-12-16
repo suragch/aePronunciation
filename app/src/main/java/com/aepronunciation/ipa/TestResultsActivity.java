@@ -37,21 +37,11 @@ import static com.aepronunciation.ipa.MainActivity.VOWEL_ARRAY_KEY;
 public class TestResultsActivity extends AppCompatActivity implements TestResultsRecyclerViewAdapter.ItemClickListener,
         SoundPool.OnLoadCompleteListener {
 
-    // Wrong answers are stored in a string in the following format
-    // ipa + # + times wrong + ; substituted ipa + # times substituted + ,
-    // example: ɪ#3;i#2;ɛ#1,f#1;θ#1
-    // comma (,) separates each main sound that was gotten wrong
-    // semicolon (;) separates main sound from substituted sounds
-    // first sound is always main, following are all subs
-    // number sign (#) separates ipa sounds from their count values
-
-    //ListView listView;
     private String userName;
     private long timeLength;
     private SoundMode testMode;
     private int score;
     private ArrayList<Answer> answers;
-    //private StringBuilder wrong;
     private TestResultsRecyclerViewAdapter adapter;
 
     private static final int SRC_QUALITY = 0;
@@ -133,22 +123,10 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
     }
 
     private String getFormattedDate() {
-        Locale locale = getLocale();
+        Locale locale = AppLocale.getLocale(this);
         Date date = new Date(System.currentTimeMillis());
         DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT, locale);
         return df.format(date);
-    }
-
-    private Locale getLocale() {
-        // this allows the date to only be formatted for translated languages
-        // All others will use US format.
-        String currentTranslationLocale = getString(R.string.locale);
-        switch (currentTranslationLocale) {
-            case "zh":
-                return Locale.CHINESE;
-            default:
-                return Locale.US;
-        }
     }
 
     @Override
@@ -189,8 +167,8 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
             String user = answer.getUserAnswer();
 
             // Single
-            if (testMode == SoundMode.Single && correct.equals(user)) {
-                numCorrect++;
+            if (testMode == SoundMode.Single) {
+                if (correct.equals(user)) numCorrect++;
                 continue;
             }
 
@@ -290,7 +268,7 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
             try {
                 MyDatabaseAdapter dbAdapter = new MyDatabaseAdapter(
                         getApplicationContext());
-                dbAdapter.addTest(userName, timeLength, testMode.getPersistentMemoryString(), score,
+                    dbAdapter.addTest(userName, timeLength, testMode.getPersistentMemoryString(), score,
                         correctAnswersConcat.toString(),
                         userAnswersConcat.toString());
             } catch (Exception e) {

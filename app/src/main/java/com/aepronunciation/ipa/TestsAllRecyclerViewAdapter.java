@@ -44,10 +44,7 @@ class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRecyclerV
         holder.tvScore.setText(String.format(mContext.getString(R.string.history_tests_item_score), test.getScore()));
 
         // get date
-        Locale locale = Locale.US; // default
-        if (mContext.getString(R.string.locale).equals(Locale.CHINESE.toString())) {
-            locale = Locale.CHINESE;
-        }
+        Locale locale = AppLocale.getLocale(mContext);
         Date date = new Date(test.getDate());
         DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT, locale);
         String formattedDate = df.format(date);
