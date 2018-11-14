@@ -23,7 +23,7 @@ public class HistoryTimeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_time);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // add back arrow to toolbar
         if (getSupportActionBar() != null){
@@ -32,16 +32,16 @@ public class HistoryTimeActivity extends AppCompatActivity {
         }
 
         // Create objects
-        TextView tvTimeLearning = (TextView) findViewById(R.id.tvTimeLearning);
-        TextView tvTimeLearningSingles = (TextView) findViewById(R.id.tvTimeLearningSingles);
-        TextView tvTimeLearningDoubles = (TextView) findViewById(R.id.tvTimeLearningDoubles);
-        TextView tvTimePracticing = (TextView) findViewById(R.id.tvTimePracticing);
-        TextView tvTimePracticingSingles = (TextView) findViewById(R.id.tvTimePracticingSingles);
-        TextView tvTimePracticingDoubles = (TextView) findViewById(R.id.tvTimePracticingDoubles);
-        TextView tvTimeTesting = (TextView) findViewById(R.id.tvTimeTesting);
-        TextView tvTimeTestingSingles = (TextView) findViewById(R.id.tvTimeTestingSingles);
-        TextView tvTimeTestingDoubles = (TextView) findViewById(R.id.tvTimeTestingDoubles);
-        TextView tvTotalTime = (TextView) findViewById(R.id.tvTotalTime);
+        TextView tvTimeLearning = findViewById(R.id.tvTimeLearning);
+        TextView tvTimeLearningSingles = findViewById(R.id.tvTimeLearningSingles);
+        TextView tvTimeLearningDoubles = findViewById(R.id.tvTimeLearningDoubles);
+        TextView tvTimePracticing = findViewById(R.id.tvTimePracticing);
+        TextView tvTimePracticingSingles = findViewById(R.id.tvTimePracticingSingles);
+        TextView tvTimePracticingDoubles = findViewById(R.id.tvTimePracticingDoubles);
+        TextView tvTimeTesting = findViewById(R.id.tvTimeTesting);
+        TextView tvTimeTestingSingles = findViewById(R.id.tvTimeTestingSingles);
+        TextView tvTimeTestingDoubles = findViewById(R.id.tvTimeTestingDoubles);
+        TextView tvTotalTime = findViewById(R.id.tvTotalTime);
 
         // get times from preferences
         SharedPreferences settings = getSharedPreferences(PREFS_NAME,

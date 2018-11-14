@@ -90,7 +90,6 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
         singleSound = new SingleSound();
         doubleSound = new DoubleSound();
-        //wrong = new StringBuilder();
 
         // calculate score
         int numberCorrect = calculateNumberCorrect(answers);

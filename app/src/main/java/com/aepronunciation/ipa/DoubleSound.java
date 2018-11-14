@@ -85,6 +85,7 @@ class DoubleSound {
         }
     }
 
+    @SuppressWarnings("RedundantIfStatement")
     private boolean shouldIncludeSpecialSoundForIpa(String specialSound, String ipa) {
         if (!specialSound.contains(ipa)) return false;
         if (specialSound.contains(Ipa.flap_t) && ipa.equals(Ipa.schwa)) return false;
@@ -132,7 +133,7 @@ class DoubleSound {
         return -1;
     }
 
-    public ArrayList<String> getSounds() {
+    ArrayList<String> getSounds() {
         if (doubleSounds == null) {
             includeAllSounds();
         }

@@ -69,6 +69,7 @@
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/button"
                 android:clickable="true"
+                android:focusable="true"
                 android:onClick="practiceDifficultClick"
                 android:padding="15dp">
 

@@ -49,10 +49,6 @@ public class Test {
         return userAnswers;
     }
 
-    //String getWrong() {
-    //    return wrong;
-    //}
-
     // setters
     void setId(long id) {
         this.id = id;
@@ -85,9 +81,5 @@ public class Test {
     void setUserAnswers(String userAnswers) {
         this.userAnswers = userAnswers;
     }
-
-    //void setWrong(String wrong) {
-    //    this.wrong = wrong;
-    //}
 
 }

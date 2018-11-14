@@ -1,19 +1,19 @@
 package com.aepronunciation.ipa;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.Collections;
 import java.util.List;
 
 
 class LearnDoubleRecyclerViewAdapter extends RecyclerView.Adapter<LearnDoubleRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData = Collections.emptyList();
+    private List<String> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
@@ -24,15 +24,16 @@ class LearnDoubleRecyclerViewAdapter extends RecyclerView.Adapter<LearnDoubleRec
     }
 
     // inflates the cell layout from xml when needed
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item_rv_learn_double, parent, false);
         return new ViewHolder(view);
     }
 
     // binds the data to the textview in each cell
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String animal = mData.get(position);
         holder.myTextView.setText(animal);
     }
@@ -50,7 +51,7 @@ class LearnDoubleRecyclerViewAdapter extends RecyclerView.Adapter<LearnDoubleRec
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = (TextView) itemView.findViewById(R.id.info_text);
+            myTextView = itemView.findViewById(R.id.info_text);
             itemView.setOnClickListener(this);
         }
 

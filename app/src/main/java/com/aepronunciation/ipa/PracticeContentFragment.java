@@ -2,7 +2,6 @@ package com.aepronunciation.ipa;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
@@ -11,6 +10,7 @@ import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -73,7 +73,7 @@ public class PracticeContentFragment extends Fragment
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View layout = inflater.inflate(R.layout.fragment_practice_screen, container, false);
@@ -99,12 +99,14 @@ public class PracticeContentFragment extends Fragment
         clearButton.setOnClickListener(this);
 
         // Create the green and red effects for right/wrong answers
-        Drawable backgrounds[] = new Drawable[2];
-        backgrounds[0] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_normal);
-        backgrounds[1] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_right);
-        rightAnswerTransition = new TransitionDrawable(backgrounds);
-        backgrounds[1] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_wrong);
-        wrongAnswerTransition = new TransitionDrawable(backgrounds);
+        if (getActivity() != null) {
+            Drawable backgrounds[] = new Drawable[2];
+            backgrounds[0] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_normal);
+            backgrounds[1] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_right);
+            rightAnswerTransition = new TransitionDrawable(backgrounds);
+            backgrounds[1] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_wrong);
+            wrongAnswerTransition = new TransitionDrawable(backgrounds);
+        }
 
         // get saved practice mode
         updatePracticeModeFromSharedPreferences();
@@ -200,7 +202,6 @@ public class PracticeContentFragment extends Fragment
         }
 
         tvInputWindow.setText(currentIpa);
-        //animateBackground(true);
         animateBackgroundForCorrectAnswer();
         playSound(currentIpa);
         readyForNewSound = true;
@@ -241,7 +242,6 @@ public class PracticeContentFragment extends Fragment
         // check if right or not
         if (userAnswer.equals(currentIpa)) {
             // if right then animate background to green and back
-            //animateBackground(true);
             animateBackgroundForCorrectAnswer();
 
             // update label
@@ -254,7 +254,6 @@ public class PracticeContentFragment extends Fragment
         } else { // wrong answer
 
             // if wrong then animate to red and back
-            //animateBackground(false);
             animateBackgroundForWrongAnswer();
 
             // update label
@@ -448,17 +447,19 @@ public class PracticeContentFragment extends Fragment
         mListener.updateKeyboardKeySelectionFor(allChosenSounds);
 
         // update user preferences and time
-        SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        SharedPreferences.Editor editor = settings.edit();
-        StudyTimer timer = StudyTimer.getInstance();
-        if (practiceMode == SoundMode.Single) {
-            editor.putBoolean(PRACTICE_MODE_IS_SINGLE_KEY, true);
-            timer.start(getActivity(), StudyTimer.StudyType.PracticeSingle);
-        } else {
-            editor.putBoolean(PRACTICE_MODE_IS_SINGLE_KEY, false);
-            timer.start(getActivity(), StudyTimer.StudyType.PracticeDouble);
+        if (getActivity() != null) {
+            SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+            SharedPreferences.Editor editor = settings.edit();
+            StudyTimer timer = StudyTimer.getInstance();
+            if (practiceMode == SoundMode.Single) {
+                editor.putBoolean(PRACTICE_MODE_IS_SINGLE_KEY, true);
+                timer.start(getActivity(), StudyTimer.StudyType.PracticeSingle);
+            } else {
+                editor.putBoolean(PRACTICE_MODE_IS_SINGLE_KEY, false);
+                timer.start(getActivity(), StudyTimer.StudyType.PracticeDouble);
+            }
+            editor.apply();
         }
-        editor.apply();
 
         // update practice mode label
         if (practiceMode == SoundMode.Single) {

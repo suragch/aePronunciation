@@ -1,6 +1,7 @@
 package com.aepronunciation.ipa;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -11,13 +12,13 @@ import android.view.ViewGroup;
 public class LearnFragment extends Fragment implements KeyboardFragment.KeyboardListener {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.tab_fragment_learn, container, false);
     }
 
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         Fragment childLearnSingleFragment = new LearnSingleFragment();
         transaction.replace(R.id.learn_content_frame, childLearnSingleFragment);
@@ -30,7 +31,6 @@ public class LearnFragment extends Fragment implements KeyboardFragment.Keyboard
     public void onKeyTouched(String keyString) {
         Fragment f = getChildFragmentManager().findFragmentById(R.id.learn_content_frame);
         if (f instanceof LearnSingleFragment) {
-            // update display
             LearnSingleFragment singleFragment = (LearnSingleFragment) f;
             singleFragment.onNewSelection(keyString);
         }

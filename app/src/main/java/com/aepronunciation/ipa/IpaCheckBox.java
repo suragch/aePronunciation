@@ -3,9 +3,9 @@ package com.aepronunciation.ipa;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.widget.CheckBox;
+import android.support.v7.widget.AppCompatCheckBox;
 
-public class IpaCheckBox extends CheckBox {
+public class IpaCheckBox extends AppCompatCheckBox {
 
     // Constructors
     public IpaCheckBox(Context context, AttributeSet attrs, int defStyle) {

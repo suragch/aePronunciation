@@ -3,6 +3,7 @@ package com.aepronunciation.ipa;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -28,15 +29,16 @@ class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestResultsRec
     }
 
     // inflates the row layout from xml when needed
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item_rv_test_results, parent, false);
         return new ViewHolder(view);
     }
 
     // binds the data to the textview in each row
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Answer answer = mData.get(position);
         holder.tvNumber.setText(String.valueOf(position + 1));

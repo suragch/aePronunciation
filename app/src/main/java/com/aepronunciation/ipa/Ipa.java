@@ -5,7 +5,7 @@ import android.util.Pair;
 
 import java.util.ArrayList;
 
-public class Ipa {
+class Ipa {
 
     static final int NUMBER_OF_VOWELS = 21;
     static final int NUMBER_OF_VOWELS_FOR_DOUBLES = 19; // not ə, ɚ
@@ -28,7 +28,7 @@ public class Ipa {
         return "ʔɾəɚ".contains(ipa);
     }
 
-    public static boolean hasTwoPronunciations(String ipa) {
+    static boolean hasTwoPronunciations(String ipa) {
         return "fvθðmnl".contains(ipa);
     }
 

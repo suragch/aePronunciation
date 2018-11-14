@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.lang.ref.WeakReference;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,9 +25,6 @@ import java.util.Locale;
 public class HistoryTestDetailsActivity extends AppCompatActivity implements
         TestResultsRecyclerViewAdapter.ItemClickListener, SoundPool.OnLoadCompleteListener {
 
-    static final String STATE_SCROLL_POSITION = "scrollPosition";
-
-    int savedPosition = 0;
     private TestResultsRecyclerViewAdapter adapter;
     private static final int SRC_QUALITY = 0;
     private static final int PRIORITY = 1;
@@ -116,12 +114,13 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
     }
 
     // call: new GetTest().execute();
-    private class GetTest extends AsyncTask<Long, Void, Test> {
+    private static class GetTest extends AsyncTask<Long, Void, Test> {
 
-        private HistoryTestDetailsActivity activity;
+        private WeakReference<HistoryTestDetailsActivity> activityReference;
 
-        GetTest(HistoryTestDetailsActivity activity) {
-            this.activity = activity;
+        // only retain a weak reference to the activity
+        GetTest(HistoryTestDetailsActivity context) {
+            activityReference = new WeakReference<>(context);
         }
 
         @Override
@@ -132,9 +131,8 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
             Test test = new Test();
 
             try {
-
-                MyDatabaseAdapter dbAdapter = new MyDatabaseAdapter(
-                        getApplicationContext());
+                HistoryTestDetailsActivity activity = activityReference.get();
+                MyDatabaseAdapter dbAdapter = new MyDatabaseAdapter(activity);
                 test = dbAdapter.getTest(id);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -145,20 +143,20 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
 
         @Override
         protected void onPostExecute(Test test) {
-
-
+            HistoryTestDetailsActivity activity = activityReference.get();
+            if (activity == null || activity.isFinishing()) return;
 
             // Get answers from test
             String userName = test.getUserName();
             long dateMilliseconds = test.getDate();
-            Locale locale = AppLocale.getLocale(getApplicationContext());
+            Locale locale = AppLocale.getLocale(activity);
             Date date = new Date(dateMilliseconds);
             DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT, locale);
             String formattedDate = df.format(date);
 
 
             long timeLength = test.getTimeLength();
-            testMode = test.getMode();
+            activity.testMode = test.getMode();
             int score = test.getScore();
             String[] correctAnswers = test.getCorrectAnswers().split(",");
             String[] userAnswers = test.getUserAnswers().split(",");
@@ -172,7 +170,7 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
             }
 
             // make answer array object to update recyclerview list
-            ArrayList<Answer> answers = new ArrayList<Answer>();
+            ArrayList<Answer> answers = new ArrayList<>();
             for (int i = 0; i < length; i++) {
                 Answer answer = new Answer();
                 answer.setCorrectAnswer(correctAnswers[i]);
@@ -180,20 +178,19 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
                 answers.add(answer);
             }
 
-
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rvTestResults);
+            RecyclerView recyclerView = activity.findViewById(R.id.rvTestResults);
             recyclerView.setLayoutManager(new LinearLayoutManager(activity));
             recyclerView.addItemDecoration(new DividerItemDecoration(activity, R.drawable.divider));
-            adapter = new TestResultsRecyclerViewAdapter(activity, answers, testMode);
-            adapter.setClickListener(activity);
-            recyclerView.setAdapter(adapter);
+            activity.adapter = new TestResultsRecyclerViewAdapter(activity, answers, activity.testMode);
+            activity.adapter.setClickListener(activity);
+            recyclerView.setAdapter(activity.adapter);
 
-//          // update textviews
-            tvName.setText(userName);
-            tvDate.setText(formattedDate);
-            tvPercent.setText(String.format(getString(R.string.test_results_percent), score));
-            tvNumberOfQuestions.setText(String.format(getString(R.string.history_test_details_specific_test_number_of_questions), length));
-            tvTime.setText(String.format(getString(R.string.test_results_time), TimeUtil.getTimeString(timeLength)));
+            // update textviews
+            activity.tvName.setText(userName);
+            activity.tvDate.setText(formattedDate);
+            activity.tvPercent.setText(String.format(activity.getString(R.string.test_results_percent), score));
+            activity.tvNumberOfQuestions.setText(String.format(activity.getString(R.string.history_test_details_specific_test_number_of_questions), length));
+            activity.tvTime.setText(String.format(activity.getString(R.string.test_results_time), TimeUtil.getTimeString(timeLength)));
 
         }
 

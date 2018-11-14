@@ -144,7 +144,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 SoundMode soundType = SoundMode.Double;
-                RadioButton single = (RadioButton) alertDialog.findViewById(R.id.radio_single);
+                RadioButton single = alertDialog.findViewById(R.id.radio_single);
                 if (single != null && single.isChecked()) {
                     soundType = SoundMode.Single;
                 }
@@ -379,7 +379,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
 
     private boolean getButtonShouldBeEnabledState() {
 
-        // count the number of checked boxes for conconants and vowels
+        // count the number of checked boxes for consonants and vowels
         int vowelsChecked = 0;
         for (CheckBox cb : checkBoxesVowels) {
             if (cb.isChecked() && cb.getVisibility() == View.VISIBLE) {

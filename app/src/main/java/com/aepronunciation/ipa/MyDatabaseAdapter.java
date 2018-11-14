@@ -159,29 +159,6 @@ class MyDatabaseAdapter {
         return highScores;
     }
 
-//    public ArrayList<String> getAllUsers() {
-//
-//        ArrayList<String> results = new ArrayList<>();
-//        SQLiteDatabase db = helper.getReadableDatabase();
-//        String[] columns = { MyDatabaseHelper.USER_NAME };
-//        Cursor cursor = db.query(true, MyDatabaseHelper.TESTS_TABLE_NAME,
-//                columns, null, null, null, null, null, null);
-//
-//        int wordIndex = cursor.getColumnIndex(MyDatabaseHelper.USER_NAME);
-//
-//        String tempString;
-//        while (cursor.moveToNext()) {
-//
-//            tempString = cursor.getString(wordIndex);
-//            results.add(tempString);
-//        }
-//
-//        cursor.close();
-//        db.close();
-//        return results;
-//
-//    }
-
     long addTest(String name, long time, String testmode, int score,
                         String correctAnswers, String userAnswers) {
 
@@ -203,17 +180,6 @@ class MyDatabaseAdapter {
         db.close();
         return id;
     }
-
-//    public int deleteTest(long rowId) {
-//
-//        SQLiteDatabase db = helper.getWritableDatabase();
-//        String whereClause = MyDatabaseHelper.ID + " =?";
-//        String[] whereArgs = { Long.toString(rowId) };
-//        int count = db.delete(MyDatabaseHelper.TESTS_TABLE_NAME, whereClause,
-//                whereArgs);
-//        db.close();
-//        return count;
-//    }
 
     // Making this an inner class rather than a separate class so that outer
     // class can securely refer to private variables in this class

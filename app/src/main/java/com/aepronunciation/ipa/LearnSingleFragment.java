@@ -4,6 +4,7 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +49,7 @@ public class LearnSingleFragment extends Fragment implements View.OnClickListene
     private SoundPool soundPool = null;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View layout = inflater.inflate(R.layout.fragment_learn_single, container, false);
@@ -111,9 +112,11 @@ public class LearnSingleFragment extends Fragment implements View.OnClickListene
         } else {
 
             tvIpaSymbol.setText(getString(R.string.key_ae));
-            videoUri = Uri.parse("android.resource://" + getActivity().getPackageName() + "/" + R.raw.v_ae);
-            videoView.setVideoURI(videoUri);
-            videoView.seekTo(1);
+            if (getActivity() != null) {
+                videoUri = Uri.parse("android.resource://" + getActivity().getPackageName() + "/" + R.raw.v_ae);
+                videoView.setVideoURI(videoUri);
+                videoView.seekTo(1);
+            }
             tvIpaDescription.setText(getString(
                     R.string.ae_description));
             tvExample1.setText(getString(R.string.ae_example1));
@@ -134,7 +137,7 @@ public class LearnSingleFragment extends Fragment implements View.OnClickListene
     }
 
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
 
         //Save the fragment's state here

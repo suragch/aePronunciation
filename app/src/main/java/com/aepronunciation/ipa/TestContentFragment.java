@@ -33,7 +33,6 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
     private DoubleSound doubleSound;
     private TextView tvInputWindow;
     private TextView tvQuestionNumber;
-    private RelativeLayout playButton;
     private RelativeLayout nextButton;
     private String currentIpa = "";
     private static final int SRC_QUALITY = 0;
@@ -68,7 +67,7 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
         // create objects
         tvQuestionNumber = layout.findViewById(R.id.tvQuestionNumber);
         tvInputWindow = layout.findViewById(R.id.tvInputWindow);
-        playButton = layout.findViewById(R.id.playButtonLayout);
+        RelativeLayout playButton = layout.findViewById(R.id.playButtonLayout);
         nextButton = layout.findViewById(R.id.nextButtonLayout);
         ImageView clearButton = layout.findViewById(R.id.ivClear);
 
@@ -95,7 +94,6 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
 
         // get ready to play first sound
         prepareForNextSound();
-        //tvQuestionNumber.setText(String.valueOf(questionNumber + 1));
 
         // start timing the test (separate from StudyTimer)
         if (savedInstanceState == null) {

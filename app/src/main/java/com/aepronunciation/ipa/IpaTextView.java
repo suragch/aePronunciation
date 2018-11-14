@@ -2,10 +2,10 @@ package com.aepronunciation.ipa;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
-public class IpaTextView extends TextView {
+public class IpaTextView extends AppCompatTextView {
 
     // Constructors
     public IpaTextView(Context context, AttributeSet attrs, int defStyle) {

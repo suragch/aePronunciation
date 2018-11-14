@@ -5,7 +5,7 @@ import android.content.Context;
 
 import java.util.Locale;
 
-public class AppLocale {
+class AppLocale {
     static Locale getLocale(Context context) {
         // this allows things to only be formatted for translated languages
         // All others will use US format.

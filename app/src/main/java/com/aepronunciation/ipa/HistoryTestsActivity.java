@@ -1,5 +1,6 @@
 package com.aepronunciation.ipa;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 import android.content.Intent;
@@ -41,18 +42,26 @@ public class HistoryTestsActivity extends AppCompatActivity implements
         recyclerView.setAdapter(adapter);
 
         // get tests
-        new InitializeTestList().execute();
+        new InitializeTestList(this).execute();
     }
 
-    private class InitializeTestList extends AsyncTask<Void, Void, ArrayList<Test>> {
+    private static class InitializeTestList extends AsyncTask<Void, Void, ArrayList<Test>> {
+
+        private WeakReference<HistoryTestsActivity> activityReference;
+
+        // only retain a weak reference to the activity
+        InitializeTestList(HistoryTestsActivity context) {
+            activityReference = new WeakReference<>(context);
+        }
 
         @Override
         protected ArrayList<Test> doInBackground(Void... params) {
 
             ArrayList<Test> result = new ArrayList<>();
+            HistoryTestsActivity activity = activityReference.get();
 
             try {
-                MyDatabaseAdapter dbAdapter = new MyDatabaseAdapter(getApplicationContext());
+                MyDatabaseAdapter dbAdapter = new MyDatabaseAdapter(activity);
                 result = dbAdapter.getAllTestScores();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -63,10 +72,12 @@ public class HistoryTestsActivity extends AppCompatActivity implements
 
         @Override
         protected void onPostExecute(ArrayList<Test> result) {
+            HistoryTestsActivity activity = activityReference.get();
+            if (activity == null || activity.isFinishing()) return;
 
-            mData.clear();
-            mData.addAll(result);
-            adapter.notifyDataSetChanged();
+            activity.mData.clear();
+            activity.mData.addAll(result);
+            activity.adapter.notifyDataSetChanged();
         }
     }
 

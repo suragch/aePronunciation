@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import java.lang.ref.WeakReference;
+
 import static com.aepronunciation.ipa.MainActivity.PREFS_NAME;
 import static com.aepronunciation.ipa.MainActivity.TIME_DEFAULT;
 import static com.aepronunciation.ipa.MainActivity.TIME_LEARN_DOUBLE_KEY;
@@ -30,7 +32,7 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // add back arrow to toolbar
         if (getSupportActionBar() != null){
@@ -39,9 +41,9 @@ public class HistoryActivity extends AppCompatActivity {
         }
 
         // Create objects
-        TextView tvTime = (TextView) findViewById(R.id.tvTotalTime);
-        tvHighSingle = (TextView) findViewById(R.id.tvHighScoreSingles);
-        tvHighDouble = (TextView) findViewById(R.id.tvHighScoreDoubles);
+        TextView tvTime = findViewById(R.id.tvTotalTime);
+        tvHighSingle = findViewById(R.id.tvHighScoreSingles);
+        tvHighDouble = findViewById(R.id.tvHighScoreDoubles);
 
         // get times from preferences
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -58,7 +60,7 @@ public class HistoryActivity extends AppCompatActivity {
         tvTime.setText(TimeUtil.getTimeString(totalTime));
 
         // Get the high scores
-        new GetHighScores().execute();
+        new GetHighScores(this).execute();
     }
 
     public void timeDetailsClick(View v) {
@@ -84,17 +86,23 @@ public class HistoryActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class GetHighScores extends AsyncTask<Void, Void, int[]> {
+    private static class GetHighScores extends AsyncTask<Void, Void, int[]> {
+
+        private WeakReference<HistoryActivity> activityReference;
+
+        // only retain a weak reference to the activity
+        GetHighScores(HistoryActivity context) {
+            activityReference = new WeakReference<>(context);
+        }
 
         @Override
         protected int[] doInBackground(Void... params) {
 
             int[] result = { -1, -1 };
+            HistoryActivity activity = activityReference.get();
 
             try {
-
-                MyDatabaseAdapter dbAdapter = new MyDatabaseAdapter(
-                        getApplicationContext());
+                MyDatabaseAdapter dbAdapter = new MyDatabaseAdapter(activity);
                 result = dbAdapter.getHighScores();
             } catch (Exception e) {
                 //Log.i("app", e.toString());
@@ -104,17 +112,19 @@ public class HistoryActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(int[] result) {
+            HistoryActivity activity = activityReference.get();
+            if (activity == null || activity.isFinishing()) return;
 
             if (result[0] == -1) {
-                tvHighSingle.setVisibility(View.GONE);
+                activity.tvHighSingle.setVisibility(View.GONE);
             } else {
-                tvHighSingle.setText(String.format(getString(R.string.history_tests_type_single), result[0]));
+                activity.tvHighSingle.setText(String.format(activity.getString(R.string.history_tests_type_single), result[0]));
             }
 
             if (result[1] == -1) {
-                tvHighDouble.setVisibility(View.GONE);
+                activity.tvHighDouble.setVisibility(View.GONE);
             } else {
-                tvHighDouble.setText(String.format(getString(R.string.history_tests_type_double), result[1]));
+                activity.tvHighDouble.setText(String.format(activity.getString(R.string.history_tests_type_double), result[1]));
             }
 
         }

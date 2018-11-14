@@ -2,6 +2,7 @@ package com.aepronunciation.ipa;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,23 +35,23 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_keyboard_input, container, false);
 
         // Add listeners for all keys
         for (int id : mClickMap.keySet()) {
-            RelativeLayout rlKey = (RelativeLayout) view.findViewById(id);
+            RelativeLayout rlKey = view.findViewById(id);
             rlKey.setOnClickListener(this);
         }
 
         for (int id : mLongClickMap.keySet()) {
-            RelativeLayout rlKey = (RelativeLayout) view.findViewById(id);
+            RelativeLayout rlKey = view.findViewById(id);
             rlKey.setOnLongClickListener(this);
         }
 
-        RelativeLayout rlBackspace = (RelativeLayout) view.findViewById(R.id.key_backspace);
+        RelativeLayout rlBackspace = view.findViewById(R.id.key_backspace);
         rlBackspace.setOnClickListener(backspaceClick);
 
         return view;
