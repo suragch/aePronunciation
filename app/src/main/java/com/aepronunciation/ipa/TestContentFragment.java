@@ -88,8 +88,14 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
         nextButton.setOnClickListener(this);
         clearButton.setOnClickListener(this);
 
-        // question number
-        tvQuestionNumber.setText(String.valueOf(questionNumber + 1));
+        // disable sound effects
+        playButton.setSoundEffectsEnabled(false);
+        nextButton.setSoundEffectsEnabled(false);
+        clearButton.setSoundEffectsEnabled(false);
+
+        // get ready to play first sound
+        prepareForNextSound();
+        //tvQuestionNumber.setText(String.valueOf(questionNumber + 1));
 
         // start timing the test (separate from StudyTimer)
         if (savedInstanceState == null) {

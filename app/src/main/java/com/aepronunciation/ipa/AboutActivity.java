@@ -41,8 +41,6 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     public void contactClick(View v) {
-
-        // Start test activity
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.about_contact_url)));
         startActivity(browserIntent);
     }
@@ -51,7 +49,7 @@ public class AboutActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // handle arrow click here
         if (item.getItemId() == android.R.id.home) {
-            finish(); // close this activity and return to preview activity (if there is any)
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

@@ -158,6 +158,10 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this, HistoryActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.action_personal_evaluation:
+                intent = new Intent(this, PersonalEvaluationActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.action_about:
                 intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
