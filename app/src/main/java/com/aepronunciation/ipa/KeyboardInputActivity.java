@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -48,6 +49,9 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
         editText = findViewById(R.id.etInputWindow);
         editText.setRawInputType(InputType.TYPE_CLASS_TEXT);
         editText.setTextIsSelectable(true);
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            editText.setShowSoftInputOnFocus(false);
+        }
 
         // load keyboard fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
