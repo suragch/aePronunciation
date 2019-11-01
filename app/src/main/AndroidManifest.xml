@@ -24,7 +24,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-            >
         </activity>
         <activity android:name=".HistoryActivity"
                   android:label="@string/title_activity_history"
@@ -32,7 +31,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-            >
         </activity>
         <activity android:name=".HistoryTestsActivity"
                   android:label="@string/title_activity_history_tests"
@@ -40,7 +38,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HistoryActivity" />
-            >
         </activity>
         <activity android:name=".HistoryTestDetailsActivity"
                   android:label="@string/title_activity_history_test_details"
@@ -48,7 +45,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HistoryTestsActivity" />
-            >
         </activity>
         <activity android:name=".HistoryTimeActivity"
                   android:label="@string/title_activity_history_time"
@@ -56,7 +52,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HistoryActivity" />
-            >
         </activity>
         <activity android:name=".AboutActivity"
                   android:label="@string/title_activity_about"
@@ -64,7 +59,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-            >
         </activity>
         <activity android:name=".PersonalEvaluationActivity"
             android:label="@string/main_menu_personal_evaluation"
@@ -72,7 +66,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-            >
         </activity>
         <activity
             android:name=".TestActivity"

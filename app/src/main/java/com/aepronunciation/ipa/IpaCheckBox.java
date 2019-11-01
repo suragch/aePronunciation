@@ -3,7 +3,7 @@ package com.aepronunciation.ipa;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.support.v7.widget.AppCompatCheckBox;
+import androidx.appcompat.widget.AppCompatCheckBox;
 
 public class IpaCheckBox extends AppCompatCheckBox {
 
