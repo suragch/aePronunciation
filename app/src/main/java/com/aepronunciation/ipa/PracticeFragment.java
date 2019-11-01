@@ -1,8 +1,9 @@
 package com.aepronunciation.ipa;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +17,12 @@ public class PracticeFragment extends Fragment implements PracticeContentFragmen
     KeyboardFragment childKeyboardFragment;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.tab_fragment_practice, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
 
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
         childPracticeFragment = new PracticeContentFragment();
@@ -34,7 +35,7 @@ public class PracticeFragment extends Fragment implements PracticeContentFragmen
     // required method for PracticeContentFragment.PracticeScreenListener
     @Override
     public void updateKeyboardKeysFor(SoundMode mode) {
-        // find the currect fragment and then perform the appropriate action on it
+        // find the correct fragment and then perform the appropriate action on it
         Fragment f = getChildFragmentManager().findFragmentById(R.id.keyboard_frame);
         if (f instanceof KeyboardFragment) {
             // update display

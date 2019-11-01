@@ -2,11 +2,11 @@ package com.aepronunciation.ipa;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import androidx.appcompat.widget.AppCompatEditText;
 import android.util.AttributeSet;
-import android.widget.EditText;
 
 
-public class IpaEditText extends EditText {
+public class IpaEditText extends AppCompatEditText {
 
     // Constructors
     public IpaEditText(Context context, AttributeSet attrs, int defStyle) {

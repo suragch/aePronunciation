@@ -2,7 +2,6 @@ package com.aepronunciation.ipa;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
@@ -11,10 +10,11 @@ import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,12 +31,16 @@ import static android.content.Context.MODE_PRIVATE;
 import static com.aepronunciation.ipa.MainActivity.PRACTICE_MODE_IS_SINGLE_KEY;
 import static com.aepronunciation.ipa.MainActivity.PREFS_NAME;
 
-public class PracticeContentFragment extends Fragment implements View.OnClickListener,
-        SoundPool.OnLoadCompleteListener, SelectSoundDialogFragment.SelectSoundDialogListener {
+public class PracticeContentFragment extends Fragment
+        implements
+        View.OnClickListener,
+        SoundPool.OnLoadCompleteListener,
+        SelectSoundDialogFragment.SelectSoundDialogListener {
 
 
     public interface PracticeScreenListener {
         void updateKeyboardKeysFor(SoundMode mode);
+
         void updateKeyboardKeySelectionFor(ArrayList<String> selectedSounds);
     }
 
@@ -50,8 +54,8 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
     private TextView tvPercent;
     private TextView tvWrong;
     private String currentIpa = "";
-    TransitionDrawable rightAnswerTransistion;
-    TransitionDrawable wrongAnswerTransistion;
+    TransitionDrawable rightAnswerTransition;
+    TransitionDrawable wrongAnswerTransition;
     private static final int SRC_QUALITY = 0;
     private static final int PRIORITY = 1;
     private SoundPool soundPool = null;
@@ -63,28 +67,30 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
     private boolean alreadyMadeWrongAnswerForThisIpa = false;
     ArrayList<String> previouslyChosenVowels;
     ArrayList<String> previouslyChosenConsonants;
+    private static final int SOUND_POOL_LOAD_SUCCESS = 0;
 
     static final int MINIMUM_POPULATION_SIZE_FOR_WHICH_REPEATS_NOT_ALLOWED = 4;
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View layout = inflater.inflate(R.layout.fragment_practice_screen, container, false);
 
         // create objects
-        tvInputWindow = (TextView) layout.findViewById(R.id.tvInputWindow);
-        llInputWindowBorder = (LinearLayout) layout.findViewById(R.id.llInputWindowBorder);
-        tvPracticeMode = (TextView) layout.findViewById(R.id.tvPracticeMode);
-        tvRight = (TextView) layout.findViewById(R.id.tvPracticeNumberRight);
-        tvPercent = (TextView) layout.findViewById(R.id.tvPracticePercentRight);
-        tvWrong = (TextView) layout.findViewById(R.id.tvPracticeNumberWrong);
+        tvInputWindow = layout.findViewById(R.id.tvInputWindow);
+        llInputWindowBorder = layout.findViewById(R.id.llInputWindowBorder);
+        tvPracticeMode = layout.findViewById(R.id.tvPracticeMode);
+        tvRight = layout.findViewById(R.id.tvPracticeNumberRight);
+        tvPercent = layout.findViewById(R.id.tvPracticePercentRight);
+        tvWrong = layout.findViewById(R.id.tvPracticeNumberWrong);
         singleSound = new SingleSound();
         doubleSound = new DoubleSound();
-        RelativeLayout rlPlayButton = (RelativeLayout) layout.findViewById(R.id.playButtonLayout);
-        RelativeLayout rlSettingsButton = (RelativeLayout) layout.findViewById(R.id.settingsButtonLayout);
-        RelativeLayout rlTellMeButton = (RelativeLayout) layout.findViewById(R.id.tellMeButtonLayout);
-        ImageView clearButton = (ImageView) layout.findViewById(R.id.ivClear);
+        RelativeLayout rlPlayButton = layout.findViewById(R.id.playButtonLayout);
+        RelativeLayout rlSettingsButton = layout.findViewById(R.id.settingsButtonLayout);
+        RelativeLayout rlTellMeButton = layout.findViewById(R.id.tellMeButtonLayout);
+        ImageView clearButton = layout.findViewById(R.id.ivClear);
 
         // set listeners
         rlPlayButton.setOnClickListener(this);
@@ -93,21 +99,17 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         clearButton.setOnClickListener(this);
 
         // Create the green and red effects for right/wrong answers
-        Drawable backgrounds[] = new Drawable[2];
-        backgrounds[0] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_normal);
-        backgrounds[1] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_right);
-        rightAnswerTransistion = new TransitionDrawable(backgrounds);
-        backgrounds[1] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_wrong);
-        wrongAnswerTransistion = new TransitionDrawable(backgrounds);
+        if (getActivity() != null) {
+            Drawable backgrounds[] = new Drawable[2];
+            backgrounds[0] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_normal);
+            backgrounds[1] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_right);
+            rightAnswerTransition = new TransitionDrawable(backgrounds);
+            backgrounds[1] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_wrong);
+            wrongAnswerTransition = new TransitionDrawable(backgrounds);
+        }
 
         // get saved practice mode
-        SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        boolean isSingle = settings.getBoolean(PRACTICE_MODE_IS_SINGLE_KEY, true);
-        if (isSingle) {
-            practiceMode = SoundMode.Single;
-        } else {
-            practiceMode = SoundMode.Double;
-        }
+        updatePracticeModeFromSharedPreferences();
 
         // Initialize UI
         resetToInitialValues();
@@ -144,6 +146,17 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         }
     }
 
+    private void updatePracticeModeFromSharedPreferences() {
+        if (getActivity() == null) return;
+        SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        boolean isSingle = settings.getBoolean(PRACTICE_MODE_IS_SINGLE_KEY, true);
+        if (isSingle) {
+            practiceMode = SoundMode.Single;
+        } else {
+            practiceMode = SoundMode.Double;
+        }
+    }
+
 
     public void playClick() {
 
@@ -158,10 +171,10 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
                 }
 
                 // allow repeated sounds for small population sizes
-                if (practiceMode==SoundMode.Single &&
+                if (practiceMode == SoundMode.Single &&
                         singleSound.getSoundCount() < MINIMUM_POPULATION_SIZE_FOR_WHICH_REPEATS_NOT_ALLOWED) {
                     break;
-                } else if (practiceMode==SoundMode.Double &&
+                } else if (practiceMode == SoundMode.Double &&
                         doubleSound.getSoundCount() < MINIMUM_POPULATION_SIZE_FOR_WHICH_REPEATS_NOT_ALLOWED) {
                     break;
                 }
@@ -171,7 +184,7 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
             currentIpa = ipa;
             readyForNewSound = false;
             alreadyMadeWrongAnswerForThisIpa = false;
-            rightAnswerTransistion.resetTransition();
+            rightAnswerTransition.resetTransition();
             tvInputWindow.setText("");
         }
 
@@ -189,7 +202,7 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         }
 
         tvInputWindow.setText(currentIpa);
-        animateBackground(true);
+        animateBackgroundForCorrectAnswer();
         playSound(currentIpa);
         readyForNewSound = true;
     }
@@ -197,7 +210,7 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
     public void clearClick() {
         tvInputWindow.setText("");
         inputKeyCounter = 0;
-        rightAnswerTransistion.resetTransition();
+        rightAnswerTransition.resetTransition();
     }
 
     public void onKeyTouched(String keyString) {
@@ -207,9 +220,7 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         }
 
         // don't allow more clicks when green
-        if (readyForNewSound) {
-            return;
-        }
+        if (readyForNewSound) return;
 
         if (practiceMode == SoundMode.Double && inputKeyCounter >= 2) {
             tvInputWindow.setText("");
@@ -230,8 +241,8 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
 
         // check if right or not
         if (userAnswer.equals(currentIpa)) {
-            // if right then animate backgound to green and back
-            animateBackground(true);
+            // if right then animate background to green and back
+            animateBackgroundForCorrectAnswer();
 
             // update label
             if (!alreadyMadeWrongAnswerForThisIpa) {
@@ -243,7 +254,7 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         } else { // wrong answer
 
             // if wrong then animate to red and back
-            animateBackground(false);
+            animateBackgroundForWrongAnswer();
 
             // update label
             if (!alreadyMadeWrongAnswerForThisIpa) {
@@ -274,14 +285,10 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
             soundId = doubleSound.getSoundResourceId(ipaSound);
 
             if (soundId == -1) {
-
+                if (getActivity() == null) return;
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setMessage(Answer.getErrorMessage(getActivity(), ipaSound));
-                builder.setPositiveButton(R.string.error_dialog_ok_button, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User clicked OK button
-                    }
-                });
+                builder.setPositiveButton(R.string.error_dialog_ok_button, null);
                 AlertDialog dialog = builder.create();
                 dialog.show();
                 return;
@@ -301,7 +308,7 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         updateStatLabels();
         inputKeyCounter = 0;
         tvInputWindow.setText("");
-        rightAnswerTransistion.resetTransition();
+        rightAnswerTransition.resetTransition();
         if (practiceMode == SoundMode.Single) {
             tvPracticeMode.setText(getString(R.string.practice_mode_single));
         } else {
@@ -310,11 +317,11 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
     }
 
     private void updateStatLabels() {
-        tvRight.setText(Integer.toString(numberCorrect));
-        tvWrong.setText(Integer.toString(numberWrong));
+        tvRight.setText(String.valueOf(numberCorrect));
+        tvWrong.setText(String.valueOf(numberWrong));
         if (numberCorrect + numberWrong > 0) {
-            int percent = (int) (100 * numberCorrect/(double) (numberCorrect + numberWrong));
-            tvPercent.setText(Integer.toString(percent) + "%");
+            int percent = (int) (100 * numberCorrect / (double) (numberCorrect + numberWrong));
+            tvPercent.setText(String.valueOf(percent) + "%");
         } else {
             tvPercent.setText("0%");
         }
@@ -322,49 +329,46 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
 
     @SuppressWarnings("deprecation")
     @SuppressLint("NewApi")
-    private void animateBackground(boolean answerIsCorrect) {
-
-        if (answerIsCorrect) {
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-
-                //tvInputWindow.setBackground(rightAnswerTransistion);
-                llInputWindowBorder.setBackground(rightAnswerTransistion);
-            } else {
-                llInputWindowBorder.setBackgroundDrawable(rightAnswerTransistion);
-            }
-
-            rightAnswerTransistion.startTransition(300);
-            // rightAnswerTransistion.reverseTransition(300);
-
+    private void animateBackgroundForCorrectAnswer() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            llInputWindowBorder.setBackground(rightAnswerTransition);
         } else {
-
-            final int TRANSITION_START_TIME = 300;
-            final int TRANSITION_REVERSE_TIME = 300;
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                llInputWindowBorder.setBackground(wrongAnswerTransistion);
-            } else {
-                llInputWindowBorder.setBackgroundDrawable(wrongAnswerTransistion);
-            }
-
-            wrongAnswerTransistion.startTransition(300);
-            wrongAnswerTransistion.reverseTransition(300);
-
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    tvInputWindow.setText("");
-                }
-            }, TRANSITION_START_TIME + TRANSITION_REVERSE_TIME);
+            llInputWindowBorder.setBackgroundDrawable(rightAnswerTransition);
         }
+        rightAnswerTransition.startTransition(300);
     }
+
+    @SuppressWarnings("deprecation")
+    @SuppressLint("NewApi")
+    private void animateBackgroundForWrongAnswer() {
+
+        final int TRANSITION_START_TIME = 300;
+        final int TRANSITION_REVERSE_TIME = 300;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            llInputWindowBorder.setBackground(wrongAnswerTransition);
+        } else {
+            llInputWindowBorder.setBackgroundDrawable(wrongAnswerTransition);
+        }
+
+        wrongAnswerTransition.startTransition(300);
+        wrongAnswerTransition.reverseTransition(300);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                tvInputWindow.setText("");
+            }
+        }, TRANSITION_START_TIME + TRANSITION_REVERSE_TIME);
+
+    }
+
 
     @Override
     public void onLoadComplete(SoundPool sPool, int sid, int status) {
 
-        if (status != 0) // 0=success
+        if (status != SOUND_POOL_LOAD_SUCCESS)
             return;
 
         soundPool.play(sid, 1, 1, PRIORITY, 0, 1.0f);
@@ -434,29 +438,31 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         allChosenSounds.addAll(chosenConsonants);
         if (practiceMode == SoundMode.Double) {
             if (chosenVowels.isEmpty()) {
-                allChosenSounds.addAll(PhonemeTable.INSTANCE.getAllVowels());
+                allChosenSounds.addAll(Ipa.getAllVowels());
             }
             if (chosenConsonants.isEmpty()) {
-                allChosenSounds.addAll(PhonemeTable.INSTANCE.getAllConsonants());
+                allChosenSounds.addAll(Ipa.getAllConsonants());
             }
         }
         mListener.updateKeyboardKeySelectionFor(allChosenSounds);
 
         // update user preferences and time
-        SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        SharedPreferences.Editor editor = settings.edit();
-        StudyTimer timer = StudyTimer.getInstance();
-        if (practiceMode == SoundMode.Single) {
-            editor.putBoolean(PRACTICE_MODE_IS_SINGLE_KEY, true);
-            timer.start(getActivity(), StudyTimer.StudyType.PracticeSingle);
-        } else {
-            editor.putBoolean(PRACTICE_MODE_IS_SINGLE_KEY, false);
-            timer.start(getActivity(), StudyTimer.StudyType.PracticeDouble);
+        if (getActivity() != null) {
+            SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+            SharedPreferences.Editor editor = settings.edit();
+            StudyTimer timer = StudyTimer.getInstance();
+            if (practiceMode == SoundMode.Single) {
+                editor.putBoolean(PRACTICE_MODE_IS_SINGLE_KEY, true);
+                timer.start(getActivity(), StudyTimer.StudyType.PracticeSingle);
+            } else {
+                editor.putBoolean(PRACTICE_MODE_IS_SINGLE_KEY, false);
+                timer.start(getActivity(), StudyTimer.StudyType.PracticeDouble);
+            }
+            editor.apply();
         }
-        editor.apply();
 
         // update practice mode label
-        if (practiceMode== SoundMode.Single) {
+        if (practiceMode == SoundMode.Single) {
             tvPracticeMode.setText(getString(R.string.practice_mode_single));
         } else {
             tvPracticeMode.setText(getString(R.string.practice_mode_double));
@@ -466,12 +472,12 @@ public class PracticeContentFragment extends Fragment implements View.OnClickLis
         if (practiceMode == SoundMode.Single) {
             singleSound.restrictListTo(chosenConsonants, chosenVowels);
         } else { // Double
-            if ((chosenVowels.size()==0 && chosenConsonants.size() == 0) ||
-                    (chosenVowels.size() == PhonemeTable.NUMBER_OF_VOWELS_FOR_DOUBLES &&
-                            chosenConsonants.size() == PhonemeTable.NUMBER_OF_CONSONANTS_FOR_DOUBLES)) {
+            if ((chosenVowels.size() == 0 && chosenConsonants.size() == 0) ||
+                    (chosenVowels.size() == Ipa.NUMBER_OF_VOWELS_FOR_DOUBLES &&
+                            chosenConsonants.size() == Ipa.NUMBER_OF_CONSONANTS_FOR_DOUBLES)) {
                 // all or none selected
                 doubleSound.includeAllSounds();
-            } else if (chosenVowels.size()==0 || chosenConsonants.size() == 0) {
+            } else if (chosenVowels.size() == 0 || chosenConsonants.size() == 0) {
                 // if none of one kind and a few of the other kind, then do inclusive match (any containing pair)
                 doubleSound.restrictListToPairsContainingAtLeastOneSoundFrom(chosenConsonants, chosenVowels);
             } else {

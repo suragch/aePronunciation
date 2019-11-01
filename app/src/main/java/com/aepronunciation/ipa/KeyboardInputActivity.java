@@ -1,17 +1,17 @@
 package com.aepronunciation.ipa;
 
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -32,27 +32,25 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keyboard_input);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // add back arrow to toolbar
-        if (getSupportActionBar() != null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
         // disable rotation for smaller devices
-        if(getResources().getBoolean(R.bool.portrait_only)){
+        if (getResources().getBoolean(R.bool.portrait_only)) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
 
         // prevent system keyboard from appearing
-        editText = (IpaEditText) findViewById(R.id.etInputWindow);
-        if (android.os.Build.VERSION.SDK_INT >= 11) {
-            editText.setRawInputType(InputType.TYPE_CLASS_TEXT);
-            editText.setTextIsSelectable(true);
-        } else {
-            editText.setRawInputType(InputType.TYPE_NULL);
-            editText.setFocusable(true);
+        editText = findViewById(R.id.etInputWindow);
+        editText.setRawInputType(InputType.TYPE_CLASS_TEXT);
+        editText.setTextIsSelectable(true);
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            editText.setShowSoftInputOnFocus(false);
         }
 
         // load keyboard fragment
@@ -62,8 +60,6 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
         transaction.commit();
     }
 
-    @SuppressLint("NewApi")
-    @SuppressWarnings("deprecation")
     private void copyText() {
 
         CharSequence text = editText.getText();
@@ -71,22 +67,19 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
             return;
         }
 
-        int sdk = android.os.Build.VERSION.SDK_INT;
-        if(sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
-            android.text.ClipboardManager clipboard = (android.text.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-            clipboard.setText(text);
-        } else {
-            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-            android.content.ClipData clip = android.content.ClipData.newPlainText("IPA text", text);
-            clipboard.setPrimaryClip(clip);
-        }
+
+        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        android.content.ClipData clip = android.content.ClipData.newPlainText("IPA text", text);
+        clipboard.setPrimaryClip(clip);
 
         Toast.makeText(this, getString(R.string.keyboard_input_toast_text_copied), Toast.LENGTH_SHORT).show();
     }
 
     private void clearText() {
 
-        if (editText.getText().length() < CONFIRM_DELETE_TEXT_LENGTH) {
+        Editable text = editText.getText();
+        if (text == null) return;
+        if (text.length() < CONFIRM_DELETE_TEXT_LENGTH) {
             editText.setText("");
             return;
         }
@@ -116,14 +109,14 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
 
     private void shareText() {
 
-        CharSequence text = editText.getText().toString();
-        if (TextUtils.isEmpty(text)) {
+        CharSequence text = editText.getText();
+        if (text == null) {
             return;
         }
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, text.toString());
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, getString(R.string.keyboard_menu_share_chooser_title)));
     }
@@ -157,10 +150,13 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
 
     @Override
     public void onKeyTouched(String keyString) {
+        Editable text = editText.getText();
+        if (text == null) return;
         int start = Math.max(editText.getSelectionStart(), 0);
         int end = Math.max(editText.getSelectionEnd(), 0);
-        editText.getText().replace(Math.min(start, end), Math.max(start, end),
+        text.replace(Math.min(start, end), Math.max(start, end),
                 keyString, 0, keyString.length());
+        editText.setSelection(editText.getSelectionEnd());
     }
 
     @Override

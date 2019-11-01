@@ -2,8 +2,9 @@ package com.aepronunciation.ipa;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_keyboard, container, false);
@@ -49,7 +50,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
 
         // Add listeners for all keys
         for (int id : mLayoutToString.keySet()) {
-            RelativeLayout rlKey = (RelativeLayout) view.findViewById(id);
+            RelativeLayout rlKey = view.findViewById(id);
             rlKey.setOnClickListener(this);
         }
 
@@ -199,6 +200,8 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
     }
 
     public void updateKeyAppearanceForSelectedSounds(ArrayList<String> selectedSounds) {
+        Context context = getContext();
+        if (context == null) return;
 
         int selectedColor = ContextCompat.getColor(getContext(),R.color.keyboard_text_normal);
         int unselectedColor = ContextCompat.getColor(getContext(),R.color.keyboard_text_unselected);
@@ -215,7 +218,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
                     break;
                 }
             }
-            textView = (IpaTextView) view.findViewById(id);
+            textView = view.findViewById(id);
             if (isSelected) {
                 textView.setTextColor(selectedColor);
             } else {

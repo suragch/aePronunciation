@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -17,7 +17,7 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // add back arrow to toolbar
         if (getSupportActionBar() != null){
@@ -25,8 +25,8 @@ public class AboutActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        TextView tvAboutAppName = (TextView) findViewById(R.id.tvAboutAppName);
-        TextView tvVersion = (TextView) findViewById(R.id.tvAboutVersion);
+        TextView tvAboutAppName = findViewById(R.id.tvAboutAppName);
+        TextView tvVersion = findViewById(R.id.tvAboutVersion);
         String appName = getResources().getString(R.string.app_name);
         String appVersion = "";
         try {
@@ -41,8 +41,6 @@ public class AboutActivity extends AppCompatActivity {
     }
 
     public void contactClick(View v) {
-
-        // Start test activity
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.about_contact_url)));
         startActivity(browserIntent);
     }
@@ -51,7 +49,7 @@ public class AboutActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // handle arrow click here
         if (item.getItemId() == android.R.id.home) {
-            finish(); // close this activity and return to preview activity (if there is any)
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

@@ -4,7 +4,7 @@ package com.aepronunciation.ipa;
 import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.text.TextUtils;
+import android.util.Pair;
 
 // making this parcelable (rather than serialized) improves speed
 class Answer implements Parcelable {
@@ -62,41 +62,6 @@ class Answer implements Parcelable {
         }
     };
 
-    static String[] parseDouble(String ipaDouble) {
-        if (TextUtils.isEmpty(ipaDouble)) {
-            return null;
-        }
-        String[] returnIpa = new String[2];
-
-
-        // TODO this is error prone if changes happen elsewhere. Check for consonant instead.
-        if (ipaDouble.startsWith("aɪ") || ipaDouble.startsWith("aʊ")
-                || ipaDouble.startsWith("eɪ") || ipaDouble.startsWith("oʊ")
-                || ipaDouble.startsWith("ɔɪ") || ipaDouble.startsWith("ɑr")
-                || ipaDouble.startsWith("ɛr") || ipaDouble.startsWith("ɪr")
-                || ipaDouble.startsWith("ɔr")) {
-
-            returnIpa[0] = ipaDouble.substring(0, 2);
-            if (ipaDouble.length() == 2) {
-                //Log.e("app", "String was too short");
-                returnIpa[0] = ipaDouble.substring(0, 1);
-                returnIpa[1] = ipaDouble.substring(1);
-            } else {
-                returnIpa[1] = ipaDouble.substring(2);
-            }
-        } else {
-            returnIpa[0] = ipaDouble.substring(0, 1);
-            if (ipaDouble.length() < 2) {
-                //Log.e("app", "String was too short");
-                returnIpa[1] = "";
-            } else {
-                returnIpa[1] = ipaDouble.substring(1);
-            }
-        }
-
-        return returnIpa;
-    }
-
     static String getErrorMessage(Context context, String ipa) {
 
         // Types of errors:
@@ -109,44 +74,49 @@ class Answer implements Parcelable {
 
         String errorMessage = "";
 
-        String[] parsedIpa = parseDouble(ipa);
-        if (parsedIpa == null || parsedIpa.length != 2) {
-            // TODO return a more intelligent error message (but this situation shouldn't ever happen)
+        Pair<String, String> parsedIpa = DoubleSound.parse(ipa);
+        if (parsedIpa == null) {
+            // TODO return a more intelligent error message
+            // (but this situation shouldn't ever happen)
             return errorMessage;
         }
 
         // starts with a consonant
-        if ("ptkʧfθsʃbdgʤvðzʒmnŋlwjhr".contains(parsedIpa[0])) {
+        if ("ptkʧfθsʃbdgʤvðzʒmnŋlwjhr".contains(parsedIpa.first)) {
 
             // ends with a consonant
-            if ("ptkʧfθsʃbdgʤvðzʒmnŋlwjhr".contains(parsedIpa[1])) {
+            if ("ptkʧfθsʃbdgʤvðzʒmnŋlwjhr".contains(parsedIpa.second)) {
 
-                errorMessage = String.format(context.getString(R.string.error_two_consonants), parsedIpa[0], parsedIpa[1]);
+                errorMessage = String.format(context.getString(R.string.error_two_consonants),
+                        parsedIpa.first, parsedIpa.second);
 
-            } else if (parsedIpa[0].equals("ŋ")) {
+            } else if (parsedIpa.first.equals("ŋ")) {
 
                 // starts with ŋ
-                errorMessage = String.format(context.getString(R.string.error_initial_ng), parsedIpa[0], parsedIpa[1]);
+                errorMessage = String.format(context.getString(R.string.error_initial_ng),
+                        parsedIpa.first, parsedIpa.second);
 
             }
 
         } else { // starts with a vowel
 
 
-            if (parsedIpa[1].equals("r")) {
+            if (parsedIpa.second.equals("r")) {
 
                 // ends in r
                 errorMessage = context.getString(R.string.error_final_r);
 
-            } else if ("iɪɛæɑɔʊuʌəeɪaɪaʊɔɪoʊɝɚɑrɛrɪrɔr".contains(parsedIpa[1])) {
+            } else if ("iɪɛæɑɔʊuʌəeɪaɪaʊɔɪoʊɝɚɑrɛrɪrɔr".contains(parsedIpa.second)) {
 
                 // ends with vowel
-                errorMessage = String.format(context.getString(R.string.error_two_vowels), parsedIpa[0], parsedIpa[1]);
+                errorMessage = String.format(context.getString(R.string.error_two_vowels),
+                        parsedIpa.first, parsedIpa.second);
 
-            } else if ("wjh".contains(parsedIpa[1])) {
+            } else if ("wjh".contains(parsedIpa.second)) {
 
                 // ends with wjh
-                errorMessage = String.format(context.getString(R.string.error_final_wjh), parsedIpa[0], parsedIpa[1]);
+                errorMessage = String.format(context.getString(R.string.error_final_wjh),
+                        parsedIpa.first, parsedIpa.second);
             }
         }
 

@@ -11,7 +11,7 @@ public class Test {
     private int score;
     private String correctAnswers;
     private String userAnswers;
-    private String wrong;
+    //private String wrong;
 
     // constructor
     public Test() {}
@@ -49,10 +49,6 @@ public class Test {
         return userAnswers;
     }
 
-    String getWrong() {
-        return wrong;
-    }
-
     // setters
     void setId(long id) {
         this.id = id;
@@ -84,10 +80,6 @@ public class Test {
 
     void setUserAnswers(String userAnswers) {
         this.userAnswers = userAnswers;
-    }
-
-    void setWrong(String wrong) {
-        this.wrong = wrong;
     }
 
 }

@@ -6,6 +6,7 @@
     <!-- Main menu -->
     <string name="main_menu_keyboard">Keyboard</string>
     <string name="main_menu_history">History</string>
+    <string name="main_menu_personal_evaluation">Personal evaluation</string>
     <string name="main_menu_about">About</string>
 
     <!-- Tabs -->
@@ -86,7 +87,13 @@
     <string name="about_app_version">Version %1$s</string>
     <string name="about_content">If you have any questions, comments, or suggestions, then please leave a message.</string>
     <string name="about_contact">Contact</string>
-    <string name="about_contact_url" translatable="false">http://www.aepronunciation.com/app/</string>
+    <string name="about_contact_url" translatable="false">http://www.aepronunciation.com</string>
+
+    <!-- Personal Evaluation Activity -->
+    <!-- TODO translate this -->
+    <string name="personal_evaluation_content" translatable="false">A limitation of this app is that it is unable to give you feedback on your actual spoken pronunciation. If you would like the app author to evaluate a recording of your pronunciation, you can use this third-party website.</string>
+    <string name="personal_evaluation_contact" translatable="false">Request evaluation</string>
+    <string name="personal_evaluation_contact_url" translatable="false">https://www.fiverr.com/suragch/analyze-your-pronunciation-of-american-english</string>
 
     <!-- Keyboard Input Activity -->
     <string name="title_activity_keyboard_input">Write IPA</string>

@@ -7,12 +7,15 @@ import android.media.SoundPool;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+
 import java.text.DateFormat;
+
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -34,21 +37,11 @@ import static com.aepronunciation.ipa.MainActivity.VOWEL_ARRAY_KEY;
 public class TestResultsActivity extends AppCompatActivity implements TestResultsRecyclerViewAdapter.ItemClickListener,
         SoundPool.OnLoadCompleteListener {
 
-    // Wrong answers are stored in a string in the following format
-    // ipa + # + times wrong + ; substituted ipa + # times substituted + ,
-    // example: ɪ#3;i#2;ɛ#1,f#1;θ#1
-    // comma (,) separates each main sound that was gotten wrong
-    // semicolon (;) separates main sound from substituted sounds
-    // first sound is always main, following are all subs
-    // number sign (#) separates ipa sounds from their count values
-
-    //ListView listView;
-    private static String userName;
-    private static long timeLength;
-    public static SoundMode testMode;
-    private static int score;
-    private static ArrayList<Answer> answers;
-    private static StringBuilder wrong;
+    private String userName;
+    private long timeLength;
+    private SoundMode testMode;
+    private int score;
+    private ArrayList<Answer> answers;
     private TestResultsRecyclerViewAdapter adapter;
 
     private static final int SRC_QUALITY = 0;
@@ -63,10 +56,10 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_results);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // add back arrow to toolbar
-        if (getSupportActionBar() != null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
@@ -80,14 +73,14 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
                 .getParcelableArrayList("com.aepronunciation.ipa.testAnswers");
 
         // create objects
-        TextView tvName = (TextView) findViewById(R.id.tvResultName);
-        TextView tvDate = (TextView) findViewById(R.id.tvResultDate);
-        TextView tvPercent = (TextView) findViewById(R.id.tvResultPercent);
-        TextView tvCorrect = (TextView) findViewById(R.id.tvResultCorrect);
-        TextView tvWrong = (TextView) findViewById(R.id.tvResultWrong);
-        TextView tvTime = (TextView) findViewById(R.id.tvResultTime);
+        TextView tvName = findViewById(R.id.tvResultName);
+        TextView tvDate = findViewById(R.id.tvResultDate);
+        TextView tvPercent = findViewById(R.id.tvResultPercent);
+        TextView tvCorrect = findViewById(R.id.tvResultCorrect);
+        TextView tvWrong = findViewById(R.id.tvResultWrong);
+        TextView tvTime = findViewById(R.id.tvResultTime);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rvTestResults);
+        RecyclerView recyclerView = findViewById(R.id.rvTestResults);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, R.drawable.divider));
         adapter = new TestResultsRecyclerViewAdapter(this, answers, testMode);
@@ -97,10 +90,9 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
         singleSound = new SingleSound();
         doubleSound = new DoubleSound();
-        wrong = new StringBuilder();
 
         // calculate score
-        int numberCorrect = calculateScore(answers);
+        int numberCorrect = calculateNumberCorrect(answers);
         int totalNumber = answers.size();
         if (testMode == SoundMode.Double) {
             totalNumber *= 2;
@@ -109,22 +101,14 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
         // hide practice button if all correct
         if (numberCorrect == totalNumber) {
-            RelativeLayout practiceButton = (RelativeLayout) findViewById(R.id.rlPracticeDifficultButton);
+            RelativeLayout practiceButton = findViewById(R.id.rlPracticeDifficultButton);
             practiceButton.setVisibility(View.INVISIBLE);
         }
 
-        // get date/time
-        Locale locale = Locale.US; // default
-        if (getString(R.string.locale).equals(Locale.CHINESE.toString())) {
-            locale = Locale.CHINESE;
-        }
-        Date date = new Date(System.currentTimeMillis());
-        DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT, locale);
-        String formattedDate = df.format(date);
 
         // update textviews
         tvName.setText(userName);
-        tvDate.setText(formattedDate);
+        tvDate.setText(getFormattedDate());
         tvPercent.setText(String.format(getString(R.string.test_results_percent), score));
         tvCorrect.setText(String.format(getString(R.string.test_results_right), numberCorrect));
         tvWrong.setText(String.format(getString(R.string.test_results_wrong), totalNumber - numberCorrect));
@@ -135,6 +119,13 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
             new AddTestToDb().execute();
         }
 
+    }
+
+    private String getFormattedDate() {
+        Locale locale = AppLocale.getLocale(this);
+        Date date = new Date(System.currentTimeMillis());
+        DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT, locale);
+        return df.format(date);
     }
 
     @Override
@@ -167,76 +158,43 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
     }
 
 
-    private int calculateScore(ArrayList<Answer> answers) {
+    private int calculateNumberCorrect(ArrayList<Answer> answers) {
 
-        Answer tempAnswer;
-        String correct;
-        String user;
         int numCorrect = 0;
-        for (int i = 0; i < answers.size(); i++) {
+        for (Answer answer : answers) {
+            String correct = answer.getCorrectAnswer();
+            String user = answer.getUserAnswer();
 
-            tempAnswer = answers.get(i);
-            correct = tempAnswer.getCorrectAnswer();
-            user = tempAnswer.getUserAnswer();
+            // Single
+            if (testMode == SoundMode.Single) {
+                if (correct.equals(user)) numCorrect++;
+                continue;
+            }
 
-            if (testMode == SoundMode.Double) {
-                String[] parsedCorrect;
-                String[] parcedUser;
-
-                if (correct.equals(user)) {
-                    numCorrect += 2;
-                } else {
-                    parsedCorrect = Answer.parseDouble(correct);
-                    parcedUser = Answer.parseDouble(user);
-                    if (parsedCorrect == null || parcedUser == null) {
-                        return 0;
-                    }
-                    if (parsedCorrect[0].equals(parcedUser[0])) {
-                        numCorrect++;
-                    } else {
-                        if (wrong.length() > 0) {
-                            wrong.append(",");
-                        }
-                        wrong.append(parsedCorrect[0]).append(";").append(parcedUser[0]);
-                    }
-                    if (parsedCorrect[1].equals(parcedUser[1])) {
-                        numCorrect++;
-                    } else {
-                        if (wrong.length() > 0) {
-                            wrong.append(",");
-                        }
-                        wrong.append(parsedCorrect[1]).append(";").append(parcedUser[1]);
-                    }
-                }
-            } else { // single
-                if (correct.equals(user)) {
-                    numCorrect++;
-                } else {
-                    if (wrong.length() > 0) {
-                        wrong.append(",");
-                    }
-                    wrong.append(correct).append(";").append(user);
-                }
+            // Double
+            Pair<String, String> parsedCorrect = DoubleSound.parse(correct);
+            Pair<String, String> parsedUser = DoubleSound.parse(user);
+            if (parsedCorrect == null || parsedUser == null) {
+                continue;
+            }
+            if (parsedCorrect.first.equals(parsedUser.first)) {
+                numCorrect++;
+            }
+            if (parsedCorrect.second.equals(parsedUser.second)) {
+                numCorrect++;
             }
         }
-
         return numCorrect;
-
     }
 
 
     private Set<String> findNeedToPracticeSounds(ArrayList<Answer> answers) {
 
-        String userAnswer;
-        String correctAnswer;
-        String[] parsedCorrect;
-        String[] parcedUser;
-
         Set<String> practiceSet = new HashSet<>();
         for (Answer answer : answers) {
 
-            userAnswer = answer.getUserAnswer();
-            correctAnswer = answer.getCorrectAnswer();
+            String userAnswer = answer.getUserAnswer();
+            String correctAnswer = answer.getCorrectAnswer();
 
             if (testMode == SoundMode.Single) {
 
@@ -247,16 +205,16 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
             } else if (testMode == SoundMode.Double) {
 
-                parsedCorrect = Answer.parseDouble(correctAnswer);
-                parcedUser = Answer.parseDouble(userAnswer);
-                if (parcedUser == null || parsedCorrect == null) return practiceSet;
-                if (!parcedUser[0].equals(parsedCorrect[0])) {
-                    practiceSet.add(parcedUser[0]);
-                    practiceSet.add(parsedCorrect[0]);
+                Pair<String, String> parsedCorrect = DoubleSound.parse(correctAnswer);
+                Pair<String, String> parsedUser = DoubleSound.parse(userAnswer);
+                if (parsedUser == null || parsedCorrect == null) continue;
+                if (!parsedUser.first.equals(parsedCorrect.first)) {
+                    practiceSet.add(parsedUser.first);
+                    practiceSet.add(parsedCorrect.first);
                 }
-                if (!parcedUser[1].equals(parsedCorrect[1])) {
-                    practiceSet.add(parcedUser[1]);
-                    practiceSet.add(parsedCorrect[1]);
+                if (!parsedUser.second.equals(parsedCorrect.second)) {
+                    practiceSet.add(parsedUser.second);
+                    practiceSet.add(parsedCorrect.second);
                 }
 
             }
@@ -276,7 +234,7 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         playSound(correctIpa);
         if (!correctIpa.equals(userIpa)) {
             int delay = 1000;
-            if (PhonemeTable.INSTANCE.hasTwoPronunciations(correctIpa)) {
+            if (Ipa.hasTwoPronunciations(correctIpa)) {
                 delay = 2000; // these sounds need a longer delay
             }
             // delay playing second sound
@@ -296,27 +254,22 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
             StringBuilder correctAnswersConcat = new StringBuilder();
             StringBuilder userAnswersConcat = new StringBuilder();
-            for (int i = 0; i < answers.size(); i++) {
+            for (Answer answer : answers) {
                 if (correctAnswersConcat.length() > 0) {
                     // comma separated values
                     correctAnswersConcat.append(",");
                     userAnswersConcat.append(",");
                 }
-                correctAnswersConcat.append(answers.get(i).getCorrectAnswer());
-                userAnswersConcat.append(answers.get(i).getUserAnswer());
+                correctAnswersConcat.append(answer.getCorrectAnswer());
+                userAnswersConcat.append(answer.getUserAnswer());
             }
 
-            // sort wrong ones by frequency
-            String sortedWrong = new Wrong().getIpaSortedByFrequency(wrong
-                    .toString());
-
             try {
-
                 MyDatabaseAdapter dbAdapter = new MyDatabaseAdapter(
                         getApplicationContext());
-                dbAdapter.addTest(userName, timeLength, testMode.getPersistentMemoryString(), score,
+                    dbAdapter.addTest(userName, timeLength, testMode.getPersistentMemoryString(), score,
                         correctAnswersConcat.toString(),
-                        userAnswersConcat.toString(), sortedWrong);
+                        userAnswersConcat.toString());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -333,7 +286,7 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         // look up audio resource id for that sound
         if (testMode == SoundMode.Double) {
             soundId = doubleSound.getSoundResourceId(ipaSound);
-        } else if (testMode == SoundMode.Single){
+        } else if (testMode == SoundMode.Single) {
             soundId = singleSound.getSoundResourceId(ipaSound);
         }
 
@@ -383,10 +336,10 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
         ArrayList<String> consonantArray = new ArrayList<>();
         Set<String> allSounds = findNeedToPracticeSounds(answers);
         for (String sound : allSounds) {
-            if (PhonemeTable.INSTANCE.isVowel(sound)) {
-                vowelArray.add(sound);
-            } else {
+            if (Ipa.isConsonant(sound)) {
                 consonantArray.add(sound);
+            } else {
+                vowelArray.add(sound);
             }
         }
 

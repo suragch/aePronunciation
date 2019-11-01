@@ -3,14 +3,15 @@ package com.aepronunciation.ipa;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,16 +55,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.main_tab_learn)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.main_tab_practice)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.main_tab_test)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager = findViewById(R.id.pager);
         CustomPagerAdapter adapter = new CustomPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -158,6 +159,10 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this, HistoryActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.action_personal_evaluation:
+                intent = new Intent(this, PersonalEvaluationActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.action_about:
                 intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
@@ -171,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
 
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == TEST_RESULTS_RESULT) {
             if (resultCode == RESULT_OK) {
 
@@ -201,23 +207,23 @@ public class MainActivity extends AppCompatActivity {
             this.mNumOfTabs = NumOfTabs;
         }
 
+        @NonNull
         @Override
         public Fragment getItem(int position) {
 
             switch (position) {
-                case 0:
-                    return new LearnFragment();
                 case 1:
                     return new PracticeFragment();
                 case 2:
                     return new TestFragment();
                 default:
-                    return null;
+                    return new LearnFragment();
             }
         }
 
+        @NonNull
         @Override
-        public Object instantiateItem(ViewGroup container, int position) {
+        public Object instantiateItem(@NonNull ViewGroup container, int position) {
             Fragment createdFragment = (Fragment) super.instantiateItem(container, position);
             switch (position) {
                 case 0:

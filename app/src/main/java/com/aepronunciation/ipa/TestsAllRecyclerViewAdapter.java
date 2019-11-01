@@ -2,7 +2,8 @@ package com.aepronunciation.ipa;
 
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,15 +29,16 @@ class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRecyclerV
     }
 
     // inflates the row layout from xml when needed
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.item_rv_all_tests, parent, false);
         return new ViewHolder(view);
     }
 
     // binds the data to the textview in each row
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         Test test = mData.get(position);
         holder.tvNumber.setText(Integer.toString(position + 1));
@@ -44,10 +46,7 @@ class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRecyclerV
         holder.tvScore.setText(String.format(mContext.getString(R.string.history_tests_item_score), test.getScore()));
 
         // get date
-        Locale locale = Locale.US; // default
-        if (mContext.getString(R.string.locale).equals(Locale.CHINESE.toString())) {
-            locale = Locale.CHINESE;
-        }
+        Locale locale = AppLocale.getLocale(mContext);
         Date date = new Date(test.getDate());
         DateFormat df = SimpleDateFormat.getDateTimeInstance(SimpleDateFormat.SHORT, SimpleDateFormat.SHORT, locale);
         String formattedDate = df.format(date);
@@ -56,7 +55,6 @@ class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRecyclerV
         // Get the mode (single or double) and the number of questions
         String[] correctAnswers = test.getCorrectAnswers().split(",");
         int numberOfQuestions = correctAnswers.length;
-        //holder.tvNumberOfQuestions.setText(Integer.toString(numberOfQuestions));
         SoundMode testMode = test.getMode();
         if (testMode == SoundMode.Double) {
             holder.tvType.setText(String.format(mContext.getString(R.string.history_test_details_type_double), numberOfQuestions));
@@ -83,11 +81,11 @@ class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRecyclerV
 
         ViewHolder(View itemView) {
             super(itemView);
-            tvNumber = (IpaTextView) itemView.findViewById(R.id.tvRvItemTestNumber);
-            tvUserName = (IpaTextView) itemView.findViewById(R.id.tvRvItemTestUserName);
-            tvDateTime = (IpaTextView) itemView.findViewById(R.id.tvRvItemTestDate);
-            tvScore = (IpaTextView) itemView.findViewById(R.id.tvRvItemTestScore);
-            tvType = (IpaTextView) itemView.findViewById(R.id.tvRvItemTestType);
+            tvNumber = itemView.findViewById(R.id.tvRvItemTestNumber);
+            tvUserName = itemView.findViewById(R.id.tvRvItemTestUserName);
+            tvDateTime = itemView.findViewById(R.id.tvRvItemTestDate);
+            tvScore = itemView.findViewById(R.id.tvRvItemTestScore);
+            tvType = itemView.findViewById(R.id.tvRvItemTestType);
             itemView.setOnClickListener(this);
         }
 

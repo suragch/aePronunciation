@@ -6,9 +6,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -45,7 +45,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
     CheckBox cbConsonantsCategory;
     CheckBox[] checkBoxesVowels;
     CheckBox[] checkBoxesConsonants;
-    CheckBox cbShwua;
+    CheckBox cbSchwa;
     CheckBox cbUnstressedEr;
     CheckBox cbGlottalStop;
     CheckBox cbFlapT;
@@ -59,12 +59,12 @@ public class SelectSoundDialogFragment extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_select_sound, null);
 
-        rbSingle = (RadioButton) view.findViewById(R.id.radio_single);
-        rbDouble = (RadioButton) view.findViewById(R.id.radio_double);
-        cbShwua = (CheckBox) view.findViewById(R.id.cb_shwua);
-        cbUnstressedEr = (CheckBox) view.findViewById(R.id.cb_er_unstressed);
-        cbGlottalStop = (CheckBox) view.findViewById(R.id.cb_glottal_stop);
-        cbFlapT = (CheckBox) view.findViewById(R.id.cb_flap_t);
+        rbSingle = view.findViewById(R.id.radio_single);
+        rbDouble = view.findViewById(R.id.radio_double);
+        cbSchwa = view.findViewById(R.id.cb_shwua);
+        cbUnstressedEr = view.findViewById(R.id.cb_er_unstressed);
+        cbGlottalStop = view.findViewById(R.id.cb_glottal_stop);
+        cbFlapT = view.findViewById(R.id.cb_flap_t);
 
         // get saved practice mode
         SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -73,7 +73,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
             rbSingle.setChecked(true);
         } else {
             rbDouble.setChecked(true);
-            cbShwua.setVisibility(View.GONE);
+            cbSchwa.setVisibility(View.GONE);
             cbUnstressedEr.setVisibility(View.GONE);
             cbGlottalStop.setVisibility(View.GONE);
             cbFlapT.setVisibility(View.GONE);
@@ -81,7 +81,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
 
         initializeCheckBoxes(view);
 
-        final RadioGroup rg = (RadioGroup) view.findViewById(R.id.select_sounds_radio_group);
+        final RadioGroup rg = view.findViewById(R.id.select_sounds_radio_group);
         rg.setOnCheckedChangeListener(radioGroupListener);
 
         // disable the OK button
@@ -144,7 +144,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 SoundMode soundType = SoundMode.Double;
-                RadioButton single = (RadioButton) alertDialog.findViewById(R.id.radio_single);
+                RadioButton single = alertDialog.findViewById(R.id.radio_single);
                 if (single != null && single.isChecked()) {
                     soundType = SoundMode.Single;
                 }
@@ -175,63 +175,63 @@ public class SelectSoundDialogFragment extends DialogFragment {
 
 
         checkBoxesVowels = new CheckBox[]{
-                (CheckBox) layout.findViewById(R.id.cb_i),
-                (CheckBox) layout.findViewById(R.id.cb_i_short),
-                (CheckBox) layout.findViewById(R.id.cb_e_short),
-                (CheckBox) layout.findViewById(R.id.cb_ae),
-                (CheckBox) layout.findViewById(R.id.cb_a),
-                (CheckBox) layout.findViewById(R.id.cb_c_backwards),
-                (CheckBox) layout.findViewById(R.id.cb_u_short),
-                (CheckBox) layout.findViewById(R.id.cb_u),
-                (CheckBox) layout.findViewById(R.id.cb_v_upsidedown),
-                cbShwua,
-                (CheckBox) layout.findViewById(R.id.cb_ei),
-                (CheckBox) layout.findViewById(R.id.cb_ai),
-                (CheckBox) layout.findViewById(R.id.cb_au),
-                (CheckBox) layout.findViewById(R.id.cb_oi),
-                (CheckBox) layout.findViewById(R.id.cb_ou),
-                (CheckBox) layout.findViewById(R.id.cb_er_stressed),
+                layout.findViewById(R.id.cb_i),
+                layout.findViewById(R.id.cb_i_short),
+                layout.findViewById(R.id.cb_e_short),
+                layout.findViewById(R.id.cb_ae),
+                layout.findViewById(R.id.cb_a),
+                layout.findViewById(R.id.cb_c_backwards),
+                layout.findViewById(R.id.cb_u_short),
+                layout.findViewById(R.id.cb_u),
+                layout.findViewById(R.id.cb_v_upsidedown),
+                cbSchwa,
+                layout.findViewById(R.id.cb_ei),
+                layout.findViewById(R.id.cb_ai),
+                layout.findViewById(R.id.cb_au),
+                layout.findViewById(R.id.cb_oi),
+                layout.findViewById(R.id.cb_ou),
+                layout.findViewById(R.id.cb_er_stressed),
                 cbUnstressedEr,
-                (CheckBox) layout.findViewById(R.id.cb_ar),
-                (CheckBox) layout.findViewById(R.id.cb_er),
-                (CheckBox) layout.findViewById(R.id.cb_ir),
-                (CheckBox) layout.findViewById(R.id.cb_or)
+                layout.findViewById(R.id.cb_ar),
+                layout.findViewById(R.id.cb_er),
+                layout.findViewById(R.id.cb_ir),
+                layout.findViewById(R.id.cb_or)
         };
         checkBoxesConsonants = new CheckBox[]{
-                (CheckBox) layout.findViewById(R.id.cb_p),
-                (CheckBox) layout.findViewById(R.id.cb_b),
-                (CheckBox) layout.findViewById(R.id.cb_t),
-                (CheckBox) layout.findViewById(R.id.cb_d),
-                (CheckBox) layout.findViewById(R.id.cb_k),
-                (CheckBox) layout.findViewById(R.id.cb_g),
-                (CheckBox) layout.findViewById(R.id.cb_ch),
-                (CheckBox) layout.findViewById(R.id.cb_dzh),
-                (CheckBox) layout.findViewById(R.id.cb_f),
-                (CheckBox) layout.findViewById(R.id.cb_v),
-                (CheckBox) layout.findViewById(R.id.cb_th_voiceless),
-                (CheckBox) layout.findViewById(R.id.cb_th_voiced),
-                (CheckBox) layout.findViewById(R.id.cb_s),
-                (CheckBox) layout.findViewById(R.id.cb_z),
-                (CheckBox) layout.findViewById(R.id.cb_sh),
-                (CheckBox) layout.findViewById(R.id.cb_zh),
-                (CheckBox) layout.findViewById(R.id.cb_m),
-                (CheckBox) layout.findViewById(R.id.cb_n),
-                (CheckBox) layout.findViewById(R.id.cb_ng),
-                (CheckBox) layout.findViewById(R.id.cb_l),
-                (CheckBox) layout.findViewById(R.id.cb_w),
-                (CheckBox) layout.findViewById(R.id.cb_j),
-                (CheckBox) layout.findViewById(R.id.cb_h),
-                (CheckBox) layout.findViewById(R.id.cb_r),
+                layout.findViewById(R.id.cb_p),
+                layout.findViewById(R.id.cb_b),
+                layout.findViewById(R.id.cb_t),
+                layout.findViewById(R.id.cb_d),
+                layout.findViewById(R.id.cb_k),
+                layout.findViewById(R.id.cb_g),
+                layout.findViewById(R.id.cb_ch),
+                layout.findViewById(R.id.cb_dzh),
+                layout.findViewById(R.id.cb_f),
+                layout.findViewById(R.id.cb_v),
+                layout.findViewById(R.id.cb_th_voiceless),
+                layout.findViewById(R.id.cb_th_voiced),
+                layout.findViewById(R.id.cb_s),
+                layout.findViewById(R.id.cb_z),
+                layout.findViewById(R.id.cb_sh),
+                layout.findViewById(R.id.cb_zh),
+                layout.findViewById(R.id.cb_m),
+                layout.findViewById(R.id.cb_n),
+                layout.findViewById(R.id.cb_ng),
+                layout.findViewById(R.id.cb_l),
+                layout.findViewById(R.id.cb_w),
+                layout.findViewById(R.id.cb_j),
+                layout.findViewById(R.id.cb_h),
+                layout.findViewById(R.id.cb_r),
                 cbGlottalStop,
                 cbFlapT
         };
-        if (checkBoxesConsonants.length != PhonemeTable.NUMBER_OF_CONSONANTS ||
-                checkBoxesVowels.length != PhonemeTable.NUMBER_OF_VOWELS) {
+        if (checkBoxesConsonants.length != Ipa.NUMBER_OF_CONSONANTS ||
+                checkBoxesVowels.length != Ipa.NUMBER_OF_VOWELS) {
             throw new RuntimeException("update number of checkboxes if vowels or consonant number changes");
         }
 
-        cbVowelsCategory = (CheckBox) layout.findViewById(R.id.cbVowels);
-        cbConsonantsCategory = (CheckBox) layout.findViewById(R.id.cbConsonants);
+        cbVowelsCategory = layout.findViewById(R.id.cbVowels);
+        cbConsonantsCategory = layout.findViewById(R.id.cbConsonants);
 
 
         // get saved settings
@@ -321,14 +321,14 @@ public class SelectSoundDialogFragment extends DialogFragment {
             switch (checkedId) {
                 case R.id.radio_single:
                     // show optional sounds (unstressed er, shwua, glottal stop and flap t)
-                    cbShwua.setVisibility(View.VISIBLE);
+                    cbSchwa.setVisibility(View.VISIBLE);
                     cbUnstressedEr.setVisibility(View.VISIBLE);
                     cbGlottalStop.setVisibility(View.VISIBLE);
                     cbFlapT.setVisibility(View.VISIBLE);
                     break;
                 case R.id.radio_double:
                     // hide optional sounds
-                    cbShwua.setVisibility(View.GONE);
+                    cbSchwa.setVisibility(View.GONE);
                     cbUnstressedEr.setVisibility(View.GONE);
                     cbGlottalStop.setVisibility(View.GONE);
                     cbFlapT.setVisibility(View.GONE);
@@ -379,7 +379,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
 
     private boolean getButtonShouldBeEnabledState() {
 
-        // count the number of checked boxes for conconants and vowels
+        // count the number of checked boxes for consonants and vowels
         int vowelsChecked = 0;
         for (CheckBox cb : checkBoxesVowels) {
             if (cb.isChecked() && cb.getVisibility() == View.VISIBLE) {

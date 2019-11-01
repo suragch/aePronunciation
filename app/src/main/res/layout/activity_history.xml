@@ -5,7 +5,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,6 +50,7 @@
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/button"
                 android:clickable="true"
+                android:focusable="true"
                 android:onClick="timeDetailsClick"
                 android:paddingBottom="5dp"
                 android:paddingLeft="20dp"
@@ -98,6 +99,7 @@
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/button"
                 android:clickable="true"
+                android:focusable="true"
                 android:onClick="testDetailsClick"
                 android:paddingBottom="5dp"
                 android:paddingLeft="20dp"

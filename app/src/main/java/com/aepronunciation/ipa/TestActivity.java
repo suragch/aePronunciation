@@ -4,9 +4,9 @@ package com.aepronunciation.ipa;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import static com.aepronunciation.ipa.MainActivity.NUMBER_OF_QUESTIONS_KEY;
 import static com.aepronunciation.ipa.MainActivity.TEST_MODE_KEY;
@@ -52,7 +52,7 @@ public class TestActivity extends AppCompatActivity  implements KeyboardFragment
     @Override
     public void onKeyTouched(String keyString) {
 
-        // find the currect fragment and then perform the appropriate action on it
+        // find the correct fragment and then perform the appropriate action on it
         Fragment f = getSupportFragmentManager().findFragmentById(R.id.test_content_frame);
         if (f instanceof TestContentFragment) {
             // update display

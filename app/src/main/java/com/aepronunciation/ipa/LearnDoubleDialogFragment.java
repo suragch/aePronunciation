@@ -5,14 +5,13 @@ import android.content.DialogInterface;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AlertDialog;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-
 
 
 public class LearnDoubleDialogFragment extends DialogFragment implements
@@ -21,7 +20,6 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
     private DoubleSound doubleSound;
     LearnDoubleRecyclerViewAdapter adapter;
 
-    private SpecialSound specialSound;
     String ipa;
 
     private static final int SRC_QUALITY = 0;
@@ -41,19 +39,10 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
 
         doubleSound = new DoubleSound();
         doubleSound.restrictListToAllPairsContaining(ipa);
-
-        if (PhonemeTable.INSTANCE.isSpecial(ipa)) {
-            specialSound = new SpecialSound();
-            specialSound.loadSoundsFor(ipa);
-            adapter = new LearnDoubleRecyclerViewAdapter(getActivity(), specialSound.getSounds());
-        } else {
-            doubleSound = new DoubleSound();
-            doubleSound.restrictListToAllPairsContaining(ipa);
-            adapter = new LearnDoubleRecyclerViewAdapter(getActivity(), doubleSound.getSounds());
-        }
+        adapter = new LearnDoubleRecyclerViewAdapter(getActivity(), doubleSound.getSounds());
 
         // set up the RecyclerView
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rvLearnDouble);
+        RecyclerView recyclerView = view.findViewById(R.id.rvLearnDouble);
         int numberOfColumns = 6;
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), numberOfColumns));
         GridSpacingItemDecoration itemDecoration = new GridSpacingItemDecoration(getActivity(), R.dimen.grid_item_spacing);
@@ -118,12 +107,7 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
         String clickedIpaString = adapter.getItem(position);
 
         // use the string to look up the audio resource id
-        int soundId;
-        if (PhonemeTable.INSTANCE.isSpecial(ipa)) {
-            soundId = specialSound.getSoundResourceId(clickedIpaString);
-        } else {
-            soundId = doubleSound.getSoundResourceId(clickedIpaString);
-        }
+        int soundId = doubleSound.getSoundResourceId(clickedIpaString);
 
         // use the id to load (and play) the sound
         soundPool.load(getActivity(), soundId, PRIORITY);
