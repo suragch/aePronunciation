@@ -73,6 +73,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
+                                                <entry key="scalingPercent" value="61" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -82,7 +83,9 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="foregroundAssetType" value="CLIP_ART" />
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="ffffff" />
+                                      <entry key="foregroundImage" value="/Volumes/TOSHIBA EXT/old/Documents/Learning/Computer/Programming/Android/aePronunciation/images/logo/android/logo_fg_transparency.png" />
                                     </map>
                                   </option>
                                 </PersistentState>
