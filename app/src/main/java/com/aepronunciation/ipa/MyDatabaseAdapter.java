@@ -159,7 +159,7 @@ class MyDatabaseAdapter {
         return highScores;
     }
 
-    long addTest(String name, long time, String testmode, int score,
+    void addTest(String name, long time, String testmode, int score,
                         String correctAnswers, String userAnswers) {
 
         // get current Unix epoc time in milliseconds
@@ -175,10 +175,9 @@ class MyDatabaseAdapter {
         contentValues.put(MyDatabaseHelper.CORRECT_ANSWER, correctAnswers);
         contentValues.put(MyDatabaseHelper.USER_ANSWER, userAnswers);
         contentValues.put(MyDatabaseHelper.WRONG, ""); // Deprecated, inserting dummy value
-        long id = db.insert(MyDatabaseHelper.TESTS_TABLE_NAME, null,
+        db.insert(MyDatabaseHelper.TESTS_TABLE_NAME, null,
                 contentValues);
         db.close();
-        return id;
     }
 
     // Making this an inner class rather than a separate class so that outer

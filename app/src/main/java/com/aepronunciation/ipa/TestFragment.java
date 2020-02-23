@@ -25,12 +25,12 @@ import static com.aepronunciation.ipa.MainActivity.TEST_RESULTS_RESULT;
 
 public class TestFragment extends Fragment implements View.OnClickListener {
 
-    protected static final String DEFAULT_QUESTIONS = "50";
+    private static final String DEFAULT_QUESTIONS = "50";
 
     private EditText etName;
     private Spinner spinner;
-    RadioButton rbSingle;
-    SharedPreferences settings;
+    private RadioButton rbSingle;
+    //private SharedPreferences settings;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -76,7 +76,7 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-    public void beginClick() {
+    private void beginClick() {
 
         // Name
         String name = etName.getText().toString();
@@ -98,7 +98,7 @@ public class TestFragment extends Fragment implements View.OnClickListener {
 
         // Save to preferences
         if (getActivity() != null) {
-            settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+            SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
             SharedPreferences.Editor editor = settings.edit();
             editor.putString(NUMBER_OF_QUESTIONS_KEY, questions);
             editor.putString(TEST_MODE_KEY, testModeString);

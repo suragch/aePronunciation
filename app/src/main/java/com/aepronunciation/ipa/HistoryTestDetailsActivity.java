@@ -61,7 +61,10 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
 
         // Get extras from Test Activity
         Bundle bundle = getIntent().getExtras();
-        long id = bundle.getLong("id", 0);
+        long id = 0;
+        if (bundle != null) {
+            id = bundle.getLong("id", 0);
+        }
 
         new GetTest(this).execute(id);
 

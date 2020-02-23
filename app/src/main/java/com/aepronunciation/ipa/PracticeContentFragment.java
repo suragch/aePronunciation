@@ -54,22 +54,22 @@ public class PracticeContentFragment extends Fragment
     private TextView tvPercent;
     private TextView tvWrong;
     private String currentIpa = "";
-    TransitionDrawable rightAnswerTransition;
-    TransitionDrawable wrongAnswerTransition;
+    private TransitionDrawable rightAnswerTransition;
+    private TransitionDrawable wrongAnswerTransition;
     private static final int SRC_QUALITY = 0;
     private static final int PRIORITY = 1;
     private SoundPool soundPool = null;
-    boolean readyForNewSound = true;
+    private boolean readyForNewSound = true;
     private SoundMode practiceMode = SoundMode.Single;
     private int numberCorrect = 0;
     private int numberWrong = 0;
     private int inputKeyCounter = 0;
     private boolean alreadyMadeWrongAnswerForThisIpa = false;
-    ArrayList<String> previouslyChosenVowels;
-    ArrayList<String> previouslyChosenConsonants;
+    private ArrayList<String> previouslyChosenVowels;
+    private ArrayList<String> previouslyChosenConsonants;
     private static final int SOUND_POOL_LOAD_SUCCESS = 0;
 
-    static final int MINIMUM_POPULATION_SIZE_FOR_WHICH_REPEATS_NOT_ALLOWED = 4;
+    private static final int MINIMUM_POPULATION_SIZE_FOR_WHICH_REPEATS_NOT_ALLOWED = 4;
 
 
     @Override
@@ -100,7 +100,7 @@ public class PracticeContentFragment extends Fragment
 
         // Create the green and red effects for right/wrong answers
         if (getActivity() != null) {
-            Drawable backgrounds[] = new Drawable[2];
+            Drawable[] backgrounds = new Drawable[2];
             backgrounds[0] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_normal);
             backgrounds[1] = ContextCompat.getDrawable(getActivity(), R.drawable.input_window_right);
             rightAnswerTransition = new TransitionDrawable(backgrounds);
@@ -135,7 +135,7 @@ public class PracticeContentFragment extends Fragment
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
         // check if parent Fragment implements listener
@@ -158,7 +158,7 @@ public class PracticeContentFragment extends Fragment
     }
 
 
-    public void playClick() {
+    private void playClick() {
 
         if (readyForNewSound) {
 
@@ -191,7 +191,7 @@ public class PracticeContentFragment extends Fragment
         playSound(currentIpa);
     }
 
-    public void tellMeClick() {
+    private void tellMeClick() {
         if (readyForNewSound) {
             return;
         }
@@ -207,13 +207,13 @@ public class PracticeContentFragment extends Fragment
         readyForNewSound = true;
     }
 
-    public void clearClick() {
+    private void clearClick() {
         tvInputWindow.setText("");
         inputKeyCounter = 0;
         rightAnswerTransition.resetTransition();
     }
 
-    public void onKeyTouched(String keyString) {
+    void onKeyTouched(String keyString) {
 
         if (TextUtils.isEmpty(keyString)) {
             return;
@@ -376,7 +376,7 @@ public class PracticeContentFragment extends Fragment
 
     }
 
-    public void settingsClick() {
+    private void settingsClick() {
         Bundle args = new Bundle();
         args.putBoolean(SelectSoundDialogFragment.KEY_DIALOG_IS_SINGLE_MODE, practiceMode == SoundMode.Single);
         args.putStringArrayList(SelectSoundDialogFragment.KEY_DIALOG_VOWEL_LIST, previouslyChosenVowels);
@@ -421,7 +421,7 @@ public class PracticeContentFragment extends Fragment
         Log.i("TAG", "onDialogPositiveClick: Cancel clicked");
     }
 
-    public void updateUiForSelectedSounds(SoundMode numberSounds,
+    void updateUiForSelectedSounds(SoundMode numberSounds,
                                           ArrayList<String> chosenVowels,
                                           ArrayList<String> chosenConsonants) {
 

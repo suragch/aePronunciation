@@ -18,13 +18,13 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
         LearnDoubleRecyclerViewAdapter.ItemClickListener, SoundPool.OnLoadCompleteListener {
 
     private DoubleSound doubleSound;
-    LearnDoubleRecyclerViewAdapter adapter;
+    private LearnDoubleRecyclerViewAdapter adapter;
 
     String ipa;
 
     private static final int SRC_QUALITY = 0;
     private static final int PRIORITY = 1;
-    public static final String KEY_DIALOG_IPA = "ipa";
+    static final String KEY_DIALOG_IPA = "ipa";
     private SoundPool soundPool = null;
 
     @Override

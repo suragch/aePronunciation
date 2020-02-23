@@ -6,7 +6,6 @@
     <!-- Main menu -->
     <string name="main_menu_keyboard">Keyboard</string>
     <string name="main_menu_history">History</string>
-    <string name="main_menu_personal_evaluation">Personal evaluation</string>
     <string name="main_menu_about">About</string>
 
     <!-- Tabs -->
@@ -87,7 +86,7 @@
     <string name="about_app_version">Version %1$s</string>
     <string name="about_content">If you have any questions, comments, or suggestions, then please leave a message.</string>
     <string name="about_contact">Contact</string>
-    <string name="about_contact_url" translatable="false">http://www.aepronunciation.com</string>
+    <string name="about_contact_url" translatable="false">http://www.aepronunciation.com/contact/</string>
 
     <!-- Personal Evaluation Activity -->
     <!-- TODO translate this -->
@@ -328,9 +327,9 @@
     <string name="schwa_example2" translatable="false">delicious\n/də\'lɪʃəs/</string>
     <string name="schwa_example3" translatable="false">panda\n/\'pændə/</string>
     <string name="ei_description">This is a diphthong, a combination of the /e/ and /ɪ/ sounds. It is sometimes also written as /e/ in some American English dictionaries. (Do not confuse this with the British English symbol /e/, which is actually pronounced /ɛ/.) Words with the American English /eɪ/ sound are pronounced /ɛɪ/ in British English. However, they still write it as /eɪ/.</string>
-    <string name="ei_example1" translatable="false">age\n/eʤ/</string>
-    <string name="ei_example2" translatable="false">safe\n/sef/</string>
-    <string name="ei_example3" translatable="false">may\n/me/</string>
+    <string name="ei_example1" translatable="false">age\n/eɪʤ/</string>
+    <string name="ei_example2" translatable="false">safe\n/seɪf/</string>
+    <string name="ei_example3" translatable="false">may\n/meɪ/</string>
     <string name="ai_description">This is a diphthong, a combination of the /a/ and /ɪ/ sounds. Note the difference from /æ/.</string>
     <string name="ai_example1" translatable="false">I\'m\n/aɪm/</string>
     <string name="ai_example2" translatable="false">bite\n/baɪt/</string>
@@ -344,9 +343,9 @@
     <string name="oi_example2" translatable="false">voice\n/vɔɪs/</string>
     <string name="oi_example3" translatable="false">boy\n/bɔɪ/</string>
     <string name="ou_description">This is a diphthong, a combination of the /o/ and /ʊ/ sounds. Note that there is a slight difference from the British pronunciation of /əʊ/.</string>
-    <string name="ou_example1" translatable="false">oath\n/oθ/</string>
-    <string name="ou_example2" translatable="false">cove\n/kov/</string>
-    <string name="ou_example3" translatable="false">low\n/lo/</string>
+    <string name="ou_example1" translatable="false">oath\n/oʊθ/</string>
+    <string name="ou_example2" translatable="false">cove\n/koʊv/</string>
+    <string name="ou_example3" translatable="false">low\n/loʊ/</string>
     <string name="er_stressed_description">The /ɝ/ sound is sometimes written /ər/ or /əɹ/. This is the sound in a stressed syllable or a one-syllable word. When /ɝ/ is unstressed it is written /ɚ/. In British English /ɝ/ is pronounced as /ɜː/.</string>
     <string name="er_stressed_example1" translatable="false">earth\n/ɝθ/</string>
     <string name="er_stressed_example2" translatable="false">birthday\n/\'bɝθde/</string>

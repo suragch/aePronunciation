@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class PracticeFragment extends Fragment implements PracticeContentFragment.PracticeScreenListener, KeyboardFragment.KeyboardListener {
 
-    PracticeContentFragment childPracticeFragment;
-    KeyboardFragment childKeyboardFragment;
+    private PracticeContentFragment childPracticeFragment;
+    private KeyboardFragment childKeyboardFragment;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class PracticeFragment extends Fragment implements PracticeContentFragmen
         }
     }
 
-    public void updateUiForSelectedSounds(final SoundMode mode, final ArrayList<String> vowels, final ArrayList<String> consonants) {
+    void updateUiForSelectedSounds(final SoundMode mode, final ArrayList<String> vowels, final ArrayList<String> consonants) {
 
         if (childPracticeFragment != null) {
             childPracticeFragment.updateUiForSelectedSounds(mode, vowels, consonants);

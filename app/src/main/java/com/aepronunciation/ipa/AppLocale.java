@@ -14,7 +14,6 @@ class AppLocale {
             case "zh-rCN":
                 return Locale.SIMPLIFIED_CHINESE;
             case "zh-rTW":
-                return Locale.TRADITIONAL_CHINESE;
             case "zh":
                 return Locale.TRADITIONAL_CHINESE;
             default:

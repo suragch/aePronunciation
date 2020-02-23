@@ -19,24 +19,24 @@ import java.util.Map;
 
 public class LearnSingleFragment extends Fragment implements View.OnClickListener, SoundPool.OnLoadCompleteListener {
 
-    static final String STATE_IPA = "ipaSymbol";
-    static final String STATE_VIDEO_URI = "videoUri";
-    static final String STATE_DESCRIPTION = "description";
-    static final String STATE_EXAMPLE_1 = "example1";
-    static final String STATE_EXAMPLE_2 = "example2";
-    static final String STATE_EXAMPLE_3 = "example3";
+    private static final String STATE_IPA = "ipaSymbol";
+    private static final String STATE_VIDEO_URI = "videoUri";
+    private static final String STATE_DESCRIPTION = "description";
+    private static final String STATE_EXAMPLE_1 = "example1";
+    private static final String STATE_EXAMPLE_2 = "example2";
+    private static final String STATE_EXAMPLE_3 = "example3";
 
-    TextView tvIpaSymbol;
-    VideoView videoView;
-    Uri videoUri;
-    TextView tvIpaDescription;
-    RelativeLayout rlExample1;
-    RelativeLayout rlExample2;
-    RelativeLayout rlExample3;
-    RelativeLayout rlMore;
-    TextView tvExample1;
-    TextView tvExample2;
-    TextView tvExample3;
+    private TextView tvIpaSymbol;
+    private VideoView videoView;
+    private Uri videoUri;
+    private TextView tvIpaDescription;
+    //private RelativeLayout rlExample1;
+    //private RelativeLayout rlExample2;
+    //private RelativeLayout rlExample3;
+    //private RelativeLayout rlMore;
+    private TextView tvExample1;
+    private TextView tvExample2;
+    private TextView tvExample3;
     private SingleSound singleSound;
     private Map<String, Integer> ipaForVideo = createVideoMap();
     private Map<String, Integer> ipaForDescription = createDescriptionMap();
@@ -57,10 +57,10 @@ public class LearnSingleFragment extends Fragment implements View.OnClickListene
         tvIpaSymbol = layout.findViewById(R.id.tvLearnSingleIpaSound);
         videoView = layout.findViewById(R.id.videoview);
         tvIpaDescription = layout.findViewById(R.id.tvLearnSingleIpaDescription);
-        rlExample1 = layout.findViewById(R.id.rlExample1);
-        rlExample2 = layout.findViewById(R.id.rlExample2);
-        rlExample3 = layout.findViewById(R.id.rlExample3);
-        rlMore = layout.findViewById(R.id.rlMore);
+        RelativeLayout rlExample1 = layout.findViewById(R.id.rlExample1);
+        RelativeLayout rlExample2 = layout.findViewById(R.id.rlExample2);
+        RelativeLayout rlExample3 = layout.findViewById(R.id.rlExample3);
+        RelativeLayout rlMore = layout.findViewById(R.id.rlMore);
         tvExample1 = layout.findViewById(R.id.tvExample1);
         tvExample2 = layout.findViewById(R.id.tvExample2);
         tvExample3 = layout.findViewById(R.id.tvExample3);
@@ -181,7 +181,7 @@ public class LearnSingleFragment extends Fragment implements View.OnClickListene
     }
 
 
-    public void onNewSelection(String ipa) {
+    void onNewSelection(String ipa) {
         if (getActivity() == null) return;
 
         int videoId = ipaForVideo.get(ipa);

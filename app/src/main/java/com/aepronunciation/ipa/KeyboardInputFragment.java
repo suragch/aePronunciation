@@ -19,7 +19,7 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
     private HashMap<Integer, String> mClickMap;
     private HashMap<Integer, String> mLongClickMap;
 
-    KeyboardInputListener mListener; // communicate with the parent activity
+    private KeyboardInputListener mListener; // communicate with the parent activity
 
     // Container Activity must implement this interface
     public interface KeyboardInputListener {
@@ -58,7 +58,7 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
         // check if parent Fragment implements listener

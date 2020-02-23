@@ -23,7 +23,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
     private HashMap<Integer, String> mLayoutToString;
     private HashMap<Integer, String> mTextViewToString;
 
-    KeyboardListener mListener; // communicate with the parent activity
+    private KeyboardListener mListener; // communicate with the parent activity
 
     // Container Activity must implement this interface
     public interface KeyboardListener {
@@ -58,7 +58,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
         // check if parent Fragment implements listener
@@ -184,7 +184,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
         mListener.onKeyTouched(mLayoutToString.get(v.getId()));
     }
 
-    public void updateKeysFor(SoundMode mode) {
+    void updateKeysFor(SoundMode mode) {
 
         if (mode == SoundMode.Single) {
             view.findViewById(R.id.key_shwua).setVisibility(View.VISIBLE);
@@ -199,7 +199,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
         }
     }
 
-    public void updateKeyAppearanceForSelectedSounds(ArrayList<String> selectedSounds) {
+    void updateKeyAppearanceForSelectedSounds(ArrayList<String> selectedSounds) {
         Context context = getContext();
         if (context == null) return;
 

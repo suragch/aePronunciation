@@ -70,8 +70,10 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
 
         android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         android.content.ClipData clip = android.content.ClipData.newPlainText("IPA text", text);
+        if (clipboard == null) {
+            return;
+        }
         clipboard.setPrimaryClip(clip);
-
         Toast.makeText(this, getString(R.string.keyboard_input_toast_text_copied), Toast.LENGTH_SHORT).show();
     }
 

@@ -53,7 +53,6 @@
     <string name="flap_t_description">这个音标叫做齿龈闪音，在中国英语课本中通常不教，但是它在美式发音中非常重要。当/t/音出现在非重读的音节中并在两个元音之间，/ɾ/音通常会代替/t/音。尽管不准确，但是/ɾ/音标也可以写成/d/。这种情况下，上述例子应该被写成/ˈwɑdɚ/，/ˈlɪdəl/和/\'θɝdi/。</string>
     <string name="app_name">美式发音</string>
     <string name="main_menu_keyboard">输入音标</string>
-    <string name="main_menu_personal_evaluation">人工测试</string>
     <string name="main_menu_about">关于应用</string>
     <string name="main_menu_history">历史记录</string>
     <string name="title_activity_learn_double">/%1$s/的延伸</string>

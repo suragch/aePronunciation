@@ -27,7 +27,7 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
     private String studentName;
     private SoundMode testMode;
     private int totalNumberOfQuestions = 50;
-    ArrayList<Answer> answers;
+    private ArrayList<Answer> answers;
 
     private SingleSound singleSound;
     private DoubleSound doubleSound;
@@ -38,10 +38,10 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
     private static final int SRC_QUALITY = 0;
     private static final int PRIORITY = 1;
     private SoundPool soundPool = null;
-    boolean readyForNewSound = true;
-    int inputKeyCounter = 0;
-    int questionNumber = 0; // zero based
-    long startTime;
+    private boolean readyForNewSound = true;
+    private int inputKeyCounter = 0;
+    private int questionNumber = 0; // zero based
+    private long startTime;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -134,7 +134,7 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
     }
 
 
-    public void playClick() {
+    private void playClick() {
 
         if (readyForNewSound) {
             prepareForNextSound();
@@ -163,14 +163,14 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
         return ipa;
     }
 
-    public void clearClick() {
+    private void clearClick() {
 
         tvInputWindow.setText("");
         inputKeyCounter = 0;
         nextButton.setVisibility(View.INVISIBLE);
     }
 
-    public void nextClick() {
+    private void nextClick() {
         if (getActivity() == null) return;
 
         String userAnswer = tvInputWindow.getText().toString();
@@ -222,7 +222,7 @@ public class TestContentFragment extends Fragment implements View.OnClickListene
         soundPool.load(getActivity(), soundId, PRIORITY);
     }
 
-    public void onKeyTouched(String keyString) {
+    void onKeyTouched(String keyString) {
 
         if (TextUtils.isEmpty(keyString)) {
             return;

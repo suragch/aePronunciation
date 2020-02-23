@@ -34,23 +34,23 @@ public class SelectSoundDialogFragment extends DialogFragment {
         void onDialogNegativeClick(DialogFragment dialog);
     }
 
-    public static final String KEY_DIALOG_IS_SINGLE_MODE = "isSingleMode";
-    public static final String KEY_DIALOG_VOWEL_LIST = "vowels";
-    public static final String KEY_DIALOG_CONSONANT_LIST = "consonants";
+    static final String KEY_DIALOG_IS_SINGLE_MODE = "isSingleMode";
+    static final String KEY_DIALOG_VOWEL_LIST = "vowels";
+    static final String KEY_DIALOG_CONSONANT_LIST = "consonants";
 
-    SelectSoundDialogListener mListener;
-    RadioButton rbSingle;
-    RadioButton rbDouble;
-    CheckBox cbVowelsCategory;
-    CheckBox cbConsonantsCategory;
-    CheckBox[] checkBoxesVowels;
-    CheckBox[] checkBoxesConsonants;
-    CheckBox cbSchwa;
-    CheckBox cbUnstressedEr;
-    CheckBox cbGlottalStop;
-    CheckBox cbFlapT;
-    Button positiveButton;
-    boolean listenerDisabled = false;
+    private SelectSoundDialogListener mListener;
+    private RadioButton rbSingle;
+    private RadioButton rbDouble;
+    private CheckBox cbVowelsCategory;
+    private CheckBox cbConsonantsCategory;
+    private CheckBox[] checkBoxesVowels;
+    private CheckBox[] checkBoxesConsonants;
+    private CheckBox cbSchwa;
+    private CheckBox cbUnstressedEr;
+    private CheckBox cbGlottalStop;
+    private CheckBox cbFlapT;
+    private Button positiveButton;
+    private boolean listenerDisabled = false;
 
     @Override
     @NonNull
@@ -304,7 +304,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         // check if parent Fragment implements listener
         if (getParentFragment() instanceof SelectSoundDialogListener) {

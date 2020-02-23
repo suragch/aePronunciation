@@ -56,7 +56,6 @@
     <string name="flap_t_description">這個音標叫做齒齦閃音，在中國英語課本中通常不教，但是它在美式發音中非常重要。當/t/音出現在非重讀的音節中並在兩個元音之間，/ɾ/音通常會代替/t/音。儘管不準確，但是/ɾ/音標也可以寫成/d/。這種情況下，上述例子應該被寫成/ˈwɑdɚ/，/ˈlɪdəl/和/\'θɝdi/。</string>
     <string name="app_name">美式發音</string>
     <string name="main_menu_keyboard">輸入音標</string>
-    <string name="main_menu_personal_evaluation">人工測試</string>
     <string name="main_menu_about">關於應用</string>
     <string name="main_menu_history">歷史記錄</string>
     <string name="title_activity_learn_double">/%1$s/的延伸</string>
