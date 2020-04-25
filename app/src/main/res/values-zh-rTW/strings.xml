@@ -102,7 +102,7 @@
     <string name="error_two_consonants">你輸入的是%1$s和%2$s(兩個輔音)。你應該輸入一個元音和一個輔音。</string>
     <string name="error_two_vowels">你輸入的是%1$s和%2$s(兩個元音)。你應該輸入一個元音和一個輔音。</string>
     <string name="error_final_wjh">你輸入的是%1$s和%2$s。但是%2$s不會出現在單詞結尾。</string>
-    <string name="error_initial_ng">你輸入的是%1$s和%2$s。但是在英語中，%2$s不會出現在單詞開頭。</string>
+    <string name="error_initial_ng">你輸入的是%1$s和%2$s。但是在英語中，%1$s不會出現在單詞開頭。</string>
     <string name="error_dialog_ok_button">知道了</string>
     <string name="learn_single_show_doubles">更多示例</string>
     <string name="main_tab_learn">學習</string>
