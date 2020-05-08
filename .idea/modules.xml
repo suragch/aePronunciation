@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidProjects-aePronunciation.iml" filepath="$PROJECT_DIR$/AndroidProjects-aePronunciation.iml" group="aePronunciation" />
-      <module fileurl="file://$PROJECT_DIR$/aePronunciation.iml" filepath="$PROJECT_DIR$/aePronunciation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/aePronunciation-app.iml" filepath="$PROJECT_DIR$/app/aePronunciation-app.iml" group="aePronunciation/app" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aePronunciation.iml" filepath="$PROJECT_DIR$/aePronunciation.iml" group="aePronunciation" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="aePronunciation/app" />
     </modules>
   </component>
 </project>

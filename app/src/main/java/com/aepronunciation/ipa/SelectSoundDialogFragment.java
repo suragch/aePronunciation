@@ -94,7 +94,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
         });
 
         // build the alert dialog
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
         builder.setView(view)
                 .setTitle(getString(R.string.select_sounds_title))
                 .setPositiveButton(R.string.select_sounds_positive_button, new DialogInterface.OnClickListener() {

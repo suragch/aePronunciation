@@ -14,7 +14,7 @@
     <string name="main_tab_test">Test</string>
 
     <!-- Learn Single fragment -->
-    <string name="learn_single_show_doubles">more…</string>
+    <string name="learn_single_show_doubles">Double sounds</string>
 
     <!-- Learn Double sounds dialog-->
     <string name="title_activity_learn_double">Double sounds with /%1$s/</string>

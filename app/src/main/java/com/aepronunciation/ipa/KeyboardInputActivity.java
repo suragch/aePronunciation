@@ -86,7 +86,7 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
             return;
         }
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
         builder.setMessage(getString(R.string.keyboard_menu_alert_message));
         builder.setCancelable(true);
         builder.setPositiveButton(

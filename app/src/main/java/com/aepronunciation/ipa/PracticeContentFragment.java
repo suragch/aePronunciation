@@ -286,7 +286,7 @@ public class PracticeContentFragment extends Fragment
 
             if (soundId == -1) {
                 if (getActivity() == null) return;
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
                 builder.setMessage(Answer.getErrorMessage(getActivity(), ipaSound));
                 builder.setPositiveButton(R.string.error_dialog_ok_button, null);
                 AlertDialog dialog = builder.create();

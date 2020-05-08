@@ -48,8 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/black"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
 
         <com.aepronunciation.ipa.IpaTextView
             android:id="@+id/tvRvItemTestType"
@@ -58,7 +57,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="20dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/black"/>
+            android:textColor="@color/onBackgroundTextColor"/>
 
     </LinearLayout>
 

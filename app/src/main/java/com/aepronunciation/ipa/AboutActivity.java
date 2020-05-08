@@ -25,9 +25,7 @@ public class AboutActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        TextView tvAboutAppName = findViewById(R.id.tvAboutAppName);
         TextView tvVersion = findViewById(R.id.tvAboutVersion);
-        String appName = getResources().getString(R.string.app_name);
         String appVersion = "";
         try {
             appVersion = getApplicationContext()
@@ -36,7 +34,6 @@ public class AboutActivity extends AppCompatActivity {
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
-        tvAboutAppName.setText(appName);
         tvVersion.setText(String.format(getString(R.string.about_app_version), appVersion));
     }
 

@@ -655,6 +655,7 @@
 
             <ImageView
                 style="@style/AppTheme.KeyImageStyle"
+                android:tint="@color/onBackgroundIconsColor"
                 android:src="@mipmap/ic_keyboard_backspace_black_24dp" />
         </RelativeLayout>
 
@@ -698,6 +699,7 @@
 
             <ImageView
                 style="@style/AppTheme.KeyImageStyle"
+                android:tint="@color/onBackgroundIconsColor"
                 android:src="@mipmap/ic_space_bar_black_24dp" />
         </RelativeLayout>
 
@@ -736,6 +738,7 @@
 
             <ImageView
                 style="@style/AppTheme.KeyImageStyle"
+                android:tint="@color/onBackgroundIconsColor"
                 android:src="@mipmap/ic_keyboard_return_black_24dp" />
         </RelativeLayout>
 

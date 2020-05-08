@@ -292,7 +292,7 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
         if (soundId == -1) {
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
             builder.setMessage(Answer.getErrorMessage(this, ipaSound));
             builder.setPositiveButton(R.string.error_dialog_ok_button, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {

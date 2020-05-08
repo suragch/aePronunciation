@@ -1,0 +1,15 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<resources>
+    <color name="primaryColor">#000000</color>
+    <color name="primaryDarkColor">#000000</color>
+    <color name="accentColor">#0277bd</color>
+
+    <color name="onPrimaryTextColor">#FFFFFF</color>
+    <color name="onPrimaryDisabledTextColor">#80ffffff</color>
+    <color name="onBackgroundTextColor">#ddFFFFFF</color>
+    <color name="onBackgroundDisabledTextColor">#40FFFFFF</color>
+
+    <color name="red">#ffff867f</color>
+    <color name="green">#ff388e3c</color>
+
+</resources>

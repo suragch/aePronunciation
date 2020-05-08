@@ -16,6 +16,8 @@ class AppLocale {
             case "zh-rTW":
             case "zh":
                 return Locale.TRADITIONAL_CHINESE;
+            case "ru":
+                return new Locale("ru","RU");
             default:
                 return Locale.US;
         }

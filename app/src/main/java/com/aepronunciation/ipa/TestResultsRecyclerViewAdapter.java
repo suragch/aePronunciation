@@ -4,6 +4,7 @@ package com.aepronunciation.ipa;
 import android.content.Context;
 import android.graphics.Color;
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -20,12 +21,14 @@ class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestResultsRec
     private SoundMode mTestMode;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
+    private int wrongAnswerColor;
 
     // data is passed into the constructor
     TestResultsRecyclerViewAdapter(Context context, ArrayList<Answer> data, SoundMode testMode) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.mTestMode = testMode;
+        this.wrongAnswerColor = context.getResources().getColor(R.color.red);
     }
 
     // inflates the row layout from xml when needed
@@ -63,20 +66,20 @@ class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestResultsRec
 
                 // change wrong sounds to red
                 if (firstWrong && secondWrong) {
-                    userAnswer.setSpan(new ForegroundColorSpan(Color.RED), 0,
+                    userAnswer.setSpan(new ForegroundColorSpan(wrongAnswerColor), 0,
                             userAnswer.length(), 0);
                 }else if (firstWrong) {
-                    userAnswer.setSpan(new ForegroundColorSpan(Color.RED), 0,
+                    userAnswer.setSpan(new ForegroundColorSpan(wrongAnswerColor), 0,
                             parsedUser.first.length(), 0);
                 }else{
-                    userAnswer.setSpan(new ForegroundColorSpan(Color.RED),
+                    userAnswer.setSpan(new ForegroundColorSpan(wrongAnswerColor),
                             parsedUser.first.length(), userAnswer.length(), 0);
                 }
 
                 holder.tvUser.setText(userAnswer);
 
             } else {
-                userAnswer.setSpan(new ForegroundColorSpan(Color.RED), 0,
+                userAnswer.setSpan(new ForegroundColorSpan(wrongAnswerColor), 0,
                         userAnswer.length(), 0);
                 holder.tvUser.setText(userAnswer);
             }
