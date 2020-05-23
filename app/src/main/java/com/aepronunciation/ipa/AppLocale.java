@@ -18,6 +18,12 @@ class AppLocale {
                 return Locale.TRADITIONAL_CHINESE;
             case "ru":
                 return new Locale("ru","RU");
+            case "mn":
+                return new Locale("mn", "MN");
+            case "ja":
+                return new Locale("ja", "JP");
+            case "vi":
+                return new Locale("vi", "VN");
             default:
                 return Locale.US;
         }

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ААХД</string>
+    <string name="locale">mn</string>
+
+    <!-- Main menu -->
+    <string name="main_menu_keyboard">Гар товчлуур</string>
+    <string name="main_menu_history">Түүх</string>
+    <string name="main_menu_about">Бидний тухай</string>
+
+    <!-- Tabs -->
+    <string name="main_tab_learn">Сурах</string>
+    <string name="main_tab_practice">Дасгал</string>
+    <string name="main_tab_test">Шалгалт</string>
+
+    <!-- Learn Single fragment -->
+    <string name="learn_single_show_doubles">Давхар авиа</string>
+
+    <!-- Learn Double sounds dialog-->
+    <string name="title_activity_learn_double">Давхар авиа /%1$s/</string>
+
+    <!-- Practice Tab -->
+    <string name="practice_mode_single">Дан</string>
+    <string name="practice_mode_double">Давхар</string>
+
+    <!-- Select Sounds dialog -->
+    <string name="select_sounds_title">Давтах авиагаа сонгоно уу</string>
+    <string name="select_sounds_radio_single">Дан</string>
+    <string name="select_sounds_radio_double">Давхар</string>
+    <string name="select_sounds_cb_vowels">Эгшиг</string>
+    <string name="select_sounds_cb_consonants">Гийгүүлэгч</string>
+    <string name="select_sounds_positive_button">За</string>
+
+    <!-- Test setup tab -->
+    <string name="test_setup_name">Нэр</string>
+    <string name="test_default_name">Би</string>
+    <string name="test_setup_number_of_questions">Асуултууд:</string>
+    <string name="test_setup_type">Төрөл:</string>
+    <string name="test_setup_single">Дан</string>
+    <string name="test_setup_double">Давхар</string>
+    <string name="test_setup_begin_button">Эхлэх</string>
+
+    <!-- Test Activity -->
+    <string name="title_activity_test">Шалгалт</string>
+
+    <!-- Test results activity -->
+    <string name="title_activity_test_results">Шалгалтын дүн</string>
+    <string name="test_results_right">Зөв: %1$d</string>
+    <string name="test_results_wrong">Буруу: %1$d</string>
+    <string name="test_results_time">Хугацаа: %1$s</string>
+    <string name="test_results_practice_difficult_button">Хэцүү авиаг давтах</string>
+
+    <!-- History Activity -->
+    <string name="title_activity_history">Түүх</string>
+    <string name="history_time_title">Нийт хугацаа:</string>
+    <string name="history_test_title">Шалгалтууд:</string>
+    <string name="history_details">Дэлгэрэнгүй</string>
+
+    <!-- History Time Details Activity -->
+    <string name="title_activity_history_time">Нийт зарцуулсан хугацаа</string>
+    <string name="history_time_details_learning">Сурсан цаг</string>
+    <string name="history_time_details_practicing">Давтсан цаг</string>
+    <string name="history_time_details_testing">Шалгалтын цаг</string>
+    <string name="history_time_details_total">Нийт хугацаа</string>
+    <string name="history_time_details_type_single">Дан</string>
+    <string name="history_time_details_type_double">Давхар</string>
+
+    <!-- History Test Details Activity -->
+    <string name="title_activity_history_tests">Өмнөх шалгалтууд</string>
+    <string name="history_test_details_type_single">Дан (%1$d)</string>
+    <string name="history_test_details_type_double">Давхар (%1$d)</string>
+    <string name="history_test_details_specific_test_number_of_questions">Асуултууд: %1$d</string>
+
+    <!-- History Tests Activity-->
+    <string name="title_activity_history_test_details">Шалгалтын дэлгэрэнгүй</string>
+    <string name="history_tests_type_single">Дан: %1$d%%</string>
+    <string name="history_tests_type_double">Давхар: %1$d%%</string>
+
+    <!-- About Activity -->
+    <string name="title_activity_about">Бидний тухай</string>
+    <string name="about_app_name">Америкийн Англи Хэлний Дуудлага</string>
+    <string name="about_app_version">Хувилбар %1$s</string>
+    <string name="about_content">Хэрэв танд асуулт, сэтгэгдэл, санал хүсэлт байвал мессеж үлдээнэ үү.</string>
+    <string name="about_contact">Холбоо барих</string>
+
+    <!-- Keyboard Input Activity -->
+    <string name="title_activity_keyboard_input">IPA бичих</string>
+    <string name="keyboard_input_toast_text_copied">IPA текст хуулсан</string>
+    <string name="keyboard_menu_copy">Хуулах</string>
+    <string name="keyboard_menu_clear">Арилгах</string>
+    <string name="keyboard_menu_share">Түгээх</string>
+    <string name="keyboard_menu_share_chooser_title">Текстийг түгээх</string>
+    <string name="keyboard_menu_alert_message">Бүх текстийг устгахдаа итгэлтэй байна уу?</string>
+    <string name="keyboard_menu_alert_clear_all_button">Устгах</string>
+
+    <!-- Error dialog -->
+    <string name="error_two_consonants">Та %1$s + %2$s (хоёр гийгүүлэгч авиа) бичсэн байна. Та нэг гийгүүлэгч, нэг эгшиг сонгох хэрэгтэй.</string>
+    <string name="error_two_vowels">Та %1$s + %2$s (хоёр эгшиг) бичсэн байна. Та нэг гийгүүлэгч, нэг эгшиг сонгох хэрэгтэй.</string>
+    <string name="error_initial_ng">Та %1$s + %2$s гэж бичсэн байна. Гэвч Англи хэлэнд үгийн үе /ŋ/-ээр хэзээ ч эхэлдэггүй.</string>
+    <string name="error_final_r">Хэрэв та /r/ авиагаар төгсгөхийг хүсвэл R эгшиг авиа бүхий товчлуурыг ашиглах хэрэгтэй (ɝ, ɑr, ɛr, ɪr, ɔr). Мөн өөр нэг гийгүүлэгч байх хэрэгтэй.</string>
+    <string name="error_final_wjh">Та %1$s + %2$s гэж бичсэн байна. Гэвч Англи хэлэнд үе хэзээ ч /%2$s/ авиагаар төгсдөггүй.</string>
+    <string name="error_dialog_ok_button">За</string>
+
+    <!-- general dialog buttons -->
+    <string name="dialog_cancel_button">Цуцлах</string>
+
+    <!-- ipa sounds -->
+    <string name="p_description">/p/ бол дүүгүй гийгүүлэгч авиа. /p/ нь үгийн эхэнд хийн түрлэгтэй ([pʰ]) байх ч /s/-ын дараа болон үгийн эцэст хийн түрлэггүй байна. /p/-ын өмнөх эгшгийг богино дуудна.</string>
+    <string name="t_description">/t/ бол дүүгүй гийгүүлэгч авиа. /t/ нь үгийн эхэнд хийн түрлэгтэй ([tʰ]) байх ч /s/-ын дараа болон үгийн эцэст хийн түрлэггүй байна. [ɪtə] эсвэл [ɪtʰ] эсвэл [ɪts] гэж гурав дахь жишээг уншихгүй гэдгийг анхаарна уу. Мөн Америкийн Англи хэлэнд ихэнхдээ \"t\" дуудлага өөрчлөгддөг гэдгийг санаарай. /ʔ/ болон /ɾ/-ыг харна уу. /t/-ын өмнөх эгшгийг богино дуудна.</string>
+    <string name="k_description">/k/ бол дүүгүй гийгүүлэгч авиа. /k/ нь үгийн эхэнд хийн түрлэгтэй ([kʰ]) байх ч /s/-ын дараа болон үгийн эцэст хийн түрлэггүй байна. /k/-ын өмнөх эгшгийг богино дуудна.</string>
+    <string name="ch_description"> /ʧ/ бол дүүгүй гийгүүлэгч авиа. Таны хэл шүдний ард, тагнайд хүрнэ. /ʧ/-ын өмнөх эгшгийг богино дуудна.</string>
+    <string name="f_description">/f/ бол дүүгүй гийгүүлэгч авиа. Доод уруулын дотор хэсэг дээд шүдэнд үл ялиг хүрнэ. /f/-ын өмнөх эгшгийг богино дуудна.</string>
+    <string name="th_voiceless_description">/θ/ бол дүүгүй гийгүүлэгч авиа. Хэл дээд шүдний доод хэсэг үл ялиг хүрнэ. /s/ эсвэл /t/ гэж хэлж болохгүй. /θ/-ын өмнөх эгшгийг богино дуудна.</string>
+    <string name="s_description">/s/ бол дүүгүй гийгүүлэгч авиа. Хэлээ шүдний ард тагнайд хүргэнэ. /s/-ын өмнөх эгшгийг богино дуудна.</string>
+    <string name="sh_description">/ʃ/ бол дүүгүй гийгүүлэгч авиа. Таны хэл бага зэрэг дугуйрч /s/ хэлдгээс бага зэрэг хойно тагнайд хүрнэ. /ʃ/-ын өмнөх эгшгийг уртаар дуудна.</string>
+    <string name="b_description">/b/ бол дуутай гийгүүлэгч авиа. Таны уруул, ам /p/ авиаг гаргаж буйтай ижил байна. /b/-ын өмнөх эгшгийг уртаар дуудна.</string>
+    <string name="d_description">/d/ бол дуутай гийгүүлэгч авиа. Таны уруул, ам /t/ авиаг гаргаж буйтай ижил байна. /kɑrdə/ эсвэл /kɑrt/ гэж гурав дахь жишээг уншихгүйг анхаарна уу. /d/-ын өмнөх эгшгийг уртаар дуудна.</string>
+    <string name="g_description">/g/ бол дуутай гийгүүлэгч авиа. Таны уруул, ам /k/ авиаг гаргаж буйтай ижил байна. /pɪgə/ эсвэл /pɪk/ гэж гурав дахь жишээг уншихгүйг анхаарна уу. /g/-ын өмнөх эгшгийг уртаар дуудна.</string>
+    <string name="dzh_description">/ʤ/ бол дуутай гийгүүлэгч авиа. Таны уруул, ам /ʧ/ авиаг гаргаж буйтай ижил байна. /ɛʤə/ гэж гурав дахь жишээг уншихгүйг анхаарна уу. /ʤ/-ын өмнөх эгшгийг уртаар дуудна.</string>
+    <string name="v_description">/v/ бол дуутай гийгүүлэгч авиа. /v/ болон /w/ ялгаатай гэдгийг анхаарна уу. /v/ авианд дээд шүд доод уруулд хүрнэ. /f/-тай адил амны хэв үүснэ. /v/ нь дуутай гэдгээрээ ялгаатай. /v/-ын өмнөх эгшгийг уртаар дуудна.</string>
+    <string name="th_voiced_description">/ð/ бол дуутай гийгүүлэгч авиа. /θ/ авиаг гаргахтай адил байрлалд таны хэл байна. Таны хэл дээд шүдний доор үл ялиг хүрнэ. /ð/-ын өмнөх эгшгийг уртаар дуудна.</string>
+    <string name="z_description">/z/ бол дуутай гийгүүлэгч авиа. /s/ авиаг гаргахтай адил байрлалд таны хэл байна. /z/-ын өмнөх эгшгийг уртаар дуудна.</string>
+    <string name="zh_description">/ʒ/ бол дуутай гийгүүлэгч авиа. /ʃ/ авиаг гаргахтай адил байрлалд таны хэл байна. /ʒ/-ын өмнөх эгшгийг уртаар дуудна.</string>
+    <string name="m_description">/m/ нь хамрын гийгүүлэгч авиа. Таны хэл /b/ авиаг гаргахтай адил байрлалд байна. Гэхдээ /m/-ыг хэлэхэд агаар хамраар гарна. /m/-ын өмнөх эгшгийг уртаар дуудна.</string>
+    <string name="n_description">/n/ нь хамрын гийгүүлэгч авиа. Таны хэл, ам /d/ авиаг гаргахтай адил байна. Гэхдээ /n/-ыг хэлэхэд агаар хамраар гарна. /n/-ын өмнөх эгшгийг уртаар дуудна.</string>
+    <string name="ng_description">/ŋ/ нь хамрын гийгүүлэгч авиа. Таны хэл /g/ авиаг гаргахтай адил байна. Гэхдээ /ŋ/-ыг хэлэхэд агаар хамраар гарна. Дараа нь /g/ авиа гаргаж болохгүй. /ŋ/ авиагаар эхэлсэн үг үг Англи хэлэнд байхгүй. /ŋ/-ын өмнөх эгшгийг уртаар дуудна.</string>
+    <string name="l_description">/l/ бол дуутай гийгүүлэгч авиа. Үгийн эхэнд бол зохих IPA тэмдэглээ нь [l] юм. Гэхдээ үгийн төгсгөлд өөрөөр дуудна. IPA тэмдэглэгээг [ɫ] гэж бичдэг ч бид аппдаа аль алинд нь /l/ тэмдэглэгээг ашиглана (олон ном, толь бичгийн адил). Жишээ 2-ыг /kuəl/ гэж бас бичиж болно.</string>
+    <string name="w_description">/w/ бол дуутай гийгүүлэгч авиа. /v/ болон /w/ ялгаатай гэдгийг анхаарна уу. /w/ авианд уруул жижиг дугуй үүсгэнэ. Шүдэнд хүрэхгүй. Цөөнх америкчууд \"wh\" -ыг /hw/ гэж дууддаг (IPA дээр /ʍ/). Англи хэлэнд /w/ нь үгийн төгсгөлд хэзээ ч байдаггүй.</string>
+    <string name="j_description">/j/ бол дуутай гийгүүлэгч авиа. /i/ авиаг бодвол таны хэл тагнайд бага зэрэг ойрхон байна. \"year\", \"ear\" гэх үгсийн ялгааг анзаарна уу. Англи хэлэнд /j/ нь үгийн төгсгөлд байдаггүй.</string>
+    <string name="h_description">/h/ бол дуугүй гийгүүлэгч авиа. Амны ар хэсэгт биш, хоолойны зөөлөн авиа юм. Англи хэлэнд /h/ авиа нь үгийн төгсгөлд байдаггүй.</string>
+    <string name="r_description">/r/ нь дуутай гийгүүлэгч авиа. IPA-гаар бол /ɹ/ гэж бичигдэнэ. (IPA-гийн /r/ бага зэрэг чичирхийлэлтэй r.) Гэхдээ олонх толь бичиг, номын адил /r/ тэмдгийг энд ашигласан болно. Үеийн болон үгийн төгсгөлийн болон /r/ -д энэхүү апп /ɝ/, /ɚ/ болон /r/ ашигласан ( /ɑr/, /ɛr/, /ɪr/ болон /ɔr/ шиг).</string>
+    <string name="glottal_stop_description">/ʔ/ авиаг төвөнх хамжих гийгүүлэгч гэдэг. Англи хэлний ном, сурах бичигт үүнийг заасан ховор ч гэсэн Англи хэлний дуудлагын чухал хэсэг юм. \"put\" гэдгийн дуудлага болон /ʊ/ авианы жишээний дуудлагын ялгааг анзаарна уу. /ʔ/ авиа нь ихэвчлэн /t/-ыг орлодог. Ялангуяа үгийн төгсгөл болон өгүүлбэрийн дунд.</string>
+    <string name="flap_t_description">/ɾ/ авиаг (/r/ биш) тагнайн t эсвэл түншүүрийн шүргэлт гэж нэрлэдэг. Англи хэлний ном, сурах бичигт үүнийг заасан ховор ч гэсэн Англи хэлний дуудлагын чухал хэсэг юм. /ɾ/ авиа нь ихэвчлэн /t/-ыг орлодог. Ялангуяа өргөлтгүй үед эгшиг хооронд орсон бол. /ɾ/ авиаг /d/ гэж бичиж болох ч тийм зүйтэй биш. Энэ тохиолдолд жишээ нь /\'wɑdɚ/, /\'lɪdəl/ болон /\'θɝdi/ гэж бичнэ.</string>
+
+    <string name="i_description">/i/ авиаг гаргахдаа доод шүдний ард хэлээ өргөнө. Британийн англи хэлний дуудлагад уг авиаг ихэвчлэн /iː/ гэж бичдэг. Хоёр цэг нь уртаар дуудахыг илэрхийлж буй юм. Америкийн англи хэлтэй харьцуулахад урт, богино эгшгийг нарийн ялгадаггүй. Хэрэв дуутай гийгүүлэгч авиан урд эгшиг байвал уртаар дуудна. Хэрэв дуугүй гийгүүлэгч авианы урд байвал богино дуудна.</string>
+    <string name="i_short_description">/ɪ/ нь /i/-аас өөр. Урт, богиноор дуудахдаа ялгаа нь бус харин ам, хэлний байрлалаараа ялгаатай. Ам илүү том ангайх ба /i/-ыг хэлэхээс хэл нь бага зэрэг хол, доор байна.</string>
+    <string name="e_short_description">Олон толь бичиг, номд Британийн англи хэлэнд энэ авиаг /e/ гэж бичдэг. IPA-гаар бол /ɛ/ гэж бичигдэнэ. Ам нь /æ/-ыг хэлэхээс бага зэрэг нээлттэй, хэл нь бага зэрэг урагшаа байна.</string>
+    <string name="ae_description">/ɛ/ шиг уруулаа сунгана. Гэхдээ ам /ɑ/ шиг том ангайна. Хэл тань /ɛ/ авиаг хэлэхээс илүү хойно байрлана.</string>
+    <string name="a_description">Амаа том ангайн, уруулаа сул тавина. Хэл доор, амын арын хэсэгт байна. /ɑ/-ыг Британийн Англи хэлэнд /ɑː/ гэж бас бичдэг. Америкийн Англи хэлэнд заримдаа /ɑ/ нь урт (дуутай гийгүүлэгч авианы өмнө), заримдаа богино (дуугүй гийгүүлэгч авианы өмнө) дуудна. Америкийн Англи хэлэнд /ʌ/-аас тэс өөр сонсогдоно гэдгийг анхаарна уу.</string>
+    <string name="c_backwards_description">IPA-гаар бол /ɔ/-ыг /ɒ/ гэж бичнэ. Гэхдээ ихэнх толь бичгийг даган /ɔ/ гэж тэмдэглэсэн болно. Британи дуудлагын /ɔː/-аас өөр гэдгийг гэхдээ анхаарна уу. Мөн /ɔɪ/ эсвэл /ɔr/-ын ɔ-ээс өөр (Британи Англи хэлэнд /ɔː/ нь /ɔɪ/ эсвэл /ɔr/-ын ɔ-тай адил байдаг). Америкчуудын 40% орчим нь /ɔ/ авиаг дууддаггүй. Тэд /ɑ/ авиаг оронд нь ашигладаг. Өгөгдсөн жишээнүүдийг /ɑt/, /kɑl/ болон /sɑ/ гэж дуудна. \"cot\" болон \"caught\"-ыг мөн (/kɑt/)-тай адил дуудна.</string>
+    <string name="u_short_description">/ʊ/ гэж хэлэхийн тулд уруулаа эрхий хуруугаа хөхөх гэж буй мэт бөөрөнхий болгоно. Заримдаа /ʊ/-ыг /u/ гэж буруу бичдэг. Гэхдээ (сүүлгүй) /ʊ/ гэж бичих нь зөв. /u/ болон /ʊ/ нь тэс өөр эгшиг авиа юм.</string>
+    <string name="u_description">/u/ нь Британийн Англи хэлэнд /iː/, /ɑː/ болон /ɔː/-ын адил /uː/ гэж бичигддэг. Америкийн Англи хэлэнд уртаар дуудахыг тэмдэглэх цэг шаардлагагүй байдаг. Дуутай гийгүүлэгч авиан өмнөх /u/-г уртаар, дуугүй гийгүүлэгч авиан өмнөхийг богиноор дуудна.</string>
+    <string name="v_upsidedown_description">/ʌ/ авиаг гаргахдаа амаа нэг хурууны өргөнтэй нээнэ. Гэхдээ уруул, хэл сул байна. /ɑ/-аас өөр сонсогдоно. Урт, богинын ялгаа биш, ам, хэлний байрлал нь өөр болно. Британийн дуудлагад /ʌ/ гэж тэмдэглэдгээс бага зэрэг өөрөөр дуудна гэдгийг анхаарна уу. Өргөлтгүй үед энэхүү эгшиг авиа байх юм бол /ə/ гэж тэмдэглэнэ.</string>
+    <string name="schwa_description">/ə/ нь Америкийн Англи хэлний хамгийн түгээмэл эгшиг авиа юм. Өргөлтгүй үе, үгнүүдэд ашиглагддаг. Дундын авиа гэж нэрлэдэг. Өргөлттэй үед энэхүү авиа байвал /ʌ/ гэж тэмдэглэнэ.</string>
+    <string name="ei_description">/eɪ/ бол хос эгшиг. /e/ болон /ɪ/ авианы хослол. Зарим Америкийн Англи хэлний толь бичгүүдэд /e/ гэж бичсэн байдаг. (Британийн Англи хэлний /e/-тай андуурч болохгүй, үүнийг /ɛ/ гэж дууддаг). Америкийн Англи хэлний /eɪ/ авиатай үгийг Британийн Англи хэлэнд /ɛɪ/ гэж дууддаг. Гэхдээ одоо ч тэд /eɪ/ гэж бичдэг.</string>
+    <string name="ai_description">/aɪ/ нь хос эгшиг. /a/ болон /ɪ/ авианы хослол. /a/ авианы дуудлага нь /ɑ/-аас арай өөр болохыг анхаарна уу.</string>
+    <string name="au_description">/aʊ/ нь хос эгшиг. /a/ болон /ʊ/ авианы хослол. Амаа эхлээд том ангайн дараа нь жижиг дугуй болж буйг анзаарна уу.</string>
+    <string name="oi_description">/ɔɪ/ нь хос эгшиг. /ɔ/ болон /ɪ/ авианы хослол. /ɔɪ/-гийн \"ɔ\" нь энэ аппын /ɔ/-ээс өөр болно. (Яагаад гэвэл Америкийн Англи хэлний ихэнх үгэнд ашиглагддаг /ɔ/ нь үнэндээ /ɒ/ гэж бичигдэх учиртай). /ɔɪ/ авиаг уруулаараа жижиг, дугуй үүсгэж хэлнэ.</string>
+    <string name="ou_description">/oʊ/ нь хос эгшиг. /o/ болон /ʊ/ авианы хослол. Зарим толь бичигт /o/ гэж бичигдсэн байдаг ч зарим үгийн хувьд хос эгшгийн оронд /o/-г ашиглах нь илүү зүйтэй. Британийн /əʊ/ дуудлагаас бага зэрэг өөр болохыг анзаарна уу.</string>
+    <string name="er_stressed_description">/ɝ/ эгшиг авиаг заримдаа /ər/ эсвэл /əɹ/ гэж бичдэг. Өргөлттэй үе эсвэл нэг үетэй үгэнд ийм авиа байна. /ɝ/ өргөлтгүй бол /ɚ/ гэж бичигдэнэ. Британийн англи хэлэнд /ɝ/-ыг /ɜː/ гэж дуудна.</string>
+    <string name="er_unstressed_description">/ɚ/ авиа нь /ɝ/-тай адил дуудна. /ɚ/-ыг өргөлтгүй үед ашигладаг. Заримдаа /ər/ эсвэл /əɹ/ гэж бичигдэх нь бий. Британийн англи хэлний /ɚ/-г /ə/ дуудна.</string>
+    <string name="ar_description">IPA-гаар бол /ɑr/ авиаг /ɑɹ/ эсвэл /ɑɚ/ гэж бичих нь илүү зүйтэй. Британийн Англи хэлэнд /ɑː/ гэж дуудна.</string>
+    <string name="er_description">IPA-гаар бол /ɛr/ авиаг /ɛɹ/ эсвэл /ɛɚ/ гэж бичих нь илүү зүйтэй. Британийн Англи хэлэнд /eə/ гэж бичиж, дуудна.</string>
+    <string name="ir_description">IPA-гаар бол /ɪr/ авиаг /ɪɹ/ эсвэл /ɪɚ/ гэж бичих нь илүү зүйтэй. Британийн Англи хэлэнд /ɪə/ гэж дуудна.</string>
+    <string name="or_description">/ɔr/-ын \"ɔ\" нь энэхүү аппын /ɔ/-ээс өөр. (Яагаад гэвэл Америкийн Англи хэлний олон үгэнд ашиглагддаг /ɔ/-ыг /ɒ/ гэж бичих учиртай). /ɔr/ авиаг хэлэхдээ уруулаараа жижиг дугуй үүсгэнэ. IPA-гаар бол /ɔɹ/ эсвэл /ɔɚ/ гэж бичигдэх нь илүү зөв. Британийн Англи хэлэнд /ɔː/ гэж дууддаг.</string>
+
+</resources>

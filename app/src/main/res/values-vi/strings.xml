@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Phát âm tiếng Anh Mỹ</string>
+    <string name="locale">vi</string>
+
+    <!-- Main menu -->
+    <string name="main_menu_keyboard">Bàn phím</string>
+    <string name="main_menu_history">Lịch sử</string>
+    <string name="main_menu_about">Về</string>
+
+    <!-- Tabs -->
+    <string name="main_tab_learn">Học</string>
+    <string name="main_tab_practice">Thực hành</string>
+    <string name="main_tab_test">Kiểm tra</string>
+
+    <!-- Learn Single fragment -->
+    <string name="learn_single_show_doubles">Âm đôi</string>
+
+    <!-- Learn Double sounds dialog-->
+    <string name="title_activity_learn_double">Âm đôi với /%1$s/</string>
+
+    <!-- Practice Tab -->
+    <string name="practice_mode_single">Đơn</string>
+    <string name="practice_mode_double">Đôi</string>
+
+    <!-- Select Sounds dialog -->
+    <string name="select_sounds_title">Chọn âm để thực hành</string>
+    <string name="select_sounds_radio_single">Đơn</string>
+    <string name="select_sounds_radio_double">Đôi</string>
+    <string name="select_sounds_cb_vowels">Nguyên âm</string>
+    <string name="select_sounds_cb_consonants">Phụ âm</string>
+    <string name="select_sounds_positive_button">OK</string>
+
+    <!-- Test setup tab -->
+    <string name="test_setup_name">Tên</string>
+    <string name="test_default_name">Tôi</string>
+    <string name="test_setup_number_of_questions">Câu hỏi:</string>
+    <string name="test_setup_type">Loại:</string>
+    <string name="test_setup_single">Đơn</string>
+    <string name="test_setup_double">Đôi</string>
+    <string name="test_setup_begin_button">Bắt đầu</string>
+
+    <!-- Test Activity -->
+    <string name="title_activity_test">Kiểm tra</string>
+
+    <!-- Test results activity -->
+    <string name="title_activity_test_results">Kết quả kiểm tra</string>
+    <string name="test_results_right">Đúng: %1$d</string>
+    <string name="test_results_wrong">Sai: %1$d</string>
+    <string name="test_results_time">Tổng thời gian: %1$s</string>
+    <string name="test_results_practice_difficult_button">Luyện tập những âm khó</string>
+
+    <!-- History Activity -->
+    <string name="title_activity_history">Lịch sử</string>
+    <string name="history_time_title">Tổng thời gian:</string>
+    <string name="history_test_title">Kiểm tra:</string>
+    <string name="history_details">Chi tiết</string>
+
+    <!-- History Time Details Activity -->
+    <string name="title_activity_history_time">Tổng thời gian đã dùng</string>
+    <string name="history_time_details_learning">Thời gian học</string>
+    <string name="history_time_details_practicing">Thời gian thực hành</string>
+    <string name="history_time_details_testing">Thời gian kiểm tra</string>
+    <string name="history_time_details_total">Tổng thời gian</string>
+    <string name="history_time_details_type_single">Đơn</string>
+    <string name="history_time_details_type_double">Đôi</string>
+
+    <!-- History Test Details Activity -->
+    <string name="title_activity_history_tests">Kiểm tra đã làm</string>
+    <string name="history_test_details_type_single">Đơn (%1$d)</string>
+    <string name="history_test_details_type_double">Đôi (%1$d)</string>
+    <string name="history_test_details_specific_test_number_of_questions">Câu hỏi: %1$d</string>
+
+    <!-- History Tests Activity-->
+    <string name="title_activity_history_test_details">Chi tiết bài kiếm tra</string>
+    <string name="history_tests_type_single">Đơn: %1$d%%</string>
+    <string name="history_tests_type_double">Đôi: %1$d%%</string>
+
+    <!-- About Activity -->
+    <string name="title_activity_about">Về</string>
+    <string name="about_app_name">Phát âm tiếng Anh Mỹ</string>
+    <string name="about_app_version">Phiên bản %1$s</string>
+    <string name="about_content">Nếu bạn có bất kỳ câu hỏi, ý kiến, hoặc đề xuất, xin vui lòng để lại tin nhắn.</string>
+    <string name="about_contact">Liên hệ</string>
+
+    <!-- Keyboard Input Activity -->
+    <string name="title_activity_keyboard_input">Viết IPA</string>
+    <string name="keyboard_input_toast_text_copied">Sao chép văn bản IPA</string>
+    <string name="keyboard_menu_copy">Sao chép</string>
+    <string name="keyboard_menu_clear">Xóa</string>
+    <string name="keyboard_menu_share">Chia sẻ</string>
+    <string name="keyboard_menu_share_chooser_title">Chia sẻ văn bản cho…</string>
+    <string name="keyboard_menu_alert_message">Bạn có chắc chắn muốn xóa tất cả các văn bản?</string>
+    <string name="keyboard_menu_alert_clear_all_button">Xóa</string>
+
+    <!-- Error dialog -->
+    <string name="error_two_consonants">Bạn đã viết [%1$s] + [%2$s] (hai phụ âm). Bạn nên chọn một phụ âm và một nguyên âm.</string>
+    <string name="error_two_vowels">Bạn đã viết [%1$s] + [%2$s] (hai nguyên âm). Bạn nên chọn một phụ âm và một nguyên âm.</string>
+    <string name="error_initial_ng">Bạn đã viết %1$s + %2$s, nhưng /ŋ/ không bao giờ bắt đầu một âm tiết trong tiếng Anh.</string>
+    <string name="error_final_r">Bạn nên sử dụng các phím cho một trong các nguyên âm R (ɝ, ɑr, ɛr, ɪr, ɔr) nếu bạn muốn kết thúc âm với /r/. Cũng cần có một phụ âm khác.</string>
+    <string name="error_final_wjh">Bạn đã viết %1$s + %2$s, nhưng một âm tiết không bao giờ kết thúc bằng âm /%2$s/ trong tiếng Anh.</string>
+    <string name="error_dialog_ok_button">OK</string>
+
+    <!-- general dialog buttons -->
+    <string name="dialog_cancel_button">Hủy</string>
+
+    <!-- ipa sounds -->
+    <string name="p_description">/p/ là một phụ âm vô thanh. /p/ được bật hơi ([pʰ]) ở đầu từ nhưng nó không được bật hơi ([p]) sau /s/ và ở cuối từ. Nguyên âm có âm ngắn hơn khi chúng đứng trước /p/.</string>
+    <string name="t_description">/t/ là một phụ âm vô thanh. /t/ là âm bật hơi ([tʰ]) ở đầu từ nhưng nó không được bật hơi ([t]) sau /s/ và ở cuối từ. Hãy cẩn thận, không đọc ví dụ thứ ba là [ɪtə] hoặc [tʰ] hoặc [ɪts]. Cũng lưu ý rằng chữ \"t\" thường thay đổi cách phát âm trong tiếng Anh Mỹ. Xem /ʔ/ và /ɾ/. Nguyên âm có âm ngắn hơn khi chúng đứng trước /t/.</string>
+    <string name="k_description">/k/ là một phụ âm vô thanh. /k/ được bật âm ([kʰ]) ở đầu từ nhưng nó không được bật âm ([k]) sau /s/ và ở cuối từ. Nguyên âm có âm ngắn hơn khi chúng đứng trước /k/.</string>
+    <string name="ch_description">/ʧ/ là một phụ âm vô thanh. Lưỡi của bạn bắt đầu từ đỉnh miệng phía sau răng của bạn. Nguyên âm có âm ngắn hơn khi chúng đứng trước /ʧ/.</string>
+    <string name="f_description">/f/ là một phụ âm vô thanh. Chạm nhẹ vào răng trên của bạn vào bên trong môi dưới của bạn. Nguyên âm có âm ngắn hơn khi chúng đứng trước /f/.</string>
+    <string name="th_voiceless_description">/θ/ là một phụ âm vô thanh. Trong âm thanh này, lưỡi chạm nhẹ vào đáy của răng trên cùng. Đừng nói /s/ hoặc /t/. Nguyên âm có âm ngắn hơn khi chúng đứng trước /θ/.</string>
+    <string name="s_description">/s/ là một phụ âm vô thanh. Đặt lưỡi của bạn ở phía trên của miệng của bạn ngay phía sau răng của bạn. Nguyên âm có âm ngắn hơn khi chúng đứng trước /s/.</string>
+    <string name="sh_description">/ʃ/ là một phụ âm vô thanh. Lưỡi của bạn hơi cong lên đến đỉnh miệng trở lại từ nơi bắt đầu /s/. Nguyên âm có âm ngắn hơn khi chúng đứng trước /ʃ/.</string>
+    <string name="b_description">/b/ là một phụ âm hữu thanh. Môi và miệng của bạn ở cùng vị trí với âm /p/. Nguyên âm có âm dài hơn khi chúng đứng trước /b/.</string>
+    <string name="d_description">/d/ là một phụ âm hữu thanh. Môi và miệng của bạn ở cùng vị trí với âm /t/. Hãy cẩn thận, không đọc ví dụ thứ ba là /kɑrdə/ hoặc /kɑrt/. Nguyên âm có âm dài hơn khi chúng đứng trước /d/.</string>
+    <string name="g_description">/g/ là một phụ âm hữu thanh. Môi và miệng của bạn ở cùng vị trí với âm /k/. Hãy cẩn thận, không đọc ví dụ thứ ba là /pɪgə/ hoặc /pɪk/. Nguyên âm có âm dài hơn khi chúng đứng trước /g/.</string>
+    <string name="dzh_description">/ʤ/ là một phụ âm hữu thanh. Môi và miệng của bạn ở cùng vị trí với âm /ʧ/. Hãy cẩn thận, không đọc ví dụ thứ ba là /ɛʤə/. Nguyên âm có âm dài hơn khi chúng đứng trước /ʤ/.</string>
+    <string name="v_description">/v/ là một phụ âm hữu thanh. Lưu ý sự khác biệt giữa /v/ và /w/. Trong âm /v/, răng trên chạm vào môi dưới. Đây là vị trí miệng giống như /f/. Sự khác biệt duy nhất là /v/ là âm hữu thanh. Nguyên âm có âm dài hơn khi chúng đứng trước /v/.</string>
+    <string name="th_voiced_description">/ð/ là một phụ âm hữu thanh. Lưỡi của bạn ở cùng vị trí với âm /θ/. Lưỡi chạm nhẹ vào đáy răng. Nguyên âm có âm dài hơn khi chúng đứng trước /ð/.</string>
+    <string name="z_description">/z/ là một phụ âm hữu thanh. Lưỡi của bạn ở cùng vị trí với âm /s/. Nguyên âm có âm dài hơn khi chúng đứng trước /z/.</string>
+    <string name="zh_description">/ʒ/ là một phụ âm hữu thanh. Nó sử dụng cùng một vị trí miệng như /ʃ/. Nguyên âm có âm dài hơn khi chúng đứng trước /ʒ/.</string>
+    <string name="m_description">/m/ là một phụ âm giọng mũi. Môi của bạn ở cùng vị trí với /b/, nhưng /m/ cho không khí đi qua mũi của bạn. Nguyên âm có âm dài hơn khi chúng đứng trước /m/.</string>
+    <string name="n_description">/n/ là một phụ âm giọng mũi. Lưỡi và miệng của bạn ở cùng vị trí với /d/, nhưng /n/ cho không khí đi qua mũi của bạn. Nguyên âm có âm dài hơn khi chúng đứng trước /n/.</string>
+    <string name="ng_description">/ŋ/ là một phụ âm giọng mũi. Lưỡi của bạn ở cùng vị trí với /g/, nhưng /ŋ/ cho không khí đi qua mũi của bạn. Đừng tạo ra âm /g/ sau nó. /ŋ/ không bắt đầu bất kỳ từ nào trong tiếng Anh. Nguyên âm có âm dài hơn khi chúng đứng trước /ŋ/.</string>
+    <string name="l_description">/l/ là một phụ âm hữu thanh. Ở đầu của từ, [l] là ký hiệu IPA thích hợp. Tuy nhiên, ở cuối từ, nó được phát âm khác nhau. IPA cho âm thanh này được viết là [ɫ] nhưng chúng tôi sử dụng ký hiệu /l/ cho cả [l] và [ɫ] trong ứng dụng này (cũng như nhiều sách giáo khoa và từ điển khác). Ví dụ 2 cũng có thể được viết là /kuəl/.</string>
+    <string name="w_description">/w/ là một phụ âm hữu thanh. Lưu ý sự khác biệt giữa /w/ và /v/. Trong âm /w/, môi tạo thành một vòng tròn nhỏ và không chạm vào răng. Một số ít người Mỹ phát âm \"wh\" là /hw/ (trong IPA, đây là /ʍ/). /w/ không bao giờ đứng cuối từ trong tiếng Anh.</string>
+    <string name="j_description">/j/ là một phụ âm hữu thanh. Lưỡi của bạn bắt đầu gần đầu miệng hơn một chút so với âm /i/. Lưu ý sự khác biệt giữa \"year\" và \"ear\". /j/ không xuất hiện ở cuối bất kỳ từ nào trong tiếng Anh.</string>
+    <string name="h_description">/h/ là một phụ âm vô thanh. Đó là một âm rất nhẹ mà bạn tạo ra trong cổ họng, không phải ở phía sau miệng. /h/ không xuất hiện ở cuối bất kỳ từ nào trong tiếng Anh.</string>
+    <string name="r_description">/r/ là một phụ âm hữu thanh. Âm tnày nên được viết là /ɹ/ theo IPA. (IPA /r/ thực sự là một phụ âm rung r.) Tuy nhiên, để duy trì tính nhất quán với nhiều từ điển và sách giáo khoa, ký hiệu /r/ được sử dụng ở đây. Đối với \"r\" ở cuối âm tiết và từ, ứng dụng này sử dụng /ɝ/, /ɚ/, và /r/ (như trong /ɑr/, /ɛr/, /ɪr/, và /ɔr/).</string>
+    <string name="glottal_stop_description">Âm /ʔ/ được gọi là âm tắc thanh hầu. Nó không phải luôn luôn được dạy trong sách giáo khoa tiếng Anh, nhưng nó là một phần quan trọng của phát âm tiếng Anh Mỹ. Lưu ý sự khác biệt trong cách phát âm của \"put\" ở đây và trong ví dụ cho âm /ʊ/. Âm /ʔ/ thường thay thế cho /t/, đặc biệt là ở cuối từ và ở giữa câu.</string>
+    <string name="flap_t_description">Âm /ɾ/ (không phải /r/) được gọi là âm vỗ t hoặc âm lợi. Nó thường không được dạy trong sách giáo khoa tiếng Anh, nhưng nó là một phần quan trọng của phát âm tiếng Anh Mỹ. Âm /ɾ/ thường thay thế /t/, đặc biệt là khi /t/ xuất hiện giữa các nguyên âm trong một âm tiết không phải là trọng âm. Âm /ɾ/ cũng có thể được viết /d/, mặc dù điều này không chính xác. Trong trường hợp đó, các ví dụ sẽ được viết là /\'wɑdɚ/, /\'lɪdəl/, ɑnd /\'θɝdi/.</string>
+
+    <string name="i_description">Tạo âm /i/ với lưỡi cao trong vòm miệng và ngay sau răng cửa. Trong phát âm tiếng Anh của người Anh, âm này thường được viết là /iː/, trong đó hai dấu chấm đại diện cho một nguyên âm dài. Nguyên âm dài và ngắn không được phân biệt nhiều bằng tiếng Anh Mỹ và do đó hai dấu chấm không được viết. Nếu một nguyên âm đứng trước một phụ âm hữu thanh thì nó dài. Nếu nó là trước một phụ âm vô thanh thì nó ngắn.</string>
+    <string name="i_short_description">/ɪ/ là một âm thanh khác với /i/. Sự khác biệt không phải là dài hay ngắn, mà là ở một vị trí khác nhau của miệng và lưỡi. Miệng mở rộng hơn một chút và lưỡi chỉ lùi lại một chút và thấp hơn /i/.</string>
+    <string name="e_short_description">Nhiều từ điển và sách giáo khoa mô tả tiếng Anh Anh sử dụng ký hiệu /e/ cho âm này. Theo IPA, mặc dù vậy, nó nên được viết là /ɛ/. Miệng mở ít hơn với /æ/ và lưỡi hơi hướng về phía trước một chút.</string>
+    <string name="ae_description">Kéo dài môi của bạn như /ɛ/ nhưng mở to miệng như /ɑ/. Lưỡi của bạn nên lùi xa hơn so với /ɛ/.</string>
+    <string name="a_description">Mở rộng miệng và thư giãn đôi môi của bạn. Đặt lưỡi của bạn thấp và lùi xa trở lại trong miệng của bạn. /ɑ/ cũng được viết là /ɑː/ trong tiếng Anh Anh. Tuy nhiên, trong tiếng Anh Mỹ, đôi khi /ɑ/ là dài (trước phụ âm hữu thanh) và đôi khi nó ngắn (trước phụ âm không vô thanh). Lưu ý rằng đây là một âm rất khác so với /ʌ/ trong tiếng Anh Mỹ.</string>
+    <string name="c_backwards_description">/ɔ/ nên được viết là /ɒ/ theo IPA. Tuy nhiên, để phù hợp với hầu hết các từ điển, /ɔ/ ​​được sử dụng ở đây. Tuy nhiên, lưu ý rằng đó không phải là âm giống như khi /ɔː/ được sử dụng để mô tả phát âm tiếng Anh. Nó cũng không giống với âm ɔ trong /ɔɪ/ hoặc /ɔr/ (Trong Tiếng Anh Anh /ɔː/ giống với âm ɔ trong /ɔɪ/ hoặc /ɔr/). Khoảng 40% người Mỹ không phát âm âm /ɔ/. Họ thay thế nó bằng âm /ɑ/. Các ví dụ đã cho sẽ được phát âm là /ɑt/, /kɑl/, ɑnd /sɑ/. Các từ \"cot\" và \"caught\" cũng sẽ được phát âm giống nhau (/kɑt/).</string>
+    <string name="u_short_description">Để nói /ʊ/, hãy làm cho đôi môi của bạn tròn, to xung quanh như thể bạn đang mút ngón tay cái của bạn. Đôi khi /ʊ/ được viết không chính xác là /u/, nhưng nó nên được viết là /ʊ/ (không có \"đuôi\"). /u/ và /ʊ/ là hai nguyên âm khác nhau.</string>
+    <string name="u_description">/u/ cũng được viết là /uː/ trong tiếng Anh Anh, nhưng giống như /iː/, /ɑː/, và /ɔː/, các dấu nguyên âm dài không cần thiết trong tiếng Anh Mỹ. /u/ là dài trước phụ âm hữu thanh và ngắn trước phụ âm vô thanh.</string>
+    <string name="v_upsidedown_description">Tạo âm /ʌ/ với miệng mở rộng khoảng một ngón tay. Tuy nhiên, môi và lưỡi của bạn nên được thư giãn. Đây là một âm thanh khác với /ɑ/. Sự khác biệt không phải là dài và ngắn, mà là ở một vị trí khác nhau của miệng và lưỡi. Lưu ý rằng nó cũng được phát âm hơi khác so với âm Anh thường được viết là /ʌ/. Khi âm này nằm trong một âm tiết không là trọng âm, nó được viết là /ə/.</string>
+    <string name="schwa_description">Nguyên âm /ə/ là âm phổ biến nhất trong tiếng Anh Mỹ vì được sử dụng trong các âm tiết và từ không nhấn trọng âm. Nó được gọi là schwa. Khi âm này nằm trong một âm tiết là trọng âm, nó được viết là /ʌ/.</string>
+    <string name="ei_description">/eɪ/ là một nguyên âm đôi, là sự kết hợp của âm /e/ và /ɪ/. Nó đôi khi cũng được viết là /e/ trong một số từ điển tiếng Anh Mỹ. (Đừng nhầm lẫn điều này với ký hiệu tiếng Anh Anh /e/, nó thực ra được phát âm là /ɛ/.) Các từ có tiếng Anh Mỹ /eɪ/ được phát âm là /ɛɪ/ trong tiếng Anh Anh. Tuy nhiên, họ vẫn viết nó là /eɪ/.</string>
+    <string name="ai_description">/aɪ/ là một nguyên âm đôi, sự kết hợp của âm /a/ và /ɪ/. Lưu ý rằng /a/ không hoàn toàn giống với âm /ɑ/.</string>
+    <string name="au_description">/aʊ/ là một nguyên âm đôi, là sự kết hợp của âm /a/ và /ʊ/. Lưu ý cách miệng bắt đầu to và rộng vàn dần nhỏ và tròn.</string>
+    <string name="oi_description">/ɔɪ/ là một nguyên âm đôi, sự kết hợp của các âm /ɔ/ và /ɪ/. \"ɔ\" được sử dụng trong /ɔɪ/ không giống với âm /ɔ/ trong ứng dụng này. (Điều này là do âm /ɔ/ được sử dụng để mô tả nhiều từ tiếng Anh Mỹ nên thực ra được viết là /ɒ/.) Âm /ɔɪ/ bắt đầu bằng cách đưa môi tròn nhỏ.</string>
+    <string name="ou_description">/oʊ/ là một nguyên âm đôi, là sự kết hợp của các âm /o/ và /ʊ/. Một số từ điển chỉ viết nó là /o/, và trên thực tế, nó sẽ chính xác hơn khi sử dụng /o/ chứ không phải là nguyên âm đôi cho một số từ. Lưu ý rằng có một chút khác biệt so với cách phát âm tiếng Anh Anh của /əʊ/.</string>
+    <string name="er_stressed_description">Âm /ɝ/ đôi khi được viết là /r/ hoặc /əɹ/. Đây là âm trong một âm tiết được nhấn trọng âm hoặc một từ một âm tiết. Khi /ɝ/ không được nhấn trọng âm, nó được viết là /ɚ/. Trong tiếng Anh Anh /ɝ/ được phát âm là  /ɜː/.</string>
+    <string name="er_unstressed_description">Âm /ɚ/ giống như /ɝ/ ngoại trừ âm /ɚ/ được sử dụng cho các âm tiết không nhấn trọng âm. Đôi khi nó cũng được viết là /ər/ hoặc /əɹ/. Trong tiếng Anh Anh /ɚ/ được phát âm là /ə/.</string>
+    <string name="ar_description">Âm /ɑr/ được viết chính xác hơn là /ɑɹ/ hoặc /ɑɚ/ theo IPA. Nó được phát âm là /ɑː/ trong tiếng Anh Anh.</string>
+    <string name="er_description">Âm /ɛr/ được viết chính xác hơn là /ɛɹ/ hoặc /ɛɚ/ theo IPA. Nó được phát âm và viết là /eə/ trong tiếng Anh Anh.</string>
+    <string name="ir_description">Âm /ɪr/ được viết chính xác hơn là /ɪɹ/ hoặc /ɪɚ/ theo IPA. Nó được phát âm là /ɪə/ trong tiếng Anh Anh.</string>
+    <string name="or_description">\"ɔ\" được sử dụng trong /ɔr/ không giống với âm /ɔ/ trong ứng dụng này. (Điều này là do âm /ɔ/ được sử dụng để mô tả nhiều từ tiếng Anh Mỹ nên được viết là /ɒ/.) Âm /ɔr/ phát âm bắt đầu bằng đôi môi tròn nhỏ. Nó được viết chính xác hơn là /ɔɹ/ hoặc /ɔɚ/ theo IPA. Nó được phát âm là /ɔː/ trong tiếng Anh Anh.</string>
+
+</resources>

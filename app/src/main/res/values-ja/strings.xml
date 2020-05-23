@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">アメリカ英語の発音</string>
+    <string name="locale">ja</string>
+
+    <!-- Main menu -->
+    <string name="main_menu_keyboard">キーボード</string>
+    <string name="main_menu_history">履歴</string>
+    <string name="main_menu_about">について</string>
+
+    <!-- Tabs -->
+    <string name="main_tab_learn">学ぶ</string>
+    <string name="main_tab_practice">練習</string>
+    <string name="main_tab_test">テスト</string>
+
+    <!-- Learn Single fragment -->
+    <string name="learn_single_show_doubles">二重音</string>
+
+    <!-- Learn Double sounds dialog-->
+    <string name="title_activity_learn_double">/%1$s/で二重の音</string>
+
+    <!-- Practice Tab -->
+    <string name="practice_mode_single">一重音</string>
+    <string name="practice_mode_double">二重音</string>
+
+    <!-- Select Sounds dialog -->
+    <string name="select_sounds_title">練習する音を選択してください</string>
+    <string name="select_sounds_radio_single">一重音</string>
+    <string name="select_sounds_radio_double">二重音</string>
+    <string name="select_sounds_cb_vowels">母音</string>
+    <string name="select_sounds_cb_consonants">子音</string>
+    <string name="select_sounds_positive_button">OK</string>
+
+    <!-- Test setup tab -->
+    <string name="test_setup_name">名前</string>
+    <string name="test_default_name">私</string>
+    <string name="test_setup_number_of_questions">問題：</string>
+    <string name="test_setup_type">タイプ：</string>
+    <string name="test_setup_single">一重音</string>
+    <string name="test_setup_double">二重音</string>
+    <string name="test_setup_begin_button">始める</string>
+
+    <!-- Test Activity -->
+    <string name="title_activity_test">テスト</string>
+
+    <!-- Test results activity -->
+    <string name="title_activity_test_results">テスト結果</string>
+    <string name="test_results_right">正解：%1$d</string>
+    <string name="test_results_wrong">誤り：%1$d</string>
+    <string name="test_results_time">時間の長さ：%1$s</string>
+    <string name="test_results_practice_difficult_button">難しい音を練習する</string>
+
+    <!-- History Activity -->
+    <string name="title_activity_history">履歴</string>
+    <string name="history_time_title">費やした合計時間：</string>
+    <string name="history_test_title">テスト</string>
+    <string name="history_details">詳細</string>
+
+    <!-- History Time Details Activity -->
+    <string name="title_activity_history_time">費やした合計時間</string>
+    <string name="history_time_details_learning">時間制限学習</string>
+    <string name="history_time_details_practicing">時間制限練習</string>
+    <string name="history_time_details_testing">時間制限テスト</string>
+    <string name="history_time_details_total">合計時間</string>
+    <string name="history_time_details_type_single">一重音</string>
+    <string name="history_time_details_type_double">二重音</string>
+
+    <!-- History Test Details Activity -->
+    <string name="title_activity_history_tests">過去のテスト</string>
+    <string name="history_test_details_type_single">一重音（%1$d）</string>
+    <string name="history_test_details_type_double">二重音（%1$d）</string>
+    <string name="history_test_details_specific_test_number_of_questions">質問：%1$d</string>
+
+    <!-- History Tests Activity-->
+    <string name="title_activity_history_test_details">テストの詳細</string>
+    <string name="history_tests_type_single">一重音：%1$d%%</string>
+    <string name="history_tests_type_double">二重音：%1$d%%</string>
+
+    <!-- About Activity -->
+    <string name="title_activity_about">について</string>
+    <string name="about_app_name">アメリカ英語の発音</string>
+    <string name="about_app_version">バージョン%1$s</string>
+    <string name="about_content">質問、コメント、提案がある場合は、メッセージを残してください。</string>
+    <string name="about_contact">お問い合わせ</string>
+
+    <!-- Keyboard Input Activity -->
+    <string name="title_activity_keyboard_input">IPAを入力</string>
+    <string name="keyboard_input_toast_text_copied">IPAテキストがコピーされました</string>
+    <string name="keyboard_menu_copy">コピー</string>
+    <string name="keyboard_menu_clear">クリア</string>
+    <string name="keyboard_menu_share">共有</string>
+    <string name="keyboard_menu_share_chooser_title">テキストを共有…</string>
+    <string name="keyboard_menu_alert_message">すべてのテキストを削除してもよろしいですか？</string>
+    <string name="keyboard_menu_alert_clear_all_button">削除する</string>
+
+    <!-- Error dialog -->
+    <string name="error_two_consonants">あなたは %1$s + %2$s（2つの子音）を書きました。 子音と母音を1つずつ選択する必要があります。</string>
+    <string name="error_two_vowels">あなたは %1$s + %2$s（2つの母音）を書きました。 子音と母音を1つずつ選択する必要があります。</string>
+    <string name="error_initial_ng">あなたは %1$s + %2$s を書きましたが、/ŋ/が英語の音節を始めることありません。</string>
+    <string name="error_final_r">/r/で音を終了する場合は、R母音の1つ（ɝ, ɑr, ɛr, ɪr, ɔr）のキーを使用する必要があります。 別の子音もあるはずです。</string>
+    <string name="error_final_wjh">あなたは %1$s + %2$s と書きましたが、音節は英語の/%2$s/音で終わることはありません。</string>
+    <string name="error_dialog_ok_button">OK</string>
+
+    <!-- general dialog buttons -->
+    <string name="dialog_cancel_button">キャンセル</string>
+
+    <!-- ipa sounds -->
+    <string name="p_description">/p/は無声子音です。/p/は、単語の先頭で吸引（[pʰ]）されますが、/s/の後および単語の末尾では吸引されません（[p]）。/p/の前に来ると、母音の音は短くなります。</string>
+    <string name="t_description">/t/は無声子音です。/t/は、単語の先頭で吸引（[tʰ]）されますが、/s/の後および単語の末尾では吸引されません（[t]）。 3番目の例[ɪtə]や[ɪtʰ]または[ɪts]を読まないように注意してください。 また、 tの文字はアメリカ英語の発音をしばしば変えることに注意してください。/ʔ/および/ɾ/を参照してください。/t/の前に来ると、母音の音は短くなります。</string>
+    <string name="k_description">/k/は無声子音です。/k/は、単語の先頭で吸引（[kʰ]）されますが、/s/の後および単語の末尾では吸引されません（[k]）。/k/の前に来ると、母音の音は短くなります。</string>
+    <string name="ch_description">/ʧ/は無声子音です。 舌は口の上と歯の後ろから始まります。/ʧ/の前に来ると、母音の音が短くなります。</string>
+    <string name="f_description">/f/は無声子音です。 上唇の歯を下唇の内側に軽く当てます。/f/の前に来ると、母音の音は短くなります。</string>
+    <string name="th_voiceless_description">/θ/は無声子音です。 この音では、舌が上歯の底に軽く触れます。/s/や/t/は言わないでください。/θ/の前に来ると、母音の音は短くなります。</string>
+    <string name="s_description">/s/は無声子音です。 歯のすぐ後ろで口の上部に舌を置きます。/s/の前に来ると、母音の音は短くなります。</string>
+    <string name="sh_description">/ʃ/は無声子音です。 舌は、/s/がある場所からさらに奥の口の上部までわずかに丸まっています。/ʃ/の前に来ると、母音の音が短くなります。</string>
+    <string name="b_description">/b/は有声子音です。 唇と口が/p/の音と同じ位置にあります。/b/の前に来ると、母音の音が長くなります。</string>
+    <string name="d_description">/d/は有声子音です。 唇と口が/t/の音と同じ位置にあります。 3番目の例/kɑrdə/または/kɑrt/を読まないように注意してください。/d/の前に来ると、母音の音が長くなります。</string>
+    <string name="g_description">/g/は有声子音です。 唇と口は/k/の音と同じ位置にあります。 3番目の例/pɪgə/または/pɪk/を読まないように注意してください。/g/の前に来ると、母音の音が長くなります。</string>
+    <string name="dzh_description">/ʤ/は有声子音です。 唇と口が/ʧ/の音と同じ位置にあります。 3番目の例/ɛʤə/を読まないように注意してください。/ʤ/の前に来ると、母音の音が長くなります。</string>
+    <string name="v_description">/v/は有声子音です。/v/と/w/の違いに注意してください。/v/の音では、上の歯が下の唇に触れます。 これは/f/と同じ口の位置です。 唯一の違いは、/v/が発声されることです。/v/の前に来ると、母音の音が長くなります。</string>
+    <string name="th_voiced_description">/ð/は有声子音です。 舌は/θ/音と同じ位置にあります。 舌は上歯の底に軽く触れます。/ð/の前に来ると、母音の音が長くなります。</string>
+    <string name="z_description">/z/は有声子音です。 舌は/s/音と同じ位置にあります。/z/の前に来ると、母音の音が長くなります。</string>
+    <string name="zh_description">/ʒ/は有声子音です。/ʃ/と同じ口の位置を使用します。/ʒ/の前に来ると、母音の音が長くなります。</string>
+    <string name="m_description">/m/は、鼻声の子音です。 唇は/b/と同じ位置にありますが、/m/の場合、空気は鼻を通過します。/m/の前に来ると、母音の音が長くなります。</string>
+    <string name="n_description">/n/は、鼻声の子音です。 舌と口は/d/と同じ位置にありますが、/n/の場合、空気は鼻を通過します。/n/の前に来ると、母音の音が長くなります。</string>
+    <string name="ng_description">/ŋ/は、鼻声の子音です。 舌は/g/と同じ位置にありますが、/ŋ/の場合、空気は鼻を通過します。 その後に/g/の音を発音しないでください。/ŋ/は英語で単語を開始しません。/ŋ/の前に来ると、母音の音が長くなります。</string>
+    <string name="l_description">/l/は有声子音です。 単語の最初の[l]は適切なIPA記号です。 ただし、単語の最後では、発音が異なります。 この音のIPAは[ɫ]と書かれていますが、このアプリでは[l]と[ɫ]の両方に/l/記号を使用しています（多くの教科書や辞書と同様）。 例2は/kuəl/と書くこともできます。</string>
+    <string name="w_description">/w/は有声子音です。/w/と/v/の違いに注意してください。/w/の音では、唇は小さな円を作り、歯には触れません。 少数のアメリカ人はwhを/hw/と発音します（IPAではこれは/ʍ/です）。/w/は英語の単語の最後に来ることはありません。</string>
+    <string name="j_description">/j/は有声子音です。 舌は/i/の音より少し口の上部に近いところから始まります。 yearとearの違いに注意してください。/j/は、英語の単語の最後来ることはありません。</string>
+    <string name="h_description">/h/は無声子音です。 口の奥ではなく喉の中で鳴る非常に軽い音です。/h/は、英語の単語の最後に来ることはありません。</string>
+    <string name="r_description">/r/は有声子音です。 この音はIPAに従って/ɹ/と書く必要があります。 （IPA/r/は実際にはトリル付きのrです。）ただし、多くの辞書や教科書との一貫性を保つために、ここでは記号/r/を使用しています。 音節と単語の最後の「r」には、このアプリは/ɝ/,/ɚ/, と/r/（/ɑr/,/ɛr/,/ɪr/, を/ɔr/）使用しています。</string>
+    <string name="glottal_stop_description">/ʔ/音は声門停止と呼ばれます。 常に、英語の教科書では教えられていませんが、アメリカ英語の発音の重要な部分です。 ここでのputの発音と/ʊ/の音の例の違いに注意してください。/ʔ/の音は、特に単語の終わりや文の途中で/t/を置き換えることがよくあります。</string>
+    <string name="flap_t_description">/ɾ/の音は（/r/ではない）、フラップtまたは歯槽タップと呼ばれます。 通常、英語の教科書では教えられていませんが、アメリカ英語の発音の重要な部分です。 特に/t/が強調されていない音節の母音の間にある場合、/ɾ/の音は、しばしば/t/を置き換えます。/ɾ/の音は/d/と書くこともできますが、これは正確ではありません。 その場合、例は/\'wɑdɚ/,/\'lɪdəl/, と/\'θɝdi/.のように書かれます。</string>
+
+    <string name="i_description">舌を口に入れ、下の歯のすぐ後ろで/i/の音を出します。 イギリス英語の発音では、この音は通常/iː/と表記され、2つの点は長い母音を表します。 長い母音と短い母音はアメリカ英語ではそれほど区別されないため、2つの点は書かれていません。 母音が有声子音の前にある場合、それは長くなります。 それが無声子音の前にある場合、それは短いです。</string>
+    <string name="i_short_description">/ɪ/は/i/とは異なる音です。 違いは長いものと短いものではなく、口と舌の位置が異なります。 口は少し広く開いており、舌は/i/より少し奥にあります。</string>
+    <string name="e_short_description">イギリス英語を説明する多くの辞書や教科書では、この音に/e/という記号を使用しています。 しかし、IPAによると、それは/ɛ/と書く必要があります。 口は/æ/よりも開いており、舌は少し前方にあります。</string>
+    <string name="ae_description">/ɛ/のように唇を大きく伸ばしますが、/ɑ/のように口を大きく広げます。 舌は/ɛ/よりも奥にあるはずです。</string>
+    <string name="a_description">口を大きく開き、唇をリラックスさせます。 舌は低く、口の奥にあります。/ɑ/は、イギリス英語では/ɑː/とも表記されます。 ただし、アメリカ英語では、/ɑ/は長い（有声の子音の前）場合もあれば、短い（無声の子音の前）場合もあります。 これはアメリカ英語の/ʌ/とは非常に異なる音であることに注意してください。</string>
+    <string name="c_backwards_description">/ɔ/は、IPAに従って/ɒ/と記述する必要があります。 ただし、ほとんどの辞書と一致するように、ここでは/ɔ/を使用しています。 ただし、/ɔː/を使用してイギリスの発音を説明する場合と同じ音ではないことに注意してください。 また、/ɔɪ/または/ɔr/のɔと同じ音ではありません（イギリス英語の/ɔː/は/ɔɪ/または/ɔr/のɔと同じです）。 アメリカ人の約40％は/ɔ/の音を発音しません。 彼らはそれを/ɑ/の音に置き換えます。 与えられた例は、/ɑt/、/kɑl/、と/sɑ/と発音されます。 cotとcaughtも同じように発音されます（/kɑt/）。</string>
+    <string name="u_short_description">/ʊ/と言うには、唇を丸くします。親指をしゃぶっているような大きさにします。/ʊ/は/u/と誤って記述されることがありますが、/ʊ/（「尾」なし）と記述する必要があります。/u/と/ʊ/は2つの非常に異なる母音です。</string>
+    <string name="u_description">/u/はイギリス英語でも/uː/と書かれていますが、/iː/、/ɑː/、と/ɔː/のように、アメリカ英語では長い母音点は必要ありません。/u/は有声子音のかなり前で、無声子音の前です。</string>
+    <string name="v_upsidedown_description">口を開いた状態で/ʌ/を1本の指の幅程度にします。 ただし、唇と舌はリラックスさせる必要があります。 これは/ɑ/とは異なる音です。 違いは長いものと短いものではなく、口と舌の位置が異なります。 また、通常/ʌ/と書かれるイギリスの音とは発音が多少異なることに注意してください。 この音が強調されていない音節の場合、/ə/と表記されます。</string>
+    <string name="schwa_description">母音/ə/は、ストレスのない音節や単語で使用されるため、アメリカ英語で最も一般的な音です。 それはシュワと呼ばれています。 この音が強調された音節の場合、/ʌ/と表記されます。</string>
+    <string name="ei_description">/eɪ/は複音で、/e/と/ɪ/の音の組み合わせです。 一部のアメリカ英語の辞書では/e/と書かれることもあります。 （これをイギリス英語の記号/e/と混同しないでください。/e/は実際には/ɛ/と発音されます。）アメリカ英語/eɪ/の音の単語は、イギリス英語では/ɛɪ/と発音されます。 しかし、彼らはそれを/eɪ/と書きます。</string>
+    <string name="ai_description">/aɪ/は複音で、/a/と/ɪ/の音の組み合わせです。/a/は/ɑ/とまったく同じ音ではないことに注意してください。</string>
+    <string name="au_description">/aʊ/は複音で、/a/と/ʊ/の音の組み合わせです。 口が大きくて広く、小さくて丸くなっていることに注目してください。</string>
+    <string name="oi_description">/ɔɪ/は複音で、/ɔ/と/ɪ/の音の組み合わせです。/ɔɪ/で使用されるɔは、このアプリの/ɔ/と同じ音ではありません。 （これは、多くのアメリカ英語の単語を説明するために使用される/ɔ/は、実際には/ɒ/と書かれる必要があるためです。）/ɔɪ/の音は、小さな丸い唇で始まります。</string>
+    <string name="ou_description">/oʊ/は複音で、/o/と/ʊ/の音を組み合わせたものです。 辞書によっては/o/とだけ書いており、実際には、一部の単語に対して複母音よりも/o/を使用する方が正確です。 イギリスの/əʊ/の発音とはわずかに異なることに注意してください。</string>
+    <string name="er_stressed_description">/ɝ/サウンドは、/ər/または/əɹ/と書かれることがあります。 これは、強調された音節または1音節の単語の音です。/ɝ/が強調されていない場合、/ɚ/と表記されます。 イギリス英語では、/ɝ/は/ɜː/と発音されます。</string>
+    <string name="er_unstressed_description">/ɚ/サウンドは/ɚ/と同じですが、/ɚ/は強調されていない音節に使用されます。/ər/または/əɹ/と表記されることもあります。 イギリス英語では、/ɚ/は/ə/と発音されます。</string>
+    <string name="ar_description">/ɑr/の音は、IPAに応じて、より正確に/ɑɹ/または/ɑɚ/と書かれます。 イギリス英語では/ɑː/と発音されます。</string>
+    <string name="er_description">/ɛr/の音は、IPAに応じて、より正確に/ɛɹ/または/ɛɚ/と書かれます。 それはイギリス英語では/eə/と発音され、書かれています。</string>
+    <string name="ir_description">/ɪr/の音は、IPAに応じて、より正確に/ɪɹ/または/ɪɚ/と書かれます。 イギリス英語では/ɪə/と発音されます。</string>
+    <string name="or_description">/ɔr/で使用されるɔは、このアプリの/ɔ/と同じ音ではありません。 （これは、多くのアメリカ英語の単語を説明するために使用される/ɔ/は/ɒ/と書く必要があるためです。）/ɔr/の音は、小さな丸い唇で始まります。 IPAによれば、より正確に/ɔɹ/または/ɔɚ/と書かれています。 イギリス英語では/ɔː/と発音されます。</string>
+
+</resources>

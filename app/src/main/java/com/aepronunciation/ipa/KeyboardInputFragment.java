@@ -121,7 +121,7 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
         mClickMap.put(R.id.key_r, getString(R.string.key_r));
         mClickMap.put(R.id.key_flap_t, getString(R.string.key_flap_t));
         mClickMap.put(R.id.key_glottal_stop, getString(R.string.key_glottal_stop));
-        mClickMap.put(R.id.key_brackets, getString(R.string.key_left_bracket));
+        mClickMap.put(R.id.key_undertie, getString(R.string.key_undertie));
         mClickMap.put(R.id.key_slash, getString(R.string.key_slash));
         mClickMap.put(R.id.key_space, getString(R.string.key_space));
         mClickMap.put(R.id.key_stress, getString(R.string.key_primary_stress));
@@ -143,8 +143,8 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
         mLongClickMap.put(R.id.key_w, getString(R.string.key_alt_w));
         mLongClickMap.put(R.id.key_h, getString(R.string.key_alt_h));
         mLongClickMap.put(R.id.key_r, getString(R.string.key_alt_r));
-        mLongClickMap.put(R.id.key_brackets, getString(R.string.key_right_bracket));
-        mLongClickMap.put(R.id.key_slash, getString(R.string.key_undertie));
+        mLongClickMap.put(R.id.key_undertie, getString(R.string.key_left_bracket));
+        mLongClickMap.put(R.id.key_slash, getString(R.string.key_right_bracket));
         mLongClickMap.put(R.id.key_stress, getString(R.string.key_secondary_stress));
     }
 

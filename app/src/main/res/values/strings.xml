@@ -73,7 +73,6 @@
     <string name="history_test_details_type_double">Double (%1$d)</string>
     <string name="history_test_details_specific_test_number_of_questions">Questions: %1$d</string>
 
-
     <!-- History Tests Activity-->
     <string name="title_activity_history_test_details">Test details</string>
     <string name="history_tests_item_score" translatable="false">%1$d%%</string>
@@ -88,12 +87,6 @@
     <string name="about_contact">Contact</string>
     <string name="about_contact_url" translatable="false">http://www.aepronunciation.com/contact/</string>
 
-    <!-- Personal Evaluation Activity -->
-    <!-- TODO translate this -->
-    <string name="personal_evaluation_content" translatable="false">A limitation of this app is that it is unable to give you feedback on your actual spoken pronunciation. If you would like the app author to evaluate a recording of your pronunciation, you can use this third-party website.</string>
-    <string name="personal_evaluation_contact" translatable="false">Request evaluation</string>
-    <string name="personal_evaluation_contact_url" translatable="false">https://www.fiverr.com/suragch/analyze-your-pronunciation-of-american-english</string>
-
     <!-- Keyboard Input Activity -->
     <string name="title_activity_keyboard_input">Write IPA</string>
     <string name="keyboard_input_toast_text_copied">IPA text copied</string>
@@ -105,18 +98,15 @@
     <string name="keyboard_menu_alert_clear_all_button">Delete</string>
 
     <!-- Error dialog -->
-    <!--<string name="error_dialog_title">Problem</string>-->
     <string name="error_two_consonants">You wrote %1$s + %2$s (two consonants). You should choose one consonant and one vowel.</string>
     <string name="error_two_vowels">You wrote %1$s + %2$s (two vowels). You should choose one consonant and one vowel.</string>
-    <string name="error_initial_ng">You wrote  %1$s + %2$s, but /ŋ/ never begins a syllable in English.</string>
+    <string name="error_initial_ng">You wrote %1$s + %2$s, but /ŋ/ never begins a syllable in English.</string>
     <string name="error_final_r">You should use the keys for one of the R vowels (ɝ, ɑr, ɛr, ɪr, ɔr) if you want to end a sound with /r/. There should also be another consonant.</string>
     <string name="error_final_wjh">You wrote %1$s + %2$s, but a syllable never ends with the /%2$s/ sound in English.</string>
     <string name="error_dialog_ok_button">OK</string>
 
     <!-- general dialog buttons -->
     <string name="dialog_cancel_button">Cancel</string>
-
-
 
     <!-- ipa sounds -->
     <string name="key_p" translatable="false">p</string>

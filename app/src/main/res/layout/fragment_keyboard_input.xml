@@ -660,19 +660,19 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/key_brackets"
+            android:id="@+id/key_undertie"
             style="@style/AppTheme.KeyLayoutStyle"
             android:layout_weight="1" >
 
             <com.aepronunciation.ipa.IpaTextView
-                android:id="@+id/tvKey_left_bracket"
+                android:id="@+id/tvKey_undertie"
                 style="@style/AppTheme.KeyTextStyle"
-                android:text="@string/key_left_bracket" />
+                android:text="@string/key_undertie" />
 
             <com.aepronunciation.ipa.IpaTextView
-                android:id="@+id/tvKey_right_bracket"
+                android:id="@+id/tvKey_left_bracket"
                 style="@style/AppTheme.LongPressKeyTextStyle"
-                android:text="@string/key_right_bracket" />
+                android:text="@string/key_left_bracket" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -686,9 +686,9 @@
                 android:text="@string/key_slash" />
 
             <com.aepronunciation.ipa.IpaTextView
-                android:id="@+id/tvKey_undertie"
+                android:id="@+id/tvKey_right_bracket"
                 style="@style/AppTheme.LongPressKeyTextStyle"
-                android:text="@string/key_undertie" />
+                android:text="@string/key_right_bracket" />
 
         </RelativeLayout>
 
