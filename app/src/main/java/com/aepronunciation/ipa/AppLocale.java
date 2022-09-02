@@ -24,6 +24,9 @@ class AppLocale {
                 return new Locale("ja", "JP");
             case "vi":
                 return new Locale("vi", "VN");
+            case "ko":
+                //return new Locale("ko", "KR");
+                return Locale.KOREA;
             default:
                 return Locale.US;
         }

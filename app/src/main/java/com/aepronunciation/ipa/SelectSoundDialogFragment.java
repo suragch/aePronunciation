@@ -3,7 +3,6 @@ package com.aepronunciation.ipa;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -85,53 +84,43 @@ public class SelectSoundDialogFragment extends DialogFragment {
         rg.setOnCheckedChangeListener(radioGroupListener);
 
         // disable the OK button
-        view.post(new Runnable() {
-            @Override
-            public void run() {
-                AlertDialog dialog = (AlertDialog) getDialog();
-                positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
-            }
+        view.post(() -> {
+            AlertDialog dialog = (AlertDialog) getDialog();
+            positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
         });
 
         // build the alert dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
         builder.setView(view)
                 .setTitle(getString(R.string.select_sounds_title))
-                .setPositiveButton(R.string.select_sounds_positive_button, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                .setPositiveButton(R.string.select_sounds_positive_button, (dialogInterface, i) -> {
 
-                        SoundMode soundType = SoundMode.Double;
-                        //RadioButton single = (RadioButton) rg.findViewById(R.id.radio_single);
-                        if (rbSingle.isChecked()) {
-                            soundType = SoundMode.Single;
-                        }
-
-                        // get all chosen sounds
-                        ArrayList<String> chosenVowels = new ArrayList<>();
-                        for (CheckBox cb : checkBoxesVowels) {
-                            if (cb.isChecked() & cb.getVisibility() == View.VISIBLE) {
-                                chosenVowels.add(cb.getText().toString());
-                            }
-                        }
-                        ArrayList<String> chosenConsonants = new ArrayList<>();
-                        for (CheckBox cb : checkBoxesConsonants) {
-                            if (cb.isChecked() & cb.getVisibility() == View.VISIBLE) {
-                                chosenConsonants.add(cb.getText().toString());
-                            }
-                        }
-
-                        // TODO: save single/double state to user preferences
-
-                        // report back to parent fragment
-                        mListener.onDialogPositiveClick(soundType, chosenVowels, chosenConsonants);
+                    SoundMode soundType = SoundMode.Double;
+                    //RadioButton single = (RadioButton) rg.findViewById(R.id.radio_single);
+                    if (rbSingle.isChecked()) {
+                        soundType = SoundMode.Single;
                     }
+
+                    // get all chosen sounds
+                    ArrayList<String> chosenVowels = new ArrayList<>();
+                    for (CheckBox cb : checkBoxesVowels) {
+                        if (cb.isChecked() & cb.getVisibility() == View.VISIBLE) {
+                            chosenVowels.add(cb.getText().toString());
+                        }
+                    }
+                    ArrayList<String> chosenConsonants = new ArrayList<>();
+                    for (CheckBox cb : checkBoxesConsonants) {
+                        if (cb.isChecked() & cb.getVisibility() == View.VISIBLE) {
+                            chosenConsonants.add(cb.getText().toString());
+                        }
+                    }
+
+                    // TODO: save single/double state to user preferences
+
+                    // report back to parent fragment
+                    mListener.onDialogPositiveClick(soundType, chosenVowels, chosenConsonants);
                 })
-                .setNegativeButton(R.string.dialog_cancel_button, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        mListener.onDialogNegativeClick(SelectSoundDialogFragment.this);
-                    }
-                });
+                .setNegativeButton(R.string.dialog_cancel_button, (dialog, id) -> mListener.onDialogNegativeClick(SelectSoundDialogFragment.this));
         return builder.create();
     }
 
@@ -140,33 +129,30 @@ public class SelectSoundDialogFragment extends DialogFragment {
         super.onResume();
         final AlertDialog alertDialog = (AlertDialog) getDialog();
         Button okButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
-        okButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SoundMode soundType = SoundMode.Double;
-                RadioButton single = alertDialog.findViewById(R.id.radio_single);
-                if (single != null && single.isChecked()) {
-                    soundType = SoundMode.Single;
-                }
-
-                // get all chosen sounds
-                ArrayList<String> chosenVowels = new ArrayList<>();
-                for (CheckBox cb : checkBoxesVowels) {
-                    if (cb.isChecked() & cb.getVisibility() == View.VISIBLE) {
-                        chosenVowels.add(cb.getText().toString());
-                    }
-                }
-                ArrayList<String> chosenConsonants = new ArrayList<>();
-                for (CheckBox cb : checkBoxesConsonants) {
-                    if (cb.isChecked() & cb.getVisibility() == View.VISIBLE) {
-                        chosenConsonants.add(cb.getText().toString());
-                    }
-                }
-
-                mListener.onDialogPositiveClick(soundType, chosenVowels, chosenConsonants);
-
-                dismiss();
+        okButton.setOnClickListener(v -> {
+            SoundMode soundType = SoundMode.Double;
+            RadioButton single = alertDialog.findViewById(R.id.radio_single);
+            if (single != null && single.isChecked()) {
+                soundType = SoundMode.Single;
             }
+
+            // get all chosen sounds
+            ArrayList<String> chosenVowels = new ArrayList<>();
+            for (CheckBox cb : checkBoxesVowels) {
+                if (cb.isChecked() & cb.getVisibility() == View.VISIBLE) {
+                    chosenVowels.add(cb.getText().toString());
+                }
+            }
+            ArrayList<String> chosenConsonants = new ArrayList<>();
+            for (CheckBox cb : checkBoxesConsonants) {
+                if (cb.isChecked() & cb.getVisibility() == View.VISIBLE) {
+                    chosenConsonants.add(cb.getText().toString());
+                }
+            }
+
+            mListener.onDialogPositiveClick(soundType, chosenVowels, chosenConsonants);
+
+            dismiss();
         });
     }
 
@@ -287,6 +273,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
             for (String sound : vowelSounds) {
                 if (currentCbString.equals(sound)) {
                     found = true;
+                    break;
                 }
             }
             cb.setChecked(found);
@@ -297,6 +284,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
             for (String sound : consonantSounds) {
                 if (currentCbString.equals(sound)) {
                     found = true;
+                    break;
                 }
             }
             cb.setChecked(found);
@@ -314,7 +302,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
         }
     }
 
-    private RadioGroup.OnCheckedChangeListener radioGroupListener = new RadioGroup.OnCheckedChangeListener() {
+    private final RadioGroup.OnCheckedChangeListener radioGroupListener = new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
 
@@ -344,7 +332,7 @@ public class SelectSoundDialogFragment extends DialogFragment {
     };
 
 
-    private CompoundButton.OnCheckedChangeListener checkBoxListener = new CompoundButton.OnCheckedChangeListener() {
+    private final CompoundButton.OnCheckedChangeListener checkBoxListener = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
 
@@ -397,14 +385,9 @@ public class SelectSoundDialogFragment extends DialogFragment {
 
         // There must be at least two sounds for single or one for double
         if (rbSingle.isChecked()) {
-            if (vowelsChecked + consonantsChecked <= 1) {
-                return false;
-            }
+            return vowelsChecked + consonantsChecked > 1;
         } else { // Double
-            if (vowelsChecked + consonantsChecked < 1) {
-                return false;
-            }
+            return vowelsChecked + consonantsChecked >= 1;
         }
-        return true;
     }
 }

@@ -47,7 +47,7 @@ public class HistoryTestsActivity extends AppCompatActivity implements
 
     private static class InitializeTestList extends AsyncTask<Void, Void, ArrayList<Test>> {
 
-        private WeakReference<HistoryTestsActivity> activityReference;
+        private final WeakReference<HistoryTestsActivity> activityReference;
 
         // only retain a weak reference to the activity
         InitializeTestList(HistoryTestsActivity context) {

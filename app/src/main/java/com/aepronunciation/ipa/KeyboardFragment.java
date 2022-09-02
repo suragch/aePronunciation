@@ -213,7 +213,7 @@ public class KeyboardFragment extends Fragment implements OnClickListener {
             currentKeyString = mTextViewToString.get(id);
             isSelected = false;
             for (String sound : selectedSounds) {
-                if (currentKeyString.equals(sound)) {
+                if (currentKeyString != null && currentKeyString.equals(sound)) {
                     isSelected = true;
                     break;
                 }

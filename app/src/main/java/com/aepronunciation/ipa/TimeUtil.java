@@ -25,6 +25,6 @@ class TimeUtil {
             secondsString = "0" + secondsString;
         }
 
-        return  String.valueOf(hours) + ":" + minutesString + ":" + secondsString;
+        return hours + ":" + minutesString + ":" + secondsString;
     }
 }

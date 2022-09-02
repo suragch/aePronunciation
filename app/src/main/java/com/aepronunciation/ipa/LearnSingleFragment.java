@@ -30,19 +30,15 @@ public class LearnSingleFragment extends Fragment implements View.OnClickListene
     private VideoView videoView;
     private Uri videoUri;
     private TextView tvIpaDescription;
-    //private RelativeLayout rlExample1;
-    //private RelativeLayout rlExample2;
-    //private RelativeLayout rlExample3;
-    //private RelativeLayout rlMore;
     private TextView tvExample1;
     private TextView tvExample2;
     private TextView tvExample3;
     private SingleSound singleSound;
-    private Map<String, Integer> ipaForVideo = createVideoMap();
-    private Map<String, Integer> ipaForDescription = createDescriptionMap();
-    private Map<String, Integer> ipaForExample1 = createExample1Map();
-    private Map<String, Integer> ipaForExample2 = createExample2Map();
-    private Map<String, Integer> ipaForExample3 = createExample3Map();
+    private final Map<String, Integer> ipaForVideo = createVideoMap();
+    private final Map<String, Integer> ipaForDescription = createDescriptionMap();
+    private final Map<String, Integer> ipaForExample1 = createExample1Map();
+    private final Map<String, Integer> ipaForExample2 = createExample2Map();
+    private final Map<String, Integer> ipaForExample3 = createExample3Map();
 
     private static final int SRC_QUALITY = 0;
     private static final int PRIORITY = 1;

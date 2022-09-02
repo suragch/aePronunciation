@@ -2,9 +2,7 @@ package com.aepronunciation.ipa;
 
 
 import android.content.Context;
-import android.graphics.Color;
 import androidx.annotation.NonNull;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -17,11 +15,11 @@ import java.util.ArrayList;
 
 class TestResultsRecyclerViewAdapter extends RecyclerView.Adapter<TestResultsRecyclerViewAdapter.ViewHolder> {
 
-    private ArrayList<Answer> mData;
-    private SoundMode mTestMode;
-    private LayoutInflater mInflater;
+    private final ArrayList<Answer> mData;
+    private final SoundMode mTestMode;
+    private final LayoutInflater mInflater;
     private ItemClickListener mClickListener;
-    private int wrongAnswerColor;
+    private final int wrongAnswerColor;
 
     // data is passed into the constructor
     TestResultsRecyclerViewAdapter(Context context, ArrayList<Answer> data, SoundMode testMode) {

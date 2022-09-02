@@ -1,11 +1,12 @@
 package com.aepronunciation.ipa;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.appcompat.app.AlertDialog;
@@ -91,19 +92,11 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
         builder.setCancelable(true);
         builder.setPositiveButton(
                 getString(R.string.keyboard_menu_alert_clear_all_button),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        editText.setText("");
-                    }
-                });
+                (dialog, id) -> editText.setText(""));
 
         builder.setNegativeButton(
                 getString(R.string.dialog_cancel_button),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
+                (dialog, id) -> dialog.cancel());
 
         AlertDialog alert = builder.create();
         alert.show();
@@ -124,7 +117,7 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
         getMenuInflater().inflate(R.menu.menu_keyboard, menu);
         return true;
     }

@@ -1,6 +1,5 @@
 package com.aepronunciation.ipa;
 
-import android.content.DialogInterface;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.AsyncTask;
@@ -108,18 +107,14 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
             }
             // delay playing second sound
             Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                public void run() {
-                    playSound(userIpa);
-                }
-            }, delay);
+            handler.postDelayed(() -> playSound(userIpa), delay);
         }
     }
 
     // call: new GetTest().execute();
     private static class GetTest extends AsyncTask<Long, Void, Test> {
 
-        private WeakReference<HistoryTestDetailsActivity> activityReference;
+        private final WeakReference<HistoryTestDetailsActivity> activityReference;
 
         // only retain a weak reference to the activity
         GetTest(HistoryTestDetailsActivity context) {
@@ -188,7 +183,7 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
             activity.adapter.setClickListener(activity);
             recyclerView.setAdapter(activity.adapter);
 
-            // update textviews
+            // update text views
             activity.tvName.setText(userName);
             activity.tvDate.setText(formattedDate);
             activity.tvPercent.setText(String.format(activity.getString(R.string.test_results_percent), score));
@@ -217,10 +212,8 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
             builder.setMessage(Answer.getErrorMessage(this, ipaSound));
-            builder.setPositiveButton(R.string.error_dialog_ok_button, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    // User clicked OK button
-                }
+            builder.setPositiveButton(R.string.error_dialog_ok_button, (dialog, id) -> {
+                // User clicked OK button
             });
             AlertDialog dialog = builder.create();
             dialog.show();

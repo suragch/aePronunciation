@@ -148,7 +148,7 @@ public class KeyboardInputFragment extends Fragment implements OnClickListener, 
         mLongClickMap.put(R.id.key_stress, getString(R.string.key_secondary_stress));
     }
 
-    private OnClickListener backspaceClick = new OnClickListener() {
+    private final OnClickListener backspaceClick = new OnClickListener() {
         @Override
         public void onClick(View view) {
             mListener.onBackspace();

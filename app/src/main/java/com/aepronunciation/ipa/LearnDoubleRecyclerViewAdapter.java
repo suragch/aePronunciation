@@ -13,8 +13,8 @@ import java.util.List;
 
 class LearnDoubleRecyclerViewAdapter extends RecyclerView.Adapter<LearnDoubleRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData;
-    private LayoutInflater mInflater;
+    private final List<String> mData;
+    private final LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor

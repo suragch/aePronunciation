@@ -9,7 +9,7 @@ import android.view.View;
 
 class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
-    private int mItemOffset;
+    private final int mItemOffset;
 
     private GridSpacingItemDecoration(int itemOffset) {
         mItemOffset = itemOffset;

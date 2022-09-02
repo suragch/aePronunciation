@@ -12,7 +12,7 @@ import android.util.Log;
 
 class MyDatabaseAdapter {
 
-    private MyDatabaseHelper helper;
+    private final MyDatabaseHelper helper;
 
     // Constructor
     MyDatabaseAdapter(Context context) {

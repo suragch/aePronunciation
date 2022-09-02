@@ -1,6 +1,5 @@
 package com.aepronunciation.ipa;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -239,11 +238,7 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
             }
             // delay playing second sound
             Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                public void run() {
-                    playSound(userIpa);
-                }
-            }, delay);
+            handler.postDelayed(() -> playSound(userIpa), delay);
         }
     }
 
@@ -294,10 +289,8 @@ public class TestResultsActivity extends AppCompatActivity implements TestResult
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
             builder.setMessage(Answer.getErrorMessage(this, ipaSound));
-            builder.setPositiveButton(R.string.error_dialog_ok_button, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    // User clicked OK button
-                }
+            builder.setPositiveButton(R.string.error_dialog_ok_button, (dialog, id) -> {
+                // User clicked OK button
             });
             AlertDialog dialog = builder.create();
             dialog.show();

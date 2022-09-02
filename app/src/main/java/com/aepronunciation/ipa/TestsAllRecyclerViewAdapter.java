@@ -16,10 +16,10 @@ import java.util.Locale;
 
 class TestsAllRecyclerViewAdapter extends RecyclerView.Adapter<TestsAllRecyclerViewAdapter.ViewHolder> {
 
-    private ArrayList<Test> mData;
-    private LayoutInflater mInflater;
+    private final ArrayList<Test> mData;
+    private final LayoutInflater mInflater;
     private ItemClickListener mClickListener;
-    private Context mContext;
+    private final Context mContext;
 
     // data is passed into the constructor
     TestsAllRecyclerViewAdapter(Context context, ArrayList<Test> data) {

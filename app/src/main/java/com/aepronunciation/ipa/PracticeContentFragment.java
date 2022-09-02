@@ -327,7 +327,6 @@ public class PracticeContentFragment extends Fragment
         }
     }
 
-    @SuppressWarnings("deprecation")
     @SuppressLint("NewApi")
     private void animateBackgroundForCorrectAnswer() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -338,7 +337,6 @@ public class PracticeContentFragment extends Fragment
         rightAnswerTransition.startTransition(300);
     }
 
-    @SuppressWarnings("deprecation")
     @SuppressLint("NewApi")
     private void animateBackgroundForWrongAnswer() {
 
@@ -355,12 +353,7 @@ public class PracticeContentFragment extends Fragment
         wrongAnswerTransition.reverseTransition(300);
 
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                tvInputWindow.setText("");
-            }
-        }, TRANSITION_START_TIME + TRANSITION_REVERSE_TIME);
+        handler.postDelayed(() -> tvInputWindow.setText(""), TRANSITION_START_TIME + TRANSITION_REVERSE_TIME);
 
     }
 

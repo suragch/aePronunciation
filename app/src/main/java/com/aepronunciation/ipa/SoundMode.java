@@ -7,7 +7,7 @@ public enum SoundMode {
     Single("single"),
     Double("double");
 
-    private String persistentMemoryString;
+    private final String persistentMemoryString;
 
     SoundMode(String s) {
         persistentMemoryString = s;

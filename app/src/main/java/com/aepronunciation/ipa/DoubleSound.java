@@ -13,7 +13,7 @@ class DoubleSound {
     // private class variables
     private static final Map<String, Integer> soundMap = createSoundMap();
     private static final Map<String, Integer> specialSoundMap = createSpecialSoundMap();
-    private static Random random = new Random();
+    private static final Random random = new Random();
     private ArrayList<String> doubleSounds;
 
     int getSoundCount() {

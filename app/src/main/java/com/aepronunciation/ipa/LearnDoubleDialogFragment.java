@@ -1,7 +1,6 @@
 package com.aepronunciation.ipa;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -55,11 +54,8 @@ public class LearnDoubleDialogFragment extends DialogFragment implements
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogTheme);
         builder.setView(view)
                 .setTitle(title)
-                .setPositiveButton(R.string.select_sounds_positive_button, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                .setPositiveButton(R.string.select_sounds_positive_button, (dialogInterface, i) -> {
 
-                    }
                 });
         return builder.create();
     }

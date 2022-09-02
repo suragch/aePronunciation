@@ -10,7 +10,7 @@ import android.view.View;
 
 class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
-    private Drawable divider;
+    private final Drawable divider;
 
     DividerItemDecoration(Context context, int resId) {
         divider = ContextCompat.getDrawable(context, resId);

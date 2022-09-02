@@ -88,7 +88,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     private static class GetHighScores extends AsyncTask<Void, Void, int[]> {
 
-        private WeakReference<HistoryActivity> activityReference;
+        private final WeakReference<HistoryActivity> activityReference;
 
         // only retain a weak reference to the activity
         GetHighScores(HistoryActivity context) {
