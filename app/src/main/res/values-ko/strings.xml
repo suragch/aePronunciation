@@ -10,9 +10,9 @@
     <string name="main_menu_about">이앱에대하여</string>
 
     <!-- Tabs -->
-    <string name="main_tab_learn">배우기</string>
-    <string name="main_tab_practice">연습</string>
-    <string name="main_tab_test">시험</string>
+    <string name="main_tab_learn">학습하기</string>
+    <string name="main_tab_practice">연습하기</string>
+    <string name="main_tab_test">시험보기</string>
 
     <!-- Learn Single fragment -->
     <string name="learn_single_show_doubles">더보기</string>
@@ -49,7 +49,7 @@
     <string name="test_results_right">정답: %1$d</string>
     <string name="test_results_wrong">오답: %1$d</string>
     <string name="test_results_time">소요된시간: %1$s</string>
-    <string name="test_results_practice_difficult_button">어려운음절 연습하기</string>
+    <string name="test_results_practice_difficult_button">틀린 음절 연습하기</string>
 
     <!-- History Activity -->
     <string name="title_activity_history">기록</string>
@@ -59,21 +59,21 @@
 
     <!-- History Time Details Activity -->
     <string name="title_activity_history_time">총소요된 시간</string>
-    <string name="history_time_details_learning">배웠던 시간</string>
-    <string name="history_time_details_practicing">연습했던 시간</string>
-    <string name="history_time_details_testing">시험본 시간</string>
+    <string name="history_time_details_learning">학습에 소요된 시간</string>
+    <string name="history_time_details_practicing">연습에 소요된 시간</string>
+    <string name="history_time_details_testing">시험에 소요된 시간</string>
     <string name="history_time_details_total">총 시간</string>
     <string name="history_time_details_type_single">단일음</string>
     <string name="history_time_details_type_double">이중음</string>
 
     <!-- History Test Details Activity -->
-    <string name="title_activity_history_tests">과거 시험들</string>
+    <string name="title_activity_history_tests">이전 시험기록</string>
     <string name="history_test_details_type_single">단일음 (%1$d)</string>
     <string name="history_test_details_type_double">이중음 (%1$d)</string>
-    <string name="history_test_details_specific_test_number_of_questions">문제들: %1$d</string>
+    <string name="history_test_details_specific_test_number_of_questions">문제 개수: %1$d</string>
 
     <!-- History Tests Activity-->
-    <string name="title_activity_history_test_details">시험 새부사항</string>
+    <string name="title_activity_history_test_details">시험 세부사항</string>
     <string name="history_tests_type_single">단일음: %1$d%%</string>
     <string name="history_tests_type_double">이중음: %1$d%%</string>
 

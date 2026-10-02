@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1">
@@ -68,8 +69,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:padding="5dp"
-                android:tint="@color/onBackgroundIconsColor"
-                android:src="@mipmap/ic_clear_black_24dp" />
+                android:src="@mipmap/ic_clear_black_24dp"
+                app:tint="@color/onBackgroundIconsColor" />
         </LinearLayout>
 
         <!-- play button -->
@@ -86,8 +87,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:tint="@color/onBackgroundIconsColor"
-                android:src="@mipmap/ic_play_arrow_black_48dp"/>
+                android:src="@mipmap/ic_play_arrow_black_48dp"
+                app:tint="@color/onBackgroundIconsColor" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -107,8 +108,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:tint="@color/onBackgroundIconsColor"
-            android:src="@mipmap/ic_settings_black_24dp"/>
+            android:src="@mipmap/ic_settings_black_24dp"
+            app:tint="@color/onBackgroundIconsColor" />
     </RelativeLayout>
 
     <!-- Label for Single/Double practice mode -->

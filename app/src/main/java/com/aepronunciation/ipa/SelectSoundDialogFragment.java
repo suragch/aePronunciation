@@ -306,22 +306,18 @@ public class SelectSoundDialogFragment extends DialogFragment {
         @Override
         public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
 
-            switch (checkedId) {
-                case R.id.radio_single:
-                    // show optional sounds (unstressed er, shwua, glottal stop and flap t)
-                    cbSchwa.setVisibility(View.VISIBLE);
-                    cbUnstressedEr.setVisibility(View.VISIBLE);
-                    cbGlottalStop.setVisibility(View.VISIBLE);
-                    cbFlapT.setVisibility(View.VISIBLE);
-                    break;
-                case R.id.radio_double:
-                    // hide optional sounds
-                    cbSchwa.setVisibility(View.GONE);
-                    cbUnstressedEr.setVisibility(View.GONE);
-                    cbGlottalStop.setVisibility(View.GONE);
-                    cbFlapT.setVisibility(View.GONE);
-                    break;
-
+            if (checkedId == R.id.radio_single) {
+                // show optional sounds (unstressed er, shwua, glottal stop and flap t)
+                cbSchwa.setVisibility(View.VISIBLE);
+                cbUnstressedEr.setVisibility(View.VISIBLE);
+                cbGlottalStop.setVisibility(View.VISIBLE);
+                cbFlapT.setVisibility(View.VISIBLE);
+            } else if (checkedId == R.id.radio_double) {
+                // hide optional sounds
+                cbSchwa.setVisibility(View.GONE);
+                cbUnstressedEr.setVisibility(View.GONE);
+                cbGlottalStop.setVisibility(View.GONE);
+                cbFlapT.setVisibility(View.GONE);
             }
             // disable/enable OK button if needed
             boolean enabledState = getButtonShouldBeEnabledState();
@@ -340,27 +336,22 @@ public class SelectSoundDialogFragment extends DialogFragment {
                 return;
             }
 
-            switch (compoundButton.getId()) {
-                case R.id.cbVowels:
-
-                    for (CheckBox cb : checkBoxesVowels) {
-                        cb.setChecked(isChecked);
-                    }
-                    break;
-                case R.id.cbConsonants:
-
-                    for (CheckBox cb : checkBoxesConsonants) {
-                        cb.setChecked(isChecked);
-                    }
-                    break;
-                default:
-                    // all other check boxes are individual sounds
-                    // set the enabled state of the OK button
-                    boolean enabledState = getButtonShouldBeEnabledState();
-                    if (positiveButton.isEnabled() != enabledState) {
-                        positiveButton.setEnabled(enabledState);
-                    }
-                    break;
+            int id = compoundButton.getId();
+            if (id == R.id.cbVowels) {
+                for (CheckBox cb : checkBoxesVowels) {
+                    cb.setChecked(isChecked);
+                }
+            } else if (id == R.id.cbConsonants) {
+                for (CheckBox cb : checkBoxesConsonants) {
+                    cb.setChecked(isChecked);
+                }
+            } else {
+                // all other check boxes are individual sounds
+                // set the enabled state of the OK button
+                boolean enabledState = getButtonShouldBeEnabledState();
+                if (positiveButton.isEnabled() != enabledState) {
+                    positiveButton.setEnabled(enabledState);
+                }
             }
         }
     };

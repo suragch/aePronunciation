@@ -126,19 +126,18 @@ public class KeyboardInputActivity extends AppCompatActivity implements Keyboard
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        switch (id) {
-            case R.id.action_copy:
-                copyText();
-                return true;
-            case R.id.action_clear:
-                clearText();
-                return true;
-            case R.id.action_share:
-                shareText();
-                return true;
-            case android.R.id.home:
-                finish();
-                return true;
+        if (id == R.id.action_copy) {
+            copyText();
+            return true;
+        } else if (id == R.id.action_clear) {
+            clearText();
+            return true;
+        } else if (id == R.id.action_share) {
+            shareText();
+            return true;
+        } else if (id == android.R.id.home) {
+            finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

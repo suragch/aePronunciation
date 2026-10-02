@@ -150,20 +150,18 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
         int id = item.getItemId();
-        switch (id) {
-            case R.id.action_keyboard:
-                intent = new Intent(this, KeyboardInputActivity.class);
-                startActivity(intent);
-                return true;
-            case R.id.action_history:
-                intent = new Intent(this, HistoryActivity.class);
-                startActivity(intent);
-                return true;
-            case R.id.action_about:
-                intent = new Intent(this, AboutActivity.class);
-                startActivity(intent);
-                return true;
-
+        if (id == R.id.action_keyboard) {
+            intent = new Intent(this, KeyboardInputActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_history) {
+            intent = new Intent(this, HistoryActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_about) {
+            intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
