@@ -1,9 +1,13 @@
 package com.aepronunciation.ipa;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import androidx.annotation.NonNull;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import com.google.android.material.tabs.TabLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -15,11 +19,13 @@ import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     public static final String PREFS_NAME = "MyPrefsFile";
     public static final String TEST_NAME_KEY = "testName";
@@ -75,12 +81,18 @@ public class MainActivity extends AppCompatActivity {
         if(getResources().getBoolean(R.bool.portrait_only)){
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
+
+        handlePracticeIntent(getIntent());
     }
 
     TabLayout.OnTabSelectedListener tabListener = new TabLayout.OnTabSelectedListener() {
         @Override
         public void onTabSelected(TabLayout.Tab tab) {
             viewPager.setCurrentItem(tab.getPosition());
+
+            if (tab.getPosition() != 2) {
+                hideSoftKeyboard();
+            }
 
             // restart the timer if on the learn or practice tab
             StudyTimer timer = StudyTimer.getInstance();
@@ -112,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+
+        if (tabLayout != null && tabLayout.getSelectedTabPosition() != 2) {
+            hideSoftKeyboard();
+        }
 
         // restart the timer if on the learn or practice tab
         StudyTimer timer = StudyTimer.getInstance();
@@ -168,28 +184,64 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        handlePracticeIntent(intent);
+    }
 
+    @Override
+    protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == TEST_RESULTS_RESULT) {
             if (resultCode == RESULT_OK) {
+                handlePracticeIntent(data);
+            }
+        }
+    }
 
-                // get String data from Intent
-                SoundMode mode = (SoundMode) data.getSerializableExtra(TEST_MODE_KEY);
-                ArrayList<String> vowels = data.getStringArrayListExtra(VOWEL_ARRAY_KEY);
-                ArrayList<String> consonants = data.getStringArrayListExtra(CONSONANT_ARRAY_KEY);
+    private void handlePracticeIntent(Intent data) {
+        if (data == null) return;
+        SoundMode mode = (SoundMode) data.getSerializableExtra(TEST_MODE_KEY);
+        if (mode == null) return;
+        ArrayList<String> vowels = data.getStringArrayListExtra(VOWEL_ARRAY_KEY);
+        ArrayList<String> consonants = data.getStringArrayListExtra(CONSONANT_ARRAY_KEY);
 
-                // select practice tab
-                viewPager.setCurrentItem(PRACTICE_TAB_POSITION);
+        // select practice tab
+        viewPager.setCurrentItem(PRACTICE_TAB_POSITION);
 
-                // set up UI to practice the difficult sounds
+        // set up UI to practice the difficult sounds
+        if (mPracticeFragment != null) {
+            mPracticeFragment.updateUiForSelectedSounds(mode, vowels, consonants);
+        } else {
+            viewPager.post(() -> {
                 if (mPracticeFragment != null) {
                     mPracticeFragment.updateUiForSelectedSounds(mode, vowels, consonants);
                 }
-
-            }
+            });
         }
 
+        hideSoftKeyboard();
+    }
+
+    public void hideSoftKeyboard() {
+        View view = getCurrentFocus();
+        if (view == null && getWindow() != null) {
+            view = getWindow().getDecorView();
+        }
+        if (view != null) {
+            view.clearFocus();
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null && view.getWindowToken() != null) {
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        }
+        if (getWindow() != null) {
+            WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+            if (insetsController != null) {
+                insetsController.hide(WindowInsetsCompat.Type.ime());
+            }
+        }
     }
 
     private class CustomPagerAdapter extends FragmentStatePagerAdapter {

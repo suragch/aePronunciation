@@ -13,7 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
-public class HistoryTestsActivity extends AppCompatActivity implements
+public class HistoryTestsActivity extends BaseActivity implements
         TestsAllRecyclerViewAdapter.ItemClickListener {
 
     private TestsAllRecyclerViewAdapter adapter;

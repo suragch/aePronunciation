@@ -56,6 +56,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"/>
 
+            <RelativeLayout
+                android:id="@+id/rlPracticeDifficultButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="invisible"
+                android:onClick="practiceDifficultClick"
+                android:padding="15dp">
+
+                <com.aepronunciation.ipa.IpaTextView
+                    style="@style/AppTheme.ButtonTextStyle"
+                    android:text="@string/test_results_practice_difficult_button" />
+            </RelativeLayout>
 
         </LinearLayout>
 

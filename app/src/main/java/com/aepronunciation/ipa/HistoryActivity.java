@@ -22,7 +22,7 @@ import static com.aepronunciation.ipa.MainActivity.TIME_PRACTICE_SINGLE_KEY;
 import static com.aepronunciation.ipa.MainActivity.TIME_TEST_DOUBLE_KEY;
 import static com.aepronunciation.ipa.MainActivity.TIME_TEST_SINGLE_KEY;
 
-public class HistoryActivity extends AppCompatActivity {
+public class HistoryActivity extends BaseActivity {
 
     TextView tvHighSingle;
     TextView tvHighDouble;

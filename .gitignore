@@ -1,6 +1,7 @@
 # Built application files
 *.apk
 *.ap_
+*.aab
 
 # Files for the Dalvik VM
 *.dex
@@ -25,12 +26,14 @@ proguard/
 # Log Files
 *.log
 
-.idea/workspace.xml
+# Android Studio / IntelliJ IDEA
+.idea/
 *.iml
-local.properties
-.idea/workspace.xml
-.idea/libraries
+
+# OS and build system artifacts
 .DS_Store
-build
-captures
-.externalNativeBuild
+captures/
+.externalNativeBuild/
+
+# Release build outputs
+app/release/

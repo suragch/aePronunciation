@@ -14,7 +14,12 @@ import static com.aepronunciation.ipa.MainActivity.TEST_NAME_KEY;
 import static com.aepronunciation.ipa.MainActivity.TEST_RESULTS_RESULT;
 
 
-public class TestActivity extends AppCompatActivity  implements KeyboardFragment.KeyboardListener {
+public class TestActivity extends BaseActivity implements KeyboardFragment.KeyboardListener {
+
+    @Override
+    protected boolean useDarkStatusBarIcons() {
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

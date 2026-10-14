@@ -1,5 +1,6 @@
 package com.aepronunciation.ipa;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -78,8 +80,18 @@ public class TestFragment extends Fragment implements View.OnClickListener {
 
     private void beginClick() {
 
+        if (etName != null) {
+            if (getActivity() != null) {
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(etName.getWindowToken(), 0);
+                }
+            }
+            etName.clearFocus();
+        }
+
         // Name
-        String name = etName.getText().toString();
+        String name = etName != null ? etName.getText().toString() : "";
         name = name.trim(); // remove any extra spaces
         if (TextUtils.isEmpty(name)) {
             name = getString(R.string.test_default_name);

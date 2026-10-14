@@ -1,5 +1,6 @@
 package com.aepronunciation.ipa;
 
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.AsyncTask;
@@ -10,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
@@ -19,12 +22,19 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
-public class HistoryTestDetailsActivity extends AppCompatActivity implements
+import static com.aepronunciation.ipa.MainActivity.CONSONANT_ARRAY_KEY;
+import static com.aepronunciation.ipa.MainActivity.TEST_MODE_KEY;
+import static com.aepronunciation.ipa.MainActivity.VOWEL_ARRAY_KEY;
+
+public class HistoryTestDetailsActivity extends BaseActivity implements
         TestResultsRecyclerViewAdapter.ItemClickListener, SoundPool.OnLoadCompleteListener {
 
     private TestResultsRecyclerViewAdapter adapter;
+    private ArrayList<Answer> answers;
     private static final int SRC_QUALITY = 0;
     private static final int PRIORITY = 1;
     private SoundPool soundPool = null;
@@ -190,6 +200,19 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
             activity.tvNumberOfQuestions.setText(String.format(activity.getString(R.string.history_test_details_specific_test_number_of_questions), length));
             activity.tvTime.setText(String.format(activity.getString(R.string.test_results_time), TimeUtil.getTimeString(timeLength)));
 
+            activity.answers = answers;
+
+            // hide practice button if no difficult sounds
+            Set<String> difficultSounds = activity.findNeedToPracticeSounds(answers);
+            RelativeLayout practiceButton = activity.findViewById(R.id.rlPracticeDifficultButton);
+            if (practiceButton != null) {
+                if (difficultSounds.isEmpty()) {
+                    practiceButton.setVisibility(View.INVISIBLE);
+                } else {
+                    practiceButton.setVisibility(View.VISIBLE);
+                }
+            }
+
         }
 
     }
@@ -246,6 +269,70 @@ public class HistoryTestDetailsActivity extends AppCompatActivity implements
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private Set<String> findNeedToPracticeSounds(ArrayList<Answer> answers) {
+
+        Set<String> practiceSet = new HashSet<>();
+        if (answers == null) return practiceSet;
+        for (Answer answer : answers) {
+
+            String userAnswer = answer.getUserAnswer();
+            String correctAnswer = answer.getCorrectAnswer();
+
+            if (testMode == SoundMode.Single) {
+
+                if (!userAnswer.equals(correctAnswer)) {
+                    practiceSet.add(userAnswer);
+                    practiceSet.add(correctAnswer);
+                }
+
+            } else if (testMode == SoundMode.Double) {
+
+                Pair<String, String> parsedCorrect = DoubleSound.parse(correctAnswer);
+                Pair<String, String> parsedUser = DoubleSound.parse(userAnswer);
+                if (parsedUser == null || parsedCorrect == null) continue;
+                if (!parsedUser.first.equals(parsedCorrect.first)) {
+                    practiceSet.add(parsedUser.first);
+                    practiceSet.add(parsedCorrect.first);
+                }
+                if (!parsedUser.second.equals(parsedCorrect.second)) {
+                    practiceSet.add(parsedUser.second);
+                    practiceSet.add(parsedCorrect.second);
+                }
+
+            }
+        }
+
+        return practiceSet;
+    }
+
+    public void practiceDifficultClick(View view) {
+
+        if (answers == null || testMode == null) {
+            return;
+        }
+
+        // get vowel and consonant sounds
+        ArrayList<String> vowelArray = new ArrayList<>();
+        ArrayList<String> consonantArray = new ArrayList<>();
+        Set<String> allSounds = findNeedToPracticeSounds(answers);
+        for (String sound : allSounds) {
+            if (Ipa.isConsonant(sound)) {
+                consonantArray.add(sound);
+            } else {
+                vowelArray.add(sound);
+            }
+        }
+
+        // launch MainActivity and select practice tab with difficult sounds
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.putExtra(TEST_MODE_KEY, testMode);
+        intent.putStringArrayListExtra(VOWEL_ARRAY_KEY, vowelArray);
+        intent.putStringArrayListExtra(CONSONANT_ARRAY_KEY, consonantArray);
+        startActivity(intent);
+        finish();
     }
 
 }

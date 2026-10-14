@@ -33,7 +33,7 @@ import static com.aepronunciation.ipa.MainActivity.TEST_NAME_KEY;
 import static com.aepronunciation.ipa.MainActivity.VOWEL_ARRAY_KEY;
 
 
-public class TestResultsActivity extends AppCompatActivity implements TestResultsRecyclerViewAdapter.ItemClickListener,
+public class TestResultsActivity extends BaseActivity implements TestResultsRecyclerViewAdapter.ItemClickListener,
         SoundPool.OnLoadCompleteListener {
 
     private String userName;

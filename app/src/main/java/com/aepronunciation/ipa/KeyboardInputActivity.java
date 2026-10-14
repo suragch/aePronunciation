@@ -21,7 +21,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 
-public class KeyboardInputActivity extends AppCompatActivity implements KeyboardInputFragment.KeyboardInputListener {
+public class KeyboardInputActivity extends BaseActivity implements KeyboardInputFragment.KeyboardInputListener {
 
 
     private static final int CONFIRM_DELETE_TEXT_LENGTH = 20;
